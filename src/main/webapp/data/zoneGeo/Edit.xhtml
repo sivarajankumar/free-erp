@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditZoneGeoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditZoneGeoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{zoneGeoController.selected.id}" title="#{bundle.EditZoneGeoTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditZoneGeoLabel_descriptionZone}" for="descriptionZone" />
+                    <h:inputText id="descriptionZone" value="#{zoneGeoController.selected.descriptionZone}" title="#{bundle.EditZoneGeoTitle_descriptionZone}" />
+                    <h:outputLabel value="#{bundle.EditZoneGeoLabel_nomZone}" for="nomZone" />
+                    <h:inputText id="nomZone" value="#{zoneGeoController.selected.nomZone}" title="#{bundle.EditZoneGeoTitle_nomZone}" />
+                    <h:outputLabel value="#{bundle.EditZoneGeoLabel_zoneParent}" for="zoneParent" />
+                    <h:selectOneMenu id="zoneParent" value="#{zoneGeoController.selected.zoneParent}" title="#{bundle.EditZoneGeoTitle_zoneParent}" >
+                        <f:selectItems value="#{zoneGeoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{zoneGeoController.update}" value="#{bundle.EditZoneGeoSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditZoneGeoViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{zoneGeoController.prepareList}" value="#{bundle.EditZoneGeoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditZoneGeoIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

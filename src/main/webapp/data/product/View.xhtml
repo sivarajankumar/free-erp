@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProductTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProductLabel_categorie}"/>
+                    <h:outputText value="#{productController.selected.categorie}" title="#{bundle.ViewProductTitle_categorie}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_id}"/>
+                    <h:outputText value="#{productController.selected.id}" title="#{bundle.ViewProductTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_TVA}"/>
+                    <h:outputText value="#{productController.selected.TVA}" title="#{bundle.ViewProductTitle_TVA}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_codeDouane}"/>
+                    <h:outputText value="#{productController.selected.codeDouane}" title="#{bundle.ViewProductTitle_codeDouane}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_description}"/>
+                    <h:outputText value="#{productController.selected.description}" title="#{bundle.ViewProductTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_informationFacture}"/>
+                    <h:outputText value="#{productController.selected.informationFacture}" title="#{bundle.ViewProductTitle_informationFacture}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_label}"/>
+                    <h:outputText value="#{productController.selected.label}" title="#{bundle.ViewProductTitle_label}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_paysOrigine}"/>
+                    <h:outputText value="#{productController.selected.paysOrigine}" title="#{bundle.ViewProductTitle_paysOrigine}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_poids}"/>
+                    <h:outputText value="#{productController.selected.poids}" title="#{bundle.ViewProductTitle_poids}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_prixVente}"/>
+                    <h:outputText value="#{productController.selected.prixVente}" title="#{bundle.ViewProductTitle_prixVente}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_reference}"/>
+                    <h:outputText value="#{productController.selected.reference}" title="#{bundle.ViewProductTitle_reference}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_stockAlert}"/>
+                    <h:outputText value="#{productController.selected.stockAlert}" title="#{bundle.ViewProductTitle_stockAlert}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_volume}"/>
+                    <h:outputText value="#{productController.selected.volume}" title="#{bundle.ViewProductTitle_volume}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_etatAchat}"/>
+                    <h:outputText value="#{productController.selected.etatAchat}" title="#{bundle.ViewProductTitle_etatAchat}"/>
+                    <h:outputText value="#{bundle.ViewProductLabel_etatVente}"/>
+                    <h:outputText value="#{productController.selected.etatVente}" title="#{bundle.ViewProductTitle_etatVente}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productController.destroyAndView}" value="#{bundle.ViewProductDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewProductEditLink}"/>
+                <br />
+                <h:commandLink action="#{productController.prepareCreate}" value="#{bundle.ViewProductCreateLink}" />
+                <br />
+                <h:commandLink action="#{productController.prepareList}" value="#{bundle.ViewProductShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewProductIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
