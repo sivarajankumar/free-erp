@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewComptesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewComptesLabel_id}"/>
+                    <h:outputText value="#{comptesController.selected.id}" title="#{bundle.ViewComptesTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewComptesLabel_banque}"/>
+                    <h:outputText value="#{comptesController.selected.banque}" title="#{bundle.ViewComptesTitle_banque}"/>
+                    <h:outputText value="#{bundle.ViewComptesLabel_nomCompte}"/>
+                    <h:outputText value="#{comptesController.selected.nomCompte}" title="#{bundle.ViewComptesTitle_nomCompte}"/>
+                    <h:outputText value="#{bundle.ViewComptesLabel_soldeCompte}"/>
+                    <h:outputText value="#{comptesController.selected.soldeCompte}" title="#{bundle.ViewComptesTitle_soldeCompte}"/>
+                    <h:outputText value="#{bundle.ViewComptesLabel_typeCompte}"/>
+                    <h:outputText value="#{comptesController.selected.typeCompte}" title="#{bundle.ViewComptesTitle_typeCompte}"/>
+                    <h:outputText value="#{bundle.ViewComptesLabel_compteBancaire}"/>
+                    <h:outputText value="#{comptesController.selected.compteBancaire}" title="#{bundle.ViewComptesTitle_compteBancaire}"/>
+                    <h:outputText value="#{bundle.ViewComptesLabel_description}"/>
+                    <h:outputText value="#{comptesController.selected.description}" title="#{bundle.ViewComptesTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{comptesController.destroyAndView}" value="#{bundle.ViewComptesDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewComptesEditLink}"/>
+                <br />
+                <h:commandLink action="#{comptesController.prepareCreate}" value="#{bundle.ViewComptesCreateLink}" />
+                <br />
+                <h:commandLink action="#{comptesController.prepareList}" value="#{bundle.ViewComptesShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewComptesIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

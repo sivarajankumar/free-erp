@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFactureTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFactureLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{factureController.selected.id}" title="#{bundle.EditFactureTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditFactureLabel_categorieFacture}" for="categorieFacture" />
+                    <h:selectOneMenu id="categorieFacture" value="#{factureController.selected.categorieFacture}" title="#{bundle.EditFactureTitle_categorieFacture}" >
+                        <f:selectItems value="#{categorieFactureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFactureLabel_dateCloture}" for="dateCloture" />
+                    <h:inputText id="dateCloture" value="#{factureController.selected.dateCloture}" title="#{bundle.EditFactureTitle_dateCloture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditFactureLabel_dateCreation}" for="dateCreation" />
+                    <h:inputText id="dateCreation" value="#{factureController.selected.dateCreation}" title="#{bundle.EditFactureTitle_dateCreation}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditFactureLabel_nomFacture}" for="nomFacture" />
+                    <h:inputText id="nomFacture" value="#{factureController.selected.nomFacture}" title="#{bundle.EditFactureTitle_nomFacture}" />
+                    <h:outputLabel value="#{bundle.EditFactureLabel_paiementOk}" for="paiementOk" />
+                    <h:inputText id="paiementOk" value="#{factureController.selected.paiementOk}" title="#{bundle.EditFactureTitle_paiementOk}" />
+                    <h:outputLabel value="#{bundle.EditFactureLabel_soldeHT}" for="soldeHT" />
+                    <h:inputText id="soldeHT" value="#{factureController.selected.soldeHT}" title="#{bundle.EditFactureTitle_soldeHT}" />
+                    <h:outputLabel value="#{bundle.EditFactureLabel_soldePaye}" for="soldePaye" />
+                    <h:inputText id="soldePaye" value="#{factureController.selected.soldePaye}" title="#{bundle.EditFactureTitle_soldePaye}" />
+                    <h:outputLabel value="#{bundle.EditFactureLabel_soldeTVA}" for="soldeTVA" />
+                    <h:inputText id="soldeTVA" value="#{factureController.selected.soldeTVA}" title="#{bundle.EditFactureTitle_soldeTVA}" />
+                </h:panelGrid>
+                <h:commandLink action="#{factureController.update}" value="#{bundle.EditFactureSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditFactureViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{factureController.prepareList}" value="#{bundle.EditFactureShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditFactureIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

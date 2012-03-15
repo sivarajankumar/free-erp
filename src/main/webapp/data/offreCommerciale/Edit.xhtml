@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOffreCommercialeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{offreCommercialeController.selected.id}" title="#{bundle.EditOffreCommercialeTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_categorieOffre}" for="categorieOffre" />
+                    <h:selectOneMenu id="categorieOffre" value="#{offreCommercialeController.selected.categorieOffre}" title="#{bundle.EditOffreCommercialeTitle_categorieOffre}" >
+                        <f:selectItems value="#{categorieOffreController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_nomOffre}" for="nomOffre" />
+                    <h:inputText id="nomOffre" value="#{offreCommercialeController.selected.nomOffre}" title="#{bundle.EditOffreCommercialeTitle_nomOffre}" />
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_dateCloture}" for="dateCloture" />
+                    <h:inputText id="dateCloture" value="#{offreCommercialeController.selected.dateCloture}" title="#{bundle.EditOffreCommercialeTitle_dateCloture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_dateCreation}" for="dateCreation" />
+                    <h:inputText id="dateCreation" value="#{offreCommercialeController.selected.dateCreation}" title="#{bundle.EditOffreCommercialeTitle_dateCreation}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_etatOffre}" for="etatOffre" />
+                    <h:selectOneMenu id="etatOffre" value="#{offreCommercialeController.selected.etatOffre}" title="#{bundle.EditOffreCommercialeTitle_etatOffre}" >
+                        <f:selectItems value="#{etatOffreController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_groupeOffre}" for="groupeOffre" />
+                    <h:selectOneMenu id="groupeOffre" value="#{offreCommercialeController.selected.groupeOffre}" title="#{bundle.EditOffreCommercialeTitle_groupeOffre}" >
+                        <f:selectItems value="#{groupeOffreController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_tiers}" for="tiers" />
+                    <h:selectOneMenu id="tiers" value="#{offreCommercialeController.selected.tiers}" title="#{bundle.EditOffreCommercialeTitle_tiers}" >
+                        <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_dateReceptionOk}" for="dateReceptionOk" />
+                    <h:inputText id="dateReceptionOk" value="#{offreCommercialeController.selected.dateReceptionOk}" title="#{bundle.EditOffreCommercialeTitle_dateReceptionOk}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_documents}" for="documents" />
+                    <h:selectOneMenu id="documents" value="#{offreCommercialeController.selected.documents}" title="#{bundle.EditOffreCommercialeTitle_documents}" >
+                        <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_facture}" for="facture" />
+                    <h:selectOneMenu id="facture" value="#{offreCommercialeController.selected.facture}" title="#{bundle.EditOffreCommercialeTitle_facture}" >
+                        <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_factureOk}" for="factureOk" />
+                    <h:inputText id="factureOk" value="#{offreCommercialeController.selected.factureOk}" title="#{bundle.EditOffreCommercialeTitle_factureOk}" />
+                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_receptionOk}" for="receptionOk" />
+                    <h:inputText id="receptionOk" value="#{offreCommercialeController.selected.receptionOk}" title="#{bundle.EditOffreCommercialeTitle_receptionOk}" />
+                </h:panelGrid>
+                <h:commandLink action="#{offreCommercialeController.update}" value="#{bundle.EditOffreCommercialeSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditOffreCommercialeViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{offreCommercialeController.prepareList}" value="#{bundle.EditOffreCommercialeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditOffreCommercialeIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

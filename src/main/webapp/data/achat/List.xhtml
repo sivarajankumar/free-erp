@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAchatTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAchatEmpty}" rendered="#{achatController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{achatController.items.rowCount > 0}">
+                    <h:outputText value="#{achatController.pagination.pageFirstItem + 1}..#{achatController.pagination.pageLastItem + 1}/#{achatController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{achatController.previous}" value="#{bundle.Previous} #{achatController.pagination.pageSize}" rendered="#{achatController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{achatController.next}" value="#{bundle.Next} #{achatController.pagination.pageSize}" rendered="#{achatController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{achatController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{achatController.prepareView}" value="#{bundle.ListAchatViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{achatController.prepareEdit}" value="#{bundle.ListAchatEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{achatController.destroy}" value="#{bundle.ListAchatDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{achatController.prepareCreate}" value="#{bundle.ListAchatCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListAchatIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

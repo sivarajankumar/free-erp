@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdresseNumeriqueTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdresseNumeriqueLabel_id}"/>
+                    <h:outputText value="#{adresseNumeriqueController.selected.id}" title="#{bundle.ViewAdresseNumeriqueTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdresseNumeriqueLabel_adresseNum}"/>
+                    <h:outputText value="#{adresseNumeriqueController.selected.adresseNum}" title="#{bundle.ViewAdresseNumeriqueTitle_adresseNum}"/>
+                    <h:outputText value="#{bundle.ViewAdresseNumeriqueLabel_typeAdresse}"/>
+                    <h:outputText value="#{adresseNumeriqueController.selected.typeAdresse}" title="#{bundle.ViewAdresseNumeriqueTitle_typeAdresse}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adresseNumeriqueController.destroyAndView}" value="#{bundle.ViewAdresseNumeriqueDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewAdresseNumeriqueEditLink}"/>
+                <br />
+                <h:commandLink action="#{adresseNumeriqueController.prepareCreate}" value="#{bundle.ViewAdresseNumeriqueCreateLink}" />
+                <br />
+                <h:commandLink action="#{adresseNumeriqueController.prepareList}" value="#{bundle.ViewAdresseNumeriqueShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewAdresseNumeriqueIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

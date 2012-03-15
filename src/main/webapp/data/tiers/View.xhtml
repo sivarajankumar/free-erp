@@ -17,6 +17,16 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewTiersLabel_id}"/>
                     <h:outputText value="#{tiersController.selected.id}" title="#{bundle.ViewTiersTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewTiersLabel_nomTiers}"/>
+                    <h:outputText value="#{tiersController.selected.nomTiers}" title="#{bundle.ViewTiersTitle_nomTiers}"/>
+                    <h:outputText value="#{bundle.ViewTiersLabel_typeTiers}"/>
+                    <h:outputText value="#{tiersController.selected.typeTiers}" title="#{bundle.ViewTiersTitle_typeTiers}"/>
+                    <h:outputText value="#{bundle.ViewTiersLabel_categorie}"/>
+                    <h:outputText value="#{tiersController.selected.categorie}" title="#{bundle.ViewTiersTitle_categorie}"/>
+                    <h:outputText value="#{bundle.ViewTiersLabel_codeTiers}"/>
+                    <h:outputText value="#{tiersController.selected.codeTiers}" title="#{bundle.ViewTiersTitle_codeTiers}"/>
+                    <h:outputText value="#{bundle.ViewTiersLabel_logo}"/>
+                    <h:outputText value="#{tiersController.selected.logo}" title="#{bundle.ViewTiersTitle_logo}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{tiersController.destroyAndView}" value="#{bundle.ViewTiersDestroyLink}"/>

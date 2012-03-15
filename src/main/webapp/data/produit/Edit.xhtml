@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProduitTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProduitLabel_categorie}" for="categorie" />
+                    <h:selectOneMenu id="categorie" value="#{produitController.selected.categorie}" title="#{bundle.EditProduitTitle_categorie}" >
+                        <f:selectItems value="#{categorieProduitController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProduitLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{produitController.selected.id}" title="#{bundle.EditProduitTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_codeDouane}" for="codeDouane" />
+                    <h:inputText id="codeDouane" value="#{produitController.selected.codeDouane}" title="#{bundle.EditProduitTitle_codeDouane}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{produitController.selected.description}" title="#{bundle.EditProduitTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_informationFacture}" for="informationFacture" />
+                    <h:inputText id="informationFacture" value="#{produitController.selected.informationFacture}" title="#{bundle.EditProduitTitle_informationFacture}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_label}" for="label" />
+                    <h:inputText id="label" value="#{produitController.selected.label}" title="#{bundle.EditProduitTitle_label}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_paysOrigine}" for="paysOrigine" />
+                    <h:selectOneMenu id="paysOrigine" value="#{produitController.selected.paysOrigine}" title="#{bundle.EditProduitTitle_paysOrigine}" >
+                        <f:selectItems value="#{paysController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProduitLabel_poids}" for="poids" />
+                    <h:inputText id="poids" value="#{produitController.selected.poids}" title="#{bundle.EditProduitTitle_poids}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_reference}" for="reference" />
+                    <h:inputText id="reference" value="#{produitController.selected.reference}" title="#{bundle.EditProduitTitle_reference}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_stockAlert}" for="stockAlert" />
+                    <h:inputText id="stockAlert" value="#{produitController.selected.stockAlert}" title="#{bundle.EditProduitTitle_stockAlert}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_volume}" for="volume" />
+                    <h:inputText id="volume" value="#{produitController.selected.volume}" title="#{bundle.EditProduitTitle_volume}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_etatAchat}" for="etatAchat" />
+                    <h:selectOneMenu id="etatAchat" value="#{produitController.selected.etatAchat}" title="#{bundle.EditProduitTitle_etatAchat}" >
+                        <f:selectItems value="#{etat_SeviceProduitController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProduitLabel_etatVente}" for="etatVente" />
+                    <h:selectOneMenu id="etatVente" value="#{produitController.selected.etatVente}" title="#{bundle.EditProduitTitle_etatVente}" >
+                        <f:selectItems value="#{etat_SeviceProduitController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProduitLabel_prix}" for="prix" />
+                    <h:inputText id="prix" value="#{produitController.selected.prix}" title="#{bundle.EditProduitTitle_prix}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_tva}" for="tva" />
+                    <h:selectOneMenu id="tva" value="#{produitController.selected.tva}" title="#{bundle.EditProduitTitle_tva}" >
+                        <f:selectItems value="#{tVAController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{produitController.update}" value="#{bundle.EditProduitSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditProduitViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{produitController.prepareList}" value="#{bundle.EditProduitShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditProduitIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

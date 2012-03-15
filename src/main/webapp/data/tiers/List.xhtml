@@ -28,6 +28,36 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTiersTitle_nomTiers}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomTiers}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTiersTitle_typeTiers}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.typeTiers}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTiersTitle_categorie}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorie}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTiersTitle_codeTiers}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codeTiers}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTiersTitle_logo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.logo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{tiersController.prepareView}" value="#{bundle.ListTiersViewLink}"/>

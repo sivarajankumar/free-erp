@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEvenementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEvenementEmpty}" rendered="#{evenementController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{evenementController.items.rowCount > 0}">
+                    <h:outputText value="#{evenementController.pagination.pageFirstItem + 1}..#{evenementController.pagination.pageLastItem + 1}/#{evenementController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{evenementController.previous}" value="#{bundle.Previous} #{evenementController.pagination.pageSize}" rendered="#{evenementController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{evenementController.next}" value="#{bundle.Next} #{evenementController.pagination.pageSize}" rendered="#{evenementController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{evenementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_categorieEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieEvenement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_dateClotureEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateClotureEvenement}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_dateCreationEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateCreationEvenement}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_dateMajEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateMajEvenement}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_descriptionEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descriptionEvenement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_etatEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etatEvenement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_nomEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomEvenement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvenementTitle_contact}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.contact}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{evenementController.prepareView}" value="#{bundle.ListEvenementViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evenementController.prepareEdit}" value="#{bundle.ListEvenementEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evenementController.destroy}" value="#{bundle.ListEvenementDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{evenementController.prepareCreate}" value="#{bundle.ListEvenementCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListEvenementIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

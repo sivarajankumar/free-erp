@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditComptesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditComptesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{comptesController.selected.id}" title="#{bundle.EditComptesTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditComptesLabel_banque}" for="banque" />
+                    <h:selectOneMenu id="banque" value="#{comptesController.selected.banque}" title="#{bundle.EditComptesTitle_banque}" >
+                        <f:selectItems value="#{banqueController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditComptesLabel_nomCompte}" for="nomCompte" />
+                    <h:inputText id="nomCompte" value="#{comptesController.selected.nomCompte}" title="#{bundle.EditComptesTitle_nomCompte}" />
+                    <h:outputLabel value="#{bundle.EditComptesLabel_soldeCompte}" for="soldeCompte" />
+                    <h:inputText id="soldeCompte" value="#{comptesController.selected.soldeCompte}" title="#{bundle.EditComptesTitle_soldeCompte}" />
+                    <h:outputLabel value="#{bundle.EditComptesLabel_typeCompte}" for="typeCompte" />
+                    <h:selectOneMenu id="typeCompte" value="#{comptesController.selected.typeCompte}" title="#{bundle.EditComptesTitle_typeCompte}" >
+                        <f:selectItems value="#{typeCompteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditComptesLabel_compteBancaire}" for="compteBancaire" />
+                    <h:inputText id="compteBancaire" value="#{comptesController.selected.compteBancaire}" title="#{bundle.EditComptesTitle_compteBancaire}" />
+                    <h:outputLabel value="#{bundle.EditComptesLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{comptesController.selected.description}" title="#{bundle.EditComptesTitle_description}" />
+                </h:panelGrid>
+                <h:commandLink action="#{comptesController.update}" value="#{bundle.EditComptesSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditComptesViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{comptesController.prepareList}" value="#{bundle.EditComptesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditComptesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

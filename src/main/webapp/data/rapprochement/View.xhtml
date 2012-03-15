@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewRapprochementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_id}"/>
+                    <h:outputText value="#{rapprochementController.selected.id}" title="#{bundle.ViewRapprochementTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_compteAssocie}"/>
+                    <h:outputText value="#{rapprochementController.selected.compteAssocie}" title="#{bundle.ViewRapprochementTitle_compteAssocie}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_identifiantReleve}"/>
+                    <h:outputText value="#{rapprochementController.selected.identifiantReleve}" title="#{bundle.ViewRapprochementTitle_identifiantReleve}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_montantCreditRapproche}"/>
+                    <h:outputText value="#{rapprochementController.selected.montantCreditRapproche}" title="#{bundle.ViewRapprochementTitle_montantCreditRapproche}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_montantDebitRapproche}"/>
+                    <h:outputText value="#{rapprochementController.selected.montantDebitRapproche}" title="#{bundle.ViewRapprochementTitle_montantDebitRapproche}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_montantTotalCredit}"/>
+                    <h:outputText value="#{rapprochementController.selected.montantTotalCredit}" title="#{bundle.ViewRapprochementTitle_montantTotalCredit}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_montantTotalDebit}"/>
+                    <h:outputText value="#{rapprochementController.selected.montantTotalDebit}" title="#{bundle.ViewRapprochementTitle_montantTotalDebit}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_nomRapprochement}"/>
+                    <h:outputText value="#{rapprochementController.selected.nomRapprochement}" title="#{bundle.ViewRapprochementTitle_nomRapprochement}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{rapprochementController.destroyAndView}" value="#{bundle.ViewRapprochementDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewRapprochementEditLink}"/>
+                <br />
+                <h:commandLink action="#{rapprochementController.prepareCreate}" value="#{bundle.ViewRapprochementCreateLink}" />
+                <br />
+                <h:commandLink action="#{rapprochementController.prepareList}" value="#{bundle.ViewRapprochementShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewRapprochementIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

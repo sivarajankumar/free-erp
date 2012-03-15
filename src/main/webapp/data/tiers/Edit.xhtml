@@ -17,6 +17,22 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditTiersLabel_id}" for="id" />
                     <h:inputText id="id" value="#{tiersController.selected.id}" title="#{bundle.EditTiersTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_nomTiers}" for="nomTiers" />
+                    <h:inputText id="nomTiers" value="#{tiersController.selected.nomTiers}" title="#{bundle.EditTiersTitle_nomTiers}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_typeTiers}" for="typeTiers" />
+                    <h:selectOneMenu id="typeTiers" value="#{tiersController.selected.typeTiers}" title="#{bundle.EditTiersTitle_typeTiers}" >
+                        <f:selectItems value="#{typeTiersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTiersLabel_categorie}" for="categorie" />
+                    <h:selectOneMenu id="categorie" value="#{tiersController.selected.categorie}" title="#{bundle.EditTiersTitle_categorie}" >
+                        <f:selectItems value="#{categorieTiersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTiersLabel_codeTiers}" for="codeTiers" />
+                    <h:inputText id="codeTiers" value="#{tiersController.selected.codeTiers}" title="#{bundle.EditTiersTitle_codeTiers}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_logo}" for="logo" />
+                    <h:selectOneMenu id="logo" value="#{tiersController.selected.logo}" title="#{bundle.EditTiersTitle_logo}" >
+                        <f:selectItems value="#{logosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                 </h:panelGrid>
                 <h:commandLink action="#{tiersController.update}" value="#{bundle.EditTiersSaveLink}"/>
                 <br />

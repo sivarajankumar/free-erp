@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOffreCommercialeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_id}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.id}" title="#{bundle.ViewOffreCommercialeTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_categorieOffre}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.categorieOffre}" title="#{bundle.ViewOffreCommercialeTitle_categorieOffre}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_nomOffre}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.nomOffre}" title="#{bundle.ViewOffreCommercialeTitle_nomOffre}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_dateCloture}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.dateCloture}" title="#{bundle.ViewOffreCommercialeTitle_dateCloture}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_dateCreation}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.dateCreation}" title="#{bundle.ViewOffreCommercialeTitle_dateCreation}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_etatOffre}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.etatOffre}" title="#{bundle.ViewOffreCommercialeTitle_etatOffre}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_groupeOffre}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.groupeOffre}" title="#{bundle.ViewOffreCommercialeTitle_groupeOffre}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_tiers}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.tiers}" title="#{bundle.ViewOffreCommercialeTitle_tiers}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_dateReceptionOk}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.dateReceptionOk}" title="#{bundle.ViewOffreCommercialeTitle_dateReceptionOk}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_documents}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.documents}" title="#{bundle.ViewOffreCommercialeTitle_documents}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_facture}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.facture}" title="#{bundle.ViewOffreCommercialeTitle_facture}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_factureOk}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.factureOk}" title="#{bundle.ViewOffreCommercialeTitle_factureOk}"/>
+                    <h:outputText value="#{bundle.ViewOffreCommercialeLabel_receptionOk}"/>
+                    <h:outputText value="#{offreCommercialeController.selected.receptionOk}" title="#{bundle.ViewOffreCommercialeTitle_receptionOk}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{offreCommercialeController.destroyAndView}" value="#{bundle.ViewOffreCommercialeDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewOffreCommercialeEditLink}"/>
+                <br />
+                <h:commandLink action="#{offreCommercialeController.prepareCreate}" value="#{bundle.ViewOffreCommercialeCreateLink}" />
+                <br />
+                <h:commandLink action="#{offreCommercialeController.prepareList}" value="#{bundle.ViewOffreCommercialeShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewOffreCommercialeIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

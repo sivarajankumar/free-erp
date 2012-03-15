@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEvenementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{evenementController.selected.id}" title="#{bundle.EditEvenementTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_categorieEvenement}" for="categorieEvenement" />
+                    <h:selectOneMenu id="categorieEvenement" value="#{evenementController.selected.categorieEvenement}" title="#{bundle.EditEvenementTitle_categorieEvenement}" >
+                        <f:selectItems value="#{categorieEvenementController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_dateClotureEvenement}" for="dateClotureEvenement" />
+                    <h:inputText id="dateClotureEvenement" value="#{evenementController.selected.dateClotureEvenement}" title="#{bundle.EditEvenementTitle_dateClotureEvenement}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_dateCreationEvenement}" for="dateCreationEvenement" />
+                    <h:inputText id="dateCreationEvenement" value="#{evenementController.selected.dateCreationEvenement}" title="#{bundle.EditEvenementTitle_dateCreationEvenement}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_dateMajEvenement}" for="dateMajEvenement" />
+                    <h:inputText id="dateMajEvenement" value="#{evenementController.selected.dateMajEvenement}" title="#{bundle.EditEvenementTitle_dateMajEvenement}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_descriptionEvenement}" for="descriptionEvenement" />
+                    <h:inputText id="descriptionEvenement" value="#{evenementController.selected.descriptionEvenement}" title="#{bundle.EditEvenementTitle_descriptionEvenement}" />
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_etatEvenement}" for="etatEvenement" />
+                    <h:selectOneMenu id="etatEvenement" value="#{evenementController.selected.etatEvenement}" title="#{bundle.EditEvenementTitle_etatEvenement}" >
+                        <f:selectItems value="#{etatEvenementController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_nomEvenement}" for="nomEvenement" />
+                    <h:inputText id="nomEvenement" value="#{evenementController.selected.nomEvenement}" title="#{bundle.EditEvenementTitle_nomEvenement}" />
+                    <h:outputLabel value="#{bundle.EditEvenementLabel_contact}" for="contact" />
+                    <h:selectOneMenu id="contact" value="#{evenementController.selected.contact}" title="#{bundle.EditEvenementTitle_contact}" >
+                        <f:selectItems value="#{contactController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{evenementController.update}" value="#{bundle.EditEvenementSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditEvenementViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{evenementController.prepareList}" value="#{bundle.EditEvenementShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditEvenementIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateComptesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{comptesController.selected.id}" title="#{bundle.CreateComptesTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_banque}" for="banque" />
+                    <h:selectOneMenu id="banque" value="#{comptesController.selected.banque}" title="#{bundle.CreateComptesTitle_banque}" >
+                        <f:selectItems value="#{banqueController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_nomCompte}" for="nomCompte" />
+                    <h:inputText id="nomCompte" value="#{comptesController.selected.nomCompte}" title="#{bundle.CreateComptesTitle_nomCompte}" />
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_soldeCompte}" for="soldeCompte" />
+                    <h:inputText id="soldeCompte" value="#{comptesController.selected.soldeCompte}" title="#{bundle.CreateComptesTitle_soldeCompte}" />
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_typeCompte}" for="typeCompte" />
+                    <h:selectOneMenu id="typeCompte" value="#{comptesController.selected.typeCompte}" title="#{bundle.CreateComptesTitle_typeCompte}" >
+                        <f:selectItems value="#{typeCompteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_compteBancaire}" for="compteBancaire" />
+                    <h:inputText id="compteBancaire" value="#{comptesController.selected.compteBancaire}" title="#{bundle.CreateComptesTitle_compteBancaire}" />
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{comptesController.selected.description}" title="#{bundle.CreateComptesTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{comptesController.create}" value="#{bundle.CreateComptesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{comptesController.prepareList}" value="#{bundle.CreateComptesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateComptesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

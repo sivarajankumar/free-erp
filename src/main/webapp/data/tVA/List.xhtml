@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTVATitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTVAEmpty}" rendered="#{tVAController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tVAController.items.rowCount > 0}">
+                    <h:outputText value="#{tVAController.pagination.pageFirstItem + 1}..#{tVAController.pagination.pageLastItem + 1}/#{tVAController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tVAController.previous}" value="#{bundle.Previous} #{tVAController.pagination.pageSize}" rendered="#{tVAController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tVAController.next}" value="#{bundle.Next} #{tVAController.pagination.pageSize}" rendered="#{tVAController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tVAController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTVATitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTVATitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTVATitle_taux}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.taux}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tVAController.prepareView}" value="#{bundle.ListTVAViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tVAController.prepareEdit}" value="#{bundle.ListTVAEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tVAController.destroy}" value="#{bundle.ListTVADestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tVAController.prepareCreate}" value="#{bundle.ListTVACreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListTVAIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

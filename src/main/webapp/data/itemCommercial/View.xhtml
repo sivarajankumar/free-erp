@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewItemCommercialTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewItemCommercialLabel_id}"/>
+                    <h:outputText value="#{itemCommercialController.selected.id}" title="#{bundle.ViewItemCommercialTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewItemCommercialLabel_montantHT}"/>
+                    <h:outputText value="#{itemCommercialController.selected.montantHT}" title="#{bundle.ViewItemCommercialTitle_montantHT}"/>
+                    <h:outputText value="#{bundle.ViewItemCommercialLabel_montantTVA}"/>
+                    <h:outputText value="#{itemCommercialController.selected.montantTVA}" title="#{bundle.ViewItemCommercialTitle_montantTVA}"/>
+                    <h:outputText value="#{bundle.ViewItemCommercialLabel_nomItem}"/>
+                    <h:outputText value="#{itemCommercialController.selected.nomItem}" title="#{bundle.ViewItemCommercialTitle_nomItem}"/>
+                    <h:outputText value="#{bundle.ViewItemCommercialLabel_produit}"/>
+                    <h:outputText value="#{itemCommercialController.selected.produit}" title="#{bundle.ViewItemCommercialTitle_produit}"/>
+                    <h:outputText value="#{bundle.ViewItemCommercialLabel_quantite}"/>
+                    <h:outputText value="#{itemCommercialController.selected.quantite}" title="#{bundle.ViewItemCommercialTitle_quantite}"/>
+                    <h:outputText value="#{bundle.ViewItemCommercialLabel_service}"/>
+                    <h:outputText value="#{itemCommercialController.selected.service}" title="#{bundle.ViewItemCommercialTitle_service}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{itemCommercialController.destroyAndView}" value="#{bundle.ViewItemCommercialDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewItemCommercialEditLink}"/>
+                <br />
+                <h:commandLink action="#{itemCommercialController.prepareCreate}" value="#{bundle.ViewItemCommercialCreateLink}" />
+                <br />
+                <h:commandLink action="#{itemCommercialController.prepareList}" value="#{bundle.ViewItemCommercialShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewItemCommercialIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

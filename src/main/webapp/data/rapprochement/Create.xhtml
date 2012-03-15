@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRapprochementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{rapprochementController.selected.id}" title="#{bundle.CreateRapprochementTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_compteAssocie}" for="compteAssocie" />
+                    <h:selectOneMenu id="compteAssocie" value="#{rapprochementController.selected.compteAssocie}" title="#{bundle.CreateRapprochementTitle_compteAssocie}" >
+                        <f:selectItems value="#{comptesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_identifiantReleve}" for="identifiantReleve" />
+                    <h:inputText id="identifiantReleve" value="#{rapprochementController.selected.identifiantReleve}" title="#{bundle.CreateRapprochementTitle_identifiantReleve}" />
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantCreditRapproche}" for="montantCreditRapproche" />
+                    <h:inputText id="montantCreditRapproche" value="#{rapprochementController.selected.montantCreditRapproche}" title="#{bundle.CreateRapprochementTitle_montantCreditRapproche}" />
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantDebitRapproche}" for="montantDebitRapproche" />
+                    <h:inputText id="montantDebitRapproche" value="#{rapprochementController.selected.montantDebitRapproche}" title="#{bundle.CreateRapprochementTitle_montantDebitRapproche}" />
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantTotalCredit}" for="montantTotalCredit" />
+                    <h:inputText id="montantTotalCredit" value="#{rapprochementController.selected.montantTotalCredit}" title="#{bundle.CreateRapprochementTitle_montantTotalCredit}" />
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantTotalDebit}" for="montantTotalDebit" />
+                    <h:inputText id="montantTotalDebit" value="#{rapprochementController.selected.montantTotalDebit}" title="#{bundle.CreateRapprochementTitle_montantTotalDebit}" />
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_nomRapprochement}" for="nomRapprochement" />
+                    <h:inputText id="nomRapprochement" value="#{rapprochementController.selected.nomRapprochement}" title="#{bundle.CreateRapprochementTitle_nomRapprochement}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{rapprochementController.create}" value="#{bundle.CreateRapprochementSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{rapprochementController.prepareList}" value="#{bundle.CreateRapprochementShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateRapprochementIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

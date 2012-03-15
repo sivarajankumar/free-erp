@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMouvementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMouvementLabel_id}"/>
+                    <h:outputText value="#{mouvementController.selected.id}" title="#{bundle.ViewMouvementTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_categorieMouvement}"/>
+                    <h:outputText value="#{mouvementController.selected.categorieMouvement}" title="#{bundle.ViewMouvementTitle_categorieMouvement}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_compte}"/>
+                    <h:outputText value="#{mouvementController.selected.compte}" title="#{bundle.ViewMouvementTitle_compte}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_dateOperation}"/>
+                    <h:outputText value="#{mouvementController.selected.dateOperation}" title="#{bundle.ViewMouvementTitle_dateOperation}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_dateValeur}"/>
+                    <h:outputText value="#{mouvementController.selected.dateValeur}" title="#{bundle.ViewMouvementTitle_dateValeur}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_debit}"/>
+                    <h:outputText value="#{mouvementController.selected.debit}" title="#{bundle.ViewMouvementTitle_debit}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_description}"/>
+                    <h:outputText value="#{mouvementController.selected.description}" title="#{bundle.ViewMouvementTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_labelMouvement}"/>
+                    <h:outputText value="#{mouvementController.selected.labelMouvement}" title="#{bundle.ViewMouvementTitle_labelMouvement}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_montant}"/>
+                    <h:outputText value="#{mouvementController.selected.montant}" title="#{bundle.ViewMouvementTitle_montant}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_rapprochement}"/>
+                    <h:outputText value="#{mouvementController.selected.rapprochement}" title="#{bundle.ViewMouvementTitle_rapprochement}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mouvementController.destroyAndView}" value="#{bundle.ViewMouvementDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewMouvementEditLink}"/>
+                <br />
+                <h:commandLink action="#{mouvementController.prepareCreate}" value="#{bundle.ViewMouvementCreateLink}" />
+                <br />
+                <h:commandLink action="#{mouvementController.prepareList}" value="#{bundle.ViewMouvementShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewMouvementIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

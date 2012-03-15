@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFactureTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{factureController.selected.id}" title="#{bundle.CreateFactureTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_categorieFacture}" for="categorieFacture" />
+                    <h:selectOneMenu id="categorieFacture" value="#{factureController.selected.categorieFacture}" title="#{bundle.CreateFactureTitle_categorieFacture}" >
+                        <f:selectItems value="#{categorieFactureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_dateCloture}" for="dateCloture" />
+                    <h:inputText id="dateCloture" value="#{factureController.selected.dateCloture}" title="#{bundle.CreateFactureTitle_dateCloture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_dateCreation}" for="dateCreation" />
+                    <h:inputText id="dateCreation" value="#{factureController.selected.dateCreation}" title="#{bundle.CreateFactureTitle_dateCreation}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_nomFacture}" for="nomFacture" />
+                    <h:inputText id="nomFacture" value="#{factureController.selected.nomFacture}" title="#{bundle.CreateFactureTitle_nomFacture}" />
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_paiementOk}" for="paiementOk" />
+                    <h:inputText id="paiementOk" value="#{factureController.selected.paiementOk}" title="#{bundle.CreateFactureTitle_paiementOk}" />
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_soldeHT}" for="soldeHT" />
+                    <h:inputText id="soldeHT" value="#{factureController.selected.soldeHT}" title="#{bundle.CreateFactureTitle_soldeHT}" />
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_soldePaye}" for="soldePaye" />
+                    <h:inputText id="soldePaye" value="#{factureController.selected.soldePaye}" title="#{bundle.CreateFactureTitle_soldePaye}" />
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_soldeTVA}" for="soldeTVA" />
+                    <h:inputText id="soldeTVA" value="#{factureController.selected.soldeTVA}" title="#{bundle.CreateFactureTitle_soldeTVA}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{factureController.create}" value="#{bundle.CreateFactureSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{factureController.prepareList}" value="#{bundle.CreateFactureShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateFactureIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateReglementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateReglementLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{reglementController.selected.id}" title="#{bundle.CreateReglementTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateReglementLabel_dateReglement}" for="dateReglement" />
+                    <h:inputText id="dateReglement" value="#{reglementController.selected.dateReglement}" title="#{bundle.CreateReglementTitle_dateReglement}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateReglementLabel_facture}" for="facture" />
+                    <h:selectOneMenu id="facture" value="#{reglementController.selected.facture}" title="#{bundle.CreateReglementTitle_facture}" >
+                        <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateReglementLabel_mouvement}" for="mouvement" />
+                    <h:selectOneMenu id="mouvement" value="#{reglementController.selected.mouvement}" title="#{bundle.CreateReglementTitle_mouvement}" >
+                        <f:selectItems value="#{mouvementController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateReglementLabel_nomReglement}" for="nomReglement" />
+                    <h:inputText id="nomReglement" value="#{reglementController.selected.nomReglement}" title="#{bundle.CreateReglementTitle_nomReglement}" />
+                    <h:outputLabel value="#{bundle.CreateReglementLabel_soldeReglement}" for="soldeReglement" />
+                    <h:inputText id="soldeReglement" value="#{reglementController.selected.soldeReglement}" title="#{bundle.CreateReglementTitle_soldeReglement}" />
+                    <h:outputLabel value="#{bundle.CreateReglementLabel_categorieReglement}" for="categorieReglement" />
+                    <h:selectOneMenu id="categorieReglement" value="#{reglementController.selected.categorieReglement}" title="#{bundle.CreateReglementTitle_categorieReglement}" >
+                        <f:selectItems value="#{categorieReglementController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{reglementController.create}" value="#{bundle.CreateReglementSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{reglementController.prepareList}" value="#{bundle.CreateReglementShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateReglementIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

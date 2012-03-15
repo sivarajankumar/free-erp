@@ -19,8 +19,6 @@
                     <h:outputText value="#{serviceController.selected.categorie}" title="#{bundle.ViewServiceTitle_categorie}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_id}"/>
                     <h:outputText value="#{serviceController.selected.id}" title="#{bundle.ViewServiceTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewServiceLabel_TVA}"/>
-                    <h:outputText value="#{serviceController.selected.TVA}" title="#{bundle.ViewServiceTitle_TVA}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_codeDouane}"/>
                     <h:outputText value="#{serviceController.selected.codeDouane}" title="#{bundle.ViewServiceTitle_codeDouane}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_description}"/>
@@ -33,10 +31,12 @@
                     <h:outputText value="#{serviceController.selected.label}" title="#{bundle.ViewServiceTitle_label}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_paysOrigine}"/>
                     <h:outputText value="#{serviceController.selected.paysOrigine}" title="#{bundle.ViewServiceTitle_paysOrigine}"/>
-                    <h:outputText value="#{bundle.ViewServiceLabel_prixVente}"/>
-                    <h:outputText value="#{serviceController.selected.prixVente}" title="#{bundle.ViewServiceTitle_prixVente}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_reference}"/>
                     <h:outputText value="#{serviceController.selected.reference}" title="#{bundle.ViewServiceTitle_reference}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_prix}"/>
+                    <h:outputText value="#{serviceController.selected.prix}" title="#{bundle.ViewServiceTitle_prix}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_tva}"/>
+                    <h:outputText value="#{serviceController.selected.tva}" title="#{bundle.ViewServiceTitle_tva}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{serviceController.destroyAndView}" value="#{bundle.ViewServiceDestroyLink}"/>

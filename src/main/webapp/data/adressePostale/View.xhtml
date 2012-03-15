@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdressePostaleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_id}"/>
+                    <h:outputText value="#{adressePostaleController.selected.id}" title="#{bundle.ViewAdressePostaleTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_codePostal}"/>
+                    <h:outputText value="#{adressePostaleController.selected.codePostal}" title="#{bundle.ViewAdressePostaleTitle_codePostal}"/>
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_labelAdresse}"/>
+                    <h:outputText value="#{adressePostaleController.selected.labelAdresse}" title="#{bundle.ViewAdressePostaleTitle_labelAdresse}"/>
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_ligne1Adresse}"/>
+                    <h:outputText value="#{adressePostaleController.selected.ligne1Adresse}" title="#{bundle.ViewAdressePostaleTitle_ligne1Adresse}"/>
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_ligne2Adresse}"/>
+                    <h:outputText value="#{adressePostaleController.selected.ligne2Adresse}" title="#{bundle.ViewAdressePostaleTitle_ligne2Adresse}"/>
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_ligne3Adresse}"/>
+                    <h:outputText value="#{adressePostaleController.selected.ligne3Adresse}" title="#{bundle.ViewAdressePostaleTitle_ligne3Adresse}"/>
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_pays}"/>
+                    <h:outputText value="#{adressePostaleController.selected.pays}" title="#{bundle.ViewAdressePostaleTitle_pays}"/>
+                    <h:outputText value="#{bundle.ViewAdressePostaleLabel_ville}"/>
+                    <h:outputText value="#{adressePostaleController.selected.ville}" title="#{bundle.ViewAdressePostaleTitle_ville}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adressePostaleController.destroyAndView}" value="#{bundle.ViewAdressePostaleDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewAdressePostaleEditLink}"/>
+                <br />
+                <h:commandLink action="#{adressePostaleController.prepareCreate}" value="#{bundle.ViewAdressePostaleCreateLink}" />
+                <br />
+                <h:commandLink action="#{adressePostaleController.prepareList}" value="#{bundle.ViewAdressePostaleShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewAdressePostaleIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

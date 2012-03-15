@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRapprochementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRapprochementEmpty}" rendered="#{rapprochementController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{rapprochementController.items.rowCount > 0}">
+                    <h:outputText value="#{rapprochementController.pagination.pageFirstItem + 1}..#{rapprochementController.pagination.pageLastItem + 1}/#{rapprochementController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{rapprochementController.previous}" value="#{bundle.Previous} #{rapprochementController.pagination.pageSize}" rendered="#{rapprochementController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{rapprochementController.next}" value="#{bundle.Next} #{rapprochementController.pagination.pageSize}" rendered="#{rapprochementController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{rapprochementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_compteAssocie}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.compteAssocie}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_identifiantReleve}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.identifiantReleve}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_montantCreditRapproche}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.montantCreditRapproche}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_montantDebitRapproche}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.montantDebitRapproche}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_montantTotalCredit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.montantTotalCredit}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_montantTotalDebit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.montantTotalDebit}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRapprochementTitle_nomRapprochement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomRapprochement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{rapprochementController.prepareView}" value="#{bundle.ListRapprochementViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{rapprochementController.prepareEdit}" value="#{bundle.ListRapprochementEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{rapprochementController.destroy}" value="#{bundle.ListRapprochementDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{rapprochementController.prepareCreate}" value="#{bundle.ListRapprochementCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListRapprochementIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

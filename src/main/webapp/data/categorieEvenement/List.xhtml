@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCategorieEvenementTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCategorieEvenementEmpty}" rendered="#{categorieEvenementController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{categorieEvenementController.items.rowCount > 0}">
+                    <h:outputText value="#{categorieEvenementController.pagination.pageFirstItem + 1}..#{categorieEvenementController.pagination.pageLastItem + 1}/#{categorieEvenementController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{categorieEvenementController.previous}" value="#{bundle.Previous} #{categorieEvenementController.pagination.pageSize}" rendered="#{categorieEvenementController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{categorieEvenementController.next}" value="#{bundle.Next} #{categorieEvenementController.pagination.pageSize}" rendered="#{categorieEvenementController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{categorieEvenementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategorieEvenementTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategorieEvenementTitle_nomCatEvenement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomCatEvenement}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{categorieEvenementController.prepareView}" value="#{bundle.ListCategorieEvenementViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{categorieEvenementController.prepareEdit}" value="#{bundle.ListCategorieEvenementEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{categorieEvenementController.destroy}" value="#{bundle.ListCategorieEvenementDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{categorieEvenementController.prepareCreate}" value="#{bundle.ListCategorieEvenementCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListCategorieEvenementIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
