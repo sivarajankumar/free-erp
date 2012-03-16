@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -17,35 +18,48 @@ import javax.persistence.*;
  */
 @Entity
 public class Facture implements Serializable {
-    @OneToMany(mappedBy = "facture")
-    private List<Achat> achats;
-    @OneToMany(mappedBy = "facture")
-    private List<OffreCommerciale> offreCommerciales;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomFacture;
+    private String idFacture;
     @ManyToOne
     private CategorieFacture categorieFacture;
-    @OneToMany(mappedBy = "facture")
-    private List<Reglement> reglements;
-    private Boolean paiementOk;
+    // Données temporelles
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateCreation;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateCloture;    
+    private Date dateCloture;
+    // Donnés financières
     private Float soldeHT;
     private Float soldeTVA;
     private Float soldePaye;
-    
-    
+    @OneToMany(mappedBy = "facture")
+    private List<Reglement> reglements;
+    private Boolean paiementOk;
+    // Elements commerciaux associés
+    @OneToMany(mappedBy = "facture")
+    private List<Achat> achats;
+    @OneToMany(mappedBy = "facture")
+    private List<OffreCommerciale> offreCommerciales;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdFacture() {
+        return idFacture;
+    }
+
+    public void setIdFacture(String idFacture) {
+        this.idFacture = idFacture;
     }
 
     public List<Achat> getAchats() {
@@ -158,7 +172,6 @@ public class Facture implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.comptabilite.Facture[ id=" + id + " ]";
+        return nomFacture;
     }
-    
 }

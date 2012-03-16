@@ -5,11 +5,11 @@
 package com.davidhodin.freeerp.data.commercial;
 
 import com.davidhodin.freeerp.data.comptabilite.TVA;
-import com.davidhodin.freeerp.data.configuration.Pays;
-import com.davidhodin.freeerp.data.production.Stock;
+import com.davidhodin.freeerp.data.production.StockProduit;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -17,34 +17,38 @@ import javax.persistence.*;
  */
 @Entity
 public class Produit implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String reference;
-    private String label;
+    @NotNull
+    private String nomProduit;
     @ManyToOne
-    private Etat_SeviceProduit etatVente;
+    private CategorieProduit categorie;
+    // Informations commerciales
     @ManyToOne
-    private Etat_SeviceProduit etatAchat;
+    private EtatCommercial etatVente;
+    private Float prixVente;
+    @ManyToOne
+    private TVA tvaVente;
+    @ManyToOne
+    private EtatCommercial etatAchat;
+    private Float prixAchat;
+    @ManyToOne
+    private TVA tvaAchat;
+    private String codeDouane;
+    private String informationFacture;
+    // Informations de production
     private Integer stockAlert;
+    @OneToMany(mappedBy = "produit")
+    private List<StockProduit> stocksProduit;
+    // Informations produit
     private String description;
     private Integer poids;
     private Integer volume;
-    private String codeDouane;
-    @ManyToOne
-    private Pays paysOrigine;
-    private String informationFacture;
-    private Float prix;
-    @ManyToOne
-    private TVA tva;
-    @ManyToOne
-    private CategorieProduit categorie;
-    @ManyToMany
-    private List<Stock> stocksProduit;
-
     
-
     public CategorieProduit getCategorie() {
         return categorie;
     }
@@ -85,20 +89,12 @@ public class Produit implements Serializable {
         this.informationFacture = informationFacture;
     }
 
-    public String getLabel() {
-        return label;
+    public String getNomProduit() {
+        return nomProduit;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public Pays getPaysOrigine() {
-        return paysOrigine;
-    }
-
-    public void setPaysOrigine(Pays paysOrigine) {
-        this.paysOrigine = paysOrigine;
+    public void setNomProduit(String nomProduit) {
+        this.nomProduit = nomProduit;
     }
 
     public Integer getPoids() {
@@ -133,47 +129,63 @@ public class Produit implements Serializable {
         this.volume = volume;
     }
 
-    public Etat_SeviceProduit getEtatAchat() {
+    public EtatCommercial getEtatAchat() {
         return etatAchat;
     }
 
-    public void setEtatAchat(Etat_SeviceProduit etatAchat) {
+    public void setEtatAchat(EtatCommercial etatAchat) {
         this.etatAchat = etatAchat;
     }
 
-    public Etat_SeviceProduit getEtatVente() {
+    public EtatCommercial getEtatVente() {
         return etatVente;
     }
 
-    public void setEtatVente(Etat_SeviceProduit etatVente) {
+    public void setEtatVente(EtatCommercial etatVente) {
         this.etatVente = etatVente;
     }
 
-    public List<Stock> getStocksProduit() {
+    public List<StockProduit> getStocksProduit() {
         return stocksProduit;
     }
 
-    public void setStocksProduit(List<Stock> stocksProduit) {
+    public void setStocksProduit(List<StockProduit> stocksProduit) {
         this.stocksProduit = stocksProduit;
     }
 
-    public Float getPrix() {
-        return prix;
+    public Float getPrixAchat() {
+        return prixAchat;
     }
 
-    public void setPrix(Float prix) {
-        this.prix = prix;
+    public void setPrixAchat(Float prixAchat) {
+        this.prixAchat = prixAchat;
     }
 
-    public TVA getTva() {
-        return tva;
+    public Float getPrixVente() {
+        return prixVente;
     }
 
-    public void setTva(TVA tva) {
-        this.tva = tva;
+    public void setPrixVente(Float prixVente) {
+        this.prixVente = prixVente;
     }
 
-    
+    public TVA getTvaAchat() {
+        return tvaAchat;
+    }
+
+    public void setTvaAchat(TVA tvaAchat) {
+        this.tvaAchat = tvaAchat;
+    }
+
+    public TVA getTvaVente() {
+        return tvaVente;
+    }
+
+    public void setTvaVente(TVA tvaVente) {
+        this.tvaVente = tvaVente;
+    }
+
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -196,7 +208,10 @@ public class Produit implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Product[ id=" + id + " ]";
+        if (reference != null) {
+            return nomProduit + " (" + reference + ")";
+        } else {
+            return nomProduit;
+        }
     }
-    
 }

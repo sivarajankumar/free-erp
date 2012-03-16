@@ -22,12 +22,6 @@
                     <h:dataTable value="#{serviceController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_categorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorie}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListServiceTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
@@ -52,15 +46,9 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_etatVente}"/>
+                                <h:outputText value="#{bundle.ListServiceTitle_nomService}"/>
                             </f:facet>
-                            <h:outputText value="#{item.etatVente}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_label}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.label}"/>
+                            <h:outputText value="#{item.nomService}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
@@ -76,15 +64,39 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_prix}"/>
+                                <h:outputText value="#{bundle.ListServiceTitle_categorieService}"/>
                             </f:facet>
-                            <h:outputText value="#{item.prix}"/>
+                            <h:outputText value="#{item.categorieService}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_tva}"/>
+                                <h:outputText value="#{bundle.ListServiceTitle_informationFacture}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tva}"/>
+                            <h:outputText value="#{item.informationFacture}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceTitle_prixAchat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prixAchat}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceTitle_prixVente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prixVente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceTitle_tvaAchat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tvaAchat}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceTitle_tvaVente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tvaVente}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">

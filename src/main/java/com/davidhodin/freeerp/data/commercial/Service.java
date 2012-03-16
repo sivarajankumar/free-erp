@@ -8,6 +8,7 @@ import com.davidhodin.freeerp.data.comptabilite.TVA;
 import com.davidhodin.freeerp.data.configuration.Pays;
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,28 +22,25 @@ public class Service implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String reference;
-    private String label;
+    @NotNull
+    private String nomService;
     @ManyToOne
-    private Etat_SeviceProduit etatVente;
+    private CategorieService categorieService;
+    // Information commerciales
+    private Float prixVente;
     @ManyToOne
-    private Etat_SeviceProduit etatAchat;
+    private TVA tvaVente;
+    @ManyToOne
+    private EtatCommercial etatAchat;
+    private Float prixAchat;
+    @ManyToOne
+    private TVA tvaAchat;
     private String codeDouane;
+    private String informationFacture;
+    // Information description
     @ManyToOne
     private Pays paysOrigine;
     private String description;
-    private Float prix;
-    @ManyToOne
-    private TVA tva;
-    @ManyToOne
-    private CategorieProduit categorie;
-
-    public CategorieProduit getCategorie() {
-        return categorie;
-    }
-
-    public void setCategorie(CategorieProduit categorie) {
-        this.categorie = categorie;
-    }
 
     public Long getId() {
         return id;
@@ -68,28 +66,20 @@ public class Service implements Serializable {
         this.description = description;
     }
 
-    public Etat_SeviceProduit getEtatAchat() {
+    public EtatCommercial getEtatAchat() {
         return etatAchat;
     }
 
-    public void setEtatAchat(Etat_SeviceProduit etatAchat) {
+    public void setEtatAchat(EtatCommercial etatAchat) {
         this.etatAchat = etatAchat;
     }
 
-    public Etat_SeviceProduit getEtatVente() {
-        return etatVente;
+    public String getNomService() {
+        return nomService;
     }
 
-    public void setEtatVente(Etat_SeviceProduit etatVente) {
-        this.etatVente = etatVente;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
+    public void setNomService(String nomService) {
+        this.nomService = nomService;
     }
 
     public Pays getPaysOrigine() {
@@ -108,21 +98,54 @@ public class Service implements Serializable {
         this.reference = reference;
     }
 
-    public Float getPrix() {
-        return prix;
+    public CategorieService getCategorieService() {
+        return categorieService;
     }
 
-    public void setPrix(Float prix) {
-        this.prix = prix;
+    public void setCategorieService(CategorieService categorieService) {
+        this.categorieService = categorieService;
     }
 
-    public TVA getTva() {
-        return tva;
+    public String getInformationFacture() {
+        return informationFacture;
     }
 
-    public void setTva(TVA tva) {
-        this.tva = tva;
+    public void setInformationFacture(String informationFacture) {
+        this.informationFacture = informationFacture;
     }
+
+    public Float getPrixAchat() {
+        return prixAchat;
+    }
+
+    public void setPrixAchat(Float prixAchat) {
+        this.prixAchat = prixAchat;
+    }
+
+    public Float getPrixVente() {
+        return prixVente;
+    }
+
+    public void setPrixVente(Float prixVente) {
+        this.prixVente = prixVente;
+    }
+
+    public TVA getTvaAchat() {
+        return tvaAchat;
+    }
+
+    public void setTvaAchat(TVA tvaAchat) {
+        this.tvaAchat = tvaAchat;
+    }
+
+    public TVA getTvaVente() {
+        return tvaVente;
+    }
+
+    public void setTvaVente(TVA tvaVente) {
+        this.tvaVente = tvaVente;
+    }
+
 
     @Override
     public int hashCode() {
@@ -146,6 +169,10 @@ public class Service implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Service[ id=" + id + " ]";
+       if (reference != null) {
+            return nomService + " (" + reference + ")";
+        } else {
+            return nomService;
+        }
     }
 }

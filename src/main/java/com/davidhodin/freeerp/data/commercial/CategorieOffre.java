@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.commercial;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,13 +15,23 @@ import javax.persistence.*;
  */
 @Entity
 public class CategorieOffre implements Serializable {
-    @OneToMany(mappedBy = "categorieOffre")
-    private List<OffreCommerciale> offreCommerciales;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomCategorie;
+    @OneToMany(mappedBy = "categorieOffre")
+    private List<OffreCommerciale> offreCommerciales;
+    
+    public List<OffreCommerciale> getOffreCommerciales() {
+        return offreCommerciales;
+    }
+
+    public void setOffreCommerciales(List<OffreCommerciale> offreCommerciales) {
+        this.offreCommerciales = offreCommerciales;
+    }
 
     public Long getId() {
         return id;

@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,37 +19,43 @@ import javax.persistence.*;
  */
 @Entity
 public class OffreCommerciale implements Serializable {
-    @ManyToOne
-    private GroupeOffre groupeOffre;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    // Général
+    @NotNull
     private String nomOffre;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateCreation;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateCloture;
     @ManyToOne
     private Tiers tiers;
     @ManyToOne
     private CategorieOffre categorieOffre;
+    @OneToMany
+    private List<ItemCommercial> itemCommerciaux;
+    // Dates
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateCreation;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateCloture;
+    // Suivi
     @ManyToOne
     private EtatOffre etatOffre;
-    @OneToMany
-    private List<Evenement> evenements;
-    @ManyToOne
-    private Facture facture;
-    private Boolean factureOk;
     private Boolean receptionOk;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateReceptionOk;
+    @OneToMany
+    private List<Evenement> evenements;
+    // Financier
+    @ManyToOne
+    private Facture facture;
+    private Boolean factureOk;
+    // Autre
     @ManyToOne
     private Documents documents;
- 
-    @ManyToMany
-    private List<ItemCommercial> itemCommerciaux;
-    
+    @ManyToOne
+    private GroupeOffre groupeOffre;
+
     public Long getId() {
         return id;
     }
@@ -121,7 +128,6 @@ public class OffreCommerciale implements Serializable {
         this.tiers = tiers;
     }
 
-
     public Date getDateReceptionOk() {
         return dateReceptionOk;
     }
@@ -162,6 +168,14 @@ public class OffreCommerciale implements Serializable {
         this.receptionOk = receptionOk;
     }
 
+    public List<ItemCommercial> getItemCommerciaux() {
+        return itemCommerciaux;
+    }
+
+    public void setItemCommerciaux(List<ItemCommercial> itemCommerciaux) {
+        this.itemCommerciaux = itemCommerciaux;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -184,13 +198,10 @@ public class OffreCommerciale implements Serializable {
 
     @Override
     public String toString() {
-        String retour;
         if (groupeOffre != null) {
-            retour = groupeOffre.getLabelGroupeOffre() + " - " + nomOffre;
+            return groupeOffre.getLabelGroupeOffre() + " - " + nomOffre;
         } else {
-            retour = nomOffre;
+            return nomOffre;
         }
-        return retour;
     }
-    
 }

@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.commercial;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,6 +19,7 @@ public class GroupeOffre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String labelGroupeOffre;
     private Boolean enCours;
     @OneToMany(mappedBy = "groupeOffre")

@@ -19,8 +19,10 @@
                     <h:inputText id="id" value="#{itemCommercialController.selected.id}" title="#{bundle.EditItemCommercialTitle_id}" />
                     <h:outputLabel value="#{bundle.EditItemCommercialLabel_montantHT}" for="montantHT" />
                     <h:inputText id="montantHT" value="#{itemCommercialController.selected.montantHT}" title="#{bundle.EditItemCommercialTitle_montantHT}" />
-                    <h:outputLabel value="#{bundle.EditItemCommercialLabel_montantTVA}" for="montantTVA" />
-                    <h:inputText id="montantTVA" value="#{itemCommercialController.selected.montantTVA}" title="#{bundle.EditItemCommercialTitle_montantTVA}" />
+                    <h:outputLabel value="#{bundle.EditItemCommercialLabel_tauxTVA}" for="tauxTVA" />
+                    <h:selectOneMenu id="tauxTVA" value="#{itemCommercialController.selected.tauxTVA}" title="#{bundle.EditItemCommercialTitle_tauxTVA}" >
+                        <f:selectItems value="#{tVAController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.EditItemCommercialLabel_nomItem}" for="nomItem" />
                     <h:inputText id="nomItem" value="#{itemCommercialController.selected.nomItem}" title="#{bundle.EditItemCommercialTitle_nomItem}" />
                     <h:outputLabel value="#{bundle.EditItemCommercialLabel_produit}" for="produit" />

@@ -16,13 +16,15 @@ import javax.persistence.*;
  */
 @Entity
 public class Contact implements Serializable {
+
     @ManyToMany(mappedBy = "contacts")
     private List<Tiers> tierss;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titre;
+    @ManyToOne
+    private TitreContact titre;
     private String nom;
     private String prenom;
     private String fonction;
@@ -89,11 +91,11 @@ public class Contact implements Serializable {
         this.telephones = telephones;
     }
 
-    public String getTitre() {
+    public TitreContact getTitre() {
         return titre;
     }
 
-    public void setTitre(String titre) {
+    public void setTitre(TitreContact titre) {
         this.titre = titre;
     }
 
@@ -127,7 +129,10 @@ public class Contact implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Contact[ id=" + id + " ]";
+        if (titre != null) {
+            return titre.getNomTitre() + " " + prenom + " " + nom + " - " + fonction;
+        } else {
+            return prenom + " " + nom + " - " + fonction;
+        }
     }
-    
 }

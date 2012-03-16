@@ -21,8 +21,8 @@
                     <h:selectOneMenu id="categorieBanque" value="#{banqueController.selected.categorieBanque}" title="#{bundle.CreateBanqueTitle_categorieBanque}" >
                         <f:selectItems value="#{categorieBanqueController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateBanqueLabel_labelBanque}" for="labelBanque" />
-                    <h:inputText id="labelBanque" value="#{banqueController.selected.labelBanque}" title="#{bundle.CreateBanqueTitle_labelBanque}" />
+                    <h:outputLabel value="#{bundle.CreateBanqueLabel_nomBanque}" for="nomBanque" />
+                    <h:inputText id="nomBanque" value="#{banqueController.selected.nomBanque}" title="#{bundle.CreateBanqueTitle_nomBanque}" />
                     <h:outputLabel value="#{bundle.CreateBanqueLabel_tiers}" for="tiers" />
                     <h:selectOneMenu id="tiers" value="#{banqueController.selected.tiers}" title="#{bundle.CreateBanqueTitle_tiers}" >
                         <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>

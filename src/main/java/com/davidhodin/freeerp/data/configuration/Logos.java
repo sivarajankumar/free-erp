@@ -6,6 +6,7 @@ package com.davidhodin.freeerp.data.configuration;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -17,6 +18,8 @@ public class Logos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
+    private String nomLogo;
     private String MimeType;
     @Lob
     @Basic(fetch = FetchType.LAZY)
@@ -28,6 +31,14 @@ public class Logos implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNomLogo() {
+        return nomLogo;
+    }
+
+    public void setNomLogo(String nomLogo) {
+        this.nomLogo = nomLogo;
     }
 
     public byte[] getImage() {
@@ -68,7 +79,7 @@ public class Logos implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Logos[ id=" + id + " ]";
+        return nomLogo;
     }
     
 }

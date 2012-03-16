@@ -17,10 +17,14 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditTelephoneLabel_id}" for="id" />
                     <h:inputText id="id" value="#{telephoneController.selected.id}" title="#{bundle.EditTelephoneTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditTelephoneLabel_categorieTelephone}" for="categorieTelephone" />
+                    <h:selectOneMenu id="categorieTelephone" value="#{telephoneController.selected.categorieTelephone}" title="#{bundle.EditTelephoneTitle_categorieTelephone}" >
+                        <f:selectItems value="#{categorieTelephoneController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTelephoneLabel_descriptionNumero}" for="descriptionNumero" />
+                    <h:inputText id="descriptionNumero" value="#{telephoneController.selected.descriptionNumero}" title="#{bundle.EditTelephoneTitle_descriptionNumero}" />
                     <h:outputLabel value="#{bundle.EditTelephoneLabel_numero}" for="numero" />
                     <h:inputText id="numero" value="#{telephoneController.selected.numero}" title="#{bundle.EditTelephoneTitle_numero}" />
-                    <h:outputLabel value="#{bundle.EditTelephoneLabel_typeNumero}" for="typeNumero" />
-                    <h:inputText id="typeNumero" value="#{telephoneController.selected.typeNumero}" title="#{bundle.EditTelephoneTitle_typeNumero}" />
                 </h:panelGrid>
                 <h:commandLink action="#{telephoneController.update}" value="#{bundle.EditTelephoneSaveLink}"/>
                 <br />

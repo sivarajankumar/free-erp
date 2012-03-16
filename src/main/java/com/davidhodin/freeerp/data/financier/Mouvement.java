@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -16,17 +17,18 @@ import javax.persistence.*;
  */
 @Entity
 public class Mouvement implements Serializable {
-    @OneToMany(mappedBy = "mouvement")
-    private List<Reglement> reglements;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String labelMouvement;
+    @NotNull
+    private String nomMouvement;
     private String description;
     @ManyToOne
     private CategorieMouvement categorieMouvement;
     @ManyToOne
+    @NotNull
     private Comptes compte;
     private Boolean debit;
     private Float montant;
@@ -36,6 +38,8 @@ public class Mouvement implements Serializable {
     private Date dateValeur;
     @ManyToOne
     private Rapprochement rapprochement;
+    @OneToMany(mappedBy = "mouvement")
+    private List<Reglement> reglements;
     
     public Long getId() {
         return id;
@@ -43,6 +47,14 @@ public class Mouvement implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Reglement> getReglements() {
+        return reglements;
+    }
+
+    public void setReglements(List<Reglement> reglements) {
+        this.reglements = reglements;
     }
 
     public CategorieMouvement getCategorieMouvement() {
@@ -93,12 +105,12 @@ public class Mouvement implements Serializable {
         this.description = description;
     }
 
-    public String getLabelMouvement() {
-        return labelMouvement;
+    public String getNomMouvement() {
+        return nomMouvement;
     }
 
-    public void setLabelMouvement(String labelMouvement) {
-        this.labelMouvement = labelMouvement;
+    public void setNomMouvement(String nomMouvement) {
+        this.nomMouvement = nomMouvement;
     }
 
     public Float getMontant() {
@@ -139,7 +151,7 @@ public class Mouvement implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.financier.Mouvement[ id=" + id + " ]";
+        return nomMouvement;
     }
     
 }

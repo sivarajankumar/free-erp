@@ -15,10 +15,6 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateServiceLabel_categorie}" for="categorie" />
-                    <h:selectOneMenu id="categorie" value="#{serviceController.selected.categorie}" title="#{bundle.CreateServiceTitle_categorie}" >
-                        <f:selectItems value="#{categorieProduitController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateServiceLabel_id}" for="id" />
                     <h:inputText id="id" value="#{serviceController.selected.id}" title="#{bundle.CreateServiceTitle_id}" />
                     <h:outputLabel value="#{bundle.CreateServiceLabel_codeDouane}" for="codeDouane" />
@@ -27,24 +23,32 @@
                     <h:inputText id="description" value="#{serviceController.selected.description}" title="#{bundle.CreateServiceTitle_description}" />
                     <h:outputLabel value="#{bundle.CreateServiceLabel_etatAchat}" for="etatAchat" />
                     <h:selectOneMenu id="etatAchat" value="#{serviceController.selected.etatAchat}" title="#{bundle.CreateServiceTitle_etatAchat}" >
-                        <f:selectItems value="#{etat_SeviceProduitController.itemsAvailableSelectOne}"/>
+                        <f:selectItems value="#{etatCommercialController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateServiceLabel_etatVente}" for="etatVente" />
-                    <h:selectOneMenu id="etatVente" value="#{serviceController.selected.etatVente}" title="#{bundle.CreateServiceTitle_etatVente}" >
-                        <f:selectItems value="#{etat_SeviceProduitController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateServiceLabel_label}" for="label" />
-                    <h:inputText id="label" value="#{serviceController.selected.label}" title="#{bundle.CreateServiceTitle_label}" />
+                    <h:outputLabel value="#{bundle.CreateServiceLabel_nomService}" for="nomService" />
+                    <h:inputText id="nomService" value="#{serviceController.selected.nomService}" title="#{bundle.CreateServiceTitle_nomService}" />
                     <h:outputLabel value="#{bundle.CreateServiceLabel_paysOrigine}" for="paysOrigine" />
                     <h:selectOneMenu id="paysOrigine" value="#{serviceController.selected.paysOrigine}" title="#{bundle.CreateServiceTitle_paysOrigine}" >
                         <f:selectItems value="#{paysController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateServiceLabel_reference}" for="reference" />
                     <h:inputText id="reference" value="#{serviceController.selected.reference}" title="#{bundle.CreateServiceTitle_reference}" />
-                    <h:outputLabel value="#{bundle.CreateServiceLabel_prix}" for="prix" />
-                    <h:inputText id="prix" value="#{serviceController.selected.prix}" title="#{bundle.CreateServiceTitle_prix}" />
-                    <h:outputLabel value="#{bundle.CreateServiceLabel_tva}" for="tva" />
-                    <h:selectOneMenu id="tva" value="#{serviceController.selected.tva}" title="#{bundle.CreateServiceTitle_tva}" >
+                    <h:outputLabel value="#{bundle.CreateServiceLabel_categorieService}" for="categorieService" />
+                    <h:selectOneMenu id="categorieService" value="#{serviceController.selected.categorieService}" title="#{bundle.CreateServiceTitle_categorieService}" >
+                        <f:selectItems value="#{categorieServiceController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateServiceLabel_informationFacture}" for="informationFacture" />
+                    <h:inputText id="informationFacture" value="#{serviceController.selected.informationFacture}" title="#{bundle.CreateServiceTitle_informationFacture}" />
+                    <h:outputLabel value="#{bundle.CreateServiceLabel_prixAchat}" for="prixAchat" />
+                    <h:inputText id="prixAchat" value="#{serviceController.selected.prixAchat}" title="#{bundle.CreateServiceTitle_prixAchat}" />
+                    <h:outputLabel value="#{bundle.CreateServiceLabel_prixVente}" for="prixVente" />
+                    <h:inputText id="prixVente" value="#{serviceController.selected.prixVente}" title="#{bundle.CreateServiceTitle_prixVente}" />
+                    <h:outputLabel value="#{bundle.CreateServiceLabel_tvaAchat}" for="tvaAchat" />
+                    <h:selectOneMenu id="tvaAchat" value="#{serviceController.selected.tvaAchat}" title="#{bundle.CreateServiceTitle_tvaAchat}" >
+                        <f:selectItems value="#{tVAController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateServiceLabel_tvaVente}" for="tvaVente" />
+                    <h:selectOneMenu id="tvaVente" value="#{serviceController.selected.tvaVente}" title="#{bundle.CreateServiceTitle_tvaVente}" >
                         <f:selectItems value="#{tVAController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>

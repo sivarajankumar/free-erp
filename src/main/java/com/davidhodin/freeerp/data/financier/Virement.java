@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.financier;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,10 +15,13 @@ import javax.persistence.*;
  */
 @Entity
 public class Virement implements Serializable {
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
+    private String nomVirement;
     private String description;
     @ManyToOne
     private Mouvement debit;
@@ -33,6 +37,14 @@ public class Virement implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNomVirement() {
+        return nomVirement;
+    }
+
+    public void setNomVirement(String nomVirement) {
+        this.nomVirement = nomVirement;
     }
 
     public Mouvement getCredit() {
@@ -97,7 +109,7 @@ public class Virement implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.financier.Virement[ id=" + id + " ]";
+        return nomVirement;
     }
     
 }

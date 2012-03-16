@@ -8,6 +8,7 @@ import com.davidhodin.freeerp.data.tiers.Tiers;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,6 +22,7 @@ public class CategorieTiers implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomCategorie;
 
     public Long getId() {

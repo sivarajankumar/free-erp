@@ -5,10 +5,8 @@
 package com.davidhodin.freeerp.data.tiers;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -20,7 +18,9 @@ public class Telephone implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String typeNumero;
+    @ManyToOne
+    private CategorieTelephone categorieTelephone;
+    @NotNull
     private String descriptionNumero;
     private String numero;
 
@@ -32,11 +32,20 @@ public class Telephone implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public CategorieTelephone getCategorieTelephone() {
+        return categorieTelephone;
+    }
+
+    public void setCategorieTelephone(CategorieTelephone categorieTelephone) {
+        this.categorieTelephone = categorieTelephone;
+    }
+
+    public String getDescriptionNumero() {
+        return descriptionNumero;
+    }
+
+    public void setDescriptionNumero(String descriptionNumero) {
+        this.descriptionNumero = descriptionNumero;
     }
 
     public String getNumero() {
@@ -47,14 +56,12 @@ public class Telephone implements Serializable {
         this.numero = numero;
     }
 
-    public String getTypeNumero() {
-        return typeNumero;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
-
-    public void setTypeNumero(String typeNumero) {
-        this.typeNumero = typeNumero;
-    }
-
     
     @Override
     public boolean equals(Object object) {
@@ -72,12 +79,11 @@ public class Telephone implements Serializable {
     @Override
     public String toString() {
         String retour;
-        if (descriptionNumero != null) {
-            retour = typeNumero + " - " + descriptionNumero;
+        if (categorieTelephone != null) {
+            retour = categorieTelephone.getNomCategorie() + " - " + descriptionNumero;
         } else {
-            retour = typeNumero;
+            retour = descriptionNumero;
         }            
         return retour;
-    }
-    
+    }   
 }

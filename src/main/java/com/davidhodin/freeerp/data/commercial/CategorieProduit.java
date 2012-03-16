@@ -4,11 +4,10 @@
  */
 package com.davidhodin.freeerp.data.commercial;
 
-import com.davidhodin.freeerp.data.commercial.Service;
-import com.davidhodin.freeerp.data.commercial.Produit;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,12 +17,11 @@ import javax.persistence.*;
 public class CategorieProduit implements Serializable {
     @OneToMany(mappedBy = "categorie")
     private List<Produit> products;
-    @OneToMany(mappedBy = "categorie")
-    private List<Service> services;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomCategorie;
     private String descCategorie;
 
@@ -58,14 +56,6 @@ public class CategorieProduit implements Serializable {
     public void setProducts(List<Produit> products) {
         this.products = products;
     }
-
-    public List<Service> getServices() {
-        return services;
-    }
-
-    public void setServices(List<Service> services) {
-        this.services = services;
-    }
     
     
 
@@ -91,7 +81,7 @@ public class CategorieProduit implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Categorie[ id=" + id + " ]";
+        return nomCategorie;
     }
     
 }

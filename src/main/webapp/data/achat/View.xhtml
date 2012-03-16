@@ -17,6 +17,34 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewAchatLabel_id}"/>
                     <h:outputText value="#{achatController.selected.id}" title="#{bundle.ViewAchatTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_categorieAchat}"/>
+                    <h:outputText value="#{achatController.selected.categorieAchat}" title="#{bundle.ViewAchatTitle_categorieAchat}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_dateCloture}"/>
+                    <h:outputText value="#{achatController.selected.dateCloture}" title="#{bundle.ViewAchatTitle_dateCloture}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAchatLabel_dateCreation}"/>
+                    <h:outputText value="#{achatController.selected.dateCreation}" title="#{bundle.ViewAchatTitle_dateCreation}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAchatLabel_dateReceptionOk}"/>
+                    <h:outputText value="#{achatController.selected.dateReceptionOk}" title="#{bundle.ViewAchatTitle_dateReceptionOk}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAchatLabel_documents}"/>
+                    <h:outputText value="#{achatController.selected.documents}" title="#{bundle.ViewAchatTitle_documents}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_etatAchat}"/>
+                    <h:outputText value="#{achatController.selected.etatAchat}" title="#{bundle.ViewAchatTitle_etatAchat}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_facture}"/>
+                    <h:outputText value="#{achatController.selected.facture}" title="#{bundle.ViewAchatTitle_facture}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_factureOk}"/>
+                    <h:outputText value="#{achatController.selected.factureOk}" title="#{bundle.ViewAchatTitle_factureOk}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_nomAchat}"/>
+                    <h:outputText value="#{achatController.selected.nomAchat}" title="#{bundle.ViewAchatTitle_nomAchat}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_receptionOk}"/>
+                    <h:outputText value="#{achatController.selected.receptionOk}" title="#{bundle.ViewAchatTitle_receptionOk}"/>
+                    <h:outputText value="#{bundle.ViewAchatLabel_tiers}"/>
+                    <h:outputText value="#{achatController.selected.tiers}" title="#{bundle.ViewAchatTitle_tiers}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{achatController.destroyAndView}" value="#{bundle.ViewAchatDestroyLink}"/>

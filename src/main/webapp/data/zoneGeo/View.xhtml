@@ -15,6 +15,8 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewZoneGeoLabel_adressePostale}"/>
+                    <h:outputText value="#{zoneGeoController.selected.adressePostale}" title="#{bundle.ViewZoneGeoTitle_adressePostale}"/>
                     <h:outputText value="#{bundle.ViewZoneGeoLabel_id}"/>
                     <h:outputText value="#{zoneGeoController.selected.id}" title="#{bundle.ViewZoneGeoTitle_id}"/>
                     <h:outputText value="#{bundle.ViewZoneGeoLabel_descriptionZone}"/>

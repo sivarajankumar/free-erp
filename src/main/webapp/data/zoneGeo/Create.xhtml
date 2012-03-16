@@ -15,6 +15,10 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateZoneGeoLabel_adressePostale}" for="adressePostale" />
+                    <h:selectOneMenu id="adressePostale" value="#{zoneGeoController.selected.adressePostale}" title="#{bundle.CreateZoneGeoTitle_adressePostale}" >
+                        <f:selectItems value="#{adressePostaleController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateZoneGeoLabel_id}" for="id" />
                     <h:inputText id="id" value="#{zoneGeoController.selected.id}" title="#{bundle.CreateZoneGeoTitle_id}" />
                     <h:outputLabel value="#{bundle.CreateZoneGeoLabel_descriptionZone}" for="descriptionZone" />

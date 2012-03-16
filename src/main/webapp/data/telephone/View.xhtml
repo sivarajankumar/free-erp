@@ -17,10 +17,12 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewTelephoneLabel_id}"/>
                     <h:outputText value="#{telephoneController.selected.id}" title="#{bundle.ViewTelephoneTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewTelephoneLabel_categorieTelephone}"/>
+                    <h:outputText value="#{telephoneController.selected.categorieTelephone}" title="#{bundle.ViewTelephoneTitle_categorieTelephone}"/>
+                    <h:outputText value="#{bundle.ViewTelephoneLabel_descriptionNumero}"/>
+                    <h:outputText value="#{telephoneController.selected.descriptionNumero}" title="#{bundle.ViewTelephoneTitle_descriptionNumero}"/>
                     <h:outputText value="#{bundle.ViewTelephoneLabel_numero}"/>
                     <h:outputText value="#{telephoneController.selected.numero}" title="#{bundle.ViewTelephoneTitle_numero}"/>
-                    <h:outputText value="#{bundle.ViewTelephoneLabel_typeNumero}"/>
-                    <h:outputText value="#{telephoneController.selected.typeNumero}" title="#{bundle.ViewTelephoneTitle_typeNumero}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{telephoneController.destroyAndView}" value="#{bundle.ViewTelephoneDestroyLink}"/>

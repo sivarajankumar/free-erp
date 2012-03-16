@@ -17,6 +17,8 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditVirementLabel_id}" for="id" />
                     <h:inputText id="id" value="#{virementController.selected.id}" title="#{bundle.EditVirementTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditVirementLabel_nomVirement}" for="nomVirement" />
+                    <h:inputText id="nomVirement" value="#{virementController.selected.nomVirement}" title="#{bundle.EditVirementTitle_nomVirement}" />
                     <h:outputLabel value="#{bundle.EditVirementLabel_credit}" for="credit" />
                     <h:selectOneMenu id="credit" value="#{virementController.selected.credit}" title="#{bundle.EditVirementTitle_credit}" >
                         <f:selectItems value="#{mouvementController.itemsAvailableSelectOne}"/>

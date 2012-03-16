@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.financier;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,20 +15,30 @@ import javax.persistence.*;
  */
 @Entity
 public class TypeCompte implements Serializable {
-    @OneToMany(mappedBy = "typeCompte")
-    private List<Comptes> comptess;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String typeCompte;
-
+    @OneToMany(mappedBy = "typeCompte")
+    private List<Comptes> comptess;
+    
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Comptes> getComptess() {
+        return comptess;
+    }
+
+    public void setComptess(List<Comptes> comptess) {
+        this.comptess = comptess;
     }
 
     public String getTypeCompte() {

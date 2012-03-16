@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.financier;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,14 +15,12 @@ import javax.persistence.*;
  */
 @Entity
 public class Comptes implements Serializable {
-    @OneToMany(mappedBy = "compteAssocie")
-    private List<Rapprochement> rapprochements;
-    @OneToMany(mappedBy = "compte")
-    private List<Mouvement> mouvements;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomCompte;
     private String description;
     private Boolean compteBancaire;
@@ -30,7 +29,10 @@ public class Comptes implements Serializable {
     private Float soldeCompte;
     @ManyToOne
     private TypeCompte typeCompte;
-    
+    @OneToMany(mappedBy = "compteAssocie")
+    private List<Rapprochement> rapprochements;
+    @OneToMany(mappedBy = "compte")
+    private List<Mouvement> mouvements;
 
     public Long getId() {
         return id;
@@ -38,6 +40,14 @@ public class Comptes implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Rapprochement> getRapprochements() {
+        return rapprochements;
+    }
+
+    public void setRapprochements(List<Rapprochement> rapprochements) {
+        this.rapprochements = rapprochements;
     }
 
     public Banque getBanque() {
@@ -118,7 +128,10 @@ public class Comptes implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.financier.Comptes[ id=" + id + " ]";
+        if (banque != null) {
+            return nomCompte + " - " + banque.getNomBanque();
+        } else {
+            return nomCompte;
+        }
     }
-    
 }

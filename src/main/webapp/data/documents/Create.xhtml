@@ -19,6 +19,8 @@
                     <h:inputText id="id" value="#{documentsController.selected.id}" title="#{bundle.CreateDocumentsTitle_id}" />
                     <h:outputLabel value="#{bundle.CreateDocumentsLabel_mimeType}" for="mimeType" />
                     <h:inputText id="mimeType" value="#{documentsController.selected.mimeType}" title="#{bundle.CreateDocumentsTitle_mimeType}" />
+                    <h:outputLabel value="#{bundle.CreateDocumentsLabel_nomDocument}" for="nomDocument" />
+                    <h:inputText id="nomDocument" value="#{documentsController.selected.nomDocument}" title="#{bundle.CreateDocumentsTitle_nomDocument}" />
                     <h:outputLabel value="#{bundle.CreateDocumentsLabel_document}" for="document" />
                     <h:inputTextarea rows="4" cols="30" id="document" value="#{documentsController.selected.document}" title="#{bundle.CreateDocumentsTitle_document}" />
                 </h:panelGrid>

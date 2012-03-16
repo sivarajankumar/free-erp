@@ -8,6 +8,7 @@ import com.davidhodin.freeerp.data.financier.Mouvement;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,21 +16,22 @@ import javax.persistence.*;
  */
 @Entity
 public class Reglement implements Serializable {
-    @ManyToOne
-    private Facture facture;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomReglement;
+    private Float soldeReglement;
     @ManyToOne
     private CategorieReglement categorieReglement;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateReglement;    
-    private Float soldeReglement;
+    private Date dateReglement;
     @ManyToOne
     private Mouvement mouvement;
-    
+    @ManyToOne
+    private Facture facture;
 
     public Long getId() {
         return id;
@@ -113,9 +115,8 @@ public class Reglement implements Serializable {
         if (categorieReglement != null) {
             retour = categorieReglement.getNomCategorie() + " - " + nomReglement;
         } else {
-            retour = nomReglement;            
+            retour = nomReglement;
         }
         return retour;
     }
-    
 }

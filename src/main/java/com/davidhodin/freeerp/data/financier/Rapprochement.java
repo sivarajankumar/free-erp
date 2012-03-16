@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.financier;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,12 +15,12 @@ import javax.persistence.*;
  */
 @Entity
 public class Rapprochement implements Serializable {
-    @OneToMany(mappedBy = "rapprochement")
-    private List<Mouvement> mouvements;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomRapprochement;
     private String identifiantReleve;
     @ManyToOne
@@ -28,7 +29,9 @@ public class Rapprochement implements Serializable {
     private Float montantTotalCredit;
     private Float montantDebitRapproche;
     private Float montantCreditRapproche;
-
+    @OneToMany(mappedBy = "rapprochement")
+    private List<Mouvement> mouvements;
+    
     public Long getId() {
         return id;
     }
@@ -123,7 +126,7 @@ public class Rapprochement implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.financier.Rapprochement[ id=" + id + " ]";
+        return nomRapprochement;
     }
     
 }

@@ -52,15 +52,9 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_label}"/>
+                                <h:outputText value="#{bundle.ListProduitTitle_nomProduit}"/>
                             </f:facet>
-                            <h:outputText value="#{item.label}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_paysOrigine}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.paysOrigine}"/>
+                            <h:outputText value="#{item.nomProduit}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
@@ -100,15 +94,27 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_prix}"/>
+                                <h:outputText value="#{bundle.ListProduitTitle_prixAchat}"/>
                             </f:facet>
-                            <h:outputText value="#{item.prix}"/>
+                            <h:outputText value="#{item.prixAchat}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_tva}"/>
+                                <h:outputText value="#{bundle.ListProduitTitle_prixVente}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tva}"/>
+                            <h:outputText value="#{item.prixVente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProduitTitle_tvaAchat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tvaAchat}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProduitTitle_tvaVente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tvaVente}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">

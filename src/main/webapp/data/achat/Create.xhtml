@@ -17,6 +17,44 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateAchatLabel_id}" for="id" />
                     <h:inputText id="id" value="#{achatController.selected.id}" title="#{bundle.CreateAchatTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_categorieAchat}" for="categorieAchat" />
+                    <h:selectOneMenu id="categorieAchat" value="#{achatController.selected.categorieAchat}" title="#{bundle.CreateAchatTitle_categorieAchat}" >
+                        <f:selectItems value="#{categorieAchatController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_dateCloture}" for="dateCloture" />
+                    <h:inputText id="dateCloture" value="#{achatController.selected.dateCloture}" title="#{bundle.CreateAchatTitle_dateCloture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_dateCreation}" for="dateCreation" />
+                    <h:inputText id="dateCreation" value="#{achatController.selected.dateCreation}" title="#{bundle.CreateAchatTitle_dateCreation}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_dateReceptionOk}" for="dateReceptionOk" />
+                    <h:inputText id="dateReceptionOk" value="#{achatController.selected.dateReceptionOk}" title="#{bundle.CreateAchatTitle_dateReceptionOk}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_documents}" for="documents" />
+                    <h:selectOneMenu id="documents" value="#{achatController.selected.documents}" title="#{bundle.CreateAchatTitle_documents}" >
+                        <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_etatAchat}" for="etatAchat" />
+                    <h:selectOneMenu id="etatAchat" value="#{achatController.selected.etatAchat}" title="#{bundle.CreateAchatTitle_etatAchat}" >
+                        <f:selectItems value="#{etatAchatController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_facture}" for="facture" />
+                    <h:selectOneMenu id="facture" value="#{achatController.selected.facture}" title="#{bundle.CreateAchatTitle_facture}" >
+                        <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_factureOk}" for="factureOk" />
+                    <h:inputText id="factureOk" value="#{achatController.selected.factureOk}" title="#{bundle.CreateAchatTitle_factureOk}" />
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_nomAchat}" for="nomAchat" />
+                    <h:inputText id="nomAchat" value="#{achatController.selected.nomAchat}" title="#{bundle.CreateAchatTitle_nomAchat}" />
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_receptionOk}" for="receptionOk" />
+                    <h:inputText id="receptionOk" value="#{achatController.selected.receptionOk}" title="#{bundle.CreateAchatTitle_receptionOk}" />
+                    <h:outputLabel value="#{bundle.CreateAchatLabel_tiers}" for="tiers" />
+                    <h:selectOneMenu id="tiers" value="#{achatController.selected.tiers}" title="#{bundle.CreateAchatTitle_tiers}" >
+                        <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{achatController.create}" value="#{bundle.CreateAchatSaveLink}" />

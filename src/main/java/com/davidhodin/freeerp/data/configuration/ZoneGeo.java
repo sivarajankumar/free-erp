@@ -5,9 +5,11 @@
 package com.davidhodin.freeerp.data.configuration;
 
 import com.davidhodin.freeerp.data.production.Stock;
+import com.davidhodin.freeerp.data.tiers.AdressePostale;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,25 +17,37 @@ import javax.persistence.*;
  */
 @Entity
 public class ZoneGeo implements Serializable {
-    @OneToMany(mappedBy = "zoneStock")
-    private List<Stock> stocks;
-    @OneToMany(mappedBy = "zoneParent")
-    private List<ZoneGeo> zones;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomZone;
+    @ManyToOne
+    private AdressePostale adressePostale;
     @ManyToOne
     private ZoneGeo zoneParent;
     private String descriptionZone;
-
+    @OneToMany(mappedBy = "zoneStock")
+    private List<Stock> stocks;
+    @OneToMany(mappedBy = "zoneParent")
+    private List<ZoneGeo> zones;
+    
     public List<Stock> getStocks() {
         return stocks;
     }
 
     public void setStocks(List<Stock> stocks) {
         this.stocks = stocks;
+    }
+
+    public AdressePostale getAdressePostale() {
+        return adressePostale;
+    }
+
+    public void setAdressePostale(AdressePostale adressePostale) {
+        this.adressePostale = adressePostale;
     }
 
     public Long getId() {
@@ -99,7 +113,7 @@ public class ZoneGeo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Sone[ id=" + id + " ]";
+        return nomZone;
     }
     
 }

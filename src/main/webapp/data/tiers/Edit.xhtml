@@ -27,12 +27,24 @@
                     <h:selectOneMenu id="categorie" value="#{tiersController.selected.categorie}" title="#{bundle.EditTiersTitle_categorie}" >
                         <f:selectItems value="#{categorieTiersController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditTiersLabel_codeTiers}" for="codeTiers" />
-                    <h:inputText id="codeTiers" value="#{tiersController.selected.codeTiers}" title="#{bundle.EditTiersTitle_codeTiers}" />
                     <h:outputLabel value="#{bundle.EditTiersLabel_logo}" for="logo" />
                     <h:selectOneMenu id="logo" value="#{tiersController.selected.logo}" title="#{bundle.EditTiersTitle_logo}" >
                         <f:selectItems value="#{logosController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTiersLabel_capital}" for="capital" />
+                    <h:inputText id="capital" value="#{tiersController.selected.capital}" title="#{bundle.EditTiersTitle_capital}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_codeInterneTiers}" for="codeInterneTiers" />
+                    <h:inputText id="codeInterneTiers" value="#{tiersController.selected.codeInterneTiers}" title="#{bundle.EditTiersTitle_codeInterneTiers}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_effectif}" for="effectif" />
+                    <h:inputText id="effectif" value="#{tiersController.selected.effectif}" title="#{bundle.EditTiersTitle_effectif}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_formeJuridique}" for="formeJuridique" />
+                    <h:inputText id="formeJuridique" value="#{tiersController.selected.formeJuridique}" title="#{bundle.EditTiersTitle_formeJuridique}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_identifiantLegal}" for="identifiantLegal" />
+                    <h:inputText id="identifiantLegal" value="#{tiersController.selected.identifiantLegal}" title="#{bundle.EditTiersTitle_identifiantLegal}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_numTVA}" for="numTVA" />
+                    <h:inputText id="numTVA" value="#{tiersController.selected.numTVA}" title="#{bundle.EditTiersTitle_numTVA}" />
+                    <h:outputLabel value="#{bundle.EditTiersLabel_tva}" for="tva" />
+                    <h:inputText id="tva" value="#{tiersController.selected.tva}" title="#{bundle.EditTiersTitle_tva}" />
                 </h:panelGrid>
                 <h:commandLink action="#{tiersController.update}" value="#{bundle.EditTiersSaveLink}"/>
                 <br />

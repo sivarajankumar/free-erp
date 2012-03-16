@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.financier;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,20 +15,30 @@ import javax.persistence.*;
  */
 @Entity
 public class CategorieMouvement implements Serializable {
-    @OneToMany(mappedBy = "categorieMouvement")
-    private List<Mouvement> mouvements;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomCategorie;
-
+    @OneToMany(mappedBy = "categorieMouvement")
+    private List<Mouvement> mouvements;
+    
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Mouvement> getMouvements() {
+        return mouvements;
+    }
+
+    public void setMouvements(List<Mouvement> mouvements) {
+        this.mouvements = mouvements;
     }
 
     public String getNomCategorie() {

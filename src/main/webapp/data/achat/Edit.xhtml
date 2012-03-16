@@ -17,6 +17,44 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditAchatLabel_id}" for="id" />
                     <h:inputText id="id" value="#{achatController.selected.id}" title="#{bundle.EditAchatTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditAchatLabel_categorieAchat}" for="categorieAchat" />
+                    <h:selectOneMenu id="categorieAchat" value="#{achatController.selected.categorieAchat}" title="#{bundle.EditAchatTitle_categorieAchat}" >
+                        <f:selectItems value="#{categorieAchatController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAchatLabel_dateCloture}" for="dateCloture" />
+                    <h:inputText id="dateCloture" value="#{achatController.selected.dateCloture}" title="#{bundle.EditAchatTitle_dateCloture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAchatLabel_dateCreation}" for="dateCreation" />
+                    <h:inputText id="dateCreation" value="#{achatController.selected.dateCreation}" title="#{bundle.EditAchatTitle_dateCreation}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAchatLabel_dateReceptionOk}" for="dateReceptionOk" />
+                    <h:inputText id="dateReceptionOk" value="#{achatController.selected.dateReceptionOk}" title="#{bundle.EditAchatTitle_dateReceptionOk}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAchatLabel_documents}" for="documents" />
+                    <h:selectOneMenu id="documents" value="#{achatController.selected.documents}" title="#{bundle.EditAchatTitle_documents}" >
+                        <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAchatLabel_etatAchat}" for="etatAchat" />
+                    <h:selectOneMenu id="etatAchat" value="#{achatController.selected.etatAchat}" title="#{bundle.EditAchatTitle_etatAchat}" >
+                        <f:selectItems value="#{etatAchatController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAchatLabel_facture}" for="facture" />
+                    <h:selectOneMenu id="facture" value="#{achatController.selected.facture}" title="#{bundle.EditAchatTitle_facture}" >
+                        <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAchatLabel_factureOk}" for="factureOk" />
+                    <h:inputText id="factureOk" value="#{achatController.selected.factureOk}" title="#{bundle.EditAchatTitle_factureOk}" />
+                    <h:outputLabel value="#{bundle.EditAchatLabel_nomAchat}" for="nomAchat" />
+                    <h:inputText id="nomAchat" value="#{achatController.selected.nomAchat}" title="#{bundle.EditAchatTitle_nomAchat}" />
+                    <h:outputLabel value="#{bundle.EditAchatLabel_receptionOk}" for="receptionOk" />
+                    <h:inputText id="receptionOk" value="#{achatController.selected.receptionOk}" title="#{bundle.EditAchatTitle_receptionOk}" />
+                    <h:outputLabel value="#{bundle.EditAchatLabel_tiers}" for="tiers" />
+                    <h:selectOneMenu id="tiers" value="#{achatController.selected.tiers}" title="#{bundle.EditAchatTitle_tiers}" >
+                        <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                 </h:panelGrid>
                 <h:commandLink action="#{achatController.update}" value="#{bundle.EditAchatSaveLink}"/>
                 <br />

@@ -28,6 +28,78 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_categorieAchat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieAchat}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_dateCloture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateCloture}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_dateCreation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateCreation}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_dateReceptionOk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateReceptionOk}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_documents}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.documents}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_etatAchat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etatAchat}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_facture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.facture}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_factureOk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.factureOk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_nomAchat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomAchat}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_receptionOk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receptionOk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAchatTitle_tiers}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiers}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{achatController.prepareView}" value="#{bundle.ListAchatViewLink}"/>

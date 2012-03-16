@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditStockProduitTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditStockProduitLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{stockProduitController.selected.id}" title="#{bundle.EditStockProduitTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditStockProduitLabel_quantite}" for="quantite" />
+                    <h:inputText id="quantite" value="#{stockProduitController.selected.quantite}" title="#{bundle.EditStockProduitTitle_quantite}" />
+                    <h:outputLabel value="#{bundle.EditStockProduitLabel_stock}" for="stock" />
+                    <h:selectOneMenu id="stock" value="#{stockProduitController.selected.stock}" title="#{bundle.EditStockProduitTitle_stock}" >
+                        <f:selectItems value="#{stockController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditStockProduitLabel_produit}" for="produit" />
+                    <h:selectOneMenu id="produit" value="#{stockProduitController.selected.produit}" title="#{bundle.EditStockProduitTitle_produit}" >
+                        <f:selectItems value="#{produitController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{stockProduitController.update}" value="#{bundle.EditStockProduitSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditStockProduitViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{stockProduitController.prepareList}" value="#{bundle.EditStockProduitShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditStockProduitIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

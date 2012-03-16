@@ -19,6 +19,8 @@
                     <h:selectOneMenu id="zoneStock" value="#{stockController.selected.zoneStock}" title="#{bundle.EditStockTitle_zoneStock}" >
                         <f:selectItems value="#{zoneGeoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditStockLabel_nomStock}" for="nomStock" />
+                    <h:inputText id="nomStock" value="#{stockController.selected.nomStock}" title="#{bundle.EditStockTitle_nomStock}" />
                     <h:outputLabel value="#{bundle.EditStockLabel_id}" for="id" />
                     <h:inputText id="id" value="#{stockController.selected.id}" title="#{bundle.EditStockTitle_id}" />
                 </h:panelGrid>

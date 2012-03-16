@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,7 +22,8 @@ public class Pays implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String codePays;
-    private String labelPays;
+    @NotNull
+    private String nomPays;
 
     public Long getId() {
         return id;
@@ -39,15 +41,14 @@ public class Pays implements Serializable {
         this.codePays = codePays;
     }
 
-    public String getLabelPays() {
-        return labelPays;
+    public String getNomPays() {
+        return nomPays;
     }
 
-    public void setLabelPays(String labelPays) {
-        this.labelPays = labelPays;
+    public void setNomPays(String nomPays) {
+        this.nomPays = nomPays;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -70,7 +71,6 @@ public class Pays implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Pays[ id=" + id + " ]";
+            return nomPays;       
     }
-    
 }

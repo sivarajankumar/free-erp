@@ -1,40 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
     <h:head>
-        <title>Facelet Title</title>
-<h:outputStylesheet name="css/jsfcrud.css"/>
+        <title>test</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
-    <h:body>
-        Hello from Facelets
-                    <h:form>
-                    <h:commandLink action="/data/categorie/List" value="Show All Categorie Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/etat_SeviceProduit/List" value="Show All Etat_SeviceProduit Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/pays/List" value="Show All Pays Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/product/List" value="Show All Product Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/service/List" value="Show All Service Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/stock/List" value="Show All Stock Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/tiers/List" value="Show All Tiers Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/zoneGeo/List" value="Show All ZoneGeo Items"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink action="/data/contact/List" value="Show All Contact Items"/>
-                </h:form>
+    <h:body>   
+
                 <h:form>
                     <h:commandLink action="/data/achat/List" value="Show All Achat Items"/>
                 </h:form>
@@ -51,7 +26,13 @@
                     <h:commandLink action="/data/categorieProduit/List" value="Show All CategorieProduit Items"/>
                 </h:form>
                 <h:form>
+                    <h:commandLink action="/data/categorieService/List" value="Show All CategorieService Items"/>
+                </h:form>
+                <h:form>
                     <h:commandLink action="/data/etatAchat/List" value="Show All EtatAchat Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/etatCommercial/List" value="Show All EtatCommercial Items"/>
                 </h:form>
                 <h:form>
                     <h:commandLink action="/data/etatEvenement/List" value="Show All EtatEvenement Items"/>
@@ -75,6 +56,9 @@
                     <h:commandLink action="/data/produit/List" value="Show All Produit Items"/>
                 </h:form>
                 <h:form>
+                    <h:commandLink action="/data/service/List" value="Show All Service Items"/>
+                </h:form>
+                <h:form>
                     <h:commandLink action="/data/categorieFacture/List" value="Show All CategorieFacture Items"/>
                 </h:form>
                 <h:form>
@@ -94,6 +78,12 @@
                 </h:form>
                 <h:form>
                     <h:commandLink action="/data/logos/List" value="Show All Logos Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/pays/List" value="Show All Pays Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/zoneGeo/List" value="Show All ZoneGeo Items"/>
                 </h:form>
                 <h:form>
                     <h:commandLink action="/data/banque/List" value="Show All Banque Items"/>
@@ -120,21 +110,51 @@
                     <h:commandLink action="/data/virement/List" value="Show All Virement Items"/>
                 </h:form>
                 <h:form>
+                    <h:commandLink action="/data/stock/List" value="Show All Stock Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/stockProduit/List" value="Show All StockProduit Items"/>
+                </h:form>
+                <h:form>
                     <h:commandLink action="/data/adresseNumerique/List" value="Show All AdresseNumerique Items"/>
                 </h:form>
                 <h:form>
                     <h:commandLink action="/data/adressePostale/List" value="Show All AdressePostale Items"/>
                 </h:form>
                 <h:form>
+                    <h:commandLink action="/data/categorieAdresseNumerique/List" value="Show All CategorieAdresseNumerique Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/categorieAdressePostale/List" value="Show All CategorieAdressePostale Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/categorieTelephone/List" value="Show All CategorieTelephone Items"/>
+                </h:form>
+                <h:form>
                     <h:commandLink action="/data/categorieTiers/List" value="Show All CategorieTiers Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/contact/List" value="Show All Contact Items"/>
                 </h:form>
                 <h:form>
                     <h:commandLink action="/data/telephone/List" value="Show All Telephone Items"/>
                 </h:form>
                 <h:form>
+                    <h:commandLink action="/data/tiers/List" value="Show All Tiers Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/data/titreContact/List" value="Show All TitreContact Items"/>
+                </h:form>
+                <h:form>
                     <h:commandLink action="/data/typeTiers/List" value="Show All TypeTiers Items"/>
                 </h:form>
 </h:body>
+
+
+
+
+
+
 
 
 

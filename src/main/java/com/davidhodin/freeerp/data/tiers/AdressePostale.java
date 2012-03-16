@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.tiers;
 import com.davidhodin.freeerp.data.configuration.Pays;
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,11 +15,15 @@ import javax.persistence.*;
  */
 @Entity
 public class AdressePostale implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String labelAdresse;
+    @ManyToOne
+    private CategorieAdressePostale categorieAdressePostale;
     private String ligne1Adresse;
     private String ligne2Adresse;
     private String ligne3Adresse;
@@ -91,8 +96,14 @@ public class AdressePostale implements Serializable {
         this.ville = ville;
     }
 
-    
-    
+    public CategorieAdressePostale getCategorieAdressePostale() {
+        return categorieAdressePostale;
+    }
+
+    public void setCategorieAdressePostale(CategorieAdressePostale categorieAdressePostale) {
+        this.categorieAdressePostale = categorieAdressePostale;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -115,7 +126,10 @@ public class AdressePostale implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Adresse[ id=" + id + " ]";
+        if (categorieAdressePostale != null) {
+            return categorieAdressePostale.getNomCategorie() + " - " + labelAdresse;
+        } else {
+            return labelAdresse;
+        }
     }
-    
 }

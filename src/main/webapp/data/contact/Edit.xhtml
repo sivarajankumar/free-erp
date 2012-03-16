@@ -28,7 +28,9 @@
                     <h:outputLabel value="#{bundle.EditContactLabel_prenom}" for="prenom" />
                     <h:inputText id="prenom" value="#{contactController.selected.prenom}" title="#{bundle.EditContactTitle_prenom}" />
                     <h:outputLabel value="#{bundle.EditContactLabel_titre}" for="titre" />
-                    <h:inputText id="titre" value="#{contactController.selected.titre}" title="#{bundle.EditContactTitle_titre}" />
+                    <h:selectOneMenu id="titre" value="#{contactController.selected.titre}" title="#{bundle.EditContactTitle_titre}" >
+                        <f:selectItems value="#{titreContactController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                 </h:panelGrid>
                 <h:commandLink action="#{contactController.update}" value="#{bundle.EditContactSaveLink}"/>
                 <br />

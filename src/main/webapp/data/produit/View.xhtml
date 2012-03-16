@@ -25,10 +25,8 @@
                     <h:outputText value="#{produitController.selected.description}" title="#{bundle.ViewProduitTitle_description}"/>
                     <h:outputText value="#{bundle.ViewProduitLabel_informationFacture}"/>
                     <h:outputText value="#{produitController.selected.informationFacture}" title="#{bundle.ViewProduitTitle_informationFacture}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_label}"/>
-                    <h:outputText value="#{produitController.selected.label}" title="#{bundle.ViewProduitTitle_label}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_paysOrigine}"/>
-                    <h:outputText value="#{produitController.selected.paysOrigine}" title="#{bundle.ViewProduitTitle_paysOrigine}"/>
+                    <h:outputText value="#{bundle.ViewProduitLabel_nomProduit}"/>
+                    <h:outputText value="#{produitController.selected.nomProduit}" title="#{bundle.ViewProduitTitle_nomProduit}"/>
                     <h:outputText value="#{bundle.ViewProduitLabel_poids}"/>
                     <h:outputText value="#{produitController.selected.poids}" title="#{bundle.ViewProduitTitle_poids}"/>
                     <h:outputText value="#{bundle.ViewProduitLabel_reference}"/>
@@ -41,10 +39,14 @@
                     <h:outputText value="#{produitController.selected.etatAchat}" title="#{bundle.ViewProduitTitle_etatAchat}"/>
                     <h:outputText value="#{bundle.ViewProduitLabel_etatVente}"/>
                     <h:outputText value="#{produitController.selected.etatVente}" title="#{bundle.ViewProduitTitle_etatVente}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_prix}"/>
-                    <h:outputText value="#{produitController.selected.prix}" title="#{bundle.ViewProduitTitle_prix}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_tva}"/>
-                    <h:outputText value="#{produitController.selected.tva}" title="#{bundle.ViewProduitTitle_tva}"/>
+                    <h:outputText value="#{bundle.ViewProduitLabel_prixAchat}"/>
+                    <h:outputText value="#{produitController.selected.prixAchat}" title="#{bundle.ViewProduitTitle_prixAchat}"/>
+                    <h:outputText value="#{bundle.ViewProduitLabel_prixVente}"/>
+                    <h:outputText value="#{produitController.selected.prixVente}" title="#{bundle.ViewProduitTitle_prixVente}"/>
+                    <h:outputText value="#{bundle.ViewProduitLabel_tvaAchat}"/>
+                    <h:outputText value="#{produitController.selected.tvaAchat}" title="#{bundle.ViewProduitTitle_tvaAchat}"/>
+                    <h:outputText value="#{bundle.ViewProduitLabel_tvaVente}"/>
+                    <h:outputText value="#{produitController.selected.tvaVente}" title="#{bundle.ViewProduitTitle_tvaVente}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{produitController.destroyAndView}" value="#{bundle.ViewProduitDestroyLink}"/>

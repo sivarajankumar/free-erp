@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.commercial;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -20,7 +21,16 @@ public class EtatOffre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String etatOffre;
+
+    public List<OffreCommerciale> getOffreCommerciales() {
+        return offreCommerciales;
+    }
+
+    public void setOffreCommerciales(List<OffreCommerciale> offreCommerciales) {
+        this.offreCommerciales = offreCommerciales;
+    }
 
     public Long getId() {
         return id;

@@ -33,6 +33,10 @@
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.EditAdressePostaleLabel_ville}" for="ville" />
                     <h:inputText id="ville" value="#{adressePostaleController.selected.ville}" title="#{bundle.EditAdressePostaleTitle_ville}" />
+                    <h:outputLabel value="#{bundle.EditAdressePostaleLabel_categorieAdressePostale}" for="categorieAdressePostale" />
+                    <h:selectOneMenu id="categorieAdressePostale" value="#{adressePostaleController.selected.categorieAdressePostale}" title="#{bundle.EditAdressePostaleTitle_categorieAdressePostale}" >
+                        <f:selectItems value="#{categorieAdressePostaleController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                 </h:panelGrid>
                 <h:commandLink action="#{adressePostaleController.update}" value="#{bundle.EditAdressePostaleSaveLink}"/>
                 <br />

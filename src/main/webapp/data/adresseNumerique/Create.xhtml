@@ -19,8 +19,10 @@
                     <h:inputText id="id" value="#{adresseNumeriqueController.selected.id}" title="#{bundle.CreateAdresseNumeriqueTitle_id}" />
                     <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_adresseNum}" for="adresseNum" />
                     <h:inputText id="adresseNum" value="#{adresseNumeriqueController.selected.adresseNum}" title="#{bundle.CreateAdresseNumeriqueTitle_adresseNum}" />
-                    <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_typeAdresse}" for="typeAdresse" />
-                    <h:inputText id="typeAdresse" value="#{adresseNumeriqueController.selected.typeAdresse}" title="#{bundle.CreateAdresseNumeriqueTitle_typeAdresse}" />
+                    <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_categorieAdresse}" for="categorieAdresse" />
+                    <h:selectOneMenu id="categorieAdresse" value="#{adresseNumeriqueController.selected.categorieAdresse}" title="#{bundle.CreateAdresseNumeriqueTitle_categorieAdresse}" >
+                        <f:selectItems value="#{categorieAdresseNumeriqueController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{adresseNumeriqueController.create}" value="#{bundle.CreateAdresseNumeriqueSaveLink}" />

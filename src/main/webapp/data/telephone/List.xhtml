@@ -28,15 +28,21 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTelephoneTitle_numero}"/>
+                                <h:outputText value="#{bundle.ListTelephoneTitle_categorieTelephone}"/>
                             </f:facet>
-                            <h:outputText value="#{item.numero}"/>
+                            <h:outputText value="#{item.categorieTelephone}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTelephoneTitle_typeNumero}"/>
+                                <h:outputText value="#{bundle.ListTelephoneTitle_descriptionNumero}"/>
                             </f:facet>
-                            <h:outputText value="#{item.typeNumero}"/>
+                            <h:outputText value="#{item.descriptionNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTelephoneTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">

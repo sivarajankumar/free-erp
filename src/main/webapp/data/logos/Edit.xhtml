@@ -17,6 +17,8 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditLogosLabel_id}" for="id" />
                     <h:inputText id="id" value="#{logosController.selected.id}" title="#{bundle.EditLogosTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditLogosLabel_nomLogo}" for="nomLogo" />
+                    <h:inputText id="nomLogo" value="#{logosController.selected.nomLogo}" title="#{bundle.EditLogosTitle_nomLogo}" />
                     <h:outputLabel value="#{bundle.EditLogosLabel_image}" for="image" />
                     <h:inputTextarea rows="4" cols="30" id="image" value="#{logosController.selected.image}" title="#{bundle.EditLogosTitle_image}" />
                     <h:outputLabel value="#{bundle.EditLogosLabel_mimeType}" for="mimeType" />

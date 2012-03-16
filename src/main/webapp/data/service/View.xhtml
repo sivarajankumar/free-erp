@@ -15,8 +15,6 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewServiceLabel_categorie}"/>
-                    <h:outputText value="#{serviceController.selected.categorie}" title="#{bundle.ViewServiceTitle_categorie}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_id}"/>
                     <h:outputText value="#{serviceController.selected.id}" title="#{bundle.ViewServiceTitle_id}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_codeDouane}"/>
@@ -25,18 +23,24 @@
                     <h:outputText value="#{serviceController.selected.description}" title="#{bundle.ViewServiceTitle_description}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_etatAchat}"/>
                     <h:outputText value="#{serviceController.selected.etatAchat}" title="#{bundle.ViewServiceTitle_etatAchat}"/>
-                    <h:outputText value="#{bundle.ViewServiceLabel_etatVente}"/>
-                    <h:outputText value="#{serviceController.selected.etatVente}" title="#{bundle.ViewServiceTitle_etatVente}"/>
-                    <h:outputText value="#{bundle.ViewServiceLabel_label}"/>
-                    <h:outputText value="#{serviceController.selected.label}" title="#{bundle.ViewServiceTitle_label}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_nomService}"/>
+                    <h:outputText value="#{serviceController.selected.nomService}" title="#{bundle.ViewServiceTitle_nomService}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_paysOrigine}"/>
                     <h:outputText value="#{serviceController.selected.paysOrigine}" title="#{bundle.ViewServiceTitle_paysOrigine}"/>
                     <h:outputText value="#{bundle.ViewServiceLabel_reference}"/>
                     <h:outputText value="#{serviceController.selected.reference}" title="#{bundle.ViewServiceTitle_reference}"/>
-                    <h:outputText value="#{bundle.ViewServiceLabel_prix}"/>
-                    <h:outputText value="#{serviceController.selected.prix}" title="#{bundle.ViewServiceTitle_prix}"/>
-                    <h:outputText value="#{bundle.ViewServiceLabel_tva}"/>
-                    <h:outputText value="#{serviceController.selected.tva}" title="#{bundle.ViewServiceTitle_tva}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_categorieService}"/>
+                    <h:outputText value="#{serviceController.selected.categorieService}" title="#{bundle.ViewServiceTitle_categorieService}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_informationFacture}"/>
+                    <h:outputText value="#{serviceController.selected.informationFacture}" title="#{bundle.ViewServiceTitle_informationFacture}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_prixAchat}"/>
+                    <h:outputText value="#{serviceController.selected.prixAchat}" title="#{bundle.ViewServiceTitle_prixAchat}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_prixVente}"/>
+                    <h:outputText value="#{serviceController.selected.prixVente}" title="#{bundle.ViewServiceTitle_prixVente}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_tvaAchat}"/>
+                    <h:outputText value="#{serviceController.selected.tvaAchat}" title="#{bundle.ViewServiceTitle_tvaAchat}"/>
+                    <h:outputText value="#{bundle.ViewServiceLabel_tvaVente}"/>
+                    <h:outputText value="#{serviceController.selected.tvaVente}" title="#{bundle.ViewServiceTitle_tvaVente}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{serviceController.destroyAndView}" value="#{bundle.ViewServiceDestroyLink}"/>

@@ -5,10 +5,8 @@
 package com.davidhodin.freeerp.data.tiers;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -16,11 +14,14 @@ import javax.persistence.Id;
  */
 @Entity
 public class AdresseNumerique implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String typeAdresse;
+    @ManyToOne
+    private CategorieAdresseNumerique categorieAdresse;
+    @NotNull
     private String adresseNum;
 
     public Long getId() {
@@ -39,12 +40,12 @@ public class AdresseNumerique implements Serializable {
         this.adresseNum = adresseNum;
     }
 
-    public String getTypeAdresse() {
-        return typeAdresse;
+    public CategorieAdresseNumerique getCategorieAdresse() {
+        return categorieAdresse;
     }
 
-    public void setTypeAdresse(String typeAdresse) {
-        this.typeAdresse = typeAdresse;
+    public void setCategorieAdresse(CategorieAdresseNumerique categorieAdresse) {
+        this.categorieAdresse = categorieAdresse;
     }
 
     @Override
@@ -69,7 +70,10 @@ public class AdresseNumerique implements Serializable {
 
     @Override
     public String toString() {
-        return typeAdresse + " : " + adresseNum;
+        if (categorieAdresse != null) {
+            return categorieAdresse.getNomCategorie() + " : " + adresseNum;
+        } else {
+            return adresseNum;
+        }
     }
-    
 }

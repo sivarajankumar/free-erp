@@ -4,11 +4,13 @@
  */
 package com.davidhodin.freeerp.data.tiers;
 
+import com.davidhodin.freeerp.data.commercial.Achat;
 import com.davidhodin.freeerp.data.commercial.OffreCommerciale;
 import com.davidhodin.freeerp.data.configuration.Logos;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -17,19 +19,28 @@ import javax.persistence.*;
 @Entity
 public class Tiers implements Serializable {
     @OneToMany(mappedBy = "tiers")
+    private List<Achat> achats;
+    @OneToMany(mappedBy = "tiers")
     private List<OffreCommerciale> offreCommerciales;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomTiers;
     @ManyToOne
     private TypeTiers typeTiers;
-    private String codeTiers;
-    @ManyToMany
-    private List<Contact> contacts;
+    private String codeInterneTiers;
+    private String formeJuridique;
+    private String capital;
+    private Integer effectif;
+    private Boolean tva;
+    private String numTVA;
+    private String identifiantLegal;
     @ManyToOne
     private CategorieTiers categorie;
+    @ManyToMany
+    private List<Contact> contacts;
     @OneToMany
     private List<AdressePostale> adressesPost;
     @OneToMany
@@ -45,6 +56,14 @@ public class Tiers implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Achat> getAchats() {
+        return achats;
+    }
+
+    public void setAchats(List<Achat> achats) {
+        this.achats = achats;
     }
 
     public String getNomTiers() {
@@ -79,14 +98,6 @@ public class Tiers implements Serializable {
         this.categorie = categorie;
     }
 
-    public String getCodeTiers() {
-        return codeTiers;
-    }
-
-    public void setCodeTiers(String codeTiers) {
-        this.codeTiers = codeTiers;
-    }
-
     public List<AdresseNumerique> getAdressesNum() {
         return adressesNum;
     }
@@ -117,6 +128,70 @@ public class Tiers implements Serializable {
 
     public void setTelephones(List<Telephone> telephones) {
         this.telephones = telephones;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
+    }
+
+    public String getCodeInterneTiers() {
+        return codeInterneTiers;
+    }
+
+    public void setCodeInterneTiers(String codeInterneTiers) {
+        this.codeInterneTiers = codeInterneTiers;
+    }
+
+    public Integer getEffectif() {
+        return effectif;
+    }
+
+    public void setEffectif(Integer effectif) {
+        this.effectif = effectif;
+    }
+
+    public String getFormeJuridique() {
+        return formeJuridique;
+    }
+
+    public void setFormeJuridique(String formeJuridique) {
+        this.formeJuridique = formeJuridique;
+    }
+
+    public String getIdentifiantLegal() {
+        return identifiantLegal;
+    }
+
+    public void setIdentifiantLegal(String identifiantLegal) {
+        this.identifiantLegal = identifiantLegal;
+    }
+
+    public String getNumTVA() {
+        return numTVA;
+    }
+
+    public void setNumTVA(String numTVA) {
+        this.numTVA = numTVA;
+    }
+
+    public List<OffreCommerciale> getOffreCommerciales() {
+        return offreCommerciales;
+    }
+
+    public void setOffreCommerciales(List<OffreCommerciale> offreCommerciales) {
+        this.offreCommerciales = offreCommerciales;
+    }
+
+    public Boolean getTva() {
+        return tva;
+    }
+
+    public void setTva(Boolean tva) {
+        this.tva = tva;
     }
     
     @Override

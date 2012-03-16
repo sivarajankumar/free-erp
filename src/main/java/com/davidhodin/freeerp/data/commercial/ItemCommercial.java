@@ -4,9 +4,10 @@
  */
 package com.davidhodin.freeerp.data.commercial;
 
+import com.davidhodin.freeerp.data.comptabilite.TVA;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,20 +15,24 @@ import javax.persistence.*;
  */
 @Entity
 public class ItemCommercial implements Serializable {
-    @ManyToMany(mappedBy = "itemCommerciaux")
-    private List<OffreCommerciale> offreCommerciales;
+
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomItem;
+    @NotNull
     private Float quantite;
     @ManyToOne
     private Produit produit;
     @ManyToOne
     private Service service;
     private Float montantHT;
-    private Float montantTVA;
+    @ManyToOne
+    private TVA tauxTVA;
+    
     
     public Long getId() {
         return id;
@@ -45,13 +50,14 @@ public class ItemCommercial implements Serializable {
         this.montantHT = montantHT;
     }
 
-    public Float getMontantTVA() {
-        return montantTVA;
+    public TVA getTauxTVA() {
+        return tauxTVA;
     }
 
-    public void setMontantTVA(Float montantTVA) {
-        this.montantTVA = montantTVA;
+    public void setTauxTVA(TVA tauxTVA) {
+        this.tauxTVA = tauxTVA;
     }
+
 
     public String getNomItem() {
         return nomItem;
@@ -61,13 +67,6 @@ public class ItemCommercial implements Serializable {
         this.nomItem = nomItem;
     }
 
-    public List<OffreCommerciale> getOffreCommerciales() {
-        return offreCommerciales;
-    }
-
-    public void setOffreCommerciales(List<OffreCommerciale> offreCommerciales) {
-        this.offreCommerciales = offreCommerciales;
-    }
 
     public Produit getProduit() {
         return produit;
@@ -115,7 +114,7 @@ public class ItemCommercial implements Serializable {
 
     @Override
     public String toString() {
-        return nomItem;
+        return nomItem + " - Quantité : " + quantite.toString();
     }
     
 }

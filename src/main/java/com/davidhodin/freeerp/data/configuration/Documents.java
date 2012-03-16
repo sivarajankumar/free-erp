@@ -8,6 +8,7 @@ import com.davidhodin.freeerp.data.commercial.OffreCommerciale;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,17 +16,18 @@ import javax.persistence.*;
  */
 @Entity
 public class Documents implements Serializable {
-    @OneToMany(mappedBy = "documents")
-    private List<OffreCommerciale> offreCommerciales;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
+    private String nomDocument;
     private String MimeType;
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] document;
-    
+
     public Long getId() {
         return id;
     }
@@ -36,6 +38,14 @@ public class Documents implements Serializable {
 
     public String getMimeType() {
         return MimeType;
+    }
+
+    public String getNomDocument() {
+        return nomDocument;
+    }
+
+    public void setNomDocument(String nomDocument) {
+        this.nomDocument = nomDocument;
     }
 
     public void setMimeType(String MimeType) {

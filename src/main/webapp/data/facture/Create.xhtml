@@ -17,6 +17,8 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateFactureLabel_id}" for="id" />
                     <h:inputText id="id" value="#{factureController.selected.id}" title="#{bundle.CreateFactureTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_idFacture}" for="idFacture" />
+                    <h:inputText id="idFacture" value="#{factureController.selected.idFacture}" title="#{bundle.CreateFactureTitle_idFacture}" />
                     <h:outputLabel value="#{bundle.CreateFactureLabel_categorieFacture}" for="categorieFacture" />
                     <h:selectOneMenu id="categorieFacture" value="#{factureController.selected.categorieFacture}" title="#{bundle.CreateFactureTitle_categorieFacture}" >
                         <f:selectItems value="#{categorieFactureController.itemsAvailableSelectOne}"/>

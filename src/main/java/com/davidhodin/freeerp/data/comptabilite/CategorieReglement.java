@@ -7,6 +7,7 @@ package com.davidhodin.freeerp.data.comptabilite;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,20 +15,30 @@ import javax.persistence.*;
  */
 @Entity
 public class CategorieReglement implements Serializable {
-    @OneToMany(mappedBy = "categorieReglement")
-    private List<Reglement> reglements;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomCategorie;
-
+    @OneToMany(mappedBy = "categorieReglement")
+    private List<Reglement> reglements;
+    
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Reglement> getReglements() {
+        return reglements;
+    }
+
+    public void setReglements(List<Reglement> reglements) {
+        this.reglements = reglements;
     }
 
     public String getNomCategorie() {

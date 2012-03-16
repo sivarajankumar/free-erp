@@ -27,12 +27,8 @@
                     <h:inputText id="description" value="#{produitController.selected.description}" title="#{bundle.EditProduitTitle_description}" />
                     <h:outputLabel value="#{bundle.EditProduitLabel_informationFacture}" for="informationFacture" />
                     <h:inputText id="informationFacture" value="#{produitController.selected.informationFacture}" title="#{bundle.EditProduitTitle_informationFacture}" />
-                    <h:outputLabel value="#{bundle.EditProduitLabel_label}" for="label" />
-                    <h:inputText id="label" value="#{produitController.selected.label}" title="#{bundle.EditProduitTitle_label}" />
-                    <h:outputLabel value="#{bundle.EditProduitLabel_paysOrigine}" for="paysOrigine" />
-                    <h:selectOneMenu id="paysOrigine" value="#{produitController.selected.paysOrigine}" title="#{bundle.EditProduitTitle_paysOrigine}" >
-                        <f:selectItems value="#{paysController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProduitLabel_nomProduit}" for="nomProduit" />
+                    <h:inputText id="nomProduit" value="#{produitController.selected.nomProduit}" title="#{bundle.EditProduitTitle_nomProduit}" />
                     <h:outputLabel value="#{bundle.EditProduitLabel_poids}" for="poids" />
                     <h:inputText id="poids" value="#{produitController.selected.poids}" title="#{bundle.EditProduitTitle_poids}" />
                     <h:outputLabel value="#{bundle.EditProduitLabel_reference}" for="reference" />
@@ -43,16 +39,22 @@
                     <h:inputText id="volume" value="#{produitController.selected.volume}" title="#{bundle.EditProduitTitle_volume}" />
                     <h:outputLabel value="#{bundle.EditProduitLabel_etatAchat}" for="etatAchat" />
                     <h:selectOneMenu id="etatAchat" value="#{produitController.selected.etatAchat}" title="#{bundle.EditProduitTitle_etatAchat}" >
-                        <f:selectItems value="#{etat_SeviceProduitController.itemsAvailableSelectOne}"/>
+                        <f:selectItems value="#{etatCommercialController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.EditProduitLabel_etatVente}" for="etatVente" />
                     <h:selectOneMenu id="etatVente" value="#{produitController.selected.etatVente}" title="#{bundle.EditProduitTitle_etatVente}" >
-                        <f:selectItems value="#{etat_SeviceProduitController.itemsAvailableSelectOne}"/>
+                        <f:selectItems value="#{etatCommercialController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditProduitLabel_prix}" for="prix" />
-                    <h:inputText id="prix" value="#{produitController.selected.prix}" title="#{bundle.EditProduitTitle_prix}" />
-                    <h:outputLabel value="#{bundle.EditProduitLabel_tva}" for="tva" />
-                    <h:selectOneMenu id="tva" value="#{produitController.selected.tva}" title="#{bundle.EditProduitTitle_tva}" >
+                    <h:outputLabel value="#{bundle.EditProduitLabel_prixAchat}" for="prixAchat" />
+                    <h:inputText id="prixAchat" value="#{produitController.selected.prixAchat}" title="#{bundle.EditProduitTitle_prixAchat}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_prixVente}" for="prixVente" />
+                    <h:inputText id="prixVente" value="#{produitController.selected.prixVente}" title="#{bundle.EditProduitTitle_prixVente}" />
+                    <h:outputLabel value="#{bundle.EditProduitLabel_tvaAchat}" for="tvaAchat" />
+                    <h:selectOneMenu id="tvaAchat" value="#{produitController.selected.tvaAchat}" title="#{bundle.EditProduitTitle_tvaAchat}" >
+                        <f:selectItems value="#{tVAController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProduitLabel_tvaVente}" for="tvaVente" />
+                    <h:selectOneMenu id="tvaVente" value="#{produitController.selected.tvaVente}" title="#{bundle.EditProduitTitle_tvaVente}" >
                         <f:selectItems value="#{tVAController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>

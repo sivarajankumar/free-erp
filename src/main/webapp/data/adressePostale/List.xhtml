@@ -70,6 +70,12 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdressePostaleTitle_categorieAdressePostale}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieAdressePostale}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{adressePostaleController.prepareView}" value="#{bundle.ListAdressePostaleViewLink}"/>

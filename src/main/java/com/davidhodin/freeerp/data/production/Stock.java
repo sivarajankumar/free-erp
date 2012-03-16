@@ -4,11 +4,11 @@
  */
 package com.davidhodin.freeerp.data.production;
 
-import com.davidhodin.freeerp.data.commercial.Produit;
 import com.davidhodin.freeerp.data.configuration.ZoneGeo;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -16,22 +16,18 @@ import javax.persistence.*;
  */
 @Entity
 public class Stock implements Serializable {
-    @ManyToMany(mappedBy = "stocksProduit")
-    private List<Produit> products;
+
+    @OneToMany(mappedBy = "stock")
+    private List<StockProduit> stockProduits;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
+    private String nomStock;
     @ManyToOne
+    @NotNull
     private ZoneGeo zoneStock;
-
-    public List<Produit> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Produit> products) {
-        this.products = products;
-    }
 
     public ZoneGeo getZoneStock() {
         return zoneStock;
@@ -40,7 +36,22 @@ public class Stock implements Serializable {
     public void setZoneStock(ZoneGeo zoneStock) {
         this.zoneStock = zoneStock;
     }
-    
+
+    public String getNomStock() {
+        return nomStock;
+    }
+
+    public void setNomStock(String nomStock) {
+        this.nomStock = nomStock;
+    }
+
+    public List<StockProduit> getStockProduits() {
+        return stockProduits;
+    }
+
+    public void setStockProduits(List<StockProduit> stockProduits) {
+        this.stockProduits = stockProduits;
+    }
 
     public Long getId() {
         return id;
@@ -72,7 +83,6 @@ public class Stock implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Stock[ id=" + id + " ]";
+        return nomStock + "|" + zoneStock.toString();
     }
-    
 }

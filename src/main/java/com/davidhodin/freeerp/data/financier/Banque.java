@@ -8,6 +8,7 @@ import com.davidhodin.freeerp.data.tiers.Tiers;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,18 +16,19 @@ import javax.persistence.*;
  */
 @Entity
 public class Banque implements Serializable {
-    @OneToMany(mappedBy = "banque")
-    private List<Comptes> comptess;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String labelBanque;
+    @NotNull
+    private String nomBanque;
     @OneToOne
     private Tiers tiers;
     @ManyToOne
     private CategorieBanque categorieBanque;
-    
+    @OneToMany(mappedBy = "banque")
+    private List<Comptes> comptess;    
 
     public Long getId() {
         return id;
@@ -52,12 +54,12 @@ public class Banque implements Serializable {
         this.comptess = comptess;
     }
 
-    public String getLabelBanque() {
-        return labelBanque;
+    public String getNomBanque() {
+        return nomBanque;
     }
 
-    public void setLabelBanque(String labelBanque) {
-        this.labelBanque = labelBanque;
+    public void setNomBanque(String nomBanque) {
+        this.nomBanque = nomBanque;
     }
 
     public Tiers getTiers() {
@@ -90,7 +92,7 @@ public class Banque implements Serializable {
 
     @Override
     public String toString() {
-        return labelBanque;
+        return nomBanque;
     }
     
 }

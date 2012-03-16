@@ -8,6 +8,7 @@ import com.davidhodin.freeerp.data.tiers.Contact;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,25 +16,28 @@ import javax.persistence.*;
  */
 @Entity
 public class Evenement implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    private CategorieEvenement categorieEvenement;
+    @NotNull
     private String nomEvenement;
     private String descriptionEvenement;
+    @ManyToOne
+    private CategorieEvenement categorieEvenement;
+    @ManyToOne
+    private EtatEvenement etatEvenement;
+    @ManyToOne
+    private Contact contact;
+    // Informations temporelles
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateCreationEvenement;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateMajEvenement;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateClotureEvenement;
-    @ManyToOne
-    private EtatEvenement etatEvenement;
-    @ManyToOne
-    private Contact contact;
-    
+
     public Long getId() {
         return id;
     }
@@ -128,7 +132,6 @@ public class Evenement implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.commercial.Evenement[ id=" + id + " ]";
+        return nomEvenement;
     }
-    
 }

@@ -17,10 +17,14 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateTelephoneLabel_id}" for="id" />
                     <h:inputText id="id" value="#{telephoneController.selected.id}" title="#{bundle.CreateTelephoneTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateTelephoneLabel_categorieTelephone}" for="categorieTelephone" />
+                    <h:selectOneMenu id="categorieTelephone" value="#{telephoneController.selected.categorieTelephone}" title="#{bundle.CreateTelephoneTitle_categorieTelephone}" >
+                        <f:selectItems value="#{categorieTelephoneController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateTelephoneLabel_descriptionNumero}" for="descriptionNumero" />
+                    <h:inputText id="descriptionNumero" value="#{telephoneController.selected.descriptionNumero}" title="#{bundle.CreateTelephoneTitle_descriptionNumero}" />
                     <h:outputLabel value="#{bundle.CreateTelephoneLabel_numero}" for="numero" />
                     <h:inputText id="numero" value="#{telephoneController.selected.numero}" title="#{bundle.CreateTelephoneTitle_numero}" />
-                    <h:outputLabel value="#{bundle.CreateTelephoneLabel_typeNumero}" for="typeNumero" />
-                    <h:inputText id="typeNumero" value="#{telephoneController.selected.typeNumero}" title="#{bundle.CreateTelephoneTitle_typeNumero}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{telephoneController.create}" value="#{bundle.CreateTelephoneSaveLink}" />

@@ -4,10 +4,10 @@
  */
 package com.davidhodin.freeerp.data.tiers;
 
-import com.davidhodin.freeerp.data.tiers.Tiers;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,6 +21,7 @@ public class TypeTiers implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull
     private String nomType;
 
     public Long getId() {
