@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -111,8 +112,12 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
+                <p:commandButton value="Test" action="#{achatController.prepareCreate}" ajax="false"/>
+                <br />
                 <h:commandLink action="#{achatController.prepareCreate}" value="#{bundle.ListAchatCreateLink}"/>
                 <br />
+                <br />
+                <p:button value="#{bundle.ListAchatIndexLink}" outcome="/index"/>
                 <br />
                 <h:commandLink value="#{bundle.ListAchatIndexLink}" action="/index" immediate="true" />
             </h:form>
