@@ -9,39 +9,41 @@
         <title><ui:insert name="title">Default Title</ui:insert></title>
     </h:head>
     <h:body>
-        <h:form>
-            <p:menubar>
-                <p:menuitem ajax="false" action="/index" value="Accueil" />
-                <p:submenu label="Tiers">
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north">
+                <h:form>
+                    <p:dock position="top">
+                        <p:menuitem value="Accueil" icon="/resources/images/menu/Accueil.png" action="/index" ajax="false"/>
+                        <p:menuitem value="Tiers" icon="/resources/images/menu/Tiers.png" url="#"/>
+                        <p:menuitem value="Commercial" icon="/resources/images/menu/Commercial.png" url="#"/>
+                        <p:menuitem value="Produits Services" icon="/resources/images/menu/Produits.png" url="#"/>
+                        <p:menuitem value="Financier" icon="/resources/images/menu/Financier.png" url="#"/>
+                        <p:menuitem value="Configuration" icon="/resources/images/menu/Configuration.png" url="#"/>
+                        <p:menuitem value="A propos" icon="/resources/images/menu/A_propos.png" url="http://www.david-hodin.com" ajax="false"/>
+                    </p:dock>
+                </h:form>
+                <h2>
+                    <ui:insert name="titre_principal">Titre principal</ui:insert>
+                </h2>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="200">
+                <p:accordionPanel>
+                    <ui:insert name="menu">
+                        <p:tab title="test">
 
-                </p:submenu>
-                <p:submenu label="Commercial">
-
-                </p:submenu>
-                <p:submenu label="Produits/Services">
-
-                </p:submenu> 
-                <p:submenu label="Financier">
-
-                </p:submenu>   
-                <p:submenu label="Configuration">
-                    <p:submenu label="Catégories">
-                        <p:menuitem ajax="false" action="/data/categorieAdressePostale/List" value="Adresse" />
-                        <p:menuitem ajax="false" action="/data/categorieAdresseNumerique/List" value="Web" />
-                        <p:menuitem ajax="false" action="/data/categorieTelephone/List" value="Téléphone" />
-                        <p:separator />
-                        <p:menuitem ajax="false" action="/data/categorieBanque/List" value="Banque" />
-
-                    </p:submenu> 
-                </p:submenu> 
-                <p:menuitem ajax="false" url="http://www.david-hodin.com" value="A propos" />
-            </p:menubar>
-        </h:form>
-        <h1>
-            <ui:insert name="title">Default Title</ui:insert>
-        </h1>
-        <p>
-            <ui:insert name="body">Default Body</ui:insert>
-        </p>
+                        </p:tab>
+                    </ui:insert>
+                </p:accordionPanel>  
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <h3>
+                    <ui:insert name="title">Default Title</ui:insert>
+                </h3>
+                <p:separator />
+                <p>
+                    <ui:insert name="body">Default Body</ui:insert>
+                </p>
+            </p:layoutUnit>
+        </p:layout>
     </h:body>
 </html>
