@@ -9,6 +9,7 @@
         <title><ui:insert name="title">Default Title</ui:insert></title>
     </h:head>
     <h:body>
+        <p:growl life="3000" />
         <p:layout fullPage="true">
             <p:layoutUnit position="north">
                 <h:form>
@@ -21,27 +22,27 @@
                         <p:menuitem value="Configuration" icon="/resources/images/menu/Configuration.png" url="#"/>
                         <p:menuitem value="A propos" icon="/resources/images/menu/A_propos.png" url="http://www.david-hodin.com" ajax="false"/>
                     </p:dock>
-                </h:form>
-                <h2>
+                </h:form>                    
+                <h4 align="right" style="padding:3px;margin:8px;">
                     <ui:insert name="titre_principal">Titre principal</ui:insert>
-                </h2>
+                </h4>
             </p:layoutUnit>
             <p:layoutUnit position="west" size="200">
                 <p:accordionPanel>
                     <ui:insert name="menu">
-                        <p:tab title="test">
-
+                        <p:tab title="A compléter">
+                            Données du template
                         </p:tab>
                     </ui:insert>
                 </p:accordionPanel>  
             </p:layoutUnit>
             <p:layoutUnit position="center">
                 <h3>
-                    <ui:insert name="title">Default Title</ui:insert>
+                    <ui:insert name="title">Titre secondaire</ui:insert>
                 </h3>
                 <p:separator />
                 <p>
-                    <ui:insert name="body">Default Body</ui:insert>
+                    <ui:insert name="body">Corps de la vue</ui:insert>
                 </p>
             </p:layoutUnit>
         </p:layout>

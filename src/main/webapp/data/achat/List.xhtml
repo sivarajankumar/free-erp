@@ -13,7 +13,6 @@
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
                 <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListAchatEmpty}" rendered="#{achatController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{achatController.items.rowCount > 0}">
@@ -112,7 +111,7 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <p:commandButton value="Test" action="#{achatController.prepareCreate}" ajax="false"/>
+                <p:commandButton value="#{bundle.ListAchatCreateLink}" action="#{achatController.prepareCreate}" ajax="false"/>
                 <br />
                 <h:commandLink action="#{achatController.prepareCreate}" value="#{bundle.ListAchatCreateLink}"/>
                 <br />

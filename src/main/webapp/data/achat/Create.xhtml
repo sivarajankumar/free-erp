@@ -3,58 +3,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/tiers.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateAchatTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="4">
                     <h:outputLabel value="#{bundle.CreateAchatLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{achatController.selected.id}" title="#{bundle.CreateAchatTitle_id}" />
+                    <p:inputText id="id" value="#{achatController.selected.id}" title="#{bundle.CreateAchatTitle_id}" />
                     <h:outputLabel value="#{bundle.CreateAchatLabel_categorieAchat}" for="categorieAchat" />
-                    <h:selectOneMenu id="categorieAchat" value="#{achatController.selected.categorieAchat}" title="#{bundle.CreateAchatTitle_categorieAchat}" >
+                    <p:selectOneMenu id="categorieAchat" value="#{achatController.selected.categorieAchat}" title="#{bundle.CreateAchatTitle_categorieAchat}" >
                         <f:selectItems value="#{categorieAchatController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateAchatLabel_dateCloture}" for="dateCloture" />
-                    <h:inputText id="dateCloture" value="#{achatController.selected.dateCloture}" title="#{bundle.CreateAchatTitle_dateCloture}" >
+                    <p:calendar id="dateCloture" value="#{achatController.selected.dateCloture}" title="#{bundle.CreateAchatTitle_dateCloture}" pattern="MM/dd/yyyy" >
                         <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    </p:calendar>
                     <h:outputLabel value="#{bundle.CreateAchatLabel_dateCreation}" for="dateCreation" />
-                    <h:inputText id="dateCreation" value="#{achatController.selected.dateCreation}" title="#{bundle.CreateAchatTitle_dateCreation}" >
+                    <p:inputText id="dateCreation" value="#{achatController.selected.dateCreation}" title="#{bundle.CreateAchatTitle_dateCreation}" >
                         <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    </p:inputText>
                     <h:outputLabel value="#{bundle.CreateAchatLabel_dateReceptionOk}" for="dateReceptionOk" />
-                    <h:inputText id="dateReceptionOk" value="#{achatController.selected.dateReceptionOk}" title="#{bundle.CreateAchatTitle_dateReceptionOk}" >
+                    <p:inputText id="dateReceptionOk" value="#{achatController.selected.dateReceptionOk}" title="#{bundle.CreateAchatTitle_dateReceptionOk}" >
                         <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                    </p:inputText>
                     <h:outputLabel value="#{bundle.CreateAchatLabel_documents}" for="documents" />
-                    <h:selectOneMenu id="documents" value="#{achatController.selected.documents}" title="#{bundle.CreateAchatTitle_documents}" >
+                    <p:selectOneMenu id="documents" value="#{achatController.selected.documents}" title="#{bundle.CreateAchatTitle_documents}" >
                         <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateAchatLabel_etatAchat}" for="etatAchat" />
-                    <h:selectOneMenu id="etatAchat" value="#{achatController.selected.etatAchat}" title="#{bundle.CreateAchatTitle_etatAchat}" >
+                    <p:selectOneMenu id="etatAchat" value="#{achatController.selected.etatAchat}" title="#{bundle.CreateAchatTitle_etatAchat}" >
                         <f:selectItems value="#{etatAchatController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateAchatLabel_facture}" for="facture" />
-                    <h:selectOneMenu id="facture" value="#{achatController.selected.facture}" title="#{bundle.CreateAchatTitle_facture}" >
+                    <p:selectOneMenu id="facture" value="#{achatController.selected.facture}" title="#{bundle.CreateAchatTitle_facture}" >
                         <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateAchatLabel_factureOk}" for="factureOk" />
-                    <h:inputText id="factureOk" value="#{achatController.selected.factureOk}" title="#{bundle.CreateAchatTitle_factureOk}" />
+                    <p:inputText id="factureOk" value="#{achatController.selected.factureOk}" title="#{bundle.CreateAchatTitle_factureOk}" />
                     <h:outputLabel value="#{bundle.CreateAchatLabel_nomAchat}" for="nomAchat" />
-                    <h:inputText id="nomAchat" value="#{achatController.selected.nomAchat}" title="#{bundle.CreateAchatTitle_nomAchat}" />
+                    <p:inputText id="nomAchat" value="#{achatController.selected.nomAchat}" title="#{bundle.CreateAchatTitle_nomAchat}" />
                     <h:outputLabel value="#{bundle.CreateAchatLabel_receptionOk}" for="receptionOk" />
-                    <h:inputText id="receptionOk" value="#{achatController.selected.receptionOk}" title="#{bundle.CreateAchatTitle_receptionOk}" />
+                    <p:inputText id="receptionOk" value="#{achatController.selected.receptionOk}" title="#{bundle.CreateAchatTitle_receptionOk}" />
                     <h:outputLabel value="#{bundle.CreateAchatLabel_tiers}" for="tiers" />
-                    <h:selectOneMenu id="tiers" value="#{achatController.selected.tiers}" title="#{bundle.CreateAchatTitle_tiers}" >
+                    <p:selectOneMenu id="tiers" value="#{achatController.selected.tiers}" title="#{bundle.CreateAchatTitle_tiers}" >
                         <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{achatController.create}" value="#{bundle.CreateAchatSaveLink}" />
