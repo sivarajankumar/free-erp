@@ -6,11 +6,10 @@
       xmlns:p="http://primefaces.org/ui">
 
     <body>
-
         <ui:composition template="/template.xhtml">
             <ui:define name="titre_principal">
                 <p:panel>
-                    <h:outputText value="#{bundle.TitreTiers}" />
+                    <h:outputText value="#{bundle.TitreCommercial}" />
                     <p:effect type="slide" event="load"  />
                 </p:panel>
             </ui:define>
@@ -18,18 +17,18 @@
                 <ui:insert name="title">Default Title</ui:insert>
             </ui:define>
             <ui:define name="menu">
-                <p:tab title="Tiers">
+                <p:tab title="Achats">
                     <h:form>        
-                        <p:commandLink value="Ajouter" ajax="false" action="/data/tiers/Create"/><br />
-                        <p:commandLink value="Liste complète"  ajax="false" action="/data/tiers/List"/><br />
-                        <p:commandLink value="Par catégories"  ajax="false" action="/data/tiers/List"/>
+                        <p:commandLink value="Nouvelle commande" ajax="false" action="/data/achat/Create"/><br />
+                        <p:commandLink value="Tous les achats"  ajax="false" action="/data/achat/List"/><br />
+                        <p:commandLink value="Achats par catégorie"  ajax="false" action="/data/achat/List"/>
                     </h:form>
                 </p:tab>
-                <p:tab title="Contact">
+                <p:tab title="Ventes">
                     <h:form>
-                        <p:commandLink value="Ajouter"  ajax="false" action="/data/contact/Create"/><br />
-                        <p:commandLink value="Liste complète"  ajax="false" action="/data/contact/List"/><br />
-                        <p:commandLink value="Par catégorie"  ajax="false" action="/data/contact/List"/>
+                        <p:commandLink value="Nouvelle offre" ajax="false" action="/data/offreCommerciale/Create"/><br />
+                        <p:commandLink value="Toutes les offres" ajax="false" action="/data/offreCommerciale/List"/><br />
+                        <p:commandLink value="Offres par catégories" ajax="false" action="/data/offreCommerciale/List"/>
                     </h:form>
                 </p:tab>
             </ui:define>
@@ -39,6 +38,5 @@
             </ui:define>
 
         </ui:composition>
-
     </body>
 </html>

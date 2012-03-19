@@ -1,151 +1,167 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <title>test</title>
     </h:head>
-    <h:body>   
-        <h:form>
-            <h:commandLink action="/data/achat/List" value="Show All Achat Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieAchat/List" value="Show All CategorieAchat Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieEvenement/List" value="Show All CategorieEvenement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieOffre/List" value="Show All CategorieOffre Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieProduit/List" value="Show All CategorieProduit Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieService/List" value="Show All CategorieService Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/etatAchat/List" value="Show All EtatAchat Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/etatCommercial/List" value="Show All EtatCommercial Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/etatEvenement/List" value="Show All EtatEvenement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/etatOffre/List" value="Show All EtatOffre Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/evenement/List" value="Show All Evenement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/groupeOffre/List" value="Show All GroupeOffre Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/itemCommercial/List" value="Show All ItemCommercial Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/offreCommerciale/List" value="Show All OffreCommerciale Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/produit/List" value="Show All Produit Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/service/List" value="Show All Service Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieFacture/List" value="Show All CategorieFacture Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieReglement/List" value="Show All CategorieReglement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/facture/List" value="Show All Facture Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/reglement/List" value="Show All Reglement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/tVA/List" value="Show All TVA Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/documents/List" value="Show All Documents Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/logos/List" value="Show All Logos Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/pays/List" value="Show All Pays Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/zoneGeo/List" value="Show All ZoneGeo Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/banque/List" value="Show All Banque Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieBanque/List" value="Show All CategorieBanque Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieMouvement/List" value="Show All CategorieMouvement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/comptes/List" value="Show All Comptes Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/mouvement/List" value="Show All Mouvement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/rapprochement/List" value="Show All Rapprochement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/typeCompte/List" value="Show All TypeCompte Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/virement/List" value="Show All Virement Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/stock/List" value="Show All Stock Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/stockProduit/List" value="Show All StockProduit Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/adresseNumerique/List" value="Show All AdresseNumerique Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/adressePostale/List" value="Show All AdressePostale Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieAdresseNumerique/List" value="Show All CategorieAdresseNumerique Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieAdressePostale/List" value="Show All CategorieAdressePostale Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieTelephone/List" value="Show All CategorieTelephone Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/categorieTiers/List" value="Show All CategorieTiers Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/contact/List" value="Show All Contact Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/telephone/List" value="Show All Telephone Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/tiers/List" value="Show All Tiers Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/titreContact/List" value="Show All TitreContact Items"/>
-        </h:form>
-        <h:form>
-            <h:commandLink action="/data/typeTiers/List" value="Show All TypeTiers Items"/>
-        </h:form>
+    <h:body>  
+        <ui:composition template="/template.xhtml">
+            <ui:define name="titre_principal">
+                <p:panel>
+                    <h:outputText value="Accueil" />
+                    <p:effect type="slide" event="load"  />
+                </p:panel>
+            </ui:define>
+            <ui:define name="title">
+            </ui:define>
+
+            <ui:define name="body">
+                <h:panelGrid columns="4">
+                    <h:form>
+                        <h:commandLink action="/data/achat/List" value="Show All Achat Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieAchat/List" value="Show All CategorieAchat Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieEvenement/List" value="Show All CategorieEvenement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieOffre/List" value="Show All CategorieOffre Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieProduit/List" value="Show All CategorieProduit Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieService/List" value="Show All CategorieService Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/etatAchat/List" value="Show All EtatAchat Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/etatCommercial/List" value="Show All EtatCommercial Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/etatEvenement/List" value="Show All EtatEvenement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/etatOffre/List" value="Show All EtatOffre Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/evenement/List" value="Show All Evenement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/groupeOffre/List" value="Show All GroupeOffre Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/itemCommercial/List" value="Show All ItemCommercial Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/offreCommerciale/List" value="Show All OffreCommerciale Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/produit/List" value="Show All Produit Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/service/List" value="Show All Service Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieFacture/List" value="Show All CategorieFacture Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieReglement/List" value="Show All CategorieReglement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/facture/List" value="Show All Facture Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/reglement/List" value="Show All Reglement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/tVA/List" value="Show All TVA Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/documents/List" value="Show All Documents Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/logos/List" value="Show All Logos Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/pays/List" value="Show All Pays Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/zoneGeo/List" value="Show All ZoneGeo Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/banque/List" value="Show All Banque Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieBanque/List" value="Show All CategorieBanque Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieMouvement/List" value="Show All CategorieMouvement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/comptes/List" value="Show All Comptes Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/mouvement/List" value="Show All Mouvement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/rapprochement/List" value="Show All Rapprochement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/typeCompte/List" value="Show All TypeCompte Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/virement/List" value="Show All Virement Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/stock/List" value="Show All Stock Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/stockProduit/List" value="Show All StockProduit Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/adresseNumerique/List" value="Show All AdresseNumerique Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/adressePostale/List" value="Show All AdressePostale Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieAdresseNumerique/List" value="Show All CategorieAdresseNumerique Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieAdressePostale/List" value="Show All CategorieAdressePostale Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieTelephone/List" value="Show All CategorieTelephone Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/categorieTiers/List" value="Show All CategorieTiers Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/contact/List" value="Show All Contact Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/telephone/List" value="Show All Telephone Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/tiers/List" value="Show All Tiers Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/titreContact/List" value="Show All TitreContact Items"/>
+                    </h:form>
+                    <h:form>
+                        <h:commandLink action="/data/typeTiers/List" value="Show All TypeTiers Items"/>
+                    </h:form>
+                </h:panelGrid>
+            </ui:define>
+        </ui:composition>
     </h:body>
 
 

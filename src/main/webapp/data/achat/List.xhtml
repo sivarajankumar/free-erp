@@ -6,99 +6,99 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/tiers.xhtml">
+    <ui:composition template="/commercial.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ListAchatTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                </h:panelGroup>
+<!--                <h:panelGroup id="messagePanel" layout="block">
+                </h:panelGroup>-->
                 <h:outputText escape="false" value="#{bundle.ListAchatEmpty}" rendered="#{achatController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{achatController.items.rowCount > 0}">
                     <h:outputText value="#{achatController.pagination.pageFirstItem + 1}..#{achatController.pagination.pageLastItem + 1}/#{achatController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{achatController.previous}" value="#{bundle.Previous} #{achatController.pagination.pageSize}" rendered="#{achatController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{achatController.next}" value="#{bundle.Next} #{achatController.pagination.pageSize}" rendered="#{achatController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{achatController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
+                    <p:dataTable value="#{achatController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_categorieAchat}"/>
                             </f:facet>
                             <h:outputText value="#{item.categorieAchat}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_dateCloture}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateCloture}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_dateCreation}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateCreation}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_dateReceptionOk}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateReceptionOk}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_documents}"/>
                             </f:facet>
                             <h:outputText value="#{item.documents}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_etatAchat}"/>
                             </f:facet>
                             <h:outputText value="#{item.etatAchat}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_facture}"/>
                             </f:facet>
                             <h:outputText value="#{item.facture}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_factureOk}"/>
                             </f:facet>
                             <h:outputText value="#{item.factureOk}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_nomAchat}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomAchat}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_receptionOk}"/>
                             </f:facet>
                             <h:outputText value="#{item.receptionOk}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAchatTitle_tiers}"/>
                             </f:facet>
                             <h:outputText value="#{item.tiers}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -107,8 +107,8 @@
                             <h:commandLink action="#{achatController.prepareEdit}" value="#{bundle.ListAchatEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{achatController.destroy}" value="#{bundle.ListAchatDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <p:commandButton value="#{bundle.ListAchatCreateLink}" action="#{achatController.prepareCreate}" ajax="false"/>
