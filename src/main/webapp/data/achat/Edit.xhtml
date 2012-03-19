@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/commercial.xhtml">
         <ui:define name="title">
@@ -14,7 +15,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="6">
                     <h:outputLabel value="#{bundle.EditAchatLabel_id}" for="id" />
                     <h:inputText id="id" value="#{achatController.selected.id}" title="#{bundle.EditAchatTitle_id}" />
                     <h:outputLabel value="#{bundle.EditAchatLabel_categorieAchat}" for="categorieAchat" />
@@ -46,7 +47,7 @@
                         <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.EditAchatLabel_factureOk}" for="factureOk" />
-                    <h:inputText id="factureOk" value="#{achatController.selected.factureOk}" title="#{bundle.EditAchatTitle_factureOk}" />
+                    <p:selectBooleanCheckbox id="factureOk" value="#{achatController.selected.factureOk}" />
                     <h:outputLabel value="#{bundle.EditAchatLabel_nomAchat}" for="nomAchat" />
                     <h:inputText id="nomAchat" value="#{achatController.selected.nomAchat}" title="#{bundle.EditAchatTitle_nomAchat}" />
                     <h:outputLabel value="#{bundle.EditAchatLabel_receptionOk}" for="receptionOk" />

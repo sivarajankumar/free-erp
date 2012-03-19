@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
@@ -12,16 +13,14 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCategorieAdresseNumeriqueLabel_id}"/>
-                    <h:outputText value="#{categorieAdresseNumeriqueController.selected.id}" title="#{bundle.ViewCategorieAdresseNumeriqueTitle_id}"/>
                     <h:outputText value="#{bundle.ViewCategorieAdresseNumeriqueLabel_nomCategorie}"/>
                     <h:outputText value="#{categorieAdresseNumeriqueController.selected.nomCategorie}" title="#{bundle.ViewCategorieAdresseNumeriqueTitle_nomCategorie}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieAdresseNumeriqueController.destroyAndView}" value="#{bundle.ViewCategorieAdresseNumeriqueDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewCategorieAdresseNumeriqueEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{categorieAdresseNumeriqueController.prepareCreate}" value="#{bundle.ViewCategorieAdresseNumeriqueCreateLink}" />
                 <br />

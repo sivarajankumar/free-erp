@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.davidhodin.freeerp.data.tiers;
+package com.davidhodin.freeerp.data.configuration;
 
-import com.davidhodin.freeerp.data.commercial.Achat;
-import com.davidhodin.freeerp.data.commercial.OffreCommerciale;
-import com.davidhodin.freeerp.data.configuration.Logos;
+import com.davidhodin.freeerp.data.tiers.AdresseNumerique;
+import com.davidhodin.freeerp.data.tiers.AdressePostale;
+import com.davidhodin.freeerp.data.tiers.Telephone;
+import com.davidhodin.freeerp.data.tiers.TypeTiers;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
@@ -17,14 +18,13 @@ import javax.validation.constraints.NotNull;
  * @author david
  */
 @Entity
-public class Tiers implements Serializable {
-
+public class Societe implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull
-    private String nomTiers;
+    private String nomSociete;
     @ManyToOne
     private TypeTiers typeTiers;
     private String codeInterneTiers;
@@ -35,68 +35,22 @@ public class Tiers implements Serializable {
     private String numTVA;
     private String identifiantLegal;
     @ManyToOne
-    private CategorieTiers categorie;
-    @ManyToMany
-    private List<Contact> contacts;
-    @OneToMany
-    private List<AdressePostale> adressesPost;
+    private AdressePostale adressesPost;
     @OneToMany
     private List<AdresseNumerique> adressesNum;
     @OneToMany
     private List<Telephone> telephones;
-    @OneToMany(mappedBy = "tiers")
-    private List<Achat> achats;
-    @OneToMany(mappedBy = "tiers")
-    private List<OffreCommerciale> offreCommerciales;
+    @OneToMany
+    private List<ZoneGeo> sites;
     @ManyToOne
     private Logos logo;
-
+    
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public List<Achat> getAchats() {
-        return achats;
-    }
-
-    public void setAchats(List<Achat> achats) {
-        this.achats = achats;
-    }
-
-    public String getNomTiers() {
-        return nomTiers;
-    }
-
-    public void setNomTiers(String nomTiers) {
-        this.nomTiers = nomTiers;
-    }
-
-    public List<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(List<Contact> contacts) {
-        this.contacts = contacts;
-    }
-
-    public TypeTiers getTypeTiers() {
-        return typeTiers;
-    }
-
-    public void setTypeTiers(TypeTiers typeTiers) {
-        this.typeTiers = typeTiers;
-    }
-
-    public CategorieTiers getCategorie() {
-        return categorie;
-    }
-
-    public void setCategorie(CategorieTiers categorie) {
-        this.categorie = categorie;
     }
 
     public List<AdresseNumerique> getAdressesNum() {
@@ -107,28 +61,12 @@ public class Tiers implements Serializable {
         this.adressesNum = adressesNum;
     }
 
-    public List<AdressePostale> getAdressesPost() {
+    public AdressePostale getAdressesPost() {
         return adressesPost;
     }
 
-    public void setAdressesPost(List<AdressePostale> adressesPost) {
+    public void setAdressesPost(AdressePostale adressesPost) {
         this.adressesPost = adressesPost;
-    }
-
-    public Logos getLogo() {
-        return logo;
-    }
-
-    public void setLogo(Logos logo) {
-        this.logo = logo;
-    }
-
-    public List<Telephone> getTelephones() {
-        return telephones;
-    }
-
-    public void setTelephones(List<Telephone> telephones) {
-        this.telephones = telephones;
     }
 
     public String getCapital() {
@@ -171,6 +109,22 @@ public class Tiers implements Serializable {
         this.identifiantLegal = identifiantLegal;
     }
 
+    public Logos getLogo() {
+        return logo;
+    }
+
+    public void setLogo(Logos logo) {
+        this.logo = logo;
+    }
+
+    public String getNomSociete() {
+        return nomSociete;
+    }
+
+    public void setNomSociete(String nomSociete) {
+        this.nomSociete = nomSociete;
+    }
+
     public String getNumTVA() {
         return numTVA;
     }
@@ -179,12 +133,20 @@ public class Tiers implements Serializable {
         this.numTVA = numTVA;
     }
 
-    public List<OffreCommerciale> getOffreCommerciales() {
-        return offreCommerciales;
+    public List<ZoneGeo> getSites() {
+        return sites;
     }
 
-    public void setOffreCommerciales(List<OffreCommerciale> offreCommerciales) {
-        this.offreCommerciales = offreCommerciales;
+    public void setSites(List<ZoneGeo> sites) {
+        this.sites = sites;
+    }
+
+    public List<Telephone> getTelephones() {
+        return telephones;
+    }
+
+    public void setTelephones(List<Telephone> telephones) {
+        this.telephones = telephones;
     }
 
     public Boolean getTva() {
@@ -193,6 +155,14 @@ public class Tiers implements Serializable {
 
     public void setTva(Boolean tva) {
         this.tva = tva;
+    }
+
+    public TypeTiers getTypeTiers() {
+        return typeTiers;
+    }
+
+    public void setTypeTiers(TypeTiers typeTiers) {
+        this.typeTiers = typeTiers;
     }
 
     @Override
@@ -205,10 +175,10 @@ public class Tiers implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Tiers)) {
+        if (!(object instanceof Societe)) {
             return false;
         }
-        Tiers other = (Tiers) object;
+        Societe other = (Societe) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -217,6 +187,7 @@ public class Tiers implements Serializable {
 
     @Override
     public String toString() {
-        return nomTiers;
+        return nomSociete;
     }
+    
 }

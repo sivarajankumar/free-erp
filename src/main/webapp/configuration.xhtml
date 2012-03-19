@@ -12,43 +12,50 @@
                     <h:outputText value="#{bundle.TitreConfiguration}" />
                     <p:effect type="slide" event="load"  />
                 </p:panel>
-                <h:form>
-                    <p:menubar>
-                        <p:menuitem value="Tiers" />
-                        <p:menuitem value="Commercial" />
-                        <p:menuitem value="Produits/service" />
-                        <p:menuitem value="Autre" />
-                    </p:menubar>
-                </h:form>
             </ui:define>
             <ui:define name="title">
                 <ui:insert name="title">Default Title</ui:insert>
             </ui:define>
             <ui:define name="menu">
-                <p:tab title="Configuration-Tiers" closable="true" >
+                <p:tab title="Catégories">
                     <h:form>        
-                        <p:commandLink value="Type d'information électronique" ajax="false" action="/data/categorieAdresseNumerique/List"/><br />
-                        <p:commandLink value="Catégorie d'adresse"  ajax="false" action="/data/categorieAdressePostale/List"/><br />
+                        <p:commandLink value="Adresse postale"  ajax="false" action="/data/categorieAdressePostale/List"/><br />
+                        <p:commandLink value="Adresse numérique" ajax="false" action="/data/categorieAdresseNumerique/List"/><br />
+                        <p:commandLink value="Téléphone"  ajax="false" action="/data/categorieTelephone/List"/><br />
+                        <p:separator/>
                         <p:commandLink value="Catégorie de tiers"  ajax="false" action="/data/categorieTiers/List"/><br />
-                        <p:commandLink value="Type de tiers"  ajax="false" action="/data/typeTiers/List"/><br />
-                        <p:commandLink value="Type de numéro de téléphone"  ajax="false" action="/data/categorieTelephone/List"/>
+                        <p:commandLink value="Produit"  ajax="false" action="/data/categorieProduit/List"/><br />
+                        <p:commandLink value="Service"  ajax="false" action="/data/categorieService/List"/><br />
+                        <p:separator/>
+                        <p:commandLink value="Achat"  ajax="false" action="/data/categorieService/List"/><br />
+                        <p:commandLink value="Vente"  ajax="false" action="/data/categorieService/List"/><br />
+                        <p:commandLink value="Evènement"  ajax="false" action="/data/categorieEvenement/List"/><br />
+                        <p:separator/>
+                        <p:commandLink value="Banque"  ajax="false" action="/data/categorieBanque/List"/><br />
+                        <p:commandLink value="Compte"  ajax="false" action="/data/typeCompte/List"/><br />
+                        <p:commandLink value="Mouvement"  ajax="false" action="/data/categorieMouvement/List"/><br />
+                        <p:commandLink value="Facture"  ajax="false" action="/data/categorieFacture/List"/><br />
+                        <p:commandLink value="Règlement"  ajax="false" action="/data/categorieRèglement/List"/>
                     </h:form>
                 </p:tab>
-                <p:tab title="Configuration-Commercial">
+                <p:tab title="Etat/Type">
                     <h:form>
-                        <p:commandLink value="Nouvelle offre" ajax="false" action="/data/offreCommerciale/Create"/><br />
-                        <p:commandLink value="Toutes les offres" ajax="false" action="/data/offreCommerciale/List"/><br />
-                        <p:commandLink value="Offres par catégories" ajax="false" action="/data/offreCommerciale/List"/>
+                        <p:commandLink value="Type de tiers"  ajax="false" action="/data/typeTiers/List"/><br />
+                        <p:separator/>
+                        <p:commandLink value="Etat d'achat"  ajax="false" action="/data/etatAchat/List"/><br />
+                        <p:commandLink value="Etat de vente"  ajax="false" action="/data/etatVente/List"/><br />
+                        <p:commandLink value="Etat de l'offre"  ajax="false" action="/data/etatOffre/List"/><br />
+                        <p:commandLink value="Etat d'un evènement"  ajax="false" action="/data/etatEvenement/List"/>                                                
                     </h:form>
                 </p:tab>
-                <p:tab title="Configuration-Financier">
-
-                </p:tab>
-                <p:tab title="Configuration-Entreprise">
-
-                </p:tab>
-                <p:tab title="Configuration-Autre">
-
+                <p:tab title="Données de référence">
+                    <h:form>
+                        <p:commandLink value="Titre de personnes"  ajax="false" action="/data/titreContact/List"/><br />
+                        <p:commandLink value="Pays"  ajax="false" action="/data/pays/List"/><br />
+                        <p:commandLink value="Taux de TVA"  ajax="false" action="/data/tVA/List"/><br />
+                        <!--<p:commandLink value="Société"  ajax="false" action="/data/zoneGeo/List"/><br />-->
+                        <p:commandLink value="Locaux de la société"  ajax="false" action="/data/zoneGeo/List"/>
+                    </h:form>
                 </p:tab>
             </ui:define>
 

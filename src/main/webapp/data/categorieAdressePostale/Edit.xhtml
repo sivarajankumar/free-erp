@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
@@ -11,16 +12,15 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCategorieAdressePostaleLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieAdressePostaleController.selected.id}" title="#{bundle.EditCategorieAdressePostaleTitle_id}" />
+                <h:panelGrid columns="">
                     <h:outputLabel value="#{bundle.EditCategorieAdressePostaleLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieAdressePostaleController.selected.nomCategorie}" title="#{bundle.EditCategorieAdressePostaleTitle_nomCategorie}" />
+                    <p:inputText required="true" id="nomCategorie" value="#{categorieAdressePostaleController.selected.nomCategorie}" title="#{bundle.EditCategorieAdressePostaleTitle_nomCategorie}" />
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <h:commandLink action="#{categorieAdressePostaleController.update}" value="#{bundle.EditCategorieAdressePostaleSaveLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="View" value="#{bundle.EditCategorieAdressePostaleViewLink}" immediate="true"/>
+                <br />
                 <br />
                 <h:commandLink action="#{categorieAdressePostaleController.prepareList}" value="#{bundle.EditCategorieAdressePostaleShowAllLink}" immediate="true"/>
                 <br />

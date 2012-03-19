@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
@@ -11,11 +12,10 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCategorieAdressePostaleLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieAdressePostaleController.selected.id}" title="#{bundle.CreateCategorieAdressePostaleTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateCategorieAdressePostaleLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieAdressePostaleController.selected.nomCategorie}" title="#{bundle.CreateCategorieAdressePostaleTitle_nomCategorie}" />
+                    <p:inputText required="true" id="nomCategorie" value="#{categorieAdressePostaleController.selected.nomCategorie}" title="#{bundle.CreateCategorieAdressePostaleTitle_nomCategorie}" />
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieAdressePostaleController.create}" value="#{bundle.CreateCategorieAdressePostaleSaveLink}" />
