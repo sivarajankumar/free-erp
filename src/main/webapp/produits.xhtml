@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="titre_principal">
+                <p:panel>
+                    <h:outputText value="#{bundle.TitreProduit}" />
+                    <p:effect type="slide" event="load"  />
+                </p:panel>
+            </ui:define>
+            <ui:define name="title">
+                <ui:insert name="title">Default Title</ui:insert>
+            </ui:define>
+            <ui:define name="menu">
+                <p:tab title="Produits">
+                    <h:form>        
+                        <p:commandLink value="Nouveau produit" ajax="false" action="/data/produit/Create"/><br />
+                        <p:commandLink value="Tous les produits"  ajax="false" action="/data/produit/List"/><br />
+                        <p:commandLink value="Produits par catégorie"  ajax="false" action="/data/produit/List"/>
+                    </h:form>
+                </p:tab>
+                <p:tab title="Services">
+                    <h:form>
+                        <p:commandLink value="Nouveau service" ajax="false" action="/data/service/Create"/><br />
+                        <p:commandLink value="Toutes les services" ajax="false" action="/data/service/List"/><br />
+                        <p:commandLink value="Services par catégories" ajax="false" action="/data/service/List"/>
+                    </h:form>
+                </p:tab>
+            </ui:define>
+
+            <ui:define name="body">
+                <ui:insert name="body">corps</ui:insert>
+            </ui:define>
+
+        </ui:composition>
+    </body>
+</html>
