@@ -6,20 +6,16 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.EditTypeCompteTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTypeCompteLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{typeCompteController.selected.id}" title="#{bundle.EditTypeCompteTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditTypeCompteLabel_typeCompte}" for="typeCompte" />
-                    <h:inputText id="typeCompte" value="#{typeCompteController.selected.typeCompte}" title="#{bundle.EditTypeCompteTitle_typeCompte}" />
+                    <p:inputText id="typeCompte" required="true" value="#{typeCompteController.selected.typeCompte}" title="#{bundle.EditTypeCompteTitle_typeCompte}" />
+                    <p:message for="typeCompte"/>
                 </h:panelGrid>
                 <h:commandLink action="#{typeCompteController.update}" value="#{bundle.EditTypeCompteSaveLink}"/>
                 <br />
@@ -27,9 +23,6 @@
                 <h:commandLink action="View" value="#{bundle.EditTypeCompteViewLink}" immediate="true"/>
                 <br />
                 <h:commandLink action="#{typeCompteController.prepareList}" value="#{bundle.EditTypeCompteShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditTypeCompteIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

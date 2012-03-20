@@ -13,25 +13,19 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCategorieEvenementLabel_id}"/>
-                    <h:outputText value="#{categorieEvenementController.selected.id}" title="#{bundle.ViewCategorieEvenementTitle_id}"/>
                     <h:outputText value="#{bundle.ViewCategorieEvenementLabel_nomCatEvenement}"/>
                     <h:outputText value="#{categorieEvenementController.selected.nomCatEvenement}" title="#{bundle.ViewCategorieEvenementTitle_nomCatEvenement}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieEvenementController.destroyAndView}" value="#{bundle.ViewCategorieEvenementDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewCategorieEvenementEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{categorieEvenementController.prepareCreate}" value="#{bundle.ViewCategorieEvenementCreateLink}" />
                 <br />
                 <h:commandLink action="#{categorieEvenementController.prepareList}" value="#{bundle.ViewCategorieEvenementShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewCategorieEvenementIndexLink}" action="/index" immediate="true" />
-
-            </h:form>
+           </h:form>
         </ui:define>
     </ui:composition>
 

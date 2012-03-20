@@ -12,20 +12,16 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCategorieReglementLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieReglementController.selected.id}" title="#{bundle.CreateCategorieReglementTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateCategorieReglementLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieReglementController.selected.nomCategorie}" title="#{bundle.CreateCategorieReglementTitle_nomCategorie}" />
+                    <p:inputText id="nomCategorie" required="true" value="#{categorieReglementController.selected.nomCategorie}" title="#{bundle.CreateCategorieReglementTitle_nomCategorie}" />
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieReglementController.create}" value="#{bundle.CreateCategorieReglementSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{categorieReglementController.prepareList}" value="#{bundle.CreateCategorieReglementShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateCategorieReglementIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

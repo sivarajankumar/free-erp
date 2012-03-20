@@ -17,20 +17,14 @@
                     <h:outputText value="#{categorieEvenementController.pagination.pageFirstItem + 1}..#{categorieEvenementController.pagination.pageLastItem + 1}/#{categorieEvenementController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categorieEvenementController.previous}" value="#{bundle.Previous} #{categorieEvenementController.pagination.pageSize}" rendered="#{categorieEvenementController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categorieEvenementController.next}" value="#{bundle.Next} #{categorieEvenementController.pagination.pageSize}" rendered="#{categorieEvenementController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{categorieEvenementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieEvenementTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{categorieEvenementController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieEvenementTitle_nomCatEvenement}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomCatEvenement}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -39,14 +33,11 @@
                             <h:commandLink action="#{categorieEvenementController.prepareEdit}" value="#{bundle.ListCategorieEvenementEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{categorieEvenementController.destroy}" value="#{bundle.ListCategorieEvenementDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieEvenementController.prepareCreate}" value="#{bundle.ListCategorieEvenementCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListCategorieEvenementIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

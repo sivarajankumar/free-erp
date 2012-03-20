@@ -15,7 +15,7 @@
                 <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditCategorieAchatLabel_nomCategorie}" for="nomCategorie" />
                     <p:inputText required="true" id="nomCategorie" value="#{categorieAchatController.selected.nomCategorie}" title="#{bundle.EditCategorieAchatTitle_nomCategorie}" />
-     <p:message for="nomCategorie"/>
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <h:commandLink action="#{categorieAchatController.update}" value="#{bundle.EditCategorieAchatSaveLink}"/>
                 <br />
@@ -23,9 +23,6 @@
                 <h:commandLink action="View" value="#{bundle.EditCategorieAchatViewLink}" immediate="true"/>
                 <br />
                 <h:commandLink action="#{categorieAchatController.prepareList}" value="#{bundle.EditCategorieAchatShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditCategorieAchatIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

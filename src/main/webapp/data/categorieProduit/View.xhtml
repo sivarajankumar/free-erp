@@ -13,26 +13,20 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCategorieProduitLabel_descCategorie}"/>
-                    <h:outputText value="#{categorieProduitController.selected.descCategorie}" title="#{bundle.ViewCategorieProduitTitle_descCategorie}"/>
-                    <h:outputText value="#{bundle.ViewCategorieProduitLabel_id}"/>
-                    <h:outputText value="#{categorieProduitController.selected.id}" title="#{bundle.ViewCategorieProduitTitle_id}"/>
                     <h:outputText value="#{bundle.ViewCategorieProduitLabel_nomCategorie}"/>
                     <h:outputText value="#{categorieProduitController.selected.nomCategorie}" title="#{bundle.ViewCategorieProduitTitle_nomCategorie}"/>
+                    <h:outputText value="#{bundle.ViewCategorieProduitLabel_descCategorie}"/>
+                    <h:outputText value="#{categorieProduitController.selected.descCategorie}" title="#{bundle.ViewCategorieProduitTitle_descCategorie}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieProduitController.destroyAndView}" value="#{bundle.ViewCategorieProduitDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewCategorieProduitEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{categorieProduitController.prepareCreate}" value="#{bundle.ViewCategorieProduitCreateLink}" />
                 <br />
                 <h:commandLink action="#{categorieProduitController.prepareList}" value="#{bundle.ViewCategorieProduitShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewCategorieProduitIndexLink}" action="/index" immediate="true" />
-
             </h:form>
         </ui:define>
     </ui:composition>

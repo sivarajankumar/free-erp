@@ -15,9 +15,42 @@
             </ui:define>
 
             <ui:define name="body">
-                <p>
-                    Cette section est dédiée à la configuration de freeERP.
-                </p>
+                <p:carousel id="tabsCarousel" rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong" autoPlayInterval="5000" circular="true">
+                    <p:tab title="Categorie">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:graphicImage value="/resources/images/presentation/categorie.png" />
+                            <p:panel>
+                                <h1>Catégories</h1>
+                                <h2>Les catégories sont utilisées pour les classement de données.<br />
+                                    Selon les items la recherche s'en retrouve accélérée.</h2>
+                            </p:panel>
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="Etat">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:graphicImage value="/resources/images/presentation/statut.png" />
+                            <p:panel>
+                                <h1>Etat/Type</h1>
+                                <h2>L'état d'un élément est sont statut transitoire ou permanent.<br />
+                                    Le type est utilisé pour définir une typologie (par exemple
+                                    pour les tiers on peut définir des tiers de type client ou fournisseur.
+                                </h2>
+                            </p:panel>
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="References">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:graphicImage value="/resources/images/presentation/references.png" />
+                            <p:panel>
+                                <h1>Donnée de référence</h1>
+                                <h2>Les données de référence sont la plupart du temps
+                                    associé à une norme ou une habiture (ex : titre peut être M., Me. ou Mlle).
+                                </h2>
+                            </p:panel>
+                        </h:panelGrid>
+                    </p:tab>
+                </p:carousel>
+
             </ui:define>
 
         </ui:composition>

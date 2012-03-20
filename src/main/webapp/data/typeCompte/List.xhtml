@@ -6,34 +6,25 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ListTypeCompteTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListTypeCompteEmpty}" rendered="#{typeCompteController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{typeCompteController.items.rowCount > 0}">
                     <h:outputText value="#{typeCompteController.pagination.pageFirstItem + 1}..#{typeCompteController.pagination.pageLastItem + 1}/#{typeCompteController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{typeCompteController.previous}" value="#{bundle.Previous} #{typeCompteController.pagination.pageSize}" rendered="#{typeCompteController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{typeCompteController.next}" value="#{bundle.Next} #{typeCompteController.pagination.pageSize}" rendered="#{typeCompteController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{typeCompteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTypeCompteTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{typeCompteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTypeCompteTitle_typeCompte}"/>
                             </f:facet>
                             <h:outputText value="#{item.typeCompte}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -42,14 +33,11 @@
                             <h:commandLink action="#{typeCompteController.prepareEdit}" value="#{bundle.ListTypeCompteEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{typeCompteController.destroy}" value="#{bundle.ListTypeCompteDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{typeCompteController.prepareCreate}" value="#{bundle.ListTypeCompteCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListTypeCompteIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

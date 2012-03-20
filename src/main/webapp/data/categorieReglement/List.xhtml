@@ -17,20 +17,14 @@
                     <h:outputText value="#{categorieReglementController.pagination.pageFirstItem + 1}..#{categorieReglementController.pagination.pageLastItem + 1}/#{categorieReglementController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categorieReglementController.previous}" value="#{bundle.Previous} #{categorieReglementController.pagination.pageSize}" rendered="#{categorieReglementController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categorieReglementController.next}" value="#{bundle.Next} #{categorieReglementController.pagination.pageSize}" rendered="#{categorieReglementController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{categorieReglementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieReglementTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{categorieReglementController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieReglementTitle_nomCategorie}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomCategorie}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -39,14 +33,11 @@
                             <h:commandLink action="#{categorieReglementController.prepareEdit}" value="#{bundle.ListCategorieReglementEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{categorieReglementController.destroy}" value="#{bundle.ListCategorieReglementDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieReglementController.prepareCreate}" value="#{bundle.ListCategorieReglementCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListCategorieReglementIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

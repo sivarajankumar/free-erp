@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="titre_principal">
+                <p:panel>
+                    <h:outputText value="#{bundle.TitreFinancier}" />
+<!--                    <p:effect type="slide" event="load"  />-->
+                </p:panel>
+            </ui:define>
+            <ui:define name="title">
+                <ui:insert name="title">Default Title</ui:insert>
+            </ui:define>
+            <ui:define name="menu">
+                <p:tab title="Facturation">
+                    <h:form>        
+                        <p:commandLink value="Factures"  ajax="false" action="/data/facture/List"/>
+                    </h:form>
+                </p:tab>
+                <p:tab title="Finance">
+                    <h:form>        
+                        <p:commandLink value="Banques" ajax="false" action="/data/banque/List"/><br />
+                        <p:commandLink value="Comptes"  ajax="false" action="/data/comptes/List"/><br />
+                        <p:commandLink value="Mouvements financiers"  ajax="false" action="/data/mouvement/List"/><br />
+                        <p:commandLink value="Virements bancaires"  ajax="false" action="/data/virement/List"/><br />
+                        <p:commandLink value="Rapprochements"  ajax="false" action="/data/rapprochement/List"/>
+                    </h:form>
+                </p:tab>
+                <p:tab title="Comptabilité">
+                    Non implémenté
+                </p:tab>
+            </ui:define>
+
+            <ui:define name="body">
+                <ui:insert name="body">corps</ui:insert>
+            </ui:define>
+
+        </ui:composition>
+    </body>
+</html>

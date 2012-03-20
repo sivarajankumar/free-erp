@@ -13,24 +13,18 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCategorieBanqueLabel_id}"/>
-                    <h:outputText value="#{categorieBanqueController.selected.id}" title="#{bundle.ViewCategorieBanqueTitle_id}"/>
                     <h:outputText value="#{bundle.ViewCategorieBanqueLabel_nomCategorie}"/>
                     <h:outputText value="#{categorieBanqueController.selected.nomCategorie}" title="#{bundle.ViewCategorieBanqueTitle_nomCategorie}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieBanqueController.destroyAndView}" value="#{bundle.ViewCategorieBanqueDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewCategorieBanqueEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{categorieBanqueController.prepareCreate}" value="#{bundle.ViewCategorieBanqueCreateLink}" />
                 <br />
                 <h:commandLink action="#{categorieBanqueController.prepareList}" value="#{bundle.ViewCategorieBanqueShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewCategorieBanqueIndexLink}" action="/index" immediate="true" />
-
             </h:form>
         </ui:define>
     </ui:composition>

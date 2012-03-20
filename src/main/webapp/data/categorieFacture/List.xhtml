@@ -17,20 +17,14 @@
                     <h:outputText value="#{categorieFactureController.pagination.pageFirstItem + 1}..#{categorieFactureController.pagination.pageLastItem + 1}/#{categorieFactureController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categorieFactureController.previous}" value="#{bundle.Previous} #{categorieFactureController.pagination.pageSize}" rendered="#{categorieFactureController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categorieFactureController.next}" value="#{bundle.Next} #{categorieFactureController.pagination.pageSize}" rendered="#{categorieFactureController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{categorieFactureController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieFactureTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{categorieFactureController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieFactureTitle_nomCategorie}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomCategorie}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -39,14 +33,11 @@
                             <h:commandLink action="#{categorieFactureController.prepareEdit}" value="#{bundle.ListCategorieFactureEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{categorieFactureController.destroy}" value="#{bundle.ListCategorieFactureDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieFactureController.prepareCreate}" value="#{bundle.ListCategorieFactureCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListCategorieFactureIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

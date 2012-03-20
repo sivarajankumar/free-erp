@@ -17,20 +17,14 @@
                     <h:outputText value="#{categorieServiceController.pagination.pageFirstItem + 1}..#{categorieServiceController.pagination.pageLastItem + 1}/#{categorieServiceController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categorieServiceController.previous}" value="#{bundle.Previous} #{categorieServiceController.pagination.pageSize}" rendered="#{categorieServiceController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categorieServiceController.next}" value="#{bundle.Next} #{categorieServiceController.pagination.pageSize}" rendered="#{categorieServiceController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{categorieServiceController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
+                    <p:dataTable value="#{categorieServiceController.items}" var="item"  >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieServiceTitle_nomCategorie}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomCategorie}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieServiceTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -39,14 +33,11 @@
                             <h:commandLink action="#{categorieServiceController.prepareEdit}" value="#{bundle.ListCategorieServiceEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{categorieServiceController.destroy}" value="#{bundle.ListCategorieServiceDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieServiceController.prepareCreate}" value="#{bundle.ListCategorieServiceCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListCategorieServiceIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

@@ -10,7 +10,7 @@
             <ui:define name="titre_principal">
                 <p:panel>
                     <h:outputText value="#{bundle.TitreConfiguration}" />
-                    <p:effect type="slide" event="load"  />
+<!--                    <p:effect type="slide" event="load"  />-->
                 </p:panel>
             </ui:define>
             <ui:define name="title">
@@ -23,19 +23,19 @@
                         <p:commandLink value="Adresse numérique" ajax="false" action="/data/categorieAdresseNumerique/List"/><br />
                         <p:commandLink value="Téléphone"  ajax="false" action="/data/categorieTelephone/List"/><br />
                         <p:separator/>
-                        <p:commandLink value="Catégorie de tiers"  ajax="false" action="/data/categorieTiers/List"/><br />
+                        <p:commandLink value="Tiers"  ajax="false" action="/data/categorieTiers/List"/><br />
                         <p:commandLink value="Produit"  ajax="false" action="/data/categorieProduit/List"/><br />
                         <p:commandLink value="Service"  ajax="false" action="/data/categorieService/List"/><br />
                         <p:separator/>
-                        <p:commandLink value="Achat"  ajax="false" action="/data/categorieService/List"/><br />
-                        <p:commandLink value="Vente"  ajax="false" action="/data/categorieService/List"/><br />
+                        <p:commandLink value="Achat"  ajax="false" action="/data/categorieAchat/List"/><br />
+                        <p:commandLink value="Offre commerciale"  ajax="false" action="/data/categorieOffre/List"/><br />
                         <p:commandLink value="Evènement"  ajax="false" action="/data/categorieEvenement/List"/><br />
                         <p:separator/>
                         <p:commandLink value="Banque"  ajax="false" action="/data/categorieBanque/List"/><br />
                         <p:commandLink value="Compte"  ajax="false" action="/data/typeCompte/List"/><br />
-                        <p:commandLink value="Mouvement"  ajax="false" action="/data/categorieMouvement/List"/><br />
+                        <p:commandLink value="Mouvement financier"  ajax="false" action="/data/categorieMouvement/List"/><br />
                         <p:commandLink value="Facture"  ajax="false" action="/data/categorieFacture/List"/><br />
-                        <p:commandLink value="Règlement"  ajax="false" action="/data/categorieRèglement/List"/>
+                        <p:commandLink value="Règlement"  ajax="false" action="/data/categorieReglement/List"/>
                     </h:form>
                 </p:tab>
                 <p:tab title="Etat/Type">

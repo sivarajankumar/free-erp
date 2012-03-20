@@ -6,14 +6,11 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/financier.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewBanqueTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewBanqueLabel_id}"/>
@@ -34,10 +31,6 @@
                 <h:commandLink action="#{banqueController.prepareCreate}" value="#{bundle.ViewBanqueCreateLink}" />
                 <br />
                 <h:commandLink action="#{banqueController.prepareList}" value="#{bundle.ViewBanqueShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewBanqueIndexLink}" action="/index" immediate="true" />
-
             </h:form>
         </ui:define>
     </ui:composition>

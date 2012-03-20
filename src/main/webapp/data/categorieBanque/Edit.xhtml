@@ -12,11 +12,10 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCategorieBanqueLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieBanqueController.selected.id}" title="#{bundle.EditCategorieBanqueTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditCategorieBanqueLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieBanqueController.selected.nomCategorie}" title="#{bundle.EditCategorieBanqueTitle_nomCategorie}" />
+                    <p:inputText id="nomCategorie" required="true" value="#{categorieBanqueController.selected.nomCategorie}" title="#{bundle.EditCategorieBanqueTitle_nomCategorie}" />
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <h:commandLink action="#{categorieBanqueController.update}" value="#{bundle.EditCategorieBanqueSaveLink}"/>
                 <br />
@@ -24,9 +23,6 @@
                 <h:commandLink action="View" value="#{bundle.EditCategorieBanqueViewLink}" immediate="true"/>
                 <br />
                 <h:commandLink action="#{categorieBanqueController.prepareList}" value="#{bundle.EditCategorieBanqueShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditCategorieBanqueIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

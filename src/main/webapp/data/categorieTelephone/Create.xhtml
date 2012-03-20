@@ -12,20 +12,16 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCategorieTelephoneLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieTelephoneController.selected.id}" title="#{bundle.CreateCategorieTelephoneTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateCategorieTelephoneLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieTelephoneController.selected.nomCategorie}" title="#{bundle.CreateCategorieTelephoneTitle_nomCategorie}" />
+                    <p:inputText required="true" id="nomCategorie" value="#{categorieTelephoneController.selected.nomCategorie}" title="#{bundle.CreateCategorieTelephoneTitle_nomCategorie}" />
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieTelephoneController.create}" value="#{bundle.CreateCategorieTelephoneSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{categorieTelephoneController.prepareList}" value="#{bundle.CreateCategorieTelephoneShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateCategorieTelephoneIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

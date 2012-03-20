@@ -12,22 +12,19 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCategorieProduitLabel_descCategorie}" for="descCategorie" />
-                    <h:inputText id="descCategorie" value="#{categorieProduitController.selected.descCategorie}" title="#{bundle.CreateCategorieProduitTitle_descCategorie}" />
-                    <h:outputLabel value="#{bundle.CreateCategorieProduitLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieProduitController.selected.id}" title="#{bundle.CreateCategorieProduitTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateCategorieProduitLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieProduitController.selected.nomCategorie}" title="#{bundle.CreateCategorieProduitTitle_nomCategorie}" />
+                    <p:inputText required="true" id="nomCategorie" value="#{categorieProduitController.selected.nomCategorie}" title="#{bundle.CreateCategorieProduitTitle_nomCategorie}" />
+                    <p:message for="nomCategorie" />
+                    <h:outputLabel value="#{bundle.CreateCategorieProduitLabel_descCategorie}" for="descCategorie" />
+                    <p:inputTextarea id="descCategorie" value="#{categorieProduitController.selected.descCategorie}" title="#{bundle.CreateCategorieProduitTitle_descCategorie}" />
+                    <p:message for="descCategorie"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieProduitController.create}" value="#{bundle.CreateCategorieProduitSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{categorieProduitController.prepareList}" value="#{bundle.CreateCategorieProduitShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateCategorieProduitIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

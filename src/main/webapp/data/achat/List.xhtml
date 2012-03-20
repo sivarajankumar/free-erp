@@ -12,8 +12,6 @@
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-<!--                <h:panelGroup id="messagePanel" layout="block">
-                </h:panelGroup>-->
                 <h:outputText escape="false" value="#{bundle.ListAchatEmpty}" rendered="#{achatController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{achatController.items.rowCount > 0}">
                     <h:outputText value="#{achatController.pagination.pageFirstItem + 1}..#{achatController.pagination.pageLastItem + 1}/#{achatController.pagination.itemsCount}"/>&nbsp;
@@ -111,14 +109,8 @@
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <p:commandButton value="#{bundle.ListAchatCreateLink}" action="#{achatController.prepareCreate}" ajax="false"/>
                 <br />
                 <h:commandLink action="#{achatController.prepareCreate}" value="#{bundle.ListAchatCreateLink}"/>
-                <br />
-                <br />
-                <p:button value="#{bundle.ListAchatIndexLink}" outcome="/index"/>
-                <br />
-                <h:commandLink value="#{bundle.ListAchatIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

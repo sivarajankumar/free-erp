@@ -12,20 +12,16 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCategorieFactureLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieFactureController.selected.id}" title="#{bundle.CreateCategorieFactureTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateCategorieFactureLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieFactureController.selected.nomCategorie}" title="#{bundle.CreateCategorieFactureTitle_nomCategorie}" />
+                    <p:inputText id="nomCategorie" required="true" value="#{categorieFactureController.selected.nomCategorie}" title="#{bundle.CreateCategorieFactureTitle_nomCategorie}" />
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieFactureController.create}" value="#{bundle.CreateCategorieFactureSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{categorieFactureController.prepareList}" value="#{bundle.CreateCategorieFactureShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateCategorieFactureIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

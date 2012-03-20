@@ -13,8 +13,6 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCategorieTiersLabel_id}"/>
-                    <h:outputText value="#{categorieTiersController.selected.id}" title="#{bundle.ViewCategorieTiersTitle_id}"/>
                     <h:outputText value="#{bundle.ViewCategorieTiersLabel_nomCategorie}"/>
                     <h:outputText value="#{categorieTiersController.selected.nomCategorie}" title="#{bundle.ViewCategorieTiersTitle_nomCategorie}"/>
                 </h:panelGrid>
@@ -27,10 +25,6 @@
                 <h:commandLink action="#{categorieTiersController.prepareCreate}" value="#{bundle.ViewCategorieTiersCreateLink}" />
                 <br />
                 <h:commandLink action="#{categorieTiersController.prepareList}" value="#{bundle.ViewCategorieTiersShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewCategorieTiersIndexLink}" action="/index" immediate="true" />
-
             </h:form>
         </ui:define>
     </ui:composition>

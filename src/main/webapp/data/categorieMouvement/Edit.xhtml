@@ -12,11 +12,10 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCategorieMouvementLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categorieMouvementController.selected.id}" title="#{bundle.EditCategorieMouvementTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditCategorieMouvementLabel_nomCategorie}" for="nomCategorie" />
-                    <h:inputText id="nomCategorie" value="#{categorieMouvementController.selected.nomCategorie}" title="#{bundle.EditCategorieMouvementTitle_nomCategorie}" />
+                    <p:inputText id="nomCategorie" required="true" value="#{categorieMouvementController.selected.nomCategorie}" title="#{bundle.EditCategorieMouvementTitle_nomCategorie}" />
+                    <p:message for="nomCategorie"/>
                 </h:panelGrid>
                 <h:commandLink action="#{categorieMouvementController.update}" value="#{bundle.EditCategorieMouvementSaveLink}"/>
                 <br />
@@ -24,9 +23,6 @@
                 <h:commandLink action="View" value="#{bundle.EditCategorieMouvementViewLink}" immediate="true"/>
                 <br />
                 <h:commandLink action="#{categorieMouvementController.prepareList}" value="#{bundle.EditCategorieMouvementShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditCategorieMouvementIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

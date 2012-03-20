@@ -17,20 +17,14 @@
                     <h:outputText value="#{categorieTelephoneController.pagination.pageFirstItem + 1}..#{categorieTelephoneController.pagination.pageLastItem + 1}/#{categorieTelephoneController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categorieTelephoneController.previous}" value="#{bundle.Previous} #{categorieTelephoneController.pagination.pageSize}" rendered="#{categorieTelephoneController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categorieTelephoneController.next}" value="#{bundle.Next} #{categorieTelephoneController.pagination.pageSize}" rendered="#{categorieTelephoneController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{categorieTelephoneController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieTelephoneTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{categorieTelephoneController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieTelephoneTitle_nomCategorie}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomCategorie}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -39,14 +33,11 @@
                             <h:commandLink action="#{categorieTelephoneController.prepareEdit}" value="#{bundle.ListCategorieTelephoneEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{categorieTelephoneController.destroy}" value="#{bundle.ListCategorieTelephoneDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieTelephoneController.prepareCreate}" value="#{bundle.ListCategorieTelephoneCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListCategorieTelephoneIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

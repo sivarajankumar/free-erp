@@ -6,14 +6,11 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/financier.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.EditRapprochementTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditRapprochementLabel_id}" for="id" />
@@ -41,9 +38,6 @@
                 <h:commandLink action="View" value="#{bundle.EditRapprochementViewLink}" immediate="true"/>
                 <br />
                 <h:commandLink action="#{rapprochementController.prepareList}" value="#{bundle.EditRapprochementShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditRapprochementIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>

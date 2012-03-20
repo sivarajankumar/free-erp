@@ -15,22 +15,16 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewCategorieServiceLabel_nomCategorie}"/>
                     <h:outputText value="#{categorieServiceController.selected.nomCategorie}" title="#{bundle.ViewCategorieServiceTitle_nomCategorie}"/>
-                    <h:outputText value="#{bundle.ViewCategorieServiceLabel_id}"/>
-                    <h:outputText value="#{categorieServiceController.selected.id}" title="#{bundle.ViewCategorieServiceTitle_id}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categorieServiceController.destroyAndView}" value="#{bundle.ViewCategorieServiceDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewCategorieServiceEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{categorieServiceController.prepareCreate}" value="#{bundle.ViewCategorieServiceCreateLink}" />
                 <br />
                 <h:commandLink action="#{categorieServiceController.prepareList}" value="#{bundle.ViewCategorieServiceShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewCategorieServiceIndexLink}" action="/index" immediate="true" />
-
             </h:form>
         </ui:define>
     </ui:composition>
