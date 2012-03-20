@@ -10,7 +10,7 @@
             <ui:define name="titre_principal">
                 <p:panel>
                     <h:outputText value="#{bundle.TitreConfiguration}" />
-<!--                    <p:effect type="slide" event="load"  />-->
+                    <!--                    <p:effect type="slide" event="load"  />-->
                 </p:panel>
             </ui:define>
             <ui:define name="title">
@@ -55,6 +55,11 @@
                         <p:commandLink value="Taux de TVA"  ajax="false" action="/data/tVA/List"/><br />
                         <!--<p:commandLink value="Société"  ajax="false" action="/data/zoneGeo/List"/><br />-->
                         <p:commandLink value="Locaux de la société"  ajax="false" action="/data/zoneGeo/List"/>
+                    </h:form>
+                </p:tab>
+                <p:tab title="Initialisation">
+                    <h:form>
+                        <p:commandLink value="Initialisation des données"  ajax="false" action="#{initController.create()}"/>
                     </h:form>
                 </p:tab>
             </ui:define>
