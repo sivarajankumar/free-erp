@@ -17,7 +17,7 @@
                     <h:outputText value="#{categorieAchatController.pagination.pageFirstItem + 1}..#{categorieAchatController.pagination.pageLastItem + 1}/#{categorieAchatController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categorieAchatController.previous}" value="#{bundle.Previous} #{categorieAchatController.pagination.pageSize}" rendered="#{categorieAchatController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categorieAchatController.next}" value="#{bundle.Next} #{categorieAchatController.pagination.pageSize}" rendered="#{categorieAchatController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{categorieAchatController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <p:dataTable value="#{categorieAchatController.items}" var="item" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieAchatTitle_nomCategorie}"/>

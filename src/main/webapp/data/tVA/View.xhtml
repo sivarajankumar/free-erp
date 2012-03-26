@@ -13,8 +13,6 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewTVALabel_id}"/>
-                    <h:outputText value="#{tVAController.selected.id}" title="#{bundle.ViewTVATitle_id}"/>
                     <h:outputText value="#{bundle.ViewTVALabel_description}"/>
                     <h:outputText value="#{tVAController.selected.description}" title="#{bundle.ViewTVATitle_description}"/>
                     <h:outputText value="#{bundle.ViewTVALabel_taux}"/>
@@ -23,8 +21,8 @@
                 <br />
                 <h:commandLink action="#{tVAController.destroyAndView}" value="#{bundle.ViewTVADestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewTVAEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{tVAController.prepareCreate}" value="#{bundle.ViewTVACreateLink}" />
                 <br />

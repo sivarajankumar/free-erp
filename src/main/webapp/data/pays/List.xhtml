@@ -17,26 +17,20 @@
                     <h:outputText value="#{paysController.pagination.pageFirstItem + 1}..#{paysController.pagination.pageLastItem + 1}/#{paysController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{paysController.previous}" value="#{bundle.Previous} #{paysController.pagination.pageSize}" rendered="#{paysController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{paysController.next}" value="#{bundle.Next} #{paysController.pagination.pageSize}" rendered="#{paysController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{paysController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaysTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{paysController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPaysTitle_codePays}"/>
                             </f:facet>
                             <h:outputText value="#{item.codePays}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPaysTitle_nomPays}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomPays}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -45,8 +39,8 @@
                             <h:commandLink action="#{paysController.prepareEdit}" value="#{bundle.ListPaysEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{paysController.destroy}" value="#{bundle.ListPaysDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{paysController.prepareCreate}" value="#{bundle.ListPaysCreateLink}"/>

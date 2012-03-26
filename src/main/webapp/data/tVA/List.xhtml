@@ -17,26 +17,20 @@
                     <h:outputText value="#{tVAController.pagination.pageFirstItem + 1}..#{tVAController.pagination.pageLastItem + 1}/#{tVAController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{tVAController.previous}" value="#{bundle.Previous} #{tVAController.pagination.pageSize}" rendered="#{tVAController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{tVAController.next}" value="#{bundle.Next} #{tVAController.pagination.pageSize}" rendered="#{tVAController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{tVAController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTVATitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{tVAController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTVATitle_description}"/>
                             </f:facet>
                             <h:outputText value="#{item.description}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTVATitle_taux}"/>
                             </f:facet>
                             <h:outputText value="#{item.taux}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -45,8 +39,8 @@
                             <h:commandLink action="#{tVAController.prepareEdit}" value="#{bundle.ListTVAEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{tVAController.destroy}" value="#{bundle.ListTVADestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{tVAController.prepareCreate}" value="#{bundle.ListTVACreateLink}"/>

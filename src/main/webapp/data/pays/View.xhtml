@@ -13,8 +13,6 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewPaysLabel_id}"/>
-                    <h:outputText value="#{paysController.selected.id}" title="#{bundle.ViewPaysTitle_id}"/>
                     <h:outputText value="#{bundle.ViewPaysLabel_codePays}"/>
                     <h:outputText value="#{paysController.selected.codePays}" title="#{bundle.ViewPaysTitle_codePays}"/>
                     <h:outputText value="#{bundle.ViewPaysLabel_nomPays}"/>
@@ -23,8 +21,8 @@
                 <br />
                 <h:commandLink action="#{paysController.destroyAndView}" value="#{bundle.ViewPaysDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewPaysEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{paysController.prepareCreate}" value="#{bundle.ViewPaysCreateLink}" />
                 <br />

@@ -17,7 +17,7 @@
                     <h:outputText value="#{categorieTiersController.pagination.pageFirstItem + 1}..#{categorieTiersController.pagination.pageLastItem + 1}/#{categorieTiersController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categorieTiersController.previous}" value="#{bundle.Previous} #{categorieTiersController.pagination.pageSize}" rendered="#{categorieTiersController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categorieTiersController.next}" value="#{bundle.Next} #{categorieTiersController.pagination.pageSize}" rendered="#{categorieTiersController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{categorieTiersController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <p:dataTable value="#{categorieTiersController.items}" var="item" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieTiersTitle_nomCategorie}"/>

@@ -12,11 +12,10 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTitreContactLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{titreContactController.selected.id}" title="#{bundle.EditTitreContactTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditTitreContactLabel_nomTitre}" for="nomTitre" />
-                    <h:inputText id="nomTitre" value="#{titreContactController.selected.nomTitre}" title="#{bundle.EditTitreContactTitle_nomTitre}" />
+                    <p:inputText id="nomTitre" required="true" value="#{titreContactController.selected.nomTitre}" title="#{bundle.EditTitreContactTitle_nomTitre}" />
+                    <p:message for="nomTitre"/>
                 </h:panelGrid>
                 <h:commandLink action="#{titreContactController.update}" value="#{bundle.EditTitreContactSaveLink}"/>
                 <br />

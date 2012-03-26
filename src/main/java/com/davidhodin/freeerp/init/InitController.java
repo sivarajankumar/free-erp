@@ -4,13 +4,13 @@ import com.davidhodin.freeerp.data.*;
 import com.davidhodin.freeerp.data.commercial.*;
 import com.davidhodin.freeerp.data.comptabilite.CategorieFacture;
 import com.davidhodin.freeerp.data.comptabilite.CategorieReglement;
+import com.davidhodin.freeerp.data.comptabilite.TVA;
+import com.davidhodin.freeerp.data.configuration.Pays;
+import com.davidhodin.freeerp.data.configuration.ZoneGeo;
 import com.davidhodin.freeerp.data.financier.CategorieBanque;
 import com.davidhodin.freeerp.data.financier.CategorieMouvement;
 import com.davidhodin.freeerp.data.financier.TypeCompte;
-import com.davidhodin.freeerp.data.tiers.CategorieAdresseNumerique;
-import com.davidhodin.freeerp.data.tiers.CategorieAdressePostale;
-import com.davidhodin.freeerp.data.tiers.CategorieTelephone;
-import com.davidhodin.freeerp.data.tiers.CategorieTiers;
+import com.davidhodin.freeerp.data.tiers.*;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -60,6 +60,36 @@ public class InitController implements Serializable {
     private CategorieReglement categorieReglement1;
     private CategorieReglement categorieReglement2;
     private CategorieReglement categorieReglement3;
+    // Etats-Type
+    private TypeTiers typeTiers1;
+    private TypeTiers typeTiers2;
+    private TypeTiers typeTiers3;
+    private EtatAchat etatAchat1;
+    private EtatAchat etatAchat2;
+    private EtatAchat etatAchat3;
+    private EtatCommercial etatCommercial1;
+    private EtatCommercial etatCommercial2;
+    private EtatCommercial etatCommercial3;
+    private EtatOffre etatOffre1;
+    private EtatOffre etatOffre2;
+    private EtatOffre etatOffre3;
+    private EtatEvenement etatEvenement1;
+    private EtatEvenement etatEvenement2;
+    private EtatEvenement etatEvenement3;
+    //Réf
+    private TitreContact titreContact1;
+    private TitreContact titreContact2;
+    private TitreContact titreContact3;
+    private Pays pays1;
+    private Pays pays2;
+    private Pays pays3;
+    private TVA tva1;
+    private TVA tva2;
+    private TVA tva3;
+    private ZoneGeo zoneGeo1;
+    private ZoneGeo zoneGeo2;
+    private ZoneGeo zoneGeo3;
+    
     
     @EJB
     private CategorieAdressePostaleFacade ejbAdressePostale;
@@ -88,7 +118,25 @@ public class InitController implements Serializable {
     @EJB 
     private CategorieFactureFacade categorieFactureFacade;
     @EJB 
-    private CategorieReglementFacade categorieReglementFacade;
+    private CategorieReglementFacade categorieReglementFacade;    
+    @EJB 
+    private TypeTiersFacade typeTiersFacade;
+    @EJB 
+    private EtatAchatFacade etatAchatFacade;
+    @EJB 
+    private EtatCommercialFacade etatCommercialFacade;
+    @EJB 
+    private EtatOffreFacade etatOffreFacade;
+    @EJB 
+    private EtatEvenementFacade etatEvenementFacade;
+    @EJB 
+    private TitreContactFacade titreContactFacade;
+    @EJB 
+    private PaysFacade paysFacade;
+    @EJB 
+    private TVAFacade tVAFacade;
+    @EJB 
+    private ZoneGeoFacade zoneGeoFacade;
     
     public InitController() {
     }
@@ -134,7 +182,37 @@ public class InitController implements Serializable {
         categorieReglement1 = new CategorieReglement();
         categorieReglement2 = new CategorieReglement();
         categorieReglement3 = new CategorieReglement();
+        // Etat-Type
+        typeTiers1 = new TypeTiers();
+        typeTiers2 = new TypeTiers();
+        typeTiers3 = new TypeTiers();
+        etatAchat1 = new EtatAchat();
+        etatAchat2 = new EtatAchat();
+        etatAchat3 = new EtatAchat();
+        etatCommercial1 = new EtatCommercial();
+        etatCommercial2 = new EtatCommercial();
+        etatCommercial3 = new EtatCommercial();
+        etatOffre1 = new EtatOffre();
+        etatOffre2 = new EtatOffre();
+        etatOffre3 = new EtatOffre();
+        etatEvenement1 = new EtatEvenement();
+        etatEvenement2 = new EtatEvenement();
+        etatEvenement3 = new EtatEvenement();
+        //Réf
+        titreContact1 = new TitreContact();
+        titreContact2 = new TitreContact();
+        titreContact3 = new TitreContact();
+        pays1 = new Pays();
+        pays2 = new Pays();
+        pays3 = new Pays();
+        tva1 = new TVA();
+        tva2 = new TVA();
+        tva3 = new TVA();
+        zoneGeo1 = new ZoneGeo();
+        zoneGeo2 = new ZoneGeo();
+        zoneGeo3 = new ZoneGeo();
         
+        // ---------------------------------------
         // Initialisation des données
         AdressePostale1.setNomCategorie("Adresse de courrier");
         AdressePostale2.setNomCategorie("Adresse de facturation");
@@ -175,6 +253,44 @@ public class InitController implements Serializable {
         categorieReglement1.setNomCategorie("Cheque");
         categorieReglement2.setNomCategorie("Espèce");
         categorieReglement3.setNomCategorie("CB");
+        // Etat-Type
+        typeTiers1.setNomType("Fournisseur");
+        typeTiers2.setNomType("Client");
+        typeTiers3.setNomType("Partenaire");
+        etatAchat1.setEtatAchat("Demande propal");
+        etatAchat2.setEtatAchat("Attente de validation");
+        etatAchat3.setEtatAchat("En commande");
+        etatCommercial1.setEtat("Devis");
+        etatCommercial2.setEtat("Attente signature");
+        etatCommercial3.setEtat("Signée");
+        etatOffre1.setEtatOffre("En cours");
+        etatOffre2.setEtatOffre("A relancer");
+        etatOffre3.setEtatOffre("Terminée");
+        etatEvenement1.setEtatEvenement("A réaliser");
+        etatEvenement2.setEtatEvenement("En cours");
+        etatEvenement3.setEtatEvenement("Terminé");
+        //Réf
+        titreContact1.setNomTitre("M");
+        titreContact2.setNomTitre("Me");
+        titreContact3.setNomTitre("Mlle");
+        pays1.setCodePays("FR");
+        pays2.setCodePays("UK");
+        pays3.setCodePays("US");
+        pays1.setNomPays("France");
+        pays2.setNomPays("Grande bretagne");
+        pays3.setNomPays("Etats Unis");
+        tva1.setDescription("TVA 5.5%");
+        tva2.setDescription("TVA 19.6%");
+        tva3.setDescription("TVA 0%");
+        tva1.setTaux(0.055f);
+        tva2.setTaux(0.196f);
+        tva3.setTaux(0f);
+        zoneGeo1.setNomZone("Accueil");
+        zoneGeo2.setNomZone("Cafétariat");
+        zoneGeo3.setNomZone("Parking");
+        zoneGeo1.setDescriptionZone("Zone réservée à l'accueil des clients et fournisseurs");
+        zoneGeo2.setDescriptionZone("Salle de détente avec tout le nécessaire pour une petite collation");
+        zoneGeo3.setDescriptionZone("Parking réservé au personnel");
     }
 
     public String create() {
@@ -219,7 +335,35 @@ public class InitController implements Serializable {
             categorieReglementFacade.create(categorieReglement1);
             categorieReglementFacade.create(categorieReglement2);
             categorieReglementFacade.create(categorieReglement3);
-            
+            // Type-Etat
+            typeTiersFacade.create(typeTiers1);
+            typeTiersFacade.create(typeTiers2);
+            typeTiersFacade.create(typeTiers3);
+            etatAchatFacade.create(etatAchat1);
+            etatAchatFacade.create(etatAchat2);
+            etatAchatFacade.create(etatAchat3);
+            etatCommercialFacade.create(etatCommercial1);
+            etatCommercialFacade.create(etatCommercial2);
+            etatCommercialFacade.create(etatCommercial3);
+            etatOffreFacade.create(etatOffre1);
+            etatOffreFacade.create(etatOffre2);
+            etatOffreFacade.create(etatOffre3);
+            etatEvenementFacade.create(etatEvenement1);
+            etatEvenementFacade.create(etatEvenement2);
+            etatEvenementFacade.create(etatEvenement3);
+            //Réf
+            titreContactFacade.create(titreContact1);
+            titreContactFacade.create(titreContact2);
+            titreContactFacade.create(titreContact3);
+            paysFacade.create(pays1);
+            paysFacade.create(pays2);
+            paysFacade.create(pays3);
+            tVAFacade.create(tva1);
+            tVAFacade.create(tva2);
+            tVAFacade.create(tva3);
+            zoneGeoFacade.create(zoneGeo1);
+            zoneGeoFacade.create(zoneGeo2);
+            zoneGeoFacade.create(zoneGeo3);
             JsfUtil.addSuccessMessage("Initialisation des données Ok");
             return "/data/accueil/accueilConfiguration";
         } catch (Exception e) {

@@ -12,13 +12,13 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditPaysLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{paysController.selected.id}" title="#{bundle.EditPaysTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditPaysLabel_codePays}" for="codePays" />
-                    <h:inputText id="codePays" value="#{paysController.selected.codePays}" title="#{bundle.EditPaysTitle_codePays}" />
+                    <p:inputText id="codePays" required="true" value="#{paysController.selected.codePays}" title="#{bundle.EditPaysTitle_codePays}" />
+                    <p:message for="codePays"/>
                     <h:outputLabel value="#{bundle.EditPaysLabel_nomPays}" for="nomPays" />
-                    <h:inputText id="nomPays" value="#{paysController.selected.nomPays}" title="#{bundle.EditPaysTitle_nomPays}" />
+                    <p:inputText id="nomPays" required="true" value="#{paysController.selected.nomPays}" title="#{bundle.EditPaysTitle_nomPays}" />
+                    <p:message for="nomPays"/>
                 </h:panelGrid>
                 <h:commandLink action="#{paysController.update}" value="#{bundle.EditPaysSaveLink}"/>
                 <br />

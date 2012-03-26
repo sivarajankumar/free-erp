@@ -13,22 +13,20 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewZoneGeoLabel_adressePostale}"/>
-                    <h:outputText value="#{zoneGeoController.selected.adressePostale}" title="#{bundle.ViewZoneGeoTitle_adressePostale}"/>
-                    <h:outputText value="#{bundle.ViewZoneGeoLabel_id}"/>
-                    <h:outputText value="#{zoneGeoController.selected.id}" title="#{bundle.ViewZoneGeoTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewZoneGeoLabel_descriptionZone}"/>
-                    <h:outputText value="#{zoneGeoController.selected.descriptionZone}" title="#{bundle.ViewZoneGeoTitle_descriptionZone}"/>
                     <h:outputText value="#{bundle.ViewZoneGeoLabel_nomZone}"/>
                     <h:outputText value="#{zoneGeoController.selected.nomZone}" title="#{bundle.ViewZoneGeoTitle_nomZone}"/>
+                    <h:outputText value="#{bundle.ViewZoneGeoLabel_descriptionZone}"/>
+                    <h:outputText value="#{zoneGeoController.selected.descriptionZone}" title="#{bundle.ViewZoneGeoTitle_descriptionZone}"/>
+                    <h:outputText value="#{bundle.ViewZoneGeoLabel_adressePostale}"/>
+                    <h:outputText value="#{zoneGeoController.selected.adressePostale}" title="#{bundle.ViewZoneGeoTitle_adressePostale}"/>
                     <h:outputText value="#{bundle.ViewZoneGeoLabel_zoneParent}"/>
                     <h:outputText value="#{zoneGeoController.selected.zoneParent}" title="#{bundle.ViewZoneGeoTitle_zoneParent}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{zoneGeoController.destroyAndView}" value="#{bundle.ViewZoneGeoDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewZoneGeoEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{zoneGeoController.prepareCreate}" value="#{bundle.ViewZoneGeoCreateLink}" />
                 <br />

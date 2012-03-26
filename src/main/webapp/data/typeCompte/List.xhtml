@@ -17,7 +17,7 @@
                     <h:outputText value="#{typeCompteController.pagination.pageFirstItem + 1}..#{typeCompteController.pagination.pageLastItem + 1}/#{typeCompteController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{typeCompteController.previous}" value="#{bundle.Previous} #{typeCompteController.pagination.pageSize}" rendered="#{typeCompteController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{typeCompteController.next}" value="#{bundle.Next} #{typeCompteController.pagination.pageSize}" rendered="#{typeCompteController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{typeCompteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <p:dataTable value="#{typeCompteController.items}" var="item" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTypeCompteTitle_typeCompte}"/>

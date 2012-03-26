@@ -13,16 +13,14 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewTitreContactLabel_id}"/>
-                    <h:outputText value="#{titreContactController.selected.id}" title="#{bundle.ViewTitreContactTitle_id}"/>
                     <h:outputText value="#{bundle.ViewTitreContactLabel_nomTitre}"/>
                     <h:outputText value="#{titreContactController.selected.nomTitre}" title="#{bundle.ViewTitreContactTitle_nomTitre}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{titreContactController.destroyAndView}" value="#{bundle.ViewTitreContactDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewTitreContactEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{titreContactController.prepareCreate}" value="#{bundle.ViewTitreContactCreateLink}" />
                 <br />

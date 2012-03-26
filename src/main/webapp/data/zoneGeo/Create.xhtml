@@ -12,21 +12,23 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateZoneGeoLabel_adressePostale}" for="adressePostale" />
-                    <h:selectOneMenu id="adressePostale" value="#{zoneGeoController.selected.adressePostale}" title="#{bundle.CreateZoneGeoTitle_adressePostale}" >
-                        <f:selectItems value="#{adressePostaleController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateZoneGeoLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{zoneGeoController.selected.id}" title="#{bundle.CreateZoneGeoTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateZoneGeoLabel_descriptionZone}" for="descriptionZone" />
-                    <h:inputText id="descriptionZone" value="#{zoneGeoController.selected.descriptionZone}" title="#{bundle.CreateZoneGeoTitle_descriptionZone}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateZoneGeoLabel_nomZone}" for="nomZone" />
-                    <h:inputText id="nomZone" value="#{zoneGeoController.selected.nomZone}" title="#{bundle.CreateZoneGeoTitle_nomZone}" />
+                    <p:inputText id="nomZone" required="true" value="#{zoneGeoController.selected.nomZone}" title="#{bundle.CreateZoneGeoTitle_nomZone}" />
+                    <p:message for="nomZone"/>
+                    <h:outputLabel value="#{bundle.CreateZoneGeoLabel_descriptionZone}" for="descriptionZone" />
+                    <p:inputTextarea id="descriptionZone" value="#{zoneGeoController.selected.descriptionZone}" title="#{bundle.CreateZoneGeoTitle_descriptionZone}" />
+                    <p:message for="descriptionZone"/>
+                    <h:outputLabel value="#{bundle.CreateZoneGeoLabel_adressePostale}" for="adressePostale" />
+                    <p:selectOneMenu id="adressePostale" value="#{zoneGeoController.selected.adressePostale}" title="#{bundle.CreateZoneGeoTitle_adressePostale}" >
+                        <f:selectItems value="#{adressePostaleController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="adressePostale"/>
                     <h:outputLabel value="#{bundle.CreateZoneGeoLabel_zoneParent}" for="zoneParent" />
-                    <h:selectOneMenu id="zoneParent" value="#{zoneGeoController.selected.zoneParent}" title="#{bundle.CreateZoneGeoTitle_zoneParent}" >
+                    <p:selectOneMenu id="zoneParent" value="#{zoneGeoController.selected.zoneParent}" title="#{bundle.CreateZoneGeoTitle_zoneParent}" >
                         <f:selectItems value="#{zoneGeoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
+                    <p:message for="zoneParent"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{zoneGeoController.create}" value="#{bundle.CreateZoneGeoSaveLink}" />

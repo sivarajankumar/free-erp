@@ -12,13 +12,13 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTVALabel_id}" for="id" />
-                    <h:inputText id="id" value="#{tVAController.selected.id}" title="#{bundle.EditTVATitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditTVALabel_description}" for="description" />
-                    <h:inputText id="description" value="#{tVAController.selected.description}" title="#{bundle.EditTVATitle_description}" />
+                    <p:inputText id="description" required="true" value="#{tVAController.selected.description}" title="#{bundle.EditTVATitle_description}" />
+                    <p:message for="description"/>
                     <h:outputLabel value="#{bundle.EditTVALabel_taux}" for="taux" />
-                    <h:inputText id="taux" value="#{tVAController.selected.taux}" title="#{bundle.EditTVATitle_taux}" />
+                    <p:inputText id="taux" required="true" value="#{tVAController.selected.taux}" title="#{bundle.EditTVATitle_taux}" />
+                    <p:message for="taux"/>
                 </h:panelGrid>
                 <h:commandLink action="#{tVAController.update}" value="#{bundle.EditTVASaveLink}"/>
                 <br />

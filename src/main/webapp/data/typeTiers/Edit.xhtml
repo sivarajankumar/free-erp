@@ -12,11 +12,10 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTypeTiersLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{typeTiersController.selected.id}" title="#{bundle.EditTypeTiersTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.EditTypeTiersLabel_nomType}" for="nomType" />
-                    <h:inputText id="nomType" value="#{typeTiersController.selected.nomType}" title="#{bundle.EditTypeTiersTitle_nomType}" />
+                    <p:inputText id="nomType" required="true" value="#{typeTiersController.selected.nomType}" title="#{bundle.EditTypeTiersTitle_nomType}" />
+                    <p:message for="nomType"/>
                 </h:panelGrid>
                 <h:commandLink action="#{typeTiersController.update}" value="#{bundle.EditTypeTiersSaveLink}"/>
                 <br />

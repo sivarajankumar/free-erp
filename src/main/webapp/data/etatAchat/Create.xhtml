@@ -6,20 +6,16 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateEtatAchatTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateEtatAchatLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{etatAchatController.selected.id}" title="#{bundle.CreateEtatAchatTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateEtatAchatLabel_etatAchat}" for="etatAchat" />
-                    <h:inputText id="etatAchat" value="#{etatAchatController.selected.etatAchat}" title="#{bundle.CreateEtatAchatTitle_etatAchat}" />
+                    <p:inputText id="etatAchat" required="true" value="#{etatAchatController.selected.etatAchat}" title="#{bundle.CreateEtatAchatTitle_etatAchat}" />
+                    <p:message for="etatAchat"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{etatAchatController.create}" value="#{bundle.CreateEtatAchatSaveLink}" />

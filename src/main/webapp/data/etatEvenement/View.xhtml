@@ -6,26 +6,21 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewEtatEvenementTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewEtatEvenementLabel_id}"/>
-                    <h:outputText value="#{etatEvenementController.selected.id}" title="#{bundle.ViewEtatEvenementTitle_id}"/>
                     <h:outputText value="#{bundle.ViewEtatEvenementLabel_etatEvenement}"/>
                     <h:outputText value="#{etatEvenementController.selected.etatEvenement}" title="#{bundle.ViewEtatEvenementTitle_etatEvenement}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{etatEvenementController.destroyAndView}" value="#{bundle.ViewEtatEvenementDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewEtatEvenementEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{etatEvenementController.prepareCreate}" value="#{bundle.ViewEtatEvenementCreateLink}" />
                 <br />

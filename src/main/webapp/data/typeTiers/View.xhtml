@@ -13,18 +13,16 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewTypeTiersLabel_id}"/>
-                    <h:outputText value="#{typeTiersController.selected.id}" title="#{bundle.ViewTypeTiersTitle_id}"/>
                     <h:outputText value="#{bundle.ViewTypeTiersLabel_nomType}"/>
                     <h:outputText value="#{typeTiersController.selected.nomType}" title="#{bundle.ViewTypeTiersTitle_nomType}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{typeTiersController.destroyAndView}" value="#{bundle.ViewTypeTiersDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewTypeTiersEditLink}"/>
                 <br />
                 <h:commandLink action="#{typeTiersController.prepareCreate}" value="#{bundle.ViewTypeTiersCreateLink}" />
+                <br />
                 <br />
                 <h:commandLink action="#{typeTiersController.prepareList}" value="#{bundle.ViewTypeTiersShowAllLink}"/>
             </h:form>

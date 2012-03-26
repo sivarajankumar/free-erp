@@ -6,20 +6,16 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/configuration.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateEtatCommercialTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateEtatCommercialLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{etatCommercialController.selected.id}" title="#{bundle.CreateEtatCommercialTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateEtatCommercialLabel_etat}" for="etat" />
-                    <h:inputText id="etat" value="#{etatCommercialController.selected.etat}" title="#{bundle.CreateEtatCommercialTitle_etat}" />
+                    <p:inputText id="etat" required="true" value="#{etatCommercialController.selected.etat}" title="#{bundle.CreateEtatCommercialTitle_etat}" />
+                    <p:message for="etat"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{etatCommercialController.create}" value="#{bundle.CreateEtatCommercialSaveLink}" />
