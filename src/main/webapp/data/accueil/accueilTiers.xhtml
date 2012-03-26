@@ -15,11 +15,32 @@
             </ui:define>
 
             <ui:define name="body">
-                <p>
+                <p:carousel id="tabsCarousel" rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong" autoPlayInterval="5000" circular="true">
+                    <p:tab title="Tiers">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:graphicImage value="/resources/images/presentation/tiers.png" />
+                            <p:panel>
+                                <h1>Tiers</h1>
+                                <h2>Les tiers représentent toutes les personnes morales
+                                    avec lesquelles la société est emmenée à être en contact.</h2>
+                            </p:panel>
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="Etat">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:graphicImage value="/resources/images/presentation/Contact.png" />
+                            <p:panel>
+                                <h1>Contacts</h1>
+                                <h2>Les contacts sont des personnes physiques qui, normalement, doivent
+                                    être rattachées à un tiers.
+                                </h2>
+                            </p:panel>
+                        </h:panelGrid>
+                    </p:tab>
+                </p:carousel>
 
-                    Cette section est dédiée à la gestion des tiers et contacts.
-                </p>
             </ui:define>
+
 
         </ui:composition>
 

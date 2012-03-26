@@ -12,25 +12,26 @@
     <h:body>
         <p:growl life="3000" />
         <p:layout fullPage="true">
-            <p:layoutUnit position="north">
-                <h:form>
+            <p:layoutUnit position="north" style="border: none;">
+                <h:form> 
                     <p:dock position="top">
                         <p:menuitem value="Accueil" icon="/resources/images/menu/Accueil.png" action="/index" ajax="false"/>
                         <p:menuitem value="Tiers" icon="/resources/images/menu/Tiers.png" action="/data/accueil/accueilTiers" ajax="false"/>
                         <p:menuitem value="Commercial" icon="/resources/images/menu/Commercial.png" action="/data/accueil/accueilCommercial" ajax="false"/>
                         <p:menuitem value="Produits Services" icon="/resources/images/menu/Produits.png" action="/data/accueil/accueilProduit" ajax="false"/>
                         <p:menuitem value="Financier" icon="/resources/images/menu/Financier.png" action="/data/accueil/accueilFinancier" ajax="false"/>
-                        <p:menuitem value="Production" icon="/resources/images/menu/production.png" url="#" ajax="false"/>
-                        <p:menuitem value="Projet" icon="/resources/images/menu/projet.png" url="#" ajax="false"/>
+                        <p:menuitem value="Production" icon="/resources/images/menu/production.png" onclick="dlg3.show();"/>
+                        <p:menuitem value="Projet" icon="/resources/images/menu/projet.png" onclick="dlg3.show();"/>
                         <p:menuitem value="Configuration" icon="/resources/images/menu/Configuration.png" action="/data/accueil/accueilConfiguration" ajax="false"/>
                         <p:menuitem value="A propos" icon="/resources/images/menu/A_propos.png" url="http://www.david-hodin.com" ajax="false"/>
                     </p:dock>
-                </h:form>                    
-                <h1 align="right" >
+                </h:form>
+                <h1 align="left" style="border: none;">
                     <ui:insert name="titre_principal">Titre principal</ui:insert>
                 </h1>
             </p:layoutUnit>
-            <p:layoutUnit position="west" size="200">
+            <p:layoutUnit position="west" size="200" style="border: none;">
+                <br/><br/><br/><br/>
                 <p:accordionPanel activeIndex="-1">
                     <ui:insert name="menu">
                         <p:tab title="A compléter">
@@ -39,7 +40,12 @@
                     </ui:insert>
                 </p:accordionPanel>  
             </p:layoutUnit>
-            <p:layoutUnit position="center">
+            <p:layoutUnit position="center"  style="border: none;">
+                <p:dialog header="Information..." widgetVar="dlg3" showEffect="explode" hideEffect="bounce" >
+                    <h:outputText value="Ce domaine fonctionnel" /><br/>
+                    <h:outputText value="n'est pas encore" /><br/>
+                    <h:outputText value="implémenté..." />
+                </p:dialog>
                 <h3>
                     <ui:insert name="title">Titre secondaire</ui:insert>
                 </h3>
