@@ -11,10 +11,13 @@
             <ui:define name="titre_principal">
                 <p:panel>
                     <h:outputText value="#{bundle.TitreTiers}" />
-<!--                    <p:effect type="slide" event="load"  />-->
+                    <!--                    <p:effect type="slide" event="load"  />-->
                 </p:panel>
             </ui:define>
             <ui:define name="title">
+                <ui:insert name="title">Default Title</ui:insert>
+            </ui:define>
+            <ui:define name="title2">
                 <ui:insert name="title">Default Title</ui:insert>
             </ui:define>
             <ui:define name="menu">
@@ -22,7 +25,7 @@
                     <h:form>        
                         <p:commandLink value="Ajouter" ajax="false" action="/data/tiers/Create"/><br />
                         <p:commandLink value="Liste complète"  ajax="false" action="/data/tiers/List"/><br />
-                        <p:commandLink value="Par catégories"  ajax="false" action="/data/tiers/List"/>
+                        <p:commandLink value="Par catégories"  ajax="false" action="/data/tiers/List"/><br/>
                     </h:form>
                 </p:tab>
                 <p:tab title="Contact">
@@ -30,6 +33,12 @@
                         <p:commandLink value="Ajouter"  ajax="false" action="/data/contact/Create"/><br />
                         <p:commandLink value="Liste complète"  ajax="false" action="/data/contact/List"/><br />
                         <p:commandLink value="Par catégorie"  ajax="false" action="/data/contact/List"/>
+                    </h:form>
+                </p:tab>
+                <p:tab title="Adresses postale">
+                    <h:form>
+                        <p:commandLink value="Ajouter"  ajax="false" action="/data/adressePostale/Create"/><br />
+                        <p:commandLink value="Liste complète"  ajax="false" action="/data/adressePostale/List"/><br />
                     </h:form>
                 </p:tab>
             </ui:define>

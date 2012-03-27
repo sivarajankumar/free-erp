@@ -12,88 +12,38 @@
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListTiersEmpty}" rendered="#{tiersController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{tiersController.items.rowCount > 0}">
                     <h:outputText value="#{tiersController.pagination.pageFirstItem + 1}..#{tiersController.pagination.pageLastItem + 1}/#{tiersController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{tiersController.previous}" value="#{bundle.Previous} #{tiersController.pagination.pageSize}" rendered="#{tiersController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{tiersController.next}" value="#{bundle.Next} #{tiersController.pagination.pageSize}" rendered="#{tiersController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{tiersController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <h:commandLink action="#{tiersController.prepareList}" value="Rafraichir" immediate="true"/><br/>
+                    <p:dataTable value="#{tiersController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTiersTitle_nomTiers}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomTiers}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_typeTiers}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.typeTiers}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_categorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorie.nomCategorie}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_logo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.logo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_capital}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.capital}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTiersTitle_codeInterneTiers}"/>
                             </f:facet>
                             <h:outputText value="#{item.codeInterneTiers}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_effectif}"/>
+                                <h:outputText value="#{bundle.ListTiersTitle_typeTiers}"/>
                             </f:facet>
-                            <h:outputText value="#{item.effectif}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.typeTiers}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_formeJuridique}"/>
+                                <h:outputText value="#{bundle.ListTiersTitle_categorie}"/>
                             </f:facet>
-                            <h:outputText value="#{item.formeJuridique}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_identifiantLegal}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.identifiantLegal}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_numTVA}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.numTVA}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTiersTitle_tva}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tva}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.categorie.nomCategorie}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -102,8 +52,8 @@
                             <h:commandLink action="#{tiersController.prepareEdit}" value="#{bundle.ListTiersEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{tiersController.destroy}" value="#{bundle.ListTiersDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{tiersController.prepareCreate}" value="#{bundle.ListTiersCreateLink}"/>

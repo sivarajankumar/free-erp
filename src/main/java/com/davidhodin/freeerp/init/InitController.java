@@ -21,12 +21,12 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class InitController implements Serializable {
 
-    private CategorieAdressePostale AdressePostale1;
-    private CategorieAdressePostale AdressePostale2;
-    private CategorieAdressePostale AdressePostale3;
-    private CategorieAdresseNumerique adresseNumerique1;
-    private CategorieAdresseNumerique adresseNumerique2;
-    private CategorieAdresseNumerique adresseNumerique3;
+    private CategorieAdressePostale categorieAdressePostale1;
+    private CategorieAdressePostale categorieAdressePostale2;
+    private CategorieAdressePostale categorieAdressePostale3;
+    private CategorieAdresseNumerique categorieAdresseNumerique1;
+    private CategorieAdresseNumerique categorieAdresseNumerique2;
+    private CategorieAdresseNumerique categorieAdresseNumerique3;
     private CategorieTelephone categorieTelephone1;
     private CategorieTelephone categorieTelephone2;
     private CategorieTelephone categorieTelephone3;
@@ -42,9 +42,9 @@ public class InitController implements Serializable {
     private CategorieAchat categorieAchat1;
     private CategorieAchat categorieAchat2;
     private CategorieAchat categorieAchat3;
-    private CategorieOffre categorieOffre1; 
-    private CategorieOffre categorieOffre2; 
-    private CategorieOffre categorieOffre3; 
+    private CategorieOffre categorieOffre1;
+    private CategorieOffre categorieOffre2;
+    private CategorieOffre categorieOffre3;
     private CategorieEvenement categorieEvenement1;
     private CategorieEvenement categorieEvenement2;
     private CategorieEvenement categorieEvenement3;
@@ -89,8 +89,11 @@ public class InitController implements Serializable {
     private ZoneGeo zoneGeo1;
     private ZoneGeo zoneGeo2;
     private ZoneGeo zoneGeo3;
-    
-    
+    // Données
+    private AdressePostale adressePostale1;
+    private AdressePostale adressePostale2;
+    private Tiers tiers1;
+    private Tiers tiers2;
     @EJB
     private CategorieAdressePostaleFacade ejbAdressePostale;
     @EJB
@@ -107,48 +110,52 @@ public class InitController implements Serializable {
     private CategorieAchatFacade categorieAchatFacade;
     @EJB
     private CategorieOffreFacade categorieOffreFacade;
-    @EJB 
+    @EJB
     private CategorieEvenementFacade categorieEvenementFacade;
-    @EJB 
+    @EJB
     private CategorieBanqueFacade categorieBanqueFacade;
-    @EJB 
+    @EJB
     private TypeCompteFacade compteFacade;
-    @EJB 
+    @EJB
     private CategorieMouvementFacade categorieMouvementFacade;
-    @EJB 
+    @EJB
     private CategorieFactureFacade categorieFactureFacade;
-    @EJB 
-    private CategorieReglementFacade categorieReglementFacade;    
-    @EJB 
+    @EJB
+    private CategorieReglementFacade categorieReglementFacade;
+    @EJB
     private TypeTiersFacade typeTiersFacade;
-    @EJB 
+    @EJB
     private EtatAchatFacade etatAchatFacade;
-    @EJB 
+    @EJB
     private EtatCommercialFacade etatCommercialFacade;
-    @EJB 
+    @EJB
     private EtatOffreFacade etatOffreFacade;
-    @EJB 
+    @EJB
     private EtatEvenementFacade etatEvenementFacade;
-    @EJB 
+    @EJB
     private TitreContactFacade titreContactFacade;
-    @EJB 
+    @EJB
     private PaysFacade paysFacade;
-    @EJB 
+    @EJB
     private TVAFacade tVAFacade;
-    @EJB 
+    @EJB
     private ZoneGeoFacade zoneGeoFacade;
-    
+    @EJB
+    private AdressePostaleFacade adressePostaleFacade;
+    @EJB
+    private TiersFacade tiersFacade;
+
     public InitController() {
     }
 
     private void initialiseDonnees() {
         // création des classes
-        AdressePostale1 = new CategorieAdressePostale();
-        AdressePostale2 = new CategorieAdressePostale();
-        AdressePostale3 = new CategorieAdressePostale();
-        adresseNumerique1 = new CategorieAdresseNumerique();
-        adresseNumerique2 = new CategorieAdresseNumerique();
-        adresseNumerique3 = new CategorieAdresseNumerique();
+        categorieAdressePostale1 = new CategorieAdressePostale();
+        categorieAdressePostale2 = new CategorieAdressePostale();
+        categorieAdressePostale3 = new CategorieAdressePostale();
+        categorieAdresseNumerique1 = new CategorieAdresseNumerique();
+        categorieAdresseNumerique2 = new CategorieAdresseNumerique();
+        categorieAdresseNumerique3 = new CategorieAdresseNumerique();
         categorieTelephone1 = new CategorieTelephone();
         categorieTelephone2 = new CategorieTelephone();
         categorieTelephone3 = new CategorieTelephone();
@@ -211,15 +218,20 @@ public class InitController implements Serializable {
         zoneGeo1 = new ZoneGeo();
         zoneGeo2 = new ZoneGeo();
         zoneGeo3 = new ZoneGeo();
-        
+        // Données
+        adressePostale1 = new AdressePostale();
+        adressePostale2 = new AdressePostale();
+        tiers1 = new Tiers();
+        tiers2 = new Tiers();
+
         // ---------------------------------------
         // Initialisation des données
-        AdressePostale1.setNomCategorie("Adresse de courrier");
-        AdressePostale2.setNomCategorie("Adresse de facturation");
-        AdressePostale3.setNomCategorie("Adresse comptable");
-        adresseNumerique1.setNomCategorie("Email");
-        adresseNumerique2.setNomCategorie("Site Web");
-        adresseNumerique3.setNomCategorie("Adresse Facebook");
+        categorieAdressePostale1.setNomCategorie("Adresse de courrier");
+        categorieAdressePostale2.setNomCategorie("Adresse de facturation");
+        categorieAdressePostale3.setNomCategorie("Adresse comptable");
+        categorieAdresseNumerique1.setNomCategorie("Email");
+        categorieAdresseNumerique2.setNomCategorie("Site Web");
+        categorieAdresseNumerique3.setNomCategorie("Adresse Facebook");
         categorieTelephone1.setNomCategorie("Fixe");
         categorieTelephone2.setNomCategorie("Portable");
         categorieTelephone3.setNomCategorie("Travail");
@@ -291,17 +303,25 @@ public class InitController implements Serializable {
         zoneGeo1.setDescriptionZone("Zone réservée à l'accueil des clients et fournisseurs");
         zoneGeo2.setDescriptionZone("Salle de détente avec tout le nécessaire pour une petite collation");
         zoneGeo3.setDescriptionZone("Parking réservé au personnel");
+        // Données
+        adressePostale1.setLabelAdresse("Adresse 1");
+        adressePostale2.setLabelAdresse("Adresse 2");
+        tiers1.setNomTiers("Tiers 1");
+        tiers2.setNomTiers("Tiers 2");
+
+
+
     }
 
     public String create() {
         try {
             initialiseDonnees();
-            ejbAdresseNumerique.create(adresseNumerique1);
-            ejbAdresseNumerique.create(adresseNumerique2);
-            ejbAdresseNumerique.create(adresseNumerique3);
-            ejbAdressePostale.create(AdressePostale1);
-            ejbAdressePostale.create(AdressePostale2);
-            ejbAdressePostale.create(AdressePostale3);
+            ejbAdresseNumerique.create(categorieAdresseNumerique1);
+            ejbAdresseNumerique.create(categorieAdresseNumerique2);
+            ejbAdresseNumerique.create(categorieAdresseNumerique3);
+            ejbAdressePostale.create(categorieAdressePostale1);
+            ejbAdressePostale.create(categorieAdressePostale2);
+            ejbAdressePostale.create(categorieAdressePostale3);
             categorieTelephoneFacade.create(categorieTelephone1);
             categorieTelephoneFacade.create(categorieTelephone2);
             categorieTelephoneFacade.create(categorieTelephone3);
@@ -364,6 +384,15 @@ public class InitController implements Serializable {
             zoneGeoFacade.create(zoneGeo1);
             zoneGeoFacade.create(zoneGeo2);
             zoneGeoFacade.create(zoneGeo3);
+            // Données
+            adressePostaleFacade.create(adressePostale1);
+            adressePostaleFacade.create(adressePostale2);
+            tiersFacade.create(tiers1);
+            tiers1.getAdressesPost().add(adressePostale2);
+            tiers1.getAdressesPost().add(adressePostale1);
+            tiersFacade.edit(tiers1);
+            tiersFacade.create(tiers2);
+
             JsfUtil.addSuccessMessage("Initialisation des données Ok");
             return "/data/accueil/accueilConfiguration";
         } catch (Exception e) {

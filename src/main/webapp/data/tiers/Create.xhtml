@@ -12,37 +12,40 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="4">
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{tiersController.selected.id}" title="#{bundle.CreateTiersTitle_id}" />
+                <h:panelGrid columns="6">
                     <h:outputLabel value="#{bundle.CreateTiersLabel_nomTiers}" for="nomTiers" />
-                    <h:inputText id="nomTiers" value="#{tiersController.selected.nomTiers}" title="#{bundle.CreateTiersTitle_nomTiers}" />
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_typeTiers}" for="typeTiers" />
-                    <h:selectOneMenu id="typeTiers" value="#{tiersController.selected.typeTiers}" title="#{bundle.CreateTiersTitle_typeTiers}" >
-                        <f:selectItems value="#{typeTiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_categorie}" for="categorie" />
-                    <h:selectOneMenu id="categorie" value="#{tiersController.selected.categorie}" title="#{bundle.CreateTiersTitle_categorie}" >
-                        <f:selectItems value="#{categorieTiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_logo}" for="logo" />
-                    <h:selectOneMenu id="logo" value="#{tiersController.selected.logo}" title="#{bundle.CreateTiersTitle_logo}" >
-                        <f:selectItems value="#{logosController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_capital}" for="capital" />
-                    <h:inputText id="capital" value="#{tiersController.selected.capital}" title="#{bundle.CreateTiersTitle_capital}" />
+                    <p:inputText id="nomTiers" required="true" value="#{tiersController.selected.nomTiers}" title="#{bundle.CreateTiersTitle_nomTiers}" />
+                    <p:message for="nomTiers"/>
                     <h:outputLabel value="#{bundle.CreateTiersLabel_codeInterneTiers}" for="codeInterneTiers" />
-                    <h:inputText id="codeInterneTiers" value="#{tiersController.selected.codeInterneTiers}" title="#{bundle.CreateTiersTitle_codeInterneTiers}" />
+                    <p:inputText id="codeInterneTiers" value="#{tiersController.selected.codeInterneTiers}" title="#{bundle.CreateTiersTitle_codeInterneTiers}" />
+                    <p:message for="codeInterneTiers"/>
+                    <h:outputLabel value="#{bundle.CreateTiersLabel_categorie}" for="categorie" />
+                    <p:selectOneMenu id="categorie" value="#{tiersController.selected.categorie}" title="#{bundle.CreateTiersTitle_categorie}" >
+                        <f:selectItems value="#{categorieTiersController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="categorie"/>
+                    <h:outputLabel value="#{bundle.CreateTiersLabel_typeTiers}" for="typeTiers" />
+                    <p:selectOneMenu id="typeTiers" value="#{tiersController.selected.typeTiers}" title="#{bundle.CreateTiersTitle_typeTiers}" >
+                        <f:selectItems value="#{typeTiersController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="typeTiers"/>
+                    <h:outputLabel value="#{bundle.CreateTiersLabel_capital}" for="capital" />
+                    <p:inputText id="capital" value="#{tiersController.selected.capital}" title="#{bundle.CreateTiersTitle_capital}" />
+                    <p:message for="capital"/>
                     <h:outputLabel value="#{bundle.CreateTiersLabel_effectif}" for="effectif" />
-                    <h:inputText id="effectif" value="#{tiersController.selected.effectif}" title="#{bundle.CreateTiersTitle_effectif}" />
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_formeJuridique}" for="formeJuridique" />
-                    <h:inputText id="formeJuridique" value="#{tiersController.selected.formeJuridique}" title="#{bundle.CreateTiersTitle_formeJuridique}" />
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_identifiantLegal}" for="identifiantLegal" />
-                    <h:inputText id="identifiantLegal" value="#{tiersController.selected.identifiantLegal}" title="#{bundle.CreateTiersTitle_identifiantLegal}" />
-                    <h:outputLabel value="#{bundle.CreateTiersLabel_numTVA}" for="numTVA" />
-                    <h:inputText id="numTVA" value="#{tiersController.selected.numTVA}" title="#{bundle.CreateTiersTitle_numTVA}" />
+                    <p:inputText id="effectif" value="#{tiersController.selected.effectif}" title="#{bundle.CreateTiersTitle_effectif}" />
+                    <p:message for="effectif"/>
                     <h:outputLabel value="#{bundle.CreateTiersLabel_tva}" for="tva" />
-                    <h:inputText id="tva" value="#{tiersController.selected.tva}" title="#{bundle.CreateTiersTitle_tva}" />
+                    <p:selectBooleanCheckbox id="tva" value="#{tiersController.selected.tva}"/>
+                    <p:message for="tva"/>
+                    <h:outputLabel value="#{bundle.CreateTiersLabel_numTVA}" for="numTVA" />
+                    <p:inputText id="numTVA" value="#{tiersController.selected.numTVA}" title="#{bundle.CreateTiersTitle_numTVA}" />
+                    <p:message for="numTVA"/>
+                    <h:outputLabel value="#{bundle.CreateTiersLabel_logo}" for="logo" />
+                    <p:selectOneMenu id="logo" value="#{tiersController.selected.logo}" >
+                        <f:selectItems value="#{logosController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="logo"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{tiersController.create}" value="#{bundle.CreateTiersSaveLink}" />

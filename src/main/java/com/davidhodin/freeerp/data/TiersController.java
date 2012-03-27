@@ -3,8 +3,6 @@ package com.davidhodin.freeerp.data;
 import com.davidhodin.freeerp.data.tiers.Tiers;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import com.davidhodin.freeerp.data.util.PaginationHelper;
-import com.davidhodin.freeerp.data.TiersFacade;
-
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
@@ -89,6 +87,7 @@ public class TiersController implements Serializable {
             return null;
         }
     }
+    
 
     public String prepareEdit() {
         current = (Tiers) getItems().getRowData();

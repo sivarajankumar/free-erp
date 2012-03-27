@@ -6,38 +6,41 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/tiers.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateAdressePostaleTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{adressePostaleController.selected.id}" title="#{bundle.CreateAdressePostaleTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_codePostal}" for="codePostal" />
-                    <h:inputText id="codePostal" value="#{adressePostaleController.selected.codePostal}" title="#{bundle.CreateAdressePostaleTitle_codePostal}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_labelAdresse}" for="labelAdresse" />
-                    <h:inputText id="labelAdresse" value="#{adressePostaleController.selected.labelAdresse}" title="#{bundle.CreateAdressePostaleTitle_labelAdresse}" />
-                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne1Adresse}" for="ligne1Adresse" />
-                    <h:inputText id="ligne1Adresse" value="#{adressePostaleController.selected.ligne1Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne1Adresse}" />
-                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne2Adresse}" for="ligne2Adresse" />
-                    <h:inputText id="ligne2Adresse" value="#{adressePostaleController.selected.ligne2Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne2Adresse}" />
-                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne3Adresse}" for="ligne3Adresse" />
-                    <h:inputText id="ligne3Adresse" value="#{adressePostaleController.selected.ligne3Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne3Adresse}" />
-                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_pays}" for="pays" />
-                    <h:selectOneMenu id="pays" value="#{adressePostaleController.selected.pays}" title="#{bundle.CreateAdressePostaleTitle_pays}" >
-                        <f:selectItems value="#{paysController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ville}" for="ville" />
-                    <h:inputText id="ville" value="#{adressePostaleController.selected.ville}" title="#{bundle.CreateAdressePostaleTitle_ville}" />
+                    <p:inputText id="labelAdresse" required="true" value="#{adressePostaleController.selected.labelAdresse}" title="#{bundle.CreateAdressePostaleTitle_labelAdresse}" />
+                    <p:message for="labelAdresse"/>
                     <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_categorieAdressePostale}" for="categorieAdressePostale" />
-                    <h:selectOneMenu id="categorieAdressePostale" value="#{adressePostaleController.selected.categorieAdressePostale}" title="#{bundle.CreateAdressePostaleTitle_categorieAdressePostale}" >
+                    <p:selectOneMenu id="categorieAdressePostale" value="#{adressePostaleController.selected.categorieAdressePostale}" title="#{bundle.CreateAdressePostaleTitle_categorieAdressePostale}" >
                         <f:selectItems value="#{categorieAdressePostaleController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
+                    <p:message for="categorieAdressePostale"/>
+                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne1Adresse}" for="ligne1Adresse" />
+                    <p:inputText id="ligne1Adresse" value="#{adressePostaleController.selected.ligne1Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne1Adresse}" />
+                    <p:message for="ligne1Adresse"/>
+                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne2Adresse}" for="ligne2Adresse" />
+                    <p:inputText id="ligne2Adresse" value="#{adressePostaleController.selected.ligne2Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne2Adresse}" />
+                    <p:message for="ligne2Adresse"/>
+                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne3Adresse}" for="ligne3Adresse" />
+                    <p:inputText id="ligne3Adresse" value="#{adressePostaleController.selected.ligne3Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne3Adresse}" />
+                    <p:message for="ligne3Adresse"/>
+                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_codePostal}" for="codePostal" />
+                    <p:inputText id="codePostal" value="#{adressePostaleController.selected.codePostal}" title="#{bundle.CreateAdressePostaleTitle_codePostal}" />
+                    <p:message for="codePostal"/>
+                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ville}" for="ville" />
+                    <p:inputText id="ville" value="#{adressePostaleController.selected.ville}" title="#{bundle.CreateAdressePostaleTitle_ville}" />
+                    <p:message for="ville"/>
+                    <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_pays}" for="pays" />
+                    <p:selectOneMenu id="pays" value="#{adressePostaleController.selected.pays}" title="#{bundle.CreateAdressePostaleTitle_pays}" >
+                        <f:selectItems value="#{paysController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="pays"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{adressePostaleController.create}" value="#{bundle.CreateAdressePostaleSaveLink}" />

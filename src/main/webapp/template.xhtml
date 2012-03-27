@@ -10,7 +10,7 @@
         <title><ui:insert name="title">Default Title</ui:insert></title>
     </h:head>
     <h:body>
-        <p:growl life="3000" />
+        <p:growl life="3000" globalOnly="false" />
         <p:layout fullPage="true">
             <p:layoutUnit position="north" style="border: none;">
                 <h:form> 
@@ -47,7 +47,7 @@
                     <h:outputText value="implémenté..." />
                 </p:dialog>
                 <h3>
-                    <ui:insert name="title">Titre secondaire</ui:insert>
+                    <ui:insert name="title2">Titre secondaire</ui:insert>
                 </h3>
                 <p:separator />
                 <p>

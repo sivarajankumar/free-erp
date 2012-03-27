@@ -4,56 +4,151 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <ui:composition template="/tiers.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.EditTiersTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTiersLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{tiersController.selected.id}" title="#{bundle.EditTiersTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_nomTiers}" for="nomTiers" />
-                    <h:inputText id="nomTiers" value="#{tiersController.selected.nomTiers}" title="#{bundle.EditTiersTitle_nomTiers}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_typeTiers}" for="typeTiers" />
-                    <h:selectOneMenu id="typeTiers" value="#{tiersController.selected.typeTiers}" title="#{bundle.EditTiersTitle_typeTiers}" >
-                        <f:selectItems value="#{typeTiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditTiersLabel_categorie}" for="categorie" />
-                    <h:selectOneMenu id="categorie" value="#{tiersController.selected.categorie}" title="#{bundle.EditTiersTitle_categorie}" >
-                        <f:selectItems value="#{categorieTiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditTiersLabel_logo}" for="logo" />
-                    <h:selectOneMenu id="logo" value="#{tiersController.selected.logo}" title="#{bundle.EditTiersTitle_logo}" >
-                        <f:selectItems value="#{logosController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditTiersLabel_capital}" for="capital" />
-                    <h:inputText id="capital" value="#{tiersController.selected.capital}" title="#{bundle.EditTiersTitle_capital}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_codeInterneTiers}" for="codeInterneTiers" />
-                    <h:inputText id="codeInterneTiers" value="#{tiersController.selected.codeInterneTiers}" title="#{bundle.EditTiersTitle_codeInterneTiers}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_effectif}" for="effectif" />
-                    <h:inputText id="effectif" value="#{tiersController.selected.effectif}" title="#{bundle.EditTiersTitle_effectif}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_formeJuridique}" for="formeJuridique" />
-                    <h:inputText id="formeJuridique" value="#{tiersController.selected.formeJuridique}" title="#{bundle.EditTiersTitle_formeJuridique}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_identifiantLegal}" for="identifiantLegal" />
-                    <h:inputText id="identifiantLegal" value="#{tiersController.selected.identifiantLegal}" title="#{bundle.EditTiersTitle_identifiantLegal}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_numTVA}" for="numTVA" />
-                    <h:inputText id="numTVA" value="#{tiersController.selected.numTVA}" title="#{bundle.EditTiersTitle_numTVA}" />
-                    <h:outputLabel value="#{bundle.EditTiersLabel_tva}" for="tva" />
-                    <h:inputText id="tva" value="#{tiersController.selected.tva}" title="#{bundle.EditTiersTitle_tva}" />
-                </h:panelGrid>
-                <h:commandLink action="#{tiersController.update}" value="#{bundle.EditTiersSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditTiersViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{tiersController.prepareList}" value="#{bundle.EditTiersShowAllLink}" immediate="true"/>
-            </h:form>
+            <p:tabView dynamic="true" >
+                <p:tab title="Informations générales">
+                    <h:form>
+                        <h:panelGrid columns="6">
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_nomTiers}" for="nomTiers" />
+                            <p:inputText id="nomTiers" required="true" value="#{tiersController.selected.nomTiers}" title="#{bundle.CreateTiersTitle_nomTiers}" />
+                            <p:message for="nomTiers"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_codeInterneTiers}" for="codeInterneTiers" />
+                            <p:inputText id="codeInterneTiers" value="#{tiersController.selected.codeInterneTiers}" title="#{bundle.CreateTiersTitle_codeInterneTiers}" />
+                            <p:message for="codeInterneTiers"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_categorie}" for="categorie" />
+                            <p:selectOneMenu id="categorie" value="#{tiersController.selected.categorie}" title="#{bundle.CreateTiersTitle_categorie}" >
+                                <f:selectItems value="#{categorieTiersController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="categorie"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_typeTiers}" for="typeTiers" />
+                            <p:selectOneMenu id="typeTiers" value="#{tiersController.selected.typeTiers}" title="#{bundle.CreateTiersTitle_typeTiers}" >
+                                <f:selectItems value="#{typeTiersController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="typeTiers"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_capital}" for="capital" />
+                            <p:inputText id="capital" value="#{tiersController.selected.capital}" title="#{bundle.CreateTiersTitle_capital}" />
+                            <p:message for="capital"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_effectif}" for="effectif" />
+                            <p:inputText id="effectif" value="#{tiersController.selected.effectif}" title="#{bundle.CreateTiersTitle_effectif}" />
+                            <p:message for="effectif"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_tva}" for="tva" />
+                            <p:selectBooleanCheckbox id="tva" value="#{tiersController.selected.tva}"/>
+                            <p:message for="tva"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_numTVA}" for="numTVA" />
+                            <p:inputText id="numTVA" value="#{tiersController.selected.numTVA}" title="#{bundle.CreateTiersTitle_numTVA}" />
+                            <p:message for="numTVA"/>
+                            <h:outputLabel value="#{bundle.CreateTiersLabel_logo}" for="logo" />
+                            <p:selectOneMenu id="logo" value="#{tiersController.selected.logo}" title="#{bundle.CreateTiersTitle_logo}" >
+                                <f:selectItems value="#{logosController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="logo"/>
+                        </h:panelGrid>
+                        <br/>
+                        <h:commandLink action="#{tiersController.update}" value="#{bundle.EditTiersSaveLink}"/>
+                        <br />
+                        <h:commandLink action="View" value="#{bundle.EditTiersViewLink}" immediate="true"/>
+                        <br />
+                        <h:commandLink action="#{tiersController.prepareList}" value="#{bundle.EditTiersShowAllLink}" immediate="true"/>
+                    </h:form>
+                </p:tab>
+                <p:tab title="Adresses postale">
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Sélectionnez l'adresse à ajouter" for="adresse" />
+                            <p:selectOneMenu id="adresse">
+                                <f:selectItems value="#{adressePostaleController.items}"/>
+                            </p:selectOneMenu>
+                            <p:message for="adresse"/>
+                        </h:panelGrid>
+                        <br />
+                        <h:commandLink action="#{tiersController.update}" value="Ajouter"/>
+                        <br />
+                    </h:form>
+                    <br />
+                    <br />
+                    <h:form>
+                        <p:dataTable value="#{tiersController.selected.adressesPost}" var="item" >
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_labelAdresse}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.labelAdresse}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_categorieAdressePostale}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.categorieAdressePostale}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne1Adresse}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ligne1Adresse}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne2Adresse}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ligne2Adresse}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne3Adresse}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ligne3Adresse}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_codePostal}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.codePostal}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ville}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ville}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_pays}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.pays}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+                                <h:commandLink action="#{adressePostaleController.prepareView}" value="#{bundle.ListAdressePostaleViewLink}"/>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{adressePostaleController.prepareEdit}" value="#{bundle.ListAdressePostaleEditLink}"/>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{adressePostaleController.destroy}" value="#{bundle.ListAdressePostaleDestroyLink}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+
+
+                </p:tab>
+                <p:tab title="Numéros de téléphone">
+                    En attente...
+                </p:tab>
+                <p:tab title="Adresses numériques">
+                    En attente...
+                </p:tab>
+                <p:tab title="Contacts">
+                    En attente...
+                </p:tab>
+
+            </p:tabView>
         </ui:define>
     </ui:composition>
 
