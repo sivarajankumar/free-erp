@@ -1,5 +1,6 @@
 package com.davidhodin.freeerp.data;
 
+import com.davidhodin.freeerp.data.tiers.AdressePostale;
 import com.davidhodin.freeerp.data.tiers.Tiers;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import com.davidhodin.freeerp.data.util.PaginationHelper;
@@ -21,18 +22,46 @@ import javax.faces.model.SelectItem;
 public class TiersController implements Serializable {
 
     private Tiers current;
+    private AdressePostale adressePostale;
     private DataModel items = null;
     @EJB
     private com.davidhodin.freeerp.data.TiersFacade ejbFacade;
+    @EJB
+    private AdressePostaleFacade adressePostaleFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public TiersController() {
     }
 
+    // getter et setter pour l'Adresse
+    public AdressePostale getAdressePostale() {
+        return adressePostale;
+    }
+
+    public void setAdressePostale(AdressePostale adressePostale) {
+        this.adressePostale = adressePostale;
+    }
+
+    public String ajouteAdresse() {
+        try {
+            adressePostaleFacade.create(adressePostale);
+            current.getAdressesPost().add(adressePostale);
+            getFacade().edit(current);
+            adressePostale = new AdressePostale();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TiersCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+
+    // ----------------------------------------------------------------
     public Tiers getSelected() {
         if (current == null) {
             current = new Tiers();
+            // David ---- Initialisation 
+            adressePostale = new AdressePostale();
             selectedItemIndex = -1;
         }
         return current;
@@ -73,6 +102,8 @@ public class TiersController implements Serializable {
 
     public String prepareCreate() {
         current = new Tiers();
+        // David ---- Initialisation 
+        adressePostale = new AdressePostale();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -87,10 +118,11 @@ public class TiersController implements Serializable {
             return null;
         }
     }
-    
 
     public String prepareEdit() {
         current = (Tiers) getItems().getRowData();
+        // David ---- Initialisation 
+        adressePostale = new AdressePostale();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }

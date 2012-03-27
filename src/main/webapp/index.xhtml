@@ -4,34 +4,188 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/conf.css" />
+        <title>Accueil</title>
+    </h:head>
     <h:body>  
-        <ui:composition template="/template.xhtml">
-            <ui:define name="titre_principal">
-                <p:panel>
-                    freeERP, ERP libre et gratuit !!!
-                </p:panel>
-            </ui:define>
-            <ui:define name="title">
-                Accueil
-            </ui:define>
-
-            <ui:define name="title2">
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" style="border: none;">
+                <h:form> 
+                    <p:dock position="top">
+                        <p:menuitem value="Accueil" icon="/resources/images/menu/Accueil.png" action="/index" ajax="false"/>
+                        <p:menuitem value="Tiers" icon="/resources/images/menu/Tiers.png" action="/data/accueil/accueilTiers" ajax="false"/>
+                        <p:menuitem value="Commercial" icon="/resources/images/menu/Commercial.png" action="/data/accueil/accueilCommercial" ajax="false"/>
+                        <p:menuitem value="Produits Services" icon="/resources/images/menu/Produits.png" action="/data/accueil/accueilProduit" ajax="false"/>
+                        <p:menuitem value="Financier" icon="/resources/images/menu/Financier.png" action="/data/accueil/accueilFinancier" ajax="false"/>
+                        <p:menuitem value="Production" icon="/resources/images/menu/production.png" onclick="dlg3.show();"/>
+                        <p:menuitem value="Projet" icon="/resources/images/menu/projet.png" onclick="dlg3.show();"/>
+                        <p:menuitem value="Configuration" icon="/resources/images/menu/Configuration.png" action="/data/accueil/accueilConfiguration" ajax="false"/>
+                        <p:menuitem value="A propos" icon="/resources/images/menu/A_propos.png" url="http://www.david-hodin.com" ajax="false"/>
+                    </p:dock>
+                </h:form>
+                <h1>
+                    <p:panel style="text-align: right;">
+                        <h:outputText value="Bienvenue dans freeERP..." />
+                        <p:effect type="slide" event="load"  />
+                    </p:panel>
+                </h1>
+            </p:layoutUnit>
+            <p:layoutUnit position="center"  style="border: none;">
+                <p:dialog header="Information..." widgetVar="dlg3" showEffect="explode" hideEffect="bounce" >
+                    <h:outputText value="Ce domaine fonctionnel" /><br/>
+                    <h:outputText value="n'est pas encore" /><br/>
+                    <h:outputText value="implémenté..." />
+                </p:dialog>
                 <center>
                     <p:imageSwitch effect="zoom">  
                         <ui:repeat value="#{listeImages.images}" var="image">  
                             <p:graphicImage value="/resources/images/presentation/#{image}" />  
                         </ui:repeat>  
-                    </p:imageSwitch>  
+                    </p:imageSwitch>
+                    <br/>
+                    <p:carousel id="tabsCarousel" rows="1" itemStyle="height:220px;width:600px;" effect="easeInStrong" autoPlayInterval="5000" circular="true">
+                        <p:tab title="Achats">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/achats.png" />
+                                <p:panel>
+                                    <h1>Achats</h1>
+                                    <h2>La section de gestion des achats vous permet
+                                        de suivre l'ensemble de vos achats.<br />
+                                        Vous pouvez de plus visualiser vos achats par catégories et/ou états
+                                        (nota: les catégories et les états sont à définir dans la section "configuration").</h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Categorie">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/categorie.png" />
+                                <p:panel>
+                                    <h1>Catégories</h1>
+                                    <h2>Les catégories sont utilisées pour les classement de données.<br />
+                                        Selon les items la recherche s'en retrouve accélérée.</h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Facturation">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/facture.png" />
+                                <p:panel>
+                                    <h1>Facturation</h1>
+                                    <h2>La section facturation est consacrée au suivi et à la gestion des factures.<br />
+                                        Les factures peuvent être d'achat ou de vente.</h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Finance">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/banque.png" />
+                                <p:panel>
+                                    <h1>Finance</h1>
+                                    <h2>La section financière permet le suivi des flux financiers. Ces flux
+                                        sont rattachés à des évènements financiers (paiements, virements, ...) et
+                                        impactent des comptes.
+                                    </h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Comptabilité">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/comptabilite.png" />
+                                <p:panel>
+                                    <h1>Comptabilité</h1>
+                                    <h2>La comptabilité a pour but d'établir les bilan et compte de résultat de l'entreprise
+                                        pour un exercice donné.<br />
+                                        Les biens de l'entreprise et leurs amortissements sont gérés dans la zone comptable.
+                                    </h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Produits">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/produit.png" />
+                                <p:panel>
+                                    <h1>Produits</h1>
+                                    <h2>Cette section est destinée à gérer le référencement
+                                        des produits achetés et vendu.</h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Services">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/service.png" />
+                                <p:panel>
+                                    <h1>Services</h1>
+                                    <h2>Cette section permet de définir les services 
+                                        acquis ou dispensés.
+                                    </h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Tiers">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/tiers.png" />
+                                <p:panel>
+                                    <h1>Tiers</h1>
+                                    <h2>Les tiers représentent toutes les personnes morales
+                                        avec lesquelles la société est emmenée à être en contact.</h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Etat">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/Contact.png" />
+                                <p:panel>
+                                    <h1>Contacts</h1>
+                                    <h2>Les contacts sont des personnes physiques qui, normalement, doivent
+                                        être rattachées à un tiers.
+                                    </h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Etat">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/statut.png" />
+                                <p:panel>
+                                    <h1>Etat/Type</h1>
+                                    <h2>L'état d'un élément est sont statut transitoire ou permanent.<br />
+                                        Le type est utilisé pour définir une typologie (par exemple
+                                        pour les tiers on peut définir des tiers de type client ou fournisseur.
+                                    </h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="References">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/references.png" />
+                                <p:panel>
+                                    <h1>Donnée de référence</h1>
+                                    <h2>Les données de référence sont la plupart du temps
+                                        associé à une norme ou une habiture (ex : titre peut être M., Me. ou Mlle).
+                                    </h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Ventes">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/presentation/Vente.png" />
+                                <p:panel>
+                                    <h1>Ventes</h1>
+                                    <h2>La section de gestion des ventes vous permet
+                                        de suivre l'ensemble de vos offres commerciales et ventes.<br />
+                                        Un groupe d'offre commerciale comporte plusieurs offres qui peuvent
+                                        être dans des états différents.<br/>
+                                        Vous pouvez de plus visualiser vos données par catégories et/ou états
+                                        (nota: les catégories et les états sont à définir dans la section "configuration").</h2>
+                                </p:panel>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:carousel>
                 </center>
-            </ui:define>
 
-            <ui:define name="menu">
-            </ui:define>
-
-            <ui:define name="body">
-            </ui:define>
-        </ui:composition>
+            </p:layoutUnit>
+        </p:layout>
     </h:body>
 </html>                <!--                <h:panelGrid columns="4">
                                     <h:form>

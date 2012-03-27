@@ -58,88 +58,111 @@
                         <h:commandLink action="#{tiersController.prepareList}" value="#{bundle.EditTiersShowAllLink}" immediate="true"/>
                     </h:form>
                 </p:tab>
+                
+                
                 <p:tab title="Adresses postale">
                     <h:form>
-                        <h:panelGrid columns="2">
-                            <h:outputLabel value="Sélectionnez l'adresse à ajouter" for="adresse" />
-                            <p:selectOneMenu id="adresse">
-                                <f:selectItems value="#{adressePostaleController.items}"/>
+                        <h:panelGrid columns="6">
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_labelAdresse}" for="labelAdresse" />
+                            <p:inputText id="labelAdresse" required="true" value="#{tiersController.adressePostale.labelAdresse}" title="#{bundle.CreateAdressePostaleTitle_labelAdresse}" />
+                            <p:message for="labelAdresse"/>
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_categorieAdressePostale}" for="categorieAdressePostale" />
+                            <p:selectOneMenu id="categorieAdressePostale" value="#{tiersController.adressePostale.categorieAdressePostale}" title="#{bundle.CreateAdressePostaleTitle_categorieAdressePostale}" >
+                                <f:selectItems value="#{categorieAdressePostaleController.itemsAvailableSelectOne}"/>
                             </p:selectOneMenu>
-                            <p:message for="adresse"/>
+                            <p:message for="categorieAdressePostale"/>
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne1Adresse}" for="ligne1Adresse" />
+                            <p:inputText id="ligne1Adresse" value="#{tiersController.adressePostale.ligne1Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne1Adresse}" />
+                            <p:message for="ligne1Adresse"/>
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne2Adresse}" for="ligne2Adresse" />
+                            <p:inputText id="ligne2Adresse" value="#{tiersController.adressePostale.ligne2Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne2Adresse}" />
+                            <p:message for="ligne2Adresse"/>
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ligne3Adresse}" for="ligne3Adresse" />
+                            <p:inputText id="ligne3Adresse" value="#{tiersController.adressePostale.ligne3Adresse}" title="#{bundle.CreateAdressePostaleTitle_ligne3Adresse}" />
+                            <p:message for="ligne3Adresse"/>
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_codePostal}" for="codePostal" />
+                            <p:inputText id="codePostal" value="#{tiersController.adressePostale.codePostal}" title="#{bundle.CreateAdressePostaleTitle_codePostal}" />
+                            <p:message for="codePostal"/>
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_ville}" for="ville" />
+                            <p:inputText id="ville" value="#{tiersController.adressePostale.ville}" title="#{bundle.CreateAdressePostaleTitle_ville}" />
+                            <p:message for="ville"/>
+                            <h:outputLabel value="#{bundle.CreateAdressePostaleLabel_pays}" for="pays" />
+                            <p:selectOneMenu id="pays" value="#{tiersController.adressePostale.pays}" title="#{bundle.CreateAdressePostaleTitle_pays}" >
+                                <f:selectItems value="#{paysController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="pays"/>
                         </h:panelGrid>
                         <br />
-                        <h:commandLink action="#{tiersController.update}" value="Ajouter"/>
-                        <br />
-                    </h:form>
-                    <br />
-                    <br />
-                    <h:form>
-                        <p:dataTable value="#{tiersController.selected.adressesPost}" var="item" >
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_labelAdresse}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.labelAdresse}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_categorieAdressePostale}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.categorieAdressePostale}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne1Adresse}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.ligne1Adresse}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne2Adresse}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.ligne2Adresse}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne3Adresse}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.ligne3Adresse}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_codePostal}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.codePostal}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_ville}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.ville}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListAdressePostaleTitle_pays}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.pays}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="&nbsp;"/>
-                                </f:facet>
-                                <h:commandLink action="#{adressePostaleController.prepareView}" value="#{bundle.ListAdressePostaleViewLink}"/>
-                                <h:outputText value=" "/>
-                                <h:commandLink action="#{adressePostaleController.prepareEdit}" value="#{bundle.ListAdressePostaleEditLink}"/>
-                                <h:outputText value=" "/>
-                                <h:commandLink action="#{adressePostaleController.destroy}" value="#{bundle.ListAdressePostaleDestroyLink}"/>
-                            </p:column>
-                        </p:dataTable>
+                        <p:commandButton action="#{tiersController.ajouteAdresse}" value="Ajouter" update="liste @parent"/>
+                        <p:separator/>
+                        <p:outputPanel id="liste">
+                            <p:dataTable value="#{tiersController.selected.adressesPost}" var="item" >
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_labelAdresse}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.labelAdresse}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_categorieAdressePostale}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.categorieAdressePostale}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne1Adresse}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ligne1Adresse}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne2Adresse}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ligne2Adresse}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne3Adresse}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ligne3Adresse}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_codePostal}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.codePostal}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_ville}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ville}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdressePostaleTitle_pays}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.pays}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="&nbsp;"/>
+                                    </f:facet>
+                                    <h:commandLink action="#{adressePostaleController.prepareView}" value="#{bundle.ListAdressePostaleViewLink}"/>
+                                    <h:outputText value=" "/>
+                                    <h:commandLink action="#{adressePostaleController.prepareEdit}" value="#{bundle.ListAdressePostaleEditLink}"/>
+                                    <h:outputText value=" "/>
+                                    <h:commandLink action="#{adressePostaleController.destroy}" value="#{bundle.ListAdressePostaleDestroyLink}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
                     </h:form>
 
 
                 </p:tab>
                 <p:tab title="Numéros de téléphone">
-                    En attente...
+
                 </p:tab>
                 <p:tab title="Adresses numériques">
                     En attente...
