@@ -58,8 +58,8 @@
                         <h:commandLink action="#{tiersController.prepareList}" value="#{bundle.EditTiersShowAllLink}" immediate="true"/>
                     </h:form>
                 </p:tab>
-                
-                
+
+
                 <p:tab title="Adresses postale">
                     <h:form>
                         <h:panelGrid columns="6">
@@ -93,8 +93,11 @@
                             <p:message for="pays"/>
                         </h:panelGrid>
                         <br />
-                        <p:commandButton action="#{tiersController.ajouteAdresse}" value="Ajouter" update="liste @parent"/>
+                        <p:commandButton action="#{tiersController.ajouteAdresse}" value="Ajouter" update="liste information @parent"/>
+
                         <p:separator/>
+                        
+                        <h:outputText value="Liste des adresses postales :"/>
                         <p:outputPanel id="liste">
                             <p:dataTable value="#{tiersController.selected.adressesPost}" var="item" >
                                 <p:column>
@@ -107,7 +110,7 @@
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListAdressePostaleTitle_categorieAdressePostale}"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.categorieAdressePostale}"/>
+                                    <h:outputText value="#{item.categorieAdressePostale.nomCategorie}"/>
                                 </p:column>
                                 <p:column>
                                     <f:facet name="header">
@@ -145,30 +148,149 @@
                                     </f:facet>
                                     <h:outputText value="#{item.pays}"/>
                                 </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </h:form>
+                </p:tab>
+
+                <p:tab title="Numéros de téléphone">
+                    <h:form>
+                        <h:panelGrid columns="3">
+                            <h:outputLabel value="#{bundle.CreateTelephoneLabel_descriptionNumero}" for="descriptionNumero" />
+                            <p:inputText id="descriptionNumero" required="true" value="#{tiersController.telephone.descriptionNumero}" title="#{bundle.CreateTelephoneTitle_descriptionNumero}" />
+                            <p:message for="descriptionNumero"/>
+                            <h:outputLabel value="#{bundle.CreateTelephoneLabel_categorieTelephone}" for="categorieTelephone" />
+                            <p:selectOneMenu id="categorieTelephone" value="#{tiersController.telephone.categorieTelephone}" title="#{bundle.CreateTelephoneTitle_categorieTelephone}" >
+                                <f:selectItems value="#{categorieTelephoneController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="categorieTelephone"/>
+                            <h:outputLabel value="#{bundle.CreateTelephoneLabel_numero}" for="numero" />
+                            <p:inputText id="numero" required="true" value="#{tiersController.telephone.numero}" title="#{bundle.CreateTelephoneTitle_numero}" />
+                            <p:message for="numero"/>
+                        </h:panelGrid>
+                        <br />
+                        <p:commandButton action="#{tiersController.ajouteTelephone}" value="Ajouter" update="liste2 information @parent"/>
+
+                        <p:separator/>
+
+                        <h:outputText value="Liste des numéros de téléphone :"/>
+                        <p:outputPanel id="liste2">
+                            <p:dataTable value="#{tiersController.selected.telephones}" var="item" >
                                 <p:column>
                                     <f:facet name="header">
-                                        <h:outputText value="&nbsp;"/>
+                                        <h:outputText value="#{bundle.ListTelephoneTitle_descriptionNumero}"/>
                                     </f:facet>
-                                    <h:commandLink action="#{adressePostaleController.prepareView}" value="#{bundle.ListAdressePostaleViewLink}"/>
-                                    <h:outputText value=" "/>
-                                    <h:commandLink action="#{adressePostaleController.prepareEdit}" value="#{bundle.ListAdressePostaleEditLink}"/>
-                                    <h:outputText value=" "/>
-                                    <h:commandLink action="#{adressePostaleController.destroy}" value="#{bundle.ListAdressePostaleDestroyLink}"/>
+                                    <h:outputText value="#{item.descriptionNumero}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListTelephoneTitle_categorieTelephone}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.categorieTelephone.nomCategorie}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListTelephoneTitle_numero}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.numero}"/>
                                 </p:column>
                             </p:dataTable>
                         </p:outputPanel>
                     </h:form>
 
-
-                </p:tab>
-                <p:tab title="Numéros de téléphone">
-
                 </p:tab>
                 <p:tab title="Adresses numériques">
-                    En attente...
+                    <h:form>
+                        <h:panelGrid columns="3">
+                            <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_adresseNum}" for="adresseNum" />
+                            <p:inputText id="adresseNum" required="true" value="#{tiersController.adresseNumerique.adresseNum}" title="#{bundle.CreateAdresseNumeriqueTitle_adresseNum}" />
+                            <p:message for="adresseNum"/>
+                            <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_categorieAdresse}" for="categorieAdresse" />
+                            <h:selectOneMenu id="categorieAdresse" value="#{tiersController.adresseNumerique.categorieAdresse}" title="#{bundle.CreateAdresseNumeriqueTitle_categorieAdresse}" >
+                                <f:selectItems value="#{categorieAdresseNumeriqueController.itemsAvailableSelectOne}"/>
+                            </h:selectOneMenu>
+                            <p:message for="categorieAdresse"/>
+                        </h:panelGrid>
+                        <p:commandButton action="#{tiersController.ajouteAdresseNum()}" value="Ajouter" update="liste3 information @parent"/>
+
+                        <p:separator/>
+
+                        <h:outputText value="Liste des adresses numériques :"/>
+                        <p:outputPanel id="liste3">
+                            <p:dataTable value="#{tiersController.selected.adressesNum}" var="item" >
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_adresseNum}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.adresseNum}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_categorieAdresse}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.categorieAdresse.nomCategorie}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </h:form>
                 </p:tab>
+                
                 <p:tab title="Contacts">
-                    En attente...
+                    <h:form>
+                        <h:panelGrid columns="7">
+                            <p:selectOneMenu id="titre" value="#{tiersController.contact.titre}" title="#{bundle.CreateContactTitle_titre}" >
+                                <f:selectItems value="#{titreContactController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <h:outputLabel value="#{bundle.CreateContactLabel_nom}" for="nom" />
+                            <p:inputText id="nom" required="true" value="#{tiersController.contact.nom}" title="#{bundle.CreateContactTitle_nom}" />
+                            <p:message for="nom"/>
+                            <h:outputLabel value="#{bundle.CreateContactLabel_prenom}" for="prenom" />
+                            <p:inputText id="prenom" required="true" value="#{tiersController.contact.prenom}" title="#{bundle.CreateContactTitle_prenom}" />
+                            <p:message for="prenom"/>
+                            <h:outputLabel/>
+                            <h:outputLabel value="#{bundle.CreateContactLabel_fonction}" for="fonction" />
+                            <p:inputText id="fonction" value="#{tiersController.contact.fonction}" title="#{bundle.CreateContactTitle_fonction}" />
+                            <p:message for="fonction"/>
+                            <h:outputLabel value="#{bundle.CreateContactLabel_adressePostale}" for="adressePostale" />
+                            <p:selectOneMenu id="adressePostale" value="#{tiersController.contact.adressePostale}" title="#{bundle.CreateContactTitle_adressePostale}" >
+                                <f:selectItems value="#{adressePostaleController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="adressePostale"/>
+                        </h:panelGrid>
+                        <p:commandButton action="#{tiersController.ajouteContact()}" value="Ajouter" update="liste4 information @parent"/>
+
+                        <p:separator/>
+
+                        <h:outputText value="Liste des contacts :"/>
+                        <p:outputPanel id="liste4">
+                            <p:dataTable value="#{tiersController.selected.contacts}" var="item" >
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListContactTitle_titre}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.titre.nomTitre}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListContactTitle_nom}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nom}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListContactTitle_prenom}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.prenom}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListContactTitle_fonction}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.fonction}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </h:form>
                 </p:tab>
 
             </p:tabView>

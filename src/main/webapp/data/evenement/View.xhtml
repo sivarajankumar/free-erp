@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/commercial.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewEvenementTitle}"></h:outputText>
         </ui:define>
@@ -16,36 +16,34 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewEvenementLabel_id}"/>
-                    <h:outputText value="#{evenementController.selected.id}" title="#{bundle.ViewEvenementTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEvenementLabel_nomEvenement}"/>
+                    <h:outputText value="#{evenementController.selected.nomEvenement}" title="#{bundle.ViewEvenementTitle_nomEvenement}"/>
+                    <h:outputText value="#{bundle.ViewEvenementLabel_etatEvenement}"/>
+                    <h:outputText value="#{evenementController.selected.etatEvenement.etatEvenement}" title="#{bundle.ViewEvenementTitle_etatEvenement}"/>
                     <h:outputText value="#{bundle.ViewEvenementLabel_categorieEvenement}"/>
-                    <h:outputText value="#{evenementController.selected.categorieEvenement}" title="#{bundle.ViewEvenementTitle_categorieEvenement}"/>
-                    <h:outputText value="#{bundle.ViewEvenementLabel_dateClotureEvenement}"/>
-                    <h:outputText value="#{evenementController.selected.dateClotureEvenement}" title="#{bundle.ViewEvenementTitle_dateClotureEvenement}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
+                    <h:outputText value="#{evenementController.selected.categorieEvenement.nomCatEvenement}" title="#{bundle.ViewEvenementTitle_categorieEvenement}"/>
+                    <h:outputText value="#{bundle.ViewEvenementLabel_contact}"/>
+                    <h:outputText value="#{evenementController.selected.contact.toString()}" title="#{bundle.ViewEvenementTitle_contact}"/>
                     <h:outputText value="#{bundle.ViewEvenementLabel_dateCreationEvenement}"/>
                     <h:outputText value="#{evenementController.selected.dateCreationEvenement}" title="#{bundle.ViewEvenementTitle_dateCreationEvenement}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewEvenementLabel_dateMajEvenement}"/>
                     <h:outputText value="#{evenementController.selected.dateMajEvenement}" title="#{bundle.ViewEvenementTitle_dateMajEvenement}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEvenementLabel_dateClotureEvenement}"/>
+                    <h:outputText value="#{evenementController.selected.dateClotureEvenement}" title="#{bundle.ViewEvenementTitle_dateClotureEvenement}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewEvenementLabel_descriptionEvenement}"/>
                     <h:outputText value="#{evenementController.selected.descriptionEvenement}" title="#{bundle.ViewEvenementTitle_descriptionEvenement}"/>
-                    <h:outputText value="#{bundle.ViewEvenementLabel_etatEvenement}"/>
-                    <h:outputText value="#{evenementController.selected.etatEvenement}" title="#{bundle.ViewEvenementTitle_etatEvenement}"/>
-                    <h:outputText value="#{bundle.ViewEvenementLabel_nomEvenement}"/>
-                    <h:outputText value="#{evenementController.selected.nomEvenement}" title="#{bundle.ViewEvenementTitle_nomEvenement}"/>
-                    <h:outputText value="#{bundle.ViewEvenementLabel_contact}"/>
-                    <h:outputText value="#{evenementController.selected.contact}" title="#{bundle.ViewEvenementTitle_contact}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{evenementController.destroyAndView}" value="#{bundle.ViewEvenementDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewEvenementEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{evenementController.prepareCreate}" value="#{bundle.ViewEvenementCreateLink}" />
                 <br />

@@ -90,10 +90,31 @@ public class InitController implements Serializable {
     private ZoneGeo zoneGeo2;
     private ZoneGeo zoneGeo3;
     // Données
+    // ----Tiers
     private AdressePostale adressePostale1;
     private AdressePostale adressePostale2;
     private Tiers tiers1;
     private Tiers tiers2;
+    private AdresseNumerique adresseNumerique1;
+    private AdresseNumerique adresseNumerique2;
+    private Telephone telephone1;
+    private Telephone telephone2;
+    private Contact contact1;
+    private Contact contact2;
+    // ----Produits
+    private Produit produit1;
+    private Produit produit2;
+    private Produit produit3;
+    private Service service1;
+    private Service service2;
+    private Service service3;
+    // ----Commercial
+    private ItemCommercial itemCommercial1;
+    private ItemCommercial itemCommercial2;
+    private Evenement evenement1;
+    private Evenement evenement2;
+    // ----Financier
+    // ---- EJB
     @EJB
     private CategorieAdressePostaleFacade ejbAdressePostale;
     @EJB
@@ -144,6 +165,20 @@ public class InitController implements Serializable {
     private AdressePostaleFacade adressePostaleFacade;
     @EJB
     private TiersFacade tiersFacade;
+    @EJB
+    private ContactFacade contactFacade;
+    @EJB
+    private AdresseNumeriqueFacade adresseNumeriqueFacade;
+    @EJB
+    private TelephoneFacade telephoneFacade;
+    @EJB
+    private ProduitFacade produitFacade;
+    @EJB
+    private ServiceFacade serviceFacade;
+    @EJB
+    private EvenementFacade evenementFacade;
+    @EJB
+    private ItemCommercialFacade itemCommercialFacade;
 
     public InitController() {
     }
@@ -219,13 +254,38 @@ public class InitController implements Serializable {
         zoneGeo2 = new ZoneGeo();
         zoneGeo3 = new ZoneGeo();
         // Données
+        // ----Tiers
         adressePostale1 = new AdressePostale();
         adressePostale2 = new AdressePostale();
         tiers1 = new Tiers();
         tiers2 = new Tiers();
+        adresseNumerique1 = new AdresseNumerique();
+        adresseNumerique2 = new AdresseNumerique();
+        contact1 = new Contact();
+        contact2 = new Contact();
+        telephone1 = new Telephone();
+        telephone2 = new Telephone();
+
+        // ----Produits
+        produit1 = new Produit();
+        produit2 = new Produit();
+        produit3 = new Produit();
+        service1 = new Service();
+        service2 = new Service();
+        service3 = new Service();
+
+        // ----Commercial
+        itemCommercial1 = new ItemCommercial();
+        itemCommercial2 = new ItemCommercial();
+        evenement1 = new Evenement();
+        evenement2 = new Evenement();
+
+        // ----Financier
+
 
         // ---------------------------------------
         // Initialisation des données
+        // ----Tiers
         categorieAdressePostale1.setNomCategorie("Adresse de courrier");
         categorieAdressePostale2.setNomCategorie("Adresse de facturation");
         categorieAdressePostale3.setNomCategorie("Adresse comptable");
@@ -272,9 +332,9 @@ public class InitController implements Serializable {
         etatAchat1.setEtatAchat("Demande propal");
         etatAchat2.setEtatAchat("Attente de validation");
         etatAchat3.setEtatAchat("En commande");
-        etatCommercial1.setEtat("Devis");
-        etatCommercial2.setEtat("Attente signature");
-        etatCommercial3.setEtat("Signée");
+        etatCommercial1.setEtat("Vente uniquement");
+        etatCommercial2.setEtat("Achat uniquement");
+        etatCommercial3.setEtat("Achat et vente");
         etatOffre1.setEtatOffre("En cours");
         etatOffre2.setEtatOffre("A relancer");
         etatOffre3.setEtatOffre("Terminée");
@@ -304,12 +364,41 @@ public class InitController implements Serializable {
         zoneGeo2.setDescriptionZone("Salle de détente avec tout le nécessaire pour une petite collation");
         zoneGeo3.setDescriptionZone("Parking réservé au personnel");
         // Données
+        // ----Tiers
         adressePostale1.setLabelAdresse("Adresse 1");
         adressePostale2.setLabelAdresse("Adresse 2");
         tiers1.setNomTiers("Tiers 1");
         tiers2.setNomTiers("Tiers 2");
+        contact1.setNom("HODIN");
+        contact2.setNom("HODIN-GASQ");
+        contact1.setPrenom("David");
+        contact2.setPrenom("Christine");
+        adresseNumerique1.setAdresseNum("dhodin@gmail.com");
+        adresseNumerique2.setAdresseNum("dhodin@yahoo.com");
+        telephone1.setDescriptionNumero("Personnel");
+        telephone2.setDescriptionNumero("Travail");
+        telephone1.setNumero("+33 01 02 03 04 05");
+        telephone2.setNumero("+33 04 02 03 04 05");
 
+        // ----Produits
+        produit1.setNomProduit("PC portable");
+        produit2.setNomProduit("Serveur");
+        produit3.setNomProduit("Tablette");
+        service1.setNomService("Développement d'application");
+        service2.setNomService("Développement d'application Web d'entreprise");
+        service3.setNomService("Hébergement d'application sur serveur virtualisé");
 
+        // ----Commercial
+        itemCommercial1.setNomItem("Serveur - Linux Mint");
+        itemCommercial1.setQuantite(1f);
+        itemCommercial2.setNomItem("Installation");
+        itemCommercial2.setQuantite(1f);
+        itemCommercial1.setMontantHT(1000f);
+        itemCommercial2.setMontantHT(150f);
+        evenement1.setNomEvenement("Description technique");
+        evenement2.setNomEvenement("Installation sur site");
+
+        // ----Financier
 
     }
 
@@ -385,13 +474,80 @@ public class InitController implements Serializable {
             zoneGeoFacade.create(zoneGeo2);
             zoneGeoFacade.create(zoneGeo3);
             // Données
+            // ----Tiers
             adressePostaleFacade.create(adressePostale1);
+            adressePostale1.setCategorieAdressePostale(categorieAdressePostale1);
+            adressePostaleFacade.edit(adressePostale1);
             adressePostaleFacade.create(adressePostale2);
+            adresseNumeriqueFacade.create(adresseNumerique1);
+            adresseNumerique1.setCategorieAdresse(categorieAdresseNumerique1);
+            adresseNumeriqueFacade.edit(adresseNumerique1);
+            adresseNumeriqueFacade.create(adresseNumerique2);
+            telephoneFacade.create(telephone1);
+            telephone1.setCategorieTelephone(categorieTelephone1);
+            telephoneFacade.edit(telephone1);
+            telephoneFacade.create(telephone2);
+            contactFacade.create(contact1);
+            contactFacade.create(contact2);
+            contact1.setTitre(titreContact1);
+            contact1.getAdressesElectronique().add(adresseNumerique1);
+            contact1.getAdressesElectronique().add(adresseNumerique2);
+            contact1.getTelephones().add(telephone1);
+            contact1.getTelephones().add(telephone2);
+            contactFacade.edit(contact1);
+            contact2.setTitre(titreContact2);
+            contactFacade.edit(contact2);
             tiersFacade.create(tiers1);
+            tiersFacade.create(tiers2);
             tiers1.getAdressesPost().add(adressePostale2);
             tiers1.getAdressesPost().add(adressePostale1);
+            tiers1.getAdressesNum().add(adresseNumerique1);
+            tiers1.getTelephones().add(telephone1);
+            tiers1.getTelephones().add(telephone2);
+            tiers1.getContacts().add(contact1);
+            tiers1.getContacts().add(contact2);
+            tiers1.setCategorie(categorieTiers1);
+            tiers1.setTypeTiers(typeTiers1);
             tiersFacade.edit(tiers1);
-            tiersFacade.create(tiers2);
+            tiers2.setCategorie(categorieTiers2);
+            tiers2.setTypeTiers(typeTiers2);
+            tiersFacade.edit(tiers2);
+
+
+
+            // ----Produits
+            produitFacade.create(produit1);
+            produitFacade.create(produit2);
+            produitFacade.create(produit3);
+            serviceFacade.create(service1);
+            serviceFacade.create(service2);
+            serviceFacade.create(service3);
+            produit1.setCategorie(categorieProduit1);
+            produit1.setEtatCommercial(etatCommercial1);
+            service1.setCategorieService(categorieService1);
+            service1.setEtatCommercial(etatCommercial2);
+            produitFacade.edit(produit1);
+            serviceFacade.edit(service1);
+
+            // ----Commercial
+            itemCommercialFacade.create(itemCommercial1);
+            itemCommercialFacade.create(itemCommercial2);
+            evenementFacade.create(evenement1);
+            evenementFacade.create(evenement2);
+            itemCommercial1.setProduit(produit1);
+            itemCommercial2.setService(service1);
+            itemCommercial1.setTauxTVA(tva1);
+            itemCommercial2.setTauxTVA(tva2);
+            itemCommercialFacade.edit(itemCommercial1);
+            itemCommercialFacade.edit(itemCommercial2);
+            evenement1.setContact(contact1);
+            evenement1.setCategorieEvenement(categorieEvenement1);
+            evenement2.setContact(contact2);
+            evenement2.setCategorieEvenement(categorieEvenement3);
+            evenementFacade.edit(evenement1);
+            evenementFacade.edit(evenement2);
+            
+            // ----Financier
 
             JsfUtil.addSuccessMessage("Initialisation des données Ok");
             return "/data/accueil/accueilConfiguration";

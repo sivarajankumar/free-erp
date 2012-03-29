@@ -12,23 +12,25 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="4">
-                    <h:outputLabel value="#{bundle.CreateContactLabel_id}" for="id" />                    
-                    <p:inputText  id="id" value="#{contactController.selected.id}" title="#{bundle.CreateContactTitle_id}" />
+                <h:panelGrid columns="7">
+                    <p:selectOneMenu id="titre" value="#{contactController.selected.titre}" title="#{bundle.CreateContactTitle_titre}" >
+                        <f:selectItems value="#{titreContactController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateContactLabel_nom}" for="nom" />
+                    <p:inputText id="nom" required="true" value="#{contactController.selected.nom}" title="#{bundle.CreateContactTitle_nom}" />
+                    <p:message for="nom"/>
+                    <h:outputLabel value="#{bundle.CreateContactLabel_prenom}" for="prenom" />
+                    <p:inputText id="prenom" required="true" value="#{contactController.selected.prenom}" title="#{bundle.CreateContactTitle_prenom}" />
+                    <p:message for="prenom"/>
+                    <h:outputLabel/>
+                    <h:outputLabel value="#{bundle.CreateContactLabel_fonction}" for="fonction" />
+                    <p:inputText id="fonction" value="#{contactController.selected.fonction}" title="#{bundle.CreateContactTitle_fonction}" />
+                    <p:message for="fonction"/>
                     <h:outputLabel value="#{bundle.CreateContactLabel_adressePostale}" for="adressePostale" />
                     <p:selectOneMenu id="adressePostale" value="#{contactController.selected.adressePostale}" title="#{bundle.CreateContactTitle_adressePostale}" >
                         <f:selectItems value="#{adressePostaleController.itemsAvailableSelectOne}"/>
                     </p:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateContactLabel_fonction}" for="fonction" />
-                    <p:inputText id="fonction" value="#{contactController.selected.fonction}" title="#{bundle.CreateContactTitle_fonction}" />
-                    <h:outputLabel value="#{bundle.CreateContactLabel_nom}" for="nom" />
-                    <p:inputText id="nom" value="#{contactController.selected.nom}" title="#{bundle.CreateContactTitle_nom}" />
-                    <h:outputLabel value="#{bundle.CreateContactLabel_prenom}" for="prenom" />
-                    <p:inputText id="prenom" value="#{contactController.selected.prenom}" title="#{bundle.CreateContactTitle_prenom}" />
-                    <h:outputLabel value="#{bundle.CreateContactLabel_titre}" for="titre" />
-                    <p:selectOneMenu id="titre" value="#{contactController.selected.titre}" title="#{bundle.CreateContactTitle_titre}" >
-                        <f:selectItems value="#{titreContactController.itemsAvailableSelectOne}"/>
-                    </p:selectOneMenu>
+                    <p:message for="adressePostale"/>
                 </h:panelGrid>
                 <br />
                 <p:commandLink ajax="false" action="#{contactController.create}" value="#{bundle.CreateContactSaveLink}" />

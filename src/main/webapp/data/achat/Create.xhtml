@@ -33,12 +33,12 @@
                     <p:message for="categorieAchat" />                
                     <h:outputLabel value="#{bundle.CreateAchatLabel_dateCreation}" for="dateCreation" />
                     <p:calendar id="dateCreation" value="#{achatController.selected.dateCreation}" title="#{bundle.CreateAchatTitle_dateCreation}" pattern="dd/MM/yyyy">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </p:calendar>
                     <p:message for="dateCreation" />
                     <h:outputLabel value="#{bundle.CreateAchatLabel_dateReceptionOk}" for="dateReceptionOk" />
                     <p:calendar id="dateReceptionOk" value="#{achatController.selected.dateReceptionOk}" title="#{bundle.CreateAchatTitle_dateReceptionOk}" pattern="dd/MM/yyyy">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </p:calendar>
                     <p:message for="dateReceptionOk" />
                     <h:outputLabel value="#{bundle.CreateAchatLabel_dateCloture}" for="dateCloture" />
@@ -62,7 +62,6 @@
                     <h:outputLabel value="#{bundle.CreateAchatLabel_receptionOk}" for="receptionOk" />
                     <p:selectBooleanCheckbox id="receptionOk" value="#{achatController.selected.receptionOk}" />
                     <p:message for="receptionOk" />
-
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{achatController.create}" value="#{bundle.CreateAchatSaveLink}" />

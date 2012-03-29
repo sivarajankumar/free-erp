@@ -4,6 +4,8 @@ import com.davidhodin.freeerp.data.tiers.Contact;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import com.davidhodin.freeerp.data.util.PaginationHelper;
 import com.davidhodin.freeerp.data.ContactFacade;
+import com.davidhodin.freeerp.data.tiers.AdresseNumerique;
+import com.davidhodin.freeerp.data.tiers.Telephone;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -23,18 +25,72 @@ import javax.faces.model.SelectItem;
 public class ContactController implements Serializable {
 
     private Contact current;
+    private Telephone telephone;
+    private AdresseNumerique adresseNumerique;
     private DataModel items = null;
     @EJB
     private com.davidhodin.freeerp.data.ContactFacade ejbFacade;
+    @EJB
+    private TelephoneFacade telephoneFacade;
+    @EJB
+    private AdresseNumeriqueFacade adresseNumeriqueFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public ContactController() {
     }
 
+    // getter et setter + modif David
+    public AdresseNumerique getAdresseNumerique() {
+        return adresseNumerique;
+    }
+
+    public void setAdresseNumerique(AdresseNumerique adresseNumerique) {
+        this.adresseNumerique = adresseNumerique;
+    }
+
+    public String ajouteAdresseNum() {
+        try {
+            adresseNumeriqueFacade.create(adresseNumerique);
+            current.getAdressesElectronique().add(adresseNumerique);
+            getFacade().edit(current);
+            adresseNumerique = new AdresseNumerique();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ContactCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+
+    public Telephone getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(Telephone telephone) {
+        this.telephone = telephone;
+    }
+
+    public String ajouteTelephone() {
+        try {
+            telephoneFacade.create(telephone);
+            current.getTelephones().add(telephone);
+            getFacade().edit(current);
+            telephone = new Telephone();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ContactCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+
+    // ----------------------------------------------------------------
     public Contact getSelected() {
         if (current == null) {
             current = new Contact();
+            // David ---- Initialisation 
+            adresseNumerique = new AdresseNumerique();
+            telephone = new Telephone();
+
             selectedItemIndex = -1;
         }
         return current;
@@ -75,6 +131,10 @@ public class ContactController implements Serializable {
 
     public String prepareCreate() {
         current = new Contact();
+                    // David ---- Initialisation 
+            adresseNumerique = new AdresseNumerique();
+            telephone = new Telephone();
+
         selectedItemIndex = -1;
         return "Create";
     }
@@ -92,6 +152,10 @@ public class ContactController implements Serializable {
 
     public String prepareEdit() {
         current = (Contact) getItems().getRowData();
+                    // David ---- Initialisation 
+            adresseNumerique = new AdresseNumerique();
+            telephone = new Telephone();
+
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }

@@ -130,9 +130,9 @@ public class Contact implements Serializable {
     @Override
     public String toString() {
         if (titre != null) {
-            return titre.getNomTitre() + " " + prenom + " " + nom + " - " + fonction;
+            return titre.getNomTitre() + " " + prenom + " " + nom;
         } else {
-            return prenom + " " + nom + " - " + fonction;
+            return prenom + " " + nom;
         }
     }
 }

@@ -24,16 +24,23 @@
                     <h:form>        
                         <p:commandLink value="Nouvelle commande" ajax="false" action="/data/achat/Create"/><br />
                         <p:commandLink value="Tous les achats"  ajax="false" action="/data/achat/List"/><br />
-                        <p:commandLink value="Achats par catégorie"  ajax="false" action="/data/achat/List"/>
                     </h:form>
                 </p:tab>
                 <p:tab title="Ventes">
                     <h:form>
-                        <p:commandLink value="Nouvelle offre" ajax="false" action="/data/offreCommerciale/Create"/><br />
+                        <p:commandLink value="Nouvelle offre commerciale" ajax="false" action="/data/offreCommerciale/Create"/><br />
                         <p:commandLink value="Toutes les offres" ajax="false" action="/data/offreCommerciale/List"/><br />
-                        <p:commandLink value="Offres par catégories" ajax="false" action="/data/offreCommerciale/List"/>
+                        <p:separator/>
+                        <p:commandLink value="Nouveau groupe d'offre" ajax="false" action="/data/groupeOffre/Create"/><br />
+                        <p:commandLink value="Tous les groupes d'offres" ajax="false" action="/data/groupeOffre/List"/><br />
                     </h:form>
                 </p:tab>
+                <p:tab title="Temporaire...">
+                    <h:form>        
+                        <p:commandLink value="Item commerciaux" ajax="false" action="/data/itemCommercial/List"/><br />
+                        <p:commandLink value="Evènements" ajax="false" action="/data/evenement/List"/><br />
+                    </h:form>
+                </p:tab>                
             </ui:define>
 
             <ui:define name="body">

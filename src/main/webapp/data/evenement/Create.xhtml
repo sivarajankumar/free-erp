@@ -6,46 +6,49 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/commercial.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateEvenementTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateEvenementLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{evenementController.selected.id}" title="#{bundle.CreateEvenementTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateEvenementLabel_categorieEvenement}" for="categorieEvenement" />
-                    <h:selectOneMenu id="categorieEvenement" value="#{evenementController.selected.categorieEvenement}" title="#{bundle.CreateEvenementTitle_categorieEvenement}" >
-                        <f:selectItems value="#{categorieEvenementController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateEvenementLabel_dateClotureEvenement}" for="dateClotureEvenement" />
-                    <h:inputText id="dateClotureEvenement" value="#{evenementController.selected.dateClotureEvenement}" title="#{bundle.CreateEvenementTitle_dateClotureEvenement}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateEvenementLabel_dateCreationEvenement}" for="dateCreationEvenement" />
-                    <h:inputText id="dateCreationEvenement" value="#{evenementController.selected.dateCreationEvenement}" title="#{bundle.CreateEvenementTitle_dateCreationEvenement}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateEvenementLabel_dateMajEvenement}" for="dateMajEvenement" />
-                    <h:inputText id="dateMajEvenement" value="#{evenementController.selected.dateMajEvenement}" title="#{bundle.CreateEvenementTitle_dateMajEvenement}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateEvenementLabel_descriptionEvenement}" for="descriptionEvenement" />
-                    <h:inputText id="descriptionEvenement" value="#{evenementController.selected.descriptionEvenement}" title="#{bundle.CreateEvenementTitle_descriptionEvenement}" />
-                    <h:outputLabel value="#{bundle.CreateEvenementLabel_etatEvenement}" for="etatEvenement" />
-                    <h:selectOneMenu id="etatEvenement" value="#{evenementController.selected.etatEvenement}" title="#{bundle.CreateEvenementTitle_etatEvenement}" >
-                        <f:selectItems value="#{etatEvenementController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                <h:panelGrid columns="6">
                     <h:outputLabel value="#{bundle.CreateEvenementLabel_nomEvenement}" for="nomEvenement" />
-                    <h:inputText id="nomEvenement" value="#{evenementController.selected.nomEvenement}" title="#{bundle.CreateEvenementTitle_nomEvenement}" />
+                    <p:inputText id="nomEvenement" required="true" value="#{evenementController.selected.nomEvenement}" title="#{bundle.CreateEvenementTitle_nomEvenement}" />
+                    <p:message for="nomEvenement"/>
+                    <h:outputLabel value="#{bundle.CreateEvenementLabel_etatEvenement}" for="etatEvenement" />
+                    <p:selectOneMenu id="etatEvenement" value="#{evenementController.selected.etatEvenement}" title="#{bundle.CreateEvenementTitle_etatEvenement}" >
+                        <f:selectItems value="#{etatEvenementController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="etatEvenement"/>
+                    <h:outputLabel value="#{bundle.CreateEvenementLabel_categorieEvenement}" for="categorieEvenement" />
+                    <p:selectOneMenu id="categorieEvenement" value="#{evenementController.selected.categorieEvenement}" title="#{bundle.CreateEvenementTitle_categorieEvenement}" >
+                        <f:selectItems value="#{categorieEvenementController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="categorieEvenement"/>
                     <h:outputLabel value="#{bundle.CreateEvenementLabel_contact}" for="contact" />
-                    <h:selectOneMenu id="contact" value="#{evenementController.selected.contact}" title="#{bundle.CreateEvenementTitle_contact}" >
+                    <p:selectOneMenu id="contact" value="#{evenementController.selected.contact}" title="#{bundle.CreateEvenementTitle_contact}" >
                         <f:selectItems value="#{contactController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
+                    <p:message for="contact"/>
+                    <h:outputLabel value="#{bundle.CreateEvenementLabel_dateCreationEvenement}" for="dateCreationEvenement" />
+                    <p:calendar id="dateCreationEvenement" value="#{evenementController.selected.dateCreationEvenement}" title="#{bundle.CreateEvenementTitle_dateCreationEvenement}" pattern="dd/MM/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateCreationEvenement"/>
+                    <h:outputLabel value="#{bundle.CreateEvenementLabel_dateMajEvenement}" for="dateMajEvenement" />
+                    <p:calendar id="dateMajEvenement" value="#{evenementController.selected.dateMajEvenement}" title="#{bundle.CreateEvenementTitle_dateMajEvenement}" pattern="dd/MM/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateMajEvenement"/>
+                    <h:outputLabel value="#{bundle.CreateEvenementLabel_dateClotureEvenement}" for="dateClotureEvenement" />
+                    <p:calendar id="dateClotureEvenement" value="#{evenementController.selected.dateClotureEvenement}" title="#{bundle.CreateEvenementTitle_dateClotureEvenement}" pattern="dd/MM/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateClotureEvenement"/>
+                    <h:outputLabel value="#{bundle.CreateEvenementLabel_descriptionEvenement}" for="descriptionEvenement" />
+                    <p:inputText id="descriptionEvenement" value="#{evenementController.selected.descriptionEvenement}" title="#{bundle.CreateEvenementTitle_descriptionEvenement}" />
+                    <p:message for="descriptionEvenement"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{evenementController.create}" value="#{bundle.CreateEvenementSaveLink}" />

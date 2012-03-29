@@ -41,6 +41,18 @@
                         <p:commandLink value="Liste complète"  ajax="false" action="/data/adressePostale/List"/><br />
                     </h:form>
                 </p:tab>
+                <p:tab title="Numéros de téléphone">
+                    <h:form>
+                        <p:commandLink value="Ajouter"  ajax="false" action="/data/telephone/Create"/><br />
+                        <p:commandLink value="Liste complète"  ajax="false" action="/data/telephone/List"/><br />
+                    </h:form>
+                </p:tab>
+                <p:tab title="Adresses numérique">
+                    <h:form>
+                        <p:commandLink value="Ajouter"  ajax="false" action="/data/adresseNumerique/Create"/><br />
+                        <p:commandLink value="Liste complète"  ajax="false" action="/data/adresseNumerique/List"/><br />
+                    </h:form>
+                </p:tab>
             </ui:define>
 
             <ui:define name="body">

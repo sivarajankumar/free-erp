@@ -12,52 +12,37 @@
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListContactEmpty}" rendered="#{contactController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{contactController.items.rowCount > 0}">
                     <h:outputText value="#{contactController.pagination.pageFirstItem + 1}..#{contactController.pagination.pageLastItem + 1}/#{contactController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{contactController.previous}" value="#{bundle.Previous} #{contactController.pagination.pageSize}" rendered="#{contactController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{contactController.next}" value="#{bundle.Next} #{contactController.pagination.pageSize}" rendered="#{contactController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{contactController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
+                    <p:dataTable value="#{contactController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_id}"/>
+                                <h:outputText value="#{bundle.ListContactTitle_titre}"/>
                             </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_adressePostale}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.adressePostale}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_fonction}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fonction}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.titre.nomTitre}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContactTitle_nom}"/>
                             </f:facet>
                             <h:outputText value="#{item.nom}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContactTitle_prenom}"/>
                             </f:facet>
                             <h:outputText value="#{item.prenom}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_titre}"/>
+                                <h:outputText value="#{bundle.ListContactTitle_fonction}"/>
                             </f:facet>
-                            <h:outputText value="#{item.titre}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.fonction}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -66,8 +51,8 @@
                             <h:commandLink action="#{contactController.prepareEdit}" value="#{bundle.ListContactEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{contactController.destroy}" value="#{bundle.ListContactDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{contactController.prepareCreate}" value="#{bundle.ListContactCreateLink}"/>

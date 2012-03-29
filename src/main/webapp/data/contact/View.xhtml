@@ -11,29 +11,24 @@
             <h:outputText value="#{bundle.ViewContactTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewContactLabel_id}"/>
-                    <h:outputText value="#{contactController.selected.id}" title="#{bundle.ViewContactTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewContactLabel_adressePostale}"/>
-                    <h:outputText value="#{contactController.selected.adressePostale}" title="#{bundle.ViewContactTitle_adressePostale}"/>
-                    <h:outputText value="#{bundle.ViewContactLabel_fonction}"/>
-                    <h:outputText value="#{contactController.selected.fonction}" title="#{bundle.ViewContactTitle_fonction}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_titre}"/>
+                    <h:outputText value="#{contactController.selected.titre.nomTitre}" title="#{bundle.ViewContactTitle_titre}"/>
                     <h:outputText value="#{bundle.ViewContactLabel_nom}"/>
                     <h:outputText value="#{contactController.selected.nom}" title="#{bundle.ViewContactTitle_nom}"/>
                     <h:outputText value="#{bundle.ViewContactLabel_prenom}"/>
                     <h:outputText value="#{contactController.selected.prenom}" title="#{bundle.ViewContactTitle_prenom}"/>
-                    <h:outputText value="#{bundle.ViewContactLabel_titre}"/>
-                    <h:outputText value="#{contactController.selected.titre}" title="#{bundle.ViewContactTitle_titre}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_fonction}"/>
+                    <h:outputText value="#{contactController.selected.fonction}" title="#{bundle.ViewContactTitle_fonction}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_adressePostale}"/>
+                    <h:outputText value="#{contactController.selected.adressePostale.labelAdresse}" title="#{bundle.ViewContactTitle_adressePostale}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{contactController.destroyAndView}" value="#{bundle.ViewContactDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewContactEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{contactController.prepareCreate}" value="#{bundle.ViewContactCreateLink}" />
                 <br />

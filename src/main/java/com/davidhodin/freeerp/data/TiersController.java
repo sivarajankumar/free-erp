@@ -1,7 +1,6 @@
 package com.davidhodin.freeerp.data;
 
-import com.davidhodin.freeerp.data.tiers.AdressePostale;
-import com.davidhodin.freeerp.data.tiers.Tiers;
+import com.davidhodin.freeerp.data.tiers.*;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import com.davidhodin.freeerp.data.util.PaginationHelper;
 import java.io.Serializable;
@@ -23,18 +22,27 @@ public class TiersController implements Serializable {
 
     private Tiers current;
     private AdressePostale adressePostale;
+    private Telephone telephone;
+    private AdresseNumerique adresseNumerique;
+    private Contact contact;
     private DataModel items = null;
     @EJB
     private com.davidhodin.freeerp.data.TiersFacade ejbFacade;
     @EJB
     private AdressePostaleFacade adressePostaleFacade;
+    @EJB
+    private TelephoneFacade telephoneFacade;
+    @EJB
+    private AdresseNumeriqueFacade adresseNumeriqueFacade;
+    @EJB
+    private ContactFacade contactFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public TiersController() {
     }
 
-    // getter et setter pour l'Adresse
+    // getter et setter + modif David
     public AdressePostale getAdressePostale() {
         return adressePostale;
     }
@@ -56,12 +64,79 @@ public class TiersController implements Serializable {
         return null;
     }
 
+    public AdresseNumerique getAdresseNumerique() {
+        return adresseNumerique;
+    }
+
+    public void setAdresseNumerique(AdresseNumerique adresseNumerique) {
+        this.adresseNumerique = adresseNumerique;
+    }
+
+    public String ajouteAdresseNum() {
+        try {
+            adresseNumeriqueFacade.create(adresseNumerique);
+            current.getAdressesNum().add(adresseNumerique);
+            getFacade().edit(current);
+            adresseNumerique = new AdresseNumerique();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TiersCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public String ajouteContact() {
+        try {
+            contactFacade.create(contact);
+            current.getContacts().add(contact);
+            getFacade().edit(current);
+            contact = new Contact();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TiersCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+
+    public Telephone getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(Telephone telephone) {
+        this.telephone = telephone;
+    }
+
+    public String ajouteTelephone() {
+        try {
+            telephoneFacade.create(telephone);
+            current.getTelephones().add(telephone);
+            getFacade().edit(current);
+            telephone = new Telephone();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TiersCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+
     // ----------------------------------------------------------------
     public Tiers getSelected() {
         if (current == null) {
             current = new Tiers();
             // David ---- Initialisation 
             adressePostale = new AdressePostale();
+            adresseNumerique = new AdresseNumerique();
+            telephone = new Telephone();
+            contact = new Contact();
+
             selectedItemIndex = -1;
         }
         return current;
@@ -104,6 +179,10 @@ public class TiersController implements Serializable {
         current = new Tiers();
         // David ---- Initialisation 
         adressePostale = new AdressePostale();
+        adresseNumerique = new AdresseNumerique();
+        telephone = new Telephone();
+        contact = new Contact();
+
         selectedItemIndex = -1;
         return "Create";
     }
@@ -123,6 +202,10 @@ public class TiersController implements Serializable {
         current = (Tiers) getItems().getRowData();
         // David ---- Initialisation 
         adressePostale = new AdressePostale();
+        adresseNumerique = new AdresseNumerique();
+        telephone = new Telephone();
+        contact = new Contact();
+
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }

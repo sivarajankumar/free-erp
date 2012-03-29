@@ -32,7 +32,11 @@ public class ItemCommercial implements Serializable {
     private Float montantHT;
     @ManyToOne
     private TVA tauxTVA;
-    
+
+    public ItemCommercial() {
+    quantite = 1f;
+    montantHT = 0f;
+    }
     
     public Long getId() {
         return id;

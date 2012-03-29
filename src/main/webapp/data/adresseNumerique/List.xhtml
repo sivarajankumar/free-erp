@@ -6,40 +6,31 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/tiers.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ListAdresseNumeriqueTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListAdresseNumeriqueEmpty}" rendered="#{adresseNumeriqueController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{adresseNumeriqueController.items.rowCount > 0}">
                     <h:outputText value="#{adresseNumeriqueController.pagination.pageFirstItem + 1}..#{adresseNumeriqueController.pagination.pageLastItem + 1}/#{adresseNumeriqueController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{adresseNumeriqueController.previous}" value="#{bundle.Previous} #{adresseNumeriqueController.pagination.pageSize}" rendered="#{adresseNumeriqueController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{adresseNumeriqueController.next}" value="#{bundle.Next} #{adresseNumeriqueController.pagination.pageSize}" rendered="#{adresseNumeriqueController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{adresseNumeriqueController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{adresseNumeriqueController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_adresseNum}"/>
                             </f:facet>
                             <h:outputText value="#{item.adresseNum}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_categorieAdresse}"/>
                             </f:facet>
-                            <h:outputText value="#{item.categorieAdresse}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.categorieAdresse.nomCategorie}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -48,8 +39,8 @@
                             <h:commandLink action="#{adresseNumeriqueController.prepareEdit}" value="#{bundle.ListAdresseNumeriqueEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{adresseNumeriqueController.destroy}" value="#{bundle.ListAdresseNumeriqueDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{adresseNumeriqueController.prepareCreate}" value="#{bundle.ListAdresseNumeriqueCreateLink}"/>

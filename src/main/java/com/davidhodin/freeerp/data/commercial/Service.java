@@ -27,11 +27,11 @@ public class Service implements Serializable {
     @ManyToOne
     private CategorieService categorieService;
     // Information commerciales
+    @ManyToOne
+    private EtatCommercial etatCommercial;
     private Float prixVente;
     @ManyToOne
     private TVA tvaVente;
-    @ManyToOne
-    private EtatCommercial etatAchat;
     private Float prixAchat;
     @ManyToOne
     private TVA tvaAchat;
@@ -41,6 +41,11 @@ public class Service implements Serializable {
     @ManyToOne
     private Pays paysOrigine;
     private String description;
+
+    public Service() {
+    prixAchat = 0f;
+    prixVente = 0f;    
+    }
 
     public Long getId() {
         return id;
@@ -64,14 +69,6 @@ public class Service implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public EtatCommercial getEtatAchat() {
-        return etatAchat;
-    }
-
-    public void setEtatAchat(EtatCommercial etatAchat) {
-        this.etatAchat = etatAchat;
     }
 
     public String getNomService() {
@@ -146,7 +143,16 @@ public class Service implements Serializable {
         this.tvaVente = tvaVente;
     }
 
+    public EtatCommercial getEtatCommercial() {
+        return etatCommercial;
+    }
 
+    public void setEtatCommercial(EtatCommercial etatCommercial) {
+        this.etatCommercial = etatCommercial;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -169,7 +175,7 @@ public class Service implements Serializable {
 
     @Override
     public String toString() {
-       if (reference != null) {
+        if (reference != "") {
             return nomService + " (" + reference + ")";
         } else {
             return nomService;

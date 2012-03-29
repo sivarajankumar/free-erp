@@ -28,13 +28,11 @@ public class Produit implements Serializable {
     @ManyToOne
     private CategorieProduit categorie;
     // Informations commerciales
-    @ManyToOne
-    private EtatCommercial etatVente;
     private Float prixVente;
     @ManyToOne
     private TVA tvaVente;
     @ManyToOne
-    private EtatCommercial etatAchat;
+    private EtatCommercial etatCommercial;
     private Float prixAchat;
     @ManyToOne
     private TVA tvaAchat;
@@ -48,7 +46,14 @@ public class Produit implements Serializable {
     private String description;
     private Integer poids;
     private Integer volume;
-    
+
+    public Produit() {
+    prixAchat = 0f;
+    prixVente = 0f;
+    poids = 0;
+    volume = 0;
+    }
+      
     public CategorieProduit getCategorie() {
         return categorie;
     }
@@ -129,20 +134,12 @@ public class Produit implements Serializable {
         this.volume = volume;
     }
 
-    public EtatCommercial getEtatAchat() {
-        return etatAchat;
+    public EtatCommercial getEtatCommercial() {
+        return etatCommercial;
     }
 
-    public void setEtatAchat(EtatCommercial etatAchat) {
-        this.etatAchat = etatAchat;
-    }
-
-    public EtatCommercial getEtatVente() {
-        return etatVente;
-    }
-
-    public void setEtatVente(EtatCommercial etatVente) {
-        this.etatVente = etatVente;
+    public void setEtatCommercial(EtatCommercial etatCommercial) {
+        this.etatCommercial = etatCommercial;
     }
 
     public List<StockProduit> getStocksProduit() {
@@ -208,7 +205,7 @@ public class Produit implements Serializable {
 
     @Override
     public String toString() {
-        if (reference != null) {
+        if (!"".equals(reference)) {
             return nomProduit + " (" + reference + ")";
         } else {
             return nomProduit;

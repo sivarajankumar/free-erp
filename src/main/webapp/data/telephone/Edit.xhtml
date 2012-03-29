@@ -6,26 +6,24 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/tiers.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.EditTelephoneTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTelephoneLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{telephoneController.selected.id}" title="#{bundle.EditTelephoneTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditTelephoneLabel_categorieTelephone}" for="categorieTelephone" />
-                    <h:selectOneMenu id="categorieTelephone" value="#{telephoneController.selected.categorieTelephone}" title="#{bundle.EditTelephoneTitle_categorieTelephone}" >
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="#{bundle.CreateTelephoneLabel_descriptionNumero}" for="descriptionNumero" />
+                    <p:inputText id="descriptionNumero" required="true" value="#{telephoneController.selected.descriptionNumero}" title="#{bundle.CreateTelephoneTitle_descriptionNumero}" />
+                    <p:message for="descriptionNumero"/>
+                    <h:outputLabel value="#{bundle.CreateTelephoneLabel_categorieTelephone}" for="categorieTelephone" />
+                    <p:selectOneMenu id="categorieTelephone" value="#{telephoneController.selected.categorieTelephone}" title="#{bundle.CreateTelephoneTitle_categorieTelephone}" >
                         <f:selectItems value="#{categorieTelephoneController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditTelephoneLabel_descriptionNumero}" for="descriptionNumero" />
-                    <h:inputText id="descriptionNumero" value="#{telephoneController.selected.descriptionNumero}" title="#{bundle.EditTelephoneTitle_descriptionNumero}" />
-                    <h:outputLabel value="#{bundle.EditTelephoneLabel_numero}" for="numero" />
-                    <h:inputText id="numero" value="#{telephoneController.selected.numero}" title="#{bundle.EditTelephoneTitle_numero}" />
+                    </p:selectOneMenu>
+                    <p:message for="categorieTelephone"/>
+                    <h:outputLabel value="#{bundle.CreateTelephoneLabel_numero}" for="numero" />
+                    <p:inputText id="numero" required="true" value="#{telephoneController.selected.numero}" title="#{bundle.CreateTelephoneTitle_numero}" />
+                    <p:message for="numero"/>
                 </h:panelGrid>
                 <h:commandLink action="#{telephoneController.update}" value="#{bundle.EditTelephoneSaveLink}"/>
                 <br />

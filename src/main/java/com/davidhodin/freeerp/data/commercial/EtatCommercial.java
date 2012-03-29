@@ -61,7 +61,7 @@ public class EtatCommercial implements Serializable {
 
     @Override
     public String toString() {
-        return "com.davidhodin.freeerp.data.Etat_SeviceProduit[ id=" + id + " ]";
+        return etat;
     }
     
 }

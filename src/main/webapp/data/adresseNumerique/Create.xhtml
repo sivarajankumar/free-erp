@@ -6,24 +6,21 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/tiers.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateAdresseNumeriqueTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{adresseNumeriqueController.selected.id}" title="#{bundle.CreateAdresseNumeriqueTitle_id}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_adresseNum}" for="adresseNum" />
-                    <h:inputText id="adresseNum" value="#{adresseNumeriqueController.selected.adresseNum}" title="#{bundle.CreateAdresseNumeriqueTitle_adresseNum}" />
+                    <p:inputText id="adresseNum" required="true" value="#{adresseNumeriqueController.selected.adresseNum}" title="#{bundle.CreateAdresseNumeriqueTitle_adresseNum}" />
+                    <p:message for="adresseNum"/>
                     <h:outputLabel value="#{bundle.CreateAdresseNumeriqueLabel_categorieAdresse}" for="categorieAdresse" />
                     <h:selectOneMenu id="categorieAdresse" value="#{adresseNumeriqueController.selected.categorieAdresse}" title="#{bundle.CreateAdresseNumeriqueTitle_categorieAdresse}" >
                         <f:selectItems value="#{categorieAdresseNumeriqueController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <p:message for="categorieAdresse"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{adresseNumeriqueController.create}" value="#{bundle.CreateAdresseNumeriqueSaveLink}" />
