@@ -12,13 +12,13 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateGroupeOffreLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{groupeOffreController.selected.id}" title="#{bundle.CreateGroupeOffreTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateGroupeOffreLabel_enCours}" for="enCours" />
-                    <h:inputText id="enCours" value="#{groupeOffreController.selected.enCours}" title="#{bundle.CreateGroupeOffreTitle_enCours}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateGroupeOffreLabel_labelGroupeOffre}" for="labelGroupeOffre" />
-                    <h:inputText id="labelGroupeOffre" value="#{groupeOffreController.selected.labelGroupeOffre}" title="#{bundle.CreateGroupeOffreTitle_labelGroupeOffre}" />
+                    <p:inputText id="labelGroupeOffre" required="true" value="#{groupeOffreController.selected.labelGroupeOffre}" title="#{bundle.CreateGroupeOffreTitle_labelGroupeOffre}" />
+                    <p:message for="labelGroupeOffre"/>
+                    <h:outputLabel value="#{bundle.CreateGroupeOffreLabel_enCours}" for="enCours" />
+                    <p:selectBooleanCheckbox id="enCours" value="#{groupeOffreController.selected.enCours}" title="#{bundle.CreateGroupeOffreTitle_enCours}" />
+                    <p:message for="enCours"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{groupeOffreController.create}" value="#{bundle.CreateGroupeOffreSaveLink}" />

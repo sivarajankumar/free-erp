@@ -11,22 +11,76 @@
             <h:outputText value="#{bundle.EditGroupeOffreTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditGroupeOffreLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{groupeOffreController.selected.id}" title="#{bundle.EditGroupeOffreTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditGroupeOffreLabel_enCours}" for="enCours" />
-                    <h:inputText id="enCours" value="#{groupeOffreController.selected.enCours}" title="#{bundle.EditGroupeOffreTitle_enCours}" />
-                    <h:outputLabel value="#{bundle.EditGroupeOffreLabel_labelGroupeOffre}" for="labelGroupeOffre" />
-                    <h:inputText id="labelGroupeOffre" value="#{groupeOffreController.selected.labelGroupeOffre}" title="#{bundle.EditGroupeOffreTitle_labelGroupeOffre}" />
-                </h:panelGrid>
-                <h:commandLink action="#{groupeOffreController.update}" value="#{bundle.EditGroupeOffreSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditGroupeOffreViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{groupeOffreController.prepareList}" value="#{bundle.EditGroupeOffreShowAllLink}" immediate="true"/>
-            </h:form>
+            <p:tabView dynamic="true" >
+                <p:tab title="Informations générales">
+                    <h:form>
+                        <h:panelGrid columns="3">
+                            <h:outputLabel value="#{bundle.CreateGroupeOffreLabel_labelGroupeOffre}" for="labelGroupeOffre" />
+                            <p:inputText id="labelGroupeOffre" required="true" value="#{groupeOffreController.selected.labelGroupeOffre}" title="#{bundle.CreateGroupeOffreTitle_labelGroupeOffre}" />
+                            <p:message for="labelGroupeOffre"/>
+                            <h:outputLabel value="#{bundle.CreateGroupeOffreLabel_enCours}" for="enCours" />
+                            <p:selectBooleanCheckbox id="enCours" value="#{groupeOffreController.selected.enCours}" title="#{bundle.CreateGroupeOffreTitle_enCours}" />
+                            <p:message for="enCours"/>
+                        </h:panelGrid>
+                        <h:commandLink action="#{groupeOffreController.update}" value="#{bundle.EditGroupeOffreSaveLink}"/>
+                        <br />
+                        <br />
+                        <h:commandLink action="View" value="#{bundle.EditGroupeOffreViewLink}" immediate="true"/>
+                        <br />
+                        <h:commandLink action="#{groupeOffreController.prepareList}" value="#{bundle.EditGroupeOffreShowAllLink}" immediate="true"/>
+                    </h:form>
+                </p:tab>
+
+                <p:tab title="Offres d'achat du groupe">
+                    <h:form>
+                        <h:outputText value="Liste des offres commerciale liées :"/>
+                        <p:outputPanel>
+                            <p:dataTable value="#{groupeOffreController.selected.offreCommerciale}" var="item" >
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListOffreCommercialeTitle_nomOffre}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nomOffre}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListOffreCommercialeTitle_tiers}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.tiers.nomTiers}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListOffreCommercialeTitle_etatOffre}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.etatOffre.etatOffre}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListOffreCommercialeTitle_categorieOffre}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.categorieOffre.nomCategorie}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListOffreCommercialeTitle_dateCloture}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dateCloture}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                    </h:outputText>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListOffreCommercialeTitle_dateCreation}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dateCreation}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                    </h:outputText>
+                                </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </h:form>
+                </p:tab>
+            </p:tabView>
         </ui:define>
     </ui:composition>
 

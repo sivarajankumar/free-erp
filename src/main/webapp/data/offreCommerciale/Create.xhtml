@@ -12,51 +12,61 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{offreCommercialeController.selected.id}" title="#{bundle.CreateOffreCommercialeTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_categorieOffre}" for="categorieOffre" />
-                    <h:selectOneMenu id="categorieOffre" value="#{offreCommercialeController.selected.categorieOffre}" title="#{bundle.CreateOffreCommercialeTitle_categorieOffre}" >
-                        <f:selectItems value="#{categorieOffreController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                <h:panelGrid columns="6">
                     <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_nomOffre}" for="nomOffre" />
-                    <h:inputText id="nomOffre" value="#{offreCommercialeController.selected.nomOffre}" title="#{bundle.CreateOffreCommercialeTitle_nomOffre}" />
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateCloture}" for="dateCloture" />
-                    <h:inputText id="dateCloture" value="#{offreCommercialeController.selected.dateCloture}" title="#{bundle.CreateOffreCommercialeTitle_dateCloture}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateCreation}" for="dateCreation" />
-                    <h:inputText id="dateCreation" value="#{offreCommercialeController.selected.dateCreation}" title="#{bundle.CreateOffreCommercialeTitle_dateCreation}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_etatOffre}" for="etatOffre" />
-                    <h:selectOneMenu id="etatOffre" value="#{offreCommercialeController.selected.etatOffre}" title="#{bundle.CreateOffreCommercialeTitle_etatOffre}" >
-                        <f:selectItems value="#{etatOffreController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_groupeOffre}" for="groupeOffre" />
-                    <h:selectOneMenu id="groupeOffre" value="#{offreCommercialeController.selected.groupeOffre}" title="#{bundle.CreateOffreCommercialeTitle_groupeOffre}" >
-                        <f:selectItems value="#{groupeOffreController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    <p:inputText id="nomOffre" required="true" value="#{offreCommercialeController.selected.nomOffre}" title="#{bundle.CreateOffreCommercialeTitle_nomOffre}" />
+                    <p:message for="nomOffre"/>
                     <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_tiers}" for="tiers" />
-                    <h:selectOneMenu id="tiers" value="#{offreCommercialeController.selected.tiers}" title="#{bundle.CreateOffreCommercialeTitle_tiers}" >
+                    <p:selectOneMenu id="tiers" value="#{offreCommercialeController.selected.tiers}" title="#{bundle.CreateOffreCommercialeTitle_tiers}" >
                         <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateReceptionOk}" for="dateReceptionOk" />
-                    <h:inputText id="dateReceptionOk" value="#{offreCommercialeController.selected.dateReceptionOk}" title="#{bundle.CreateOffreCommercialeTitle_dateReceptionOk}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_documents}" for="documents" />
-                    <h:selectOneMenu id="documents" value="#{offreCommercialeController.selected.documents}" title="#{bundle.CreateOffreCommercialeTitle_documents}" >
-                        <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_facture}" for="facture" />
-                    <h:selectOneMenu id="facture" value="#{offreCommercialeController.selected.facture}" title="#{bundle.CreateOffreCommercialeTitle_facture}" >
-                        <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_factureOk}" for="factureOk" />
-                    <h:inputText id="factureOk" value="#{offreCommercialeController.selected.factureOk}" title="#{bundle.CreateOffreCommercialeTitle_factureOk}" />
+                    </p:selectOneMenu>
+                    <p:message for="tiers"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_etatOffre}" for="etatOffre" />
+                    <p:selectOneMenu id="etatOffre" value="#{offreCommercialeController.selected.etatOffre}" title="#{bundle.CreateOffreCommercialeTitle_etatOffre}" >
+                        <f:selectItems value="#{etatOffreController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="etatOffre"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_categorieOffre}" for="categorieOffre" />
+                    <p:selectOneMenu id="categorieOffre" value="#{offreCommercialeController.selected.categorieOffre}" title="#{bundle.CreateOffreCommercialeTitle_categorieOffre}" >
+                        <f:selectItems value="#{categorieOffreController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="categorieOffre"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateCreation}" for="dateCreation" />
+                    <p:calendar id="dateCreation" value="#{offreCommercialeController.selected.dateCreation}" title="#{bundle.CreateOffreCommercialeTitle_dateCreation}" pattern="dd/MM/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateCreation"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateCloture}" for="dateCloture" />
+                    <p:calendar id="dateCloture" value="#{offreCommercialeController.selected.dateCloture}" title="#{bundle.CreateOffreCommercialeTitle_dateCloture}" pattern="dd/MM/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateCloture"/>
                     <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_receptionOk}" for="receptionOk" />
-                    <h:inputText id="receptionOk" value="#{offreCommercialeController.selected.receptionOk}" title="#{bundle.CreateOffreCommercialeTitle_receptionOk}" />
+                    <p:selectBooleanCheckbox id="receptionOk" value="#{offreCommercialeController.selected.receptionOk}" title="#{bundle.CreateOffreCommercialeTitle_receptionOk}" />
+                    <p:message for="receptionOk"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateReceptionOk}" for="dateReceptionOk" />
+                    <p:calendar id="dateReceptionOk" value="#{offreCommercialeController.selected.dateReceptionOk}" title="#{bundle.CreateOffreCommercialeTitle_dateReceptionOk}" pattern="dd/MM/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateReceptionOk"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_factureOk}" for="factureOk" />
+                    <p:selectBooleanCheckbox id="factureOk" value="#{offreCommercialeController.selected.factureOk}" title="#{bundle.CreateOffreCommercialeTitle_factureOk}" />
+                    <p:message for="factureOk"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_facture}" for="facture" />
+                    <p:selectOneMenu id="facture" value="#{offreCommercialeController.selected.facture}" title="#{bundle.CreateOffreCommercialeTitle_facture}" >
+                        <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="facture"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_groupeOffre}" for="groupeOffre" />
+                    <p:selectOneMenu id="groupeOffre" value="#{offreCommercialeController.selected.groupeOffre}" title="#{bundle.CreateOffreCommercialeTitle_groupeOffre}" >
+                        <f:selectItems value="#{groupeOffreController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="groupeOffre"/>
+                    <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_documents}" for="documents" />
+                    <p:selectOneMenu id="documents" value="#{offreCommercialeController.selected.documents}" title="#{bundle.CreateOffreCommercialeTitle_documents}" >
+                        <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="documents"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{offreCommercialeController.create}" value="#{bundle.CreateOffreCommercialeSaveLink}" />

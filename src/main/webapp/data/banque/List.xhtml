@@ -17,32 +17,26 @@
                     <h:outputText value="#{banqueController.pagination.pageFirstItem + 1}..#{banqueController.pagination.pageLastItem + 1}/#{banqueController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{banqueController.previous}" value="#{bundle.Previous} #{banqueController.pagination.pageSize}" rendered="#{banqueController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{banqueController.next}" value="#{bundle.Next} #{banqueController.pagination.pageSize}" rendered="#{banqueController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{banqueController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBanqueTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBanqueTitle_categorieBanque}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieBanque}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{banqueController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBanqueTitle_nomBanque}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomBanque}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBanqueTitle_categorieBanque}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieBanque.nomCategorie}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBanqueTitle_tiers}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tiers}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.tiers.nomTiers}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -51,8 +45,8 @@
                             <h:commandLink action="#{banqueController.prepareEdit}" value="#{bundle.ListBanqueEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{banqueController.destroy}" value="#{bundle.ListBanqueDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{banqueController.prepareCreate}" value="#{bundle.ListBanqueCreateLink}"/>

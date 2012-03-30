@@ -17,26 +17,20 @@
                     <h:outputText value="#{groupeOffreController.pagination.pageFirstItem + 1}..#{groupeOffreController.pagination.pageLastItem + 1}/#{groupeOffreController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{groupeOffreController.previous}" value="#{bundle.Previous} #{groupeOffreController.pagination.pageSize}" rendered="#{groupeOffreController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{groupeOffreController.next}" value="#{bundle.Next} #{groupeOffreController.pagination.pageSize}" rendered="#{groupeOffreController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{groupeOffreController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGroupeOffreTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGroupeOffreTitle_enCours}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.enCours}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{groupeOffreController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListGroupeOffreTitle_labelGroupeOffre}"/>
                             </f:facet>
                             <h:outputText value="#{item.labelGroupeOffre}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGroupeOffreTitle_enCours}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enCours}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -45,8 +39,8 @@
                             <h:commandLink action="#{groupeOffreController.prepareEdit}" value="#{bundle.ListGroupeOffreEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{groupeOffreController.destroy}" value="#{bundle.ListGroupeOffreDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{groupeOffreController.prepareCreate}" value="#{bundle.ListGroupeOffreCreateLink}"/>

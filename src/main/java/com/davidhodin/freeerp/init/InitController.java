@@ -113,7 +113,15 @@ public class InitController implements Serializable {
     private ItemCommercial itemCommercial2;
     private Evenement evenement1;
     private Evenement evenement2;
+    private GroupeOffre groupeOffre1;
+    private GroupeOffre groupeOffre2;
+    private OffreCommerciale offreCommerciale1;
+    private OffreCommerciale offreCommerciale2;
+    private Achat achat1;
+    private Achat achat2;  
     // ----Financier
+    
+    
     // ---- EJB
     @EJB
     private CategorieAdressePostaleFacade ejbAdressePostale;
@@ -179,6 +187,12 @@ public class InitController implements Serializable {
     private EvenementFacade evenementFacade;
     @EJB
     private ItemCommercialFacade itemCommercialFacade;
+    @EJB
+    private AchatFacade achatFacade;
+    @EJB
+    private OffreCommercialeFacade offreCommercialeFacade;
+    @EJB
+    private GroupeOffreFacade groupeOffreFacade;
 
     public InitController() {
     }
@@ -279,7 +293,13 @@ public class InitController implements Serializable {
         itemCommercial2 = new ItemCommercial();
         evenement1 = new Evenement();
         evenement2 = new Evenement();
-
+        groupeOffre1 = new GroupeOffre();
+        groupeOffre2 = new GroupeOffre();
+        offreCommerciale1 = new OffreCommerciale();
+        offreCommerciale2 = new OffreCommerciale();
+        achat1 = new Achat();
+        achat2 = new Achat();
+        
         // ----Financier
 
 
@@ -397,6 +417,16 @@ public class InitController implements Serializable {
         itemCommercial2.setMontantHT(150f);
         evenement1.setNomEvenement("Description technique");
         evenement2.setNomEvenement("Installation sur site");
+        groupeOffre1.setEnCours(Boolean.TRUE);
+        groupeOffre2.setEnCours(Boolean.FALSE);
+        groupeOffre1.setLabelGroupeOffre("Offres pour la refonte du SI");
+        groupeOffre2.setLabelGroupeOffre("Offres déploiement SI Aéro");
+        offreCommerciale1.setNomOffre("Installation SI - Offre 1");
+        offreCommerciale2.setNomOffre("Installation SI - Offre 2");
+        offreCommerciale1.setReceptionOk(Boolean.TRUE);
+        offreCommerciale2.setReceptionOk(Boolean.TRUE);
+        achat1.setNomAchat("Achat matériel informatique");
+        achat2.setNomAchat("Achat prestation");
 
         // ----Financier
 
@@ -513,8 +543,6 @@ public class InitController implements Serializable {
             tiers2.setTypeTiers(typeTiers2);
             tiersFacade.edit(tiers2);
 
-
-
             // ----Produits
             produitFacade.create(produit1);
             produitFacade.create(produit2);
@@ -546,6 +574,35 @@ public class InitController implements Serializable {
             evenement2.setCategorieEvenement(categorieEvenement3);
             evenementFacade.edit(evenement1);
             evenementFacade.edit(evenement2);
+            groupeOffreFacade.create(groupeOffre1);
+            groupeOffreFacade.create(groupeOffre2);
+            offreCommercialeFacade.create(offreCommerciale1);
+            offreCommercialeFacade.create(offreCommerciale2);
+            achatFacade.create(achat1);
+            achatFacade.create(achat2);
+            groupeOffre1.getOffreCommerciale().add(offreCommerciale1);
+            groupeOffre1.getOffreCommerciale().add(offreCommerciale2);
+            groupeOffreFacade.edit(groupeOffre1);
+            offreCommerciale1.setCategorieOffre(categorieOffre1);
+            offreCommerciale2.setCategorieOffre(categorieOffre2);
+            offreCommerciale1.setEtatOffre(etatOffre1);
+            offreCommerciale2.setEtatOffre(etatOffre2);
+            offreCommerciale1.setTiers(tiers1);
+            offreCommerciale2.setTiers(tiers2);
+            offreCommerciale1.getItemCommerciaux().add(itemCommercial1);
+            offreCommerciale2.getItemCommerciaux().add(itemCommercial2);
+            offreCommercialeFacade.edit(offreCommerciale1);
+            offreCommercialeFacade.edit(offreCommerciale2);
+            achat1.setCategorieAchat(categorieAchat1);
+            achat2.setCategorieAchat(categorieAchat1);
+            achat1.setEtatAchat(etatAchat1);
+            achat2.setEtatAchat(etatAchat1);
+            achat1.setTiers(tiers2);
+            achat2.setTiers(tiers1);
+            achat1.getItemCommerciaux().add(itemCommercial1);
+            achat1.getItemCommerciaux().add(itemCommercial2);
+            achatFacade.edit(achat1);
+            achatFacade.edit(achat2);
             
             // ----Financier
 

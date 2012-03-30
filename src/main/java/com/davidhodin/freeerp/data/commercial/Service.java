@@ -175,7 +175,7 @@ public class Service implements Serializable {
 
     @Override
     public String toString() {
-        if (reference != "") {
+        if (reference != null) {
             return nomService + " (" + reference + ")";
         } else {
             return nomService;

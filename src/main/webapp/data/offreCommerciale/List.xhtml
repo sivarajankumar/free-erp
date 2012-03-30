@@ -17,92 +17,54 @@
                     <h:outputText value="#{offreCommercialeController.pagination.pageFirstItem + 1}..#{offreCommercialeController.pagination.pageLastItem + 1}/#{offreCommercialeController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{offreCommercialeController.previous}" value="#{bundle.Previous} #{offreCommercialeController.pagination.pageSize}" rendered="#{offreCommercialeController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{offreCommercialeController.next}" value="#{bundle.Next} #{offreCommercialeController.pagination.pageSize}" rendered="#{offreCommercialeController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{offreCommercialeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_categorieOffre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieOffre}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{offreCommercialeController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListOffreCommercialeTitle_nomOffre}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomOffre}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_tiers}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiers.nomTiers}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_etatOffre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etatOffre.etatOffre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_categorieOffre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieOffre.nomCategorie}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListOffreCommercialeTitle_dateCloture}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateCloture}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListOffreCommercialeTitle_dateCreation}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateCreation}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_etatOffre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatOffre}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListOffreCommercialeTitle_groupeOffre}"/>
                             </f:facet>
-                            <h:outputText value="#{item.groupeOffre}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_tiers}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tiers}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_dateReceptionOk}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateReceptionOk}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_documents}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.documents}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_facture}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.facture}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_factureOk}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.factureOk}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffreCommercialeTitle_receptionOk}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.receptionOk}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.groupeOffre.labelGroupeOffre}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -111,8 +73,8 @@
                             <h:commandLink action="#{offreCommercialeController.prepareEdit}" value="#{bundle.ListOffreCommercialeEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{offreCommercialeController.destroy}" value="#{bundle.ListOffreCommercialeDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{offreCommercialeController.prepareCreate}" value="#{bundle.ListOffreCommercialeCreateLink}"/>

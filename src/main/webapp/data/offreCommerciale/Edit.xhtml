@@ -11,60 +11,238 @@
             <h:outputText value="#{bundle.EditOffreCommercialeTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{offreCommercialeController.selected.id}" title="#{bundle.EditOffreCommercialeTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_categorieOffre}" for="categorieOffre" />
-                    <h:selectOneMenu id="categorieOffre" value="#{offreCommercialeController.selected.categorieOffre}" title="#{bundle.EditOffreCommercialeTitle_categorieOffre}" >
-                        <f:selectItems value="#{categorieOffreController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_nomOffre}" for="nomOffre" />
-                    <h:inputText id="nomOffre" value="#{offreCommercialeController.selected.nomOffre}" title="#{bundle.EditOffreCommercialeTitle_nomOffre}" />
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_dateCloture}" for="dateCloture" />
-                    <h:inputText id="dateCloture" value="#{offreCommercialeController.selected.dateCloture}" title="#{bundle.EditOffreCommercialeTitle_dateCloture}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_dateCreation}" for="dateCreation" />
-                    <h:inputText id="dateCreation" value="#{offreCommercialeController.selected.dateCreation}" title="#{bundle.EditOffreCommercialeTitle_dateCreation}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_etatOffre}" for="etatOffre" />
-                    <h:selectOneMenu id="etatOffre" value="#{offreCommercialeController.selected.etatOffre}" title="#{bundle.EditOffreCommercialeTitle_etatOffre}" >
-                        <f:selectItems value="#{etatOffreController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_groupeOffre}" for="groupeOffre" />
-                    <h:selectOneMenu id="groupeOffre" value="#{offreCommercialeController.selected.groupeOffre}" title="#{bundle.EditOffreCommercialeTitle_groupeOffre}" >
-                        <f:selectItems value="#{groupeOffreController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_tiers}" for="tiers" />
-                    <h:selectOneMenu id="tiers" value="#{offreCommercialeController.selected.tiers}" title="#{bundle.EditOffreCommercialeTitle_tiers}" >
-                        <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_dateReceptionOk}" for="dateReceptionOk" />
-                    <h:inputText id="dateReceptionOk" value="#{offreCommercialeController.selected.dateReceptionOk}" title="#{bundle.EditOffreCommercialeTitle_dateReceptionOk}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_documents}" for="documents" />
-                    <h:selectOneMenu id="documents" value="#{offreCommercialeController.selected.documents}" title="#{bundle.EditOffreCommercialeTitle_documents}" >
-                        <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_facture}" for="facture" />
-                    <h:selectOneMenu id="facture" value="#{offreCommercialeController.selected.facture}" title="#{bundle.EditOffreCommercialeTitle_facture}" >
-                        <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_factureOk}" for="factureOk" />
-                    <h:inputText id="factureOk" value="#{offreCommercialeController.selected.factureOk}" title="#{bundle.EditOffreCommercialeTitle_factureOk}" />
-                    <h:outputLabel value="#{bundle.EditOffreCommercialeLabel_receptionOk}" for="receptionOk" />
-                    <h:inputText id="receptionOk" value="#{offreCommercialeController.selected.receptionOk}" title="#{bundle.EditOffreCommercialeTitle_receptionOk}" />
-                </h:panelGrid>
-                <h:commandLink action="#{offreCommercialeController.update}" value="#{bundle.EditOffreCommercialeSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditOffreCommercialeViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{offreCommercialeController.prepareList}" value="#{bundle.EditOffreCommercialeShowAllLink}" immediate="true"/>
-            </h:form>
+            <p:tabView dynamic="true" >
+                <p:tab title="Informations générales">
+                    <h:form>
+                        <h:panelGrid columns="6">
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_nomOffre}" for="nomOffre" />
+                            <p:inputText id="nomOffre" required="true" value="#{offreCommercialeController.selected.nomOffre}" title="#{bundle.CreateOffreCommercialeTitle_nomOffre}" />
+                            <p:message for="nomOffre"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_tiers}" for="tiers" />
+                            <p:selectOneMenu id="tiers" value="#{offreCommercialeController.selected.tiers}" title="#{bundle.CreateOffreCommercialeTitle_tiers}" >
+                                <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="tiers"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_etatOffre}" for="etatOffre" />
+                            <p:selectOneMenu id="etatOffre" value="#{offreCommercialeController.selected.etatOffre}" title="#{bundle.CreateOffreCommercialeTitle_etatOffre}" >
+                                <f:selectItems value="#{etatOffreController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="etatOffre"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_categorieOffre}" for="categorieOffre" />
+                            <p:selectOneMenu id="categorieOffre" value="#{offreCommercialeController.selected.categorieOffre}" title="#{bundle.CreateOffreCommercialeTitle_categorieOffre}" >
+                                <f:selectItems value="#{categorieOffreController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="categorieOffre"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateCreation}" for="dateCreation" />
+                            <p:calendar id="dateCreation" value="#{offreCommercialeController.selected.dateCreation}" title="#{bundle.CreateOffreCommercialeTitle_dateCreation}" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:message for="dateCreation"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateCloture}" for="dateCloture" />
+                            <p:calendar id="dateCloture" value="#{offreCommercialeController.selected.dateCloture}" title="#{bundle.CreateOffreCommercialeTitle_dateCloture}" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:message for="dateCloture"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_receptionOk}" for="receptionOk" />
+                            <p:selectBooleanCheckbox id="receptionOk" value="#{offreCommercialeController.selected.receptionOk}" title="#{bundle.CreateOffreCommercialeTitle_receptionOk}" />
+                            <p:message for="receptionOk"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_dateReceptionOk}" for="dateReceptionOk" />
+                            <p:calendar id="dateReceptionOk" value="#{offreCommercialeController.selected.dateReceptionOk}" title="#{bundle.CreateOffreCommercialeTitle_dateReceptionOk}" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:message for="dateReceptionOk"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_factureOk}" for="factureOk" />
+                            <p:selectBooleanCheckbox id="factureOk" value="#{offreCommercialeController.selected.factureOk}" title="#{bundle.CreateOffreCommercialeTitle_factureOk}" />
+                            <p:message for="factureOk"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_facture}" for="facture" />
+                            <p:selectOneMenu id="facture" value="#{offreCommercialeController.selected.facture}" title="#{bundle.CreateOffreCommercialeTitle_facture}" >
+                                <f:selectItems value="#{factureController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="facture"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_groupeOffre}" for="groupeOffre" />
+                            <p:selectOneMenu id="groupeOffre" value="#{offreCommercialeController.selected.groupeOffre}" title="#{bundle.CreateOffreCommercialeTitle_groupeOffre}" >
+                                <f:selectItems value="#{groupeOffreController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="groupeOffre"/>
+                            <h:outputLabel value="#{bundle.CreateOffreCommercialeLabel_documents}" for="documents" />
+                            <p:selectOneMenu id="documents" value="#{offreCommercialeController.selected.documents}" title="#{bundle.CreateOffreCommercialeTitle_documents}" >
+                                <f:selectItems value="#{documentsController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="documents"/>
+                        </h:panelGrid>
+                        <h:commandLink action="#{offreCommercialeController.update}" value="#{bundle.EditOffreCommercialeSaveLink}"/>
+                        <br />
+                        <br />
+                        <h:commandLink action="View" value="#{bundle.EditOffreCommercialeViewLink}" immediate="true"/>
+                        <br />
+                        <h:commandLink action="#{offreCommercialeController.prepareList}" value="#{bundle.EditOffreCommercialeShowAllLink}" immediate="true"/>
+                    </h:form>
+                </p:tab>
+
+
+                <p:tab title="Items de l'offre">
+                    <h:form>
+                        <h:panelGrid columns="6">
+                            <h:outputLabel value="#{bundle.CreateItemCommercialLabel_nomItem}" for="nomItem" />
+                            <p:inputText id="nomItem" required="true" value="#{offreCommercialeController.itemCommercial.nomItem}" title="#{bundle.CreateItemCommercialTitle_nomItem}" />
+                            <p:message for="nomItem"/>
+                            <h:outputLabel value="#{bundle.CreateItemCommercialLabel_quantite}" for="quantite" />
+                            <p:inputText id="quantite" value="#{offreCommercialeController.itemCommercial.quantite}" title="#{bundle.CreateItemCommercialTitle_quantite}" />
+                            <p:message for="quantite"/>
+                            <h:outputLabel value="#{bundle.CreateItemCommercialLabel_produit}" for="produit" />
+                            <p:selectOneMenu id="produit" value="#{offreCommercialeController.itemCommercial.produit}" title="#{bundle.CreateItemCommercialTitle_produit}" >
+                                <f:selectItems value="#{produitController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="produit"/>
+                            <h:outputLabel value="#{bundle.CreateItemCommercialLabel_service}" for="service" />
+                            <p:selectOneMenu id="service" value="#{offreCommercialeController.itemCommercial.service}" title="#{bundle.CreateItemCommercialTitle_service}" >
+                                <f:selectItems value="#{serviceController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="service"/>
+                            <h:outputLabel value="#{bundle.CreateItemCommercialLabel_montantHT}" for="montantHT" />
+                            <p:inputText id="montantHT" value="#{offreCommercialeController.itemCommercial.montantHT}" title="#{bundle.CreateItemCommercialTitle_montantHT}" />
+                            <p:message for="montantHT"/>
+                            <h:outputLabel value="#{bundle.CreateItemCommercialLabel_tauxTVA}" for="tauxTVA" />
+                            <p:selectOneMenu id="tauxTVA" rendererType="true" value="#{offreCommercialeController.itemCommercial.tauxTVA}" title="#{bundle.CreateItemCommercialTitle_tauxTVA}" >
+                                <f:selectItems value="#{tVAController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="tauxTVA"/>
+                        </h:panelGrid>
+                        <p:commandButton action="#{offreCommercialeController.ajouteItemCommercial()}" value="Ajouter" update="liste information @parent"/>
+
+                        <p:separator/>
+
+                        <h:outputText value="Liste des items de l'offre :"/>
+                        <p:outputPanel id="liste">
+                            <p:dataTable value="#{offreCommercialeController.selected.itemCommerciaux}" var="item" >
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListItemCommercialTitle_nomItem}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nomItem}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListItemCommercialTitle_quantite}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.quantite}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListItemCommercialTitle_produit}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.produit.nomProduit}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListItemCommercialTitle_service}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.service.nomService}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListItemCommercialTitle_montantHT}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.montantHT}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListItemCommercialTitle_tauxTVA}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.tauxTVA.description}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </h:form> 
+                </p:tab>
+
+                <p:tab title="Evènements">
+                    <h:form>
+                        <h:panelGrid columns="6">
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_nomEvenement}" for="nomEvenement" />
+                            <p:inputText id="nomEvenement" required="true" value="#{offreCommercialeController.evenement.nomEvenement}" title="#{bundle.CreateEvenementTitle_nomEvenement}" />
+                            <p:message for="nomEvenement"/>
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_etatEvenement}" for="etatEvenement" />
+                            <p:selectOneMenu id="etatEvenement" value="#{offreCommercialeController.evenement.etatEvenement}" title="#{bundle.CreateEvenementTitle_etatEvenement}" >
+                                <f:selectItems value="#{etatEvenementController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="etatEvenement"/>
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_categorieEvenement}" for="categorieEvenement" />
+                            <p:selectOneMenu id="categorieEvenement" value="#{offreCommercialeController.evenement.categorieEvenement}" title="#{bundle.CreateEvenementTitle_categorieEvenement}" >
+                                <f:selectItems value="#{categorieEvenementController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="categorieEvenement"/>
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_contact}" for="contact" />
+                            <p:selectOneMenu id="contact" value="#{offreCommercialeController.evenement.contact}" title="#{bundle.CreateEvenementTitle_contact}" >
+                                <f:selectItems value="#{contactController.itemsAvailableSelectOne}"/>
+                            </p:selectOneMenu>
+                            <p:message for="contact"/>
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_dateCreationEvenement}" for="dateCreationEvenement" />
+                            <p:calendar id="dateCreationEvenement" value="#{offreCommercialeController.evenement.dateCreationEvenement}" title="#{bundle.CreateEvenementTitle_dateCreationEvenement}" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:message for="dateCreationEvenement"/>
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_dateMajEvenement}" for="dateMajEvenement" />
+                            <p:calendar id="dateMajEvenement" value="#{offreCommercialeController.evenement.dateMajEvenement}" title="#{bundle.CreateEvenementTitle_dateMajEvenement}" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:message for="dateMajEvenement"/>
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_dateClotureEvenement}" for="dateClotureEvenement" />
+                            <p:calendar id="dateClotureEvenement" value="#{offreCommercialeController.evenement.dateClotureEvenement}" title="#{bundle.CreateEvenementTitle_dateClotureEvenement}" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+                            <p:message for="dateClotureEvenement"/>
+                            <h:outputLabel value="#{bundle.CreateEvenementLabel_descriptionEvenement}" for="descriptionEvenement" />
+                            <p:inputText id="descriptionEvenement" value="#{offreCommercialeController.evenement.descriptionEvenement}" title="#{bundle.CreateEvenementTitle_descriptionEvenement}" />
+                            <p:message for="descriptionEvenement"/>
+                        </h:panelGrid>
+                        <p:commandButton action="#{offreCommercialeController.ajouteEvenement()}" value="Ajouter" update="liste2 information @parent"/>
+
+                        <p:separator/>
+
+                        <h:outputText value="Liste des évènements liés :"/>
+                        <p:outputPanel id="liste2">
+                            <p:dataTable value="#{offreCommercialeController.selected.evenements}" var="item" >
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEvenementTitle_nomEvenement}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nomEvenement}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEvenementTitle_etatEvenement}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.etatEvenement.etatEvenement}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEvenementTitle_categorieEvenement}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.categorieEvenement.nomCatEvenement}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEvenementTitle_dateCreationEvenement}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dateCreationEvenement}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                    </h:outputText>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEvenementTitle_dateClotureEvenement}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dateClotureEvenement}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                    </h:outputText>
+                                </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </h:form> 
+                </p:tab>
+            </p:tabView>
+
         </ui:define>
     </ui:composition>
 

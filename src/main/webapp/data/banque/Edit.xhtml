@@ -12,19 +12,20 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditBanqueLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{banqueController.selected.id}" title="#{bundle.EditBanqueTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditBanqueLabel_categorieBanque}" for="categorieBanque" />
-                    <h:selectOneMenu id="categorieBanque" value="#{banqueController.selected.categorieBanque}" title="#{bundle.EditBanqueTitle_categorieBanque}" >
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="#{bundle.CreateBanqueLabel_nomBanque}" for="nomBanque" />
+                    <p:inputText id="nomBanque" value="#{banqueController.selected.nomBanque}" title="#{bundle.CreateBanqueTitle_nomBanque}" />
+                    <p:message for="nomBanque"/>
+                    <h:outputLabel value="#{bundle.CreateBanqueLabel_categorieBanque}" for="categorieBanque" />
+                    <p:selectOneMenu id="categorieBanque" value="#{banqueController.selected.categorieBanque}" title="#{bundle.CreateBanqueTitle_categorieBanque}" >
                         <f:selectItems value="#{categorieBanqueController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditBanqueLabel_nomBanque}" for="nomBanque" />
-                    <h:inputText id="nomBanque" value="#{banqueController.selected.nomBanque}" title="#{bundle.EditBanqueTitle_nomBanque}" />
-                    <h:outputLabel value="#{bundle.EditBanqueLabel_tiers}" for="tiers" />
-                    <h:selectOneMenu id="tiers" value="#{banqueController.selected.tiers}" title="#{bundle.EditBanqueTitle_tiers}" >
+                    </p:selectOneMenu>
+                    <p:message for="categorieBanque"/>
+                    <h:outputLabel value="#{bundle.CreateBanqueLabel_tiers}" for="tiers" />
+                    <p:selectOneMenu id="tiers" value="#{banqueController.selected.tiers}" title="#{bundle.CreateBanqueTitle_tiers}" >
                         <f:selectItems value="#{tiersController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
+                    <p:message for="tiers"/>
                 </h:panelGrid>
                 <h:commandLink action="#{banqueController.update}" value="#{bundle.EditBanqueSaveLink}"/>
                 <br />

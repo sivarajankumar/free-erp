@@ -13,18 +13,16 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewGroupeOffreLabel_id}"/>
-                    <h:outputText value="#{groupeOffreController.selected.id}" title="#{bundle.ViewGroupeOffreTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewGroupeOffreLabel_enCours}"/>
-                    <h:outputText value="#{groupeOffreController.selected.enCours}" title="#{bundle.ViewGroupeOffreTitle_enCours}"/>
                     <h:outputText value="#{bundle.ViewGroupeOffreLabel_labelGroupeOffre}"/>
                     <h:outputText value="#{groupeOffreController.selected.labelGroupeOffre}" title="#{bundle.ViewGroupeOffreTitle_labelGroupeOffre}"/>
+                    <h:outputText value="#{bundle.ViewGroupeOffreLabel_enCours}"/>
+                    <h:outputText value="#{groupeOffreController.selected.enCours}" title="#{bundle.ViewGroupeOffreTitle_enCours}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{groupeOffreController.destroyAndView}" value="#{bundle.ViewGroupeOffreDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewGroupeOffreEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{groupeOffreController.prepareCreate}" value="#{bundle.ViewGroupeOffreCreateLink}" />
                 <br />

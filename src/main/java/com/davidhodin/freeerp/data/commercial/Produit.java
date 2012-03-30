@@ -205,7 +205,7 @@ public class Produit implements Serializable {
 
     @Override
     public String toString() {
-        if (!"".equals(reference)) {
+        if (reference != null) {
             return nomProduit + " (" + reference + ")";
         } else {
             return nomProduit;

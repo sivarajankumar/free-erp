@@ -13,20 +13,18 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewBanqueLabel_id}"/>
-                    <h:outputText value="#{banqueController.selected.id}" title="#{bundle.ViewBanqueTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewBanqueLabel_categorieBanque}"/>
-                    <h:outputText value="#{banqueController.selected.categorieBanque}" title="#{bundle.ViewBanqueTitle_categorieBanque}"/>
                     <h:outputText value="#{bundle.ViewBanqueLabel_nomBanque}"/>
                     <h:outputText value="#{banqueController.selected.nomBanque}" title="#{bundle.ViewBanqueTitle_nomBanque}"/>
+                    <h:outputText value="#{bundle.ViewBanqueLabel_categorieBanque}"/>
+                    <h:outputText value="#{banqueController.selected.categorieBanque.nomCategorie}" title="#{bundle.ViewBanqueTitle_categorieBanque}"/>
                     <h:outputText value="#{bundle.ViewBanqueLabel_tiers}"/>
-                    <h:outputText value="#{banqueController.selected.tiers}" title="#{bundle.ViewBanqueTitle_tiers}"/>
+                    <h:outputText value="#{banqueController.selected.tiers.nomTiers}" title="#{bundle.ViewBanqueTitle_tiers}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{banqueController.destroyAndView}" value="#{bundle.ViewBanqueDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewBanqueEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{banqueController.prepareCreate}" value="#{bundle.ViewBanqueCreateLink}" />
                 <br />
