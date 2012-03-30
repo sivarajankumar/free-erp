@@ -50,7 +50,7 @@ public class CategorieAdresseNumerique implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
+        // Info: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof CategorieAdresseNumerique)) {
             return false;
         }

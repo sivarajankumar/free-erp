@@ -1,10 +1,10 @@
 package com.davidhodin.freeerp.data;
 
 import com.davidhodin.freeerp.data.commercial.Achat;
+import com.davidhodin.freeerp.data.commercial.Evenement;
+import com.davidhodin.freeerp.data.commercial.ItemCommercial;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import com.davidhodin.freeerp.data.util.PaginationHelper;
-import com.davidhodin.freeerp.data.AchatFacade;
-
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
@@ -23,18 +23,87 @@ import javax.faces.model.SelectItem;
 public class AchatController implements Serializable {
 
     private Achat current;
+    private Evenement evenement;
+    private ItemCommercial itemCommercial;
     private DataModel items = null;
     @EJB
     private com.davidhodin.freeerp.data.AchatFacade ejbFacade;
+    @EJB
+    private EvenementFacade evenementFacade;
+    @EJB
+    private ItemCommercialFacade itemCommercialFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public AchatController() {
     }
 
+    // getter et setter + modif David
+    public ItemCommercial getItemCommercial() {
+        return itemCommercial;
+    }
+
+    public void setItemCommercial(ItemCommercial itemCommercial) {
+        this.itemCommercial = itemCommercial;
+    }
+
+    public String ajouteItemCommercial() {
+        try {
+            itemCommercialFacade.create(itemCommercial);
+            current.getItemCommerciaux().add(itemCommercial);
+            getFacade().edit(current);
+            itemCommercial = new ItemCommercial();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ItemCommercialCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+
+    public Evenement getEvenement() {
+        return evenement;
+    }
+
+    public void setEvenement(Evenement evenement) {
+        this.evenement = evenement;
+    }
+
+    public String ajouteEvenement() {
+        try {
+            evenementFacade.create(evenement);
+            current.getEvenements().add(evenement);
+            getFacade().edit(current);
+            evenement = new Evenement();
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("EvenementCreated"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        return null;
+    }
+    // TODO : Pour les achats finaliser la possibilité de supprimer les items (puis repporter...)
+    public String prepareEditItemCommercial() {
+        DataModel itemsCommerciaux = (DataModel) current.getItemCommerciaux();
+        itemCommercial = (ItemCommercial) itemsCommerciaux.getRowData();
+        return null;
+    }
+
+    public String destroyItemCommercial() {
+//        current = (Achat) getItems().getRowData();
+//        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+//        performDestroy();
+//        recreatePagination();
+//        recreateModel();
+        return null;
+    }
+
+    // ----------------------------------------------------------------
     public Achat getSelected() {
         if (current == null) {
             current = new Achat();
+            // David ---- Initialisation 
+            evenement = new Evenement();
+            itemCommercial = new ItemCommercial();
+
             selectedItemIndex = -1;
         }
         return current;
@@ -75,6 +144,10 @@ public class AchatController implements Serializable {
 
     public String prepareCreate() {
         current = new Achat();
+        // David ---- Initialisation 
+        evenement = new Evenement();
+        itemCommercial = new ItemCommercial();
+
         selectedItemIndex = -1;
         return "Create";
     }
@@ -92,6 +165,10 @@ public class AchatController implements Serializable {
 
     public String prepareEdit() {
         current = (Achat) getItems().getRowData();
+        // David ---- Initialisation 
+        evenement = new Evenement();
+        itemCommercial = new ItemCommercial();
+
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
