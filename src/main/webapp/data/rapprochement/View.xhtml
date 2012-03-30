@@ -13,12 +13,12 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewRapprochementLabel_id}"/>
-                    <h:outputText value="#{rapprochementController.selected.id}" title="#{bundle.ViewRapprochementTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewRapprochementLabel_compteAssocie}"/>
-                    <h:outputText value="#{rapprochementController.selected.compteAssocie}" title="#{bundle.ViewRapprochementTitle_compteAssocie}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_nomRapprochement}"/>
+                    <h:outputText value="#{rapprochementController.selected.nomRapprochement}" title="#{bundle.ViewRapprochementTitle_nomRapprochement}"/>
                     <h:outputText value="#{bundle.ViewRapprochementLabel_identifiantReleve}"/>
                     <h:outputText value="#{rapprochementController.selected.identifiantReleve}" title="#{bundle.ViewRapprochementTitle_identifiantReleve}"/>
+                    <h:outputText value="#{bundle.ViewRapprochementLabel_compteAssocie}"/>
+                    <h:outputText value="#{rapprochementController.selected.compteAssocie.nomCompte}" title="#{bundle.ViewRapprochementTitle_compteAssocie}"/>
                     <h:outputText value="#{bundle.ViewRapprochementLabel_montantCreditRapproche}"/>
                     <h:outputText value="#{rapprochementController.selected.montantCreditRapproche}" title="#{bundle.ViewRapprochementTitle_montantCreditRapproche}"/>
                     <h:outputText value="#{bundle.ViewRapprochementLabel_montantDebitRapproche}"/>
@@ -27,14 +27,12 @@
                     <h:outputText value="#{rapprochementController.selected.montantTotalCredit}" title="#{bundle.ViewRapprochementTitle_montantTotalCredit}"/>
                     <h:outputText value="#{bundle.ViewRapprochementLabel_montantTotalDebit}"/>
                     <h:outputText value="#{rapprochementController.selected.montantTotalDebit}" title="#{bundle.ViewRapprochementTitle_montantTotalDebit}"/>
-                    <h:outputText value="#{bundle.ViewRapprochementLabel_nomRapprochement}"/>
-                    <h:outputText value="#{rapprochementController.selected.nomRapprochement}" title="#{bundle.ViewRapprochementTitle_nomRapprochement}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{rapprochementController.destroyAndView}" value="#{bundle.ViewRapprochementDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewRapprochementEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{rapprochementController.prepareCreate}" value="#{bundle.ViewRapprochementCreateLink}" />
                 <br />

@@ -7,9 +7,7 @@ import com.davidhodin.freeerp.data.comptabilite.CategorieReglement;
 import com.davidhodin.freeerp.data.comptabilite.TVA;
 import com.davidhodin.freeerp.data.configuration.Pays;
 import com.davidhodin.freeerp.data.configuration.ZoneGeo;
-import com.davidhodin.freeerp.data.financier.CategorieBanque;
-import com.davidhodin.freeerp.data.financier.CategorieMouvement;
-import com.davidhodin.freeerp.data.financier.TypeCompte;
+import com.davidhodin.freeerp.data.financier.*;
 import com.davidhodin.freeerp.data.tiers.*;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import java.io.Serializable;
@@ -120,7 +118,16 @@ public class InitController implements Serializable {
     private Achat achat1;
     private Achat achat2;  
     // ----Financier
-    
+    private Banque banque1;
+    private Banque banque2;
+    private Comptes compte1;
+    private Comptes compte2;
+    private Mouvement mouvement1;
+    private Mouvement mouvement2;
+    private Virement virement1;
+    private Virement virement2;
+    private Rapprochement rapprochement1;
+    private Rapprochement rapprochement2;
     
     // ---- EJB
     @EJB
@@ -144,7 +151,7 @@ public class InitController implements Serializable {
     @EJB
     private CategorieBanqueFacade categorieBanqueFacade;
     @EJB
-    private TypeCompteFacade compteFacade;
+    private TypeCompteFacade typeCompteFacade;
     @EJB
     private CategorieMouvementFacade categorieMouvementFacade;
     @EJB
@@ -193,6 +200,16 @@ public class InitController implements Serializable {
     private OffreCommercialeFacade offreCommercialeFacade;
     @EJB
     private GroupeOffreFacade groupeOffreFacade;
+    @EJB
+    private BanqueFacade banqueFacade;
+    @EJB
+    private ComptesFacade comptesFacade;
+    @EJB
+    private MouvementFacade mouvementFacade;
+    @EJB
+    private VirementFacade virementFacade;
+    @EJB
+    private RapprochementFacade rapprochementFacade;
 
     public InitController() {
     }
@@ -301,7 +318,16 @@ public class InitController implements Serializable {
         achat2 = new Achat();
         
         // ----Financier
-
+        compte1 = new Comptes();
+        compte2 = new Comptes();
+        banque1 = new Banque();
+        banque2 = new Banque();
+        mouvement1 = new Mouvement();
+        mouvement2 = new Mouvement();
+        virement1 = new Virement();
+        virement2 = new Virement();
+        rapprochement1 = new Rapprochement();
+        rapprochement2 = new Rapprochement();
 
         // ---------------------------------------
         // Initialisation des données
@@ -429,7 +455,25 @@ public class InitController implements Serializable {
         achat2.setNomAchat("Achat prestation");
 
         // ----Financier
-
+        banque1.setNomBanque("Crédit Agricole");
+        banque2.setNomBanque("Crédit Lyonnais");
+        compte1.setNomCompte("Compte courant principal");
+        compte1.setSoldeCompte(123f);
+        compte2.setNomCompte("Compte courant secondaire");
+        compte2.setSoldeCompte(123999f);
+        mouvement1.setNomMouvement("Paiement achat pour Marcel");
+        mouvement1.setMontant(23f);
+        mouvement1.setDebit(Boolean.TRUE);
+        mouvement2.setNomMouvement("Rentrée liée au paiement de la facture de Serveur");
+        mouvement2.setMontant(344f);
+        virement1.setNomVirement("Virement entre compte (apport en liquidité");
+        virement1.setMontant(23f);
+        virement2.setNomVirement("Virement salaire employé");
+        virement2.setMontant(1300f);
+        rapprochement1.setNomRapprochement("Relevé de Janvier");
+        rapprochement1.setIdentifiantReleve("10001");
+        rapprochement2.setNomRapprochement("Relevé de Février");
+        rapprochement2.setIdentifiantReleve("10002");
     }
 
     public String create() {
@@ -464,8 +508,8 @@ public class InitController implements Serializable {
             categorieEvenementFacade.create(categorieEvenement3);
             categorieBanqueFacade.create(categorieBanque1);
             categorieBanqueFacade.create(categorieBanque2);
-            compteFacade.create(typeCompte1);
-            compteFacade.create(typeCompte2);
+            typeCompteFacade.create(typeCompte1);
+            typeCompteFacade.create(typeCompte2);
             categorieMouvementFacade.create(categorieMouvement1);
             categorieMouvementFacade.create(categorieMouvement2);
             categorieFactureFacade.create(categorieFacture1);
@@ -605,7 +649,36 @@ public class InitController implements Serializable {
             achatFacade.edit(achat2);
             
             // ----Financier
-
+            banqueFacade.create(banque1);
+            banqueFacade.create(banque2);
+            comptesFacade.create(compte1);
+            comptesFacade.create(compte2);
+            virementFacade.create(virement1);
+            virementFacade.create(virement2);
+            mouvementFacade.create(mouvement1);
+            mouvementFacade.create(mouvement2);
+            rapprochementFacade.create(rapprochement1);
+            rapprochementFacade.create(rapprochement2);
+            banque1.setCategorieBanque(categorieBanque1);
+            banqueFacade.edit(banque1);
+            compte1.setBanque(banque1);
+            compte2.setBanque(banque1);
+            comptesFacade.edit(compte1);
+            comptesFacade.edit(compte2);
+            mouvement1.setCompte(compte1);
+            mouvement1.setRapprochement(rapprochement1);
+            mouvement1.setCategorieMouvement(categorieMouvement1);
+            mouvement2.setCompte(compte2);
+            mouvement2.setRapprochement(rapprochement1);
+            mouvement2.setCategorieMouvement(categorieMouvement2);
+            mouvementFacade.edit(mouvement1);
+            mouvementFacade.edit(mouvement2);
+            virement1.setCredit(mouvement1);
+            virement1.setDebit(mouvement2);
+            virementFacade.edit(virement1);
+            rapprochement1.setCompteAssocie(compte1);
+            rapprochementFacade.edit(rapprochement1);
+            
             JsfUtil.addSuccessMessage("Initialisation des données Ok");
             return "/data/accueil/accueilConfiguration";
         } catch (Exception e) {

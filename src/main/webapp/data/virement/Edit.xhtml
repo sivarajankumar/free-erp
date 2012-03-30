@@ -12,27 +12,31 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditVirementLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{virementController.selected.id}" title="#{bundle.EditVirementTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditVirementLabel_nomVirement}" for="nomVirement" />
-                    <h:inputText id="nomVirement" value="#{virementController.selected.nomVirement}" title="#{bundle.EditVirementTitle_nomVirement}" />
-                    <h:outputLabel value="#{bundle.EditVirementLabel_credit}" for="credit" />
-                    <h:selectOneMenu id="credit" value="#{virementController.selected.credit}" title="#{bundle.EditVirementTitle_credit}" >
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="#{bundle.CreateVirementLabel_nomVirement}" for="nomVirement" />
+                    <p:inputText id="nomVirement" required="true" value="#{virementController.selected.nomVirement}" title="#{bundle.CreateVirementTitle_nomVirement}" />
+                    <p:message for="nomVirement"/>
+                    <h:outputLabel value="#{bundle.CreateVirementLabel_montant}" for="montant" />
+                    <p:inputText id="montant" required="true" value="#{virementController.selected.montant}" title="#{bundle.CreateVirementTitle_montant}" />
+                    <p:message for="montant"/>
+                    <h:outputLabel value="#{bundle.CreateVirementLabel_dateVirement}" for="dateVirement" />
+                    <p:calendar id="dateVirement" value="#{virementController.selected.dateVirement}" pattern="dd/MM/yyyy" title="#{bundle.CreateVirementTitle_dateVirement}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateVirement"/>
+                    <h:outputLabel value="#{bundle.CreateVirementLabel_description}" for="description" />
+                    <p:inputText id="description" value="#{virementController.selected.description}" title="#{bundle.CreateVirementTitle_description}" />
+                    <p:message for="description"/>
+                    <h:outputLabel value="#{bundle.CreateVirementLabel_credit}" for="credit" />
+                    <p:selectOneMenu id="credit" value="#{virementController.selected.credit}" title="#{bundle.CreateVirementTitle_credit}" >
                         <f:selectItems value="#{mouvementController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditVirementLabel_dateVirement}" for="dateVirement" />
-                    <h:inputText id="dateVirement" value="#{virementController.selected.dateVirement}" title="#{bundle.EditVirementTitle_dateVirement}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditVirementLabel_debit}" for="debit" />
-                    <h:selectOneMenu id="debit" value="#{virementController.selected.debit}" title="#{bundle.EditVirementTitle_debit}" >
+                    </p:selectOneMenu>
+                    <p:message for="credit"/>
+                    <h:outputLabel value="#{bundle.CreateVirementLabel_debit}" for="debit" />
+                    <p:selectOneMenu id="debit" value="#{virementController.selected.debit}" title="#{bundle.CreateVirementTitle_debit}" >
                         <f:selectItems value="#{mouvementController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditVirementLabel_description}" for="description" />
-                    <h:inputText id="description" value="#{virementController.selected.description}" title="#{bundle.EditVirementTitle_description}" />
-                    <h:outputLabel value="#{bundle.EditVirementLabel_montant}" for="montant" />
-                    <h:inputText id="montant" value="#{virementController.selected.montant}" title="#{bundle.EditVirementTitle_montant}" />
+                    </p:selectOneMenu>
+                    <p:message for="debit"/>
                 </h:panelGrid>
                 <h:commandLink action="#{virementController.update}" value="#{bundle.EditVirementSaveLink}"/>
                 <br />

@@ -13,16 +13,14 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewComptesLabel_id}"/>
-                    <h:outputText value="#{comptesController.selected.id}" title="#{bundle.ViewComptesTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewComptesLabel_banque}"/>
-                    <h:outputText value="#{comptesController.selected.banque}" title="#{bundle.ViewComptesTitle_banque}"/>
                     <h:outputText value="#{bundle.ViewComptesLabel_nomCompte}"/>
                     <h:outputText value="#{comptesController.selected.nomCompte}" title="#{bundle.ViewComptesTitle_nomCompte}"/>
+                    <h:outputText value="#{bundle.ViewComptesLabel_banque}"/>
+                    <h:outputText value="#{comptesController.selected.banque.nomBanque}" title="#{bundle.ViewComptesTitle_banque}"/>
                     <h:outputText value="#{bundle.ViewComptesLabel_soldeCompte}"/>
                     <h:outputText value="#{comptesController.selected.soldeCompte}" title="#{bundle.ViewComptesTitle_soldeCompte}"/>
                     <h:outputText value="#{bundle.ViewComptesLabel_typeCompte}"/>
-                    <h:outputText value="#{comptesController.selected.typeCompte}" title="#{bundle.ViewComptesTitle_typeCompte}"/>
+                    <h:outputText value="#{comptesController.selected.typeCompte.typeCompte}" title="#{bundle.ViewComptesTitle_typeCompte}"/>
                     <h:outputText value="#{bundle.ViewComptesLabel_compteBancaire}"/>
                     <h:outputText value="#{comptesController.selected.compteBancaire}" title="#{bundle.ViewComptesTitle_compteBancaire}"/>
                     <h:outputText value="#{bundle.ViewComptesLabel_description}"/>
@@ -31,8 +29,8 @@
                 <br />
                 <h:commandLink action="#{comptesController.destroyAndView}" value="#{bundle.ViewComptesDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewComptesEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{comptesController.prepareCreate}" value="#{bundle.ViewComptesCreateLink}" />
                 <br />

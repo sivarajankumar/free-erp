@@ -13,36 +13,34 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewMouvementLabel_id}"/>
-                    <h:outputText value="#{mouvementController.selected.id}" title="#{bundle.ViewMouvementTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewMouvementLabel_categorieMouvement}"/>
-                    <h:outputText value="#{mouvementController.selected.categorieMouvement}" title="#{bundle.ViewMouvementTitle_categorieMouvement}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_nomMouvement}"/>
+                    <h:outputText value="#{mouvementController.selected.nomMouvement}" title="#{bundle.ViewMouvementTitle_nomMouvement}"/>
                     <h:outputText value="#{bundle.ViewMouvementLabel_compte}"/>
-                    <h:outputText value="#{mouvementController.selected.compte}" title="#{bundle.ViewMouvementTitle_compte}"/>
+                    <h:outputText value="#{mouvementController.selected.compte.nomCompte}" title="#{bundle.ViewMouvementTitle_compte}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_categorieMouvement}"/>
+                    <h:outputText value="#{mouvementController.selected.categorieMouvement.nomCategorie}" title="#{bundle.ViewMouvementTitle_categorieMouvement}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_debit}"/>
+                    <h:outputText value="#{mouvementController.selected.debit}" title="#{bundle.ViewMouvementTitle_debit}"/>
+                    <h:outputText value="#{bundle.ViewMouvementLabel_montant}"/>
+                    <h:outputText value="#{mouvementController.selected.montant}" title="#{bundle.ViewMouvementTitle_montant}"/>
                     <h:outputText value="#{bundle.ViewMouvementLabel_dateOperation}"/>
                     <h:outputText value="#{mouvementController.selected.dateOperation}" title="#{bundle.ViewMouvementTitle_dateOperation}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewMouvementLabel_dateValeur}"/>
                     <h:outputText value="#{mouvementController.selected.dateValeur}" title="#{bundle.ViewMouvementTitle_dateValeur}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewMouvementLabel_debit}"/>
-                    <h:outputText value="#{mouvementController.selected.debit}" title="#{bundle.ViewMouvementTitle_debit}"/>
                     <h:outputText value="#{bundle.ViewMouvementLabel_description}"/>
                     <h:outputText value="#{mouvementController.selected.description}" title="#{bundle.ViewMouvementTitle_description}"/>
-                    <h:outputText value="#{bundle.ViewMouvementLabel_nomMouvement}"/>
-                    <h:outputText value="#{mouvementController.selected.nomMouvement}" title="#{bundle.ViewMouvementTitle_nomMouvement}"/>
-                    <h:outputText value="#{bundle.ViewMouvementLabel_montant}"/>
-                    <h:outputText value="#{mouvementController.selected.montant}" title="#{bundle.ViewMouvementTitle_montant}"/>
                     <h:outputText value="#{bundle.ViewMouvementLabel_rapprochement}"/>
-                    <h:outputText value="#{mouvementController.selected.rapprochement}" title="#{bundle.ViewMouvementTitle_rapprochement}"/>
+                    <h:outputText value="#{mouvementController.selected.rapprochement.nomRapprochement}" title="#{bundle.ViewMouvementTitle_rapprochement}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{mouvementController.destroyAndView}" value="#{bundle.ViewMouvementDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewMouvementEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{mouvementController.prepareCreate}" value="#{bundle.ViewMouvementCreateLink}" />
                 <br />

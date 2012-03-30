@@ -12,25 +12,30 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{rapprochementController.selected.id}" title="#{bundle.CreateRapprochementTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_compteAssocie}" for="compteAssocie" />
-                    <h:selectOneMenu id="compteAssocie" value="#{rapprochementController.selected.compteAssocie}" title="#{bundle.CreateRapprochementTitle_compteAssocie}" >
-                        <f:selectItems value="#{comptesController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_identifiantReleve}" for="identifiantReleve" />
-                    <h:inputText id="identifiantReleve" value="#{rapprochementController.selected.identifiantReleve}" title="#{bundle.CreateRapprochementTitle_identifiantReleve}" />
-                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantCreditRapproche}" for="montantCreditRapproche" />
-                    <h:inputText id="montantCreditRapproche" value="#{rapprochementController.selected.montantCreditRapproche}" title="#{bundle.CreateRapprochementTitle_montantCreditRapproche}" />
-                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantDebitRapproche}" for="montantDebitRapproche" />
-                    <h:inputText id="montantDebitRapproche" value="#{rapprochementController.selected.montantDebitRapproche}" title="#{bundle.CreateRapprochementTitle_montantDebitRapproche}" />
-                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantTotalCredit}" for="montantTotalCredit" />
-                    <h:inputText id="montantTotalCredit" value="#{rapprochementController.selected.montantTotalCredit}" title="#{bundle.CreateRapprochementTitle_montantTotalCredit}" />
-                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantTotalDebit}" for="montantTotalDebit" />
-                    <h:inputText id="montantTotalDebit" value="#{rapprochementController.selected.montantTotalDebit}" title="#{bundle.CreateRapprochementTitle_montantTotalDebit}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateRapprochementLabel_nomRapprochement}" for="nomRapprochement" />
-                    <h:inputText id="nomRapprochement" value="#{rapprochementController.selected.nomRapprochement}" title="#{bundle.CreateRapprochementTitle_nomRapprochement}" />
+                    <p:inputText id="nomRapprochement" required="true" value="#{rapprochementController.selected.nomRapprochement}" title="#{bundle.CreateRapprochementTitle_nomRapprochement}" />
+                    <p:message for="nomRapprochement"/>
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_identifiantReleve}" for="identifiantReleve" />
+                    <p:inputText id="identifiantReleve" value="#{rapprochementController.selected.identifiantReleve}" title="#{bundle.CreateRapprochementTitle_identifiantReleve}" />
+                    <p:message for="identifiantReleve"/>
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_compteAssocie}" for="compteAssocie" />
+                    <p:selectOneMenu id="compteAssocie" required="true" value="#{rapprochementController.selected.compteAssocie}" title="#{bundle.CreateRapprochementTitle_compteAssocie}" >
+                        <f:selectItems value="#{comptesController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="compteAssocie"/>
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantCreditRapproche}" for="montantCreditRapproche" />
+                    <p:inputText id="montantCreditRapproche" value="#{rapprochementController.selected.montantCreditRapproche}" title="#{bundle.CreateRapprochementTitle_montantCreditRapproche}" />
+                    <p:message for="montantCreditRapproche"/>
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantDebitRapproche}" for="montantDebitRapproche" />
+                    <p:inputText id="montantDebitRapproche" value="#{rapprochementController.selected.montantDebitRapproche}" title="#{bundle.CreateRapprochementTitle_montantDebitRapproche}" />
+                    <p:message for="montantDebitRapproche"/>
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantTotalCredit}" for="montantTotalCredit" />
+                    <p:inputText id="montantTotalCredit" value="#{rapprochementController.selected.montantTotalCredit}" title="#{bundle.CreateRapprochementTitle_montantTotalCredit}" />
+                    <p:message for="montantTotalCredit"/>
+                    <h:outputLabel value="#{bundle.CreateRapprochementLabel_montantTotalDebit}" for="montantTotalDebit" />
+                    <p:inputText id="montantTotalDebit" value="#{rapprochementController.selected.montantTotalDebit}" title="#{bundle.CreateRapprochementTitle_montantTotalDebit}" />
+                    <p:message for="montantTotalDebit"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{rapprochementController.create}" value="#{bundle.CreateRapprochementSaveLink}" />

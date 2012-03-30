@@ -13,28 +13,26 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewVirementLabel_id}"/>
-                    <h:outputText value="#{virementController.selected.id}" title="#{bundle.ViewVirementTitle_id}"/>
                     <h:outputText value="#{bundle.ViewVirementLabel_nomVirement}"/>
                     <h:outputText value="#{virementController.selected.nomVirement}" title="#{bundle.ViewVirementTitle_nomVirement}"/>
-                    <h:outputText value="#{bundle.ViewVirementLabel_credit}"/>
-                    <h:outputText value="#{virementController.selected.credit}" title="#{bundle.ViewVirementTitle_credit}"/>
-                    <h:outputText value="#{bundle.ViewVirementLabel_dateVirement}"/>
-                    <h:outputText value="#{virementController.selected.dateVirement}" title="#{bundle.ViewVirementTitle_dateVirement}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewVirementLabel_debit}"/>
-                    <h:outputText value="#{virementController.selected.debit}" title="#{bundle.ViewVirementTitle_debit}"/>
-                    <h:outputText value="#{bundle.ViewVirementLabel_description}"/>
-                    <h:outputText value="#{virementController.selected.description}" title="#{bundle.ViewVirementTitle_description}"/>
                     <h:outputText value="#{bundle.ViewVirementLabel_montant}"/>
                     <h:outputText value="#{virementController.selected.montant}" title="#{bundle.ViewVirementTitle_montant}"/>
+                    <h:outputText value="#{bundle.ViewVirementLabel_credit}"/>
+                    <h:outputText value="#{virementController.selected.credit.nomMouvement}" title="#{bundle.ViewVirementTitle_credit}"/>
+                    <h:outputText value="#{bundle.ViewVirementLabel_debit}"/>
+                    <h:outputText value="#{virementController.selected.debit.nomMouvement}" title="#{bundle.ViewVirementTitle_debit}"/>
+                    <h:outputText value="#{bundle.ViewVirementLabel_dateVirement}"/>
+                    <h:outputText value="#{virementController.selected.dateVirement}" title="#{bundle.ViewVirementTitle_dateVirement}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewVirementLabel_description}"/>
+                    <h:outputText value="#{virementController.selected.description}" title="#{bundle.ViewVirementTitle_description}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{virementController.destroyAndView}" value="#{bundle.ViewVirementDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewVirementEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{virementController.prepareCreate}" value="#{bundle.ViewVirementCreateLink}" />
                 <br />

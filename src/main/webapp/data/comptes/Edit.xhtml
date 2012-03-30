@@ -12,25 +12,30 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditComptesLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{comptesController.selected.id}" title="#{bundle.EditComptesTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditComptesLabel_banque}" for="banque" />
-                    <h:selectOneMenu id="banque" value="#{comptesController.selected.banque}" title="#{bundle.EditComptesTitle_banque}" >
+                <h:panelGrid columns="3">
+
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_nomCompte}" for="nomCompte" />
+                    <p:inputText id="nomCompte" required="true" value="#{comptesController.selected.nomCompte}" title="#{bundle.CreateComptesTitle_nomCompte}" />
+                    <p:message for="nomCompte"/>
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_banque}" for="banque" />
+                    <p:selectOneMenu id="banque" value="#{comptesController.selected.banque}" title="#{bundle.CreateComptesTitle_banque}" >
                         <f:selectItems value="#{banqueController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditComptesLabel_nomCompte}" for="nomCompte" />
-                    <h:inputText id="nomCompte" value="#{comptesController.selected.nomCompte}" title="#{bundle.EditComptesTitle_nomCompte}" />
-                    <h:outputLabel value="#{bundle.EditComptesLabel_soldeCompte}" for="soldeCompte" />
-                    <h:inputText id="soldeCompte" value="#{comptesController.selected.soldeCompte}" title="#{bundle.EditComptesTitle_soldeCompte}" />
-                    <h:outputLabel value="#{bundle.EditComptesLabel_typeCompte}" for="typeCompte" />
-                    <h:selectOneMenu id="typeCompte" value="#{comptesController.selected.typeCompte}" title="#{bundle.EditComptesTitle_typeCompte}" >
+                    </p:selectOneMenu>
+                    <p:message for="banque"/>
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_soldeCompte}" for="soldeCompte" />
+                    <p:inputText id="soldeCompte" value="#{comptesController.selected.soldeCompte}" title="#{bundle.CreateComptesTitle_soldeCompte}" />
+                    <p:message for="soldeCompte"/>
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_typeCompte}" for="typeCompte" />
+                    <p:selectOneMenu id="typeCompte" value="#{comptesController.selected.typeCompte}" title="#{bundle.CreateComptesTitle_typeCompte}" >
                         <f:selectItems value="#{typeCompteController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditComptesLabel_compteBancaire}" for="compteBancaire" />
-                    <h:inputText id="compteBancaire" value="#{comptesController.selected.compteBancaire}" title="#{bundle.EditComptesTitle_compteBancaire}" />
-                    <h:outputLabel value="#{bundle.EditComptesLabel_description}" for="description" />
-                    <h:inputText id="description" value="#{comptesController.selected.description}" title="#{bundle.EditComptesTitle_description}" />
+                    </p:selectOneMenu>
+                    <p:message for="typeCompte"/>
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_description}" for="description" />
+                    <p:inputText id="description" value="#{comptesController.selected.description}" title="#{bundle.CreateComptesTitle_description}" />
+                    <p:message for="description"/>
+                    <h:outputLabel value="#{bundle.CreateComptesLabel_compteBancaire}" for="compteBancaire" />
+                    <p:selectBooleanCheckbox id="compteBancaire" value="#{comptesController.selected.compteBancaire}" title="#{bundle.CreateComptesTitle_compteBancaire}" />
+                    <p:message for="compteBancaire"/>
                 </h:panelGrid>
                 <h:commandLink action="#{comptesController.update}" value="#{bundle.EditComptesSaveLink}"/>
                 <br />

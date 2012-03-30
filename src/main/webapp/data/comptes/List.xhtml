@@ -17,50 +17,32 @@
                     <h:outputText value="#{comptesController.pagination.pageFirstItem + 1}..#{comptesController.pagination.pageLastItem + 1}/#{comptesController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{comptesController.previous}" value="#{bundle.Previous} #{comptesController.pagination.pageSize}" rendered="#{comptesController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{comptesController.next}" value="#{bundle.Next} #{comptesController.pagination.pageSize}" rendered="#{comptesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{comptesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_banque}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.banque}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{comptesController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListComptesTitle_nomCompte}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomCompte}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComptesTitle_banque}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.banque.nomBanque}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListComptesTitle_soldeCompte}"/>
                             </f:facet>
                             <h:outputText value="#{item.soldeCompte}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListComptesTitle_typeCompte}"/>
                             </f:facet>
-                            <h:outputText value="#{item.typeCompte}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_compteBancaire}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.compteBancaire}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_description}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.typeCompte.typeCompte}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -69,8 +51,8 @@
                             <h:commandLink action="#{comptesController.prepareEdit}" value="#{bundle.ListComptesEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{comptesController.destroy}" value="#{bundle.ListComptesDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{comptesController.prepareCreate}" value="#{bundle.ListComptesCreateLink}"/>

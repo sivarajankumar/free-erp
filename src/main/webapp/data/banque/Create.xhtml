@@ -14,7 +14,7 @@
             <h:form>
                 <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateBanqueLabel_nomBanque}" for="nomBanque" />
-                    <p:inputText id="nomBanque" value="#{banqueController.selected.nomBanque}" title="#{bundle.CreateBanqueTitle_nomBanque}" />
+                    <p:inputText id="nomBanque" required="true" value="#{banqueController.selected.nomBanque}" title="#{bundle.CreateBanqueTitle_nomBanque}" />
                     <p:message for="nomBanque"/>
                     <h:outputLabel value="#{bundle.CreateBanqueLabel_categorieBanque}" for="categorieBanque" />
                     <p:selectOneMenu id="categorieBanque" value="#{banqueController.selected.categorieBanque}" title="#{bundle.CreateBanqueTitle_categorieBanque}" >

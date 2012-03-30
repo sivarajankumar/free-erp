@@ -28,7 +28,6 @@ public class Mouvement implements Serializable {
     @ManyToOne
     private CategorieMouvement categorieMouvement;
     @ManyToOne
-    @NotNull
     private Comptes compte;
     private Boolean debit;
     private Float montant;

@@ -12,37 +12,44 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateMouvementLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{mouvementController.selected.id}" title="#{bundle.CreateMouvementTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateMouvementLabel_categorieMouvement}" for="categorieMouvement" />
-                    <h:selectOneMenu id="categorieMouvement" value="#{mouvementController.selected.categorieMouvement}" title="#{bundle.CreateMouvementTitle_categorieMouvement}" >
-                        <f:selectItems value="#{categorieMouvementController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateMouvementLabel_compte}" for="compte" />
-                    <h:selectOneMenu id="compte" value="#{mouvementController.selected.compte}" title="#{bundle.CreateMouvementTitle_compte}" >
-                        <f:selectItems value="#{comptesController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateMouvementLabel_dateOperation}" for="dateOperation" />
-                    <h:inputText id="dateOperation" value="#{mouvementController.selected.dateOperation}" title="#{bundle.CreateMouvementTitle_dateOperation}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateMouvementLabel_dateValeur}" for="dateValeur" />
-                    <h:inputText id="dateValeur" value="#{mouvementController.selected.dateValeur}" title="#{bundle.CreateMouvementTitle_dateValeur}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateMouvementLabel_debit}" for="debit" />
-                    <h:inputText id="debit" value="#{mouvementController.selected.debit}" title="#{bundle.CreateMouvementTitle_debit}" />
-                    <h:outputLabel value="#{bundle.CreateMouvementLabel_description}" for="description" />
-                    <h:inputText id="description" value="#{mouvementController.selected.description}" title="#{bundle.CreateMouvementTitle_description}" />
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateMouvementLabel_nomMouvement}" for="nomMouvement" />
-                    <h:inputText id="nomMouvement" value="#{mouvementController.selected.nomMouvement}" title="#{bundle.CreateMouvementTitle_nomMouvement}" />
+                    <p:inputText id="nomMouvement" required="true" value="#{mouvementController.selected.nomMouvement}" title="#{bundle.CreateMouvementTitle_nomMouvement}" />
+                    <p:message for="nomMouvement"/>
+                    <h:outputLabel value="#{bundle.CreateMouvementLabel_compte}" for="compte" />
+                    <p:selectOneMenu id="compte" value="#{mouvementController.selected.compte}" title="#{bundle.CreateMouvementTitle_compte}" >
+                        <f:selectItems value="#{comptesController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="compte"/>
                     <h:outputLabel value="#{bundle.CreateMouvementLabel_montant}" for="montant" />
-                    <h:inputText id="montant" value="#{mouvementController.selected.montant}" title="#{bundle.CreateMouvementTitle_montant}" />
+                    <p:inputText id="montant" required="true" value="#{mouvementController.selected.montant}" title="#{bundle.CreateMouvementTitle_montant}" />
+                    <p:message for="montant"/>
+                    <h:outputLabel value="#{bundle.CreateMouvementLabel_debit}" for="debit" />
+                    <p:selectBooleanCheckbox id="debit" value="#{mouvementController.selected.debit}" title="#{bundle.CreateMouvementTitle_debit}" />
+                    <p:message for="debit"/>
+                    <h:outputLabel value="#{bundle.CreateMouvementLabel_categorieMouvement}" for="categorieMouvement" />
+                    <p:selectOneMenu id="categorieMouvement" value="#{mouvementController.selected.categorieMouvement}" title="#{bundle.CreateMouvementTitle_categorieMouvement}" >
+                        <f:selectItems value="#{categorieMouvementController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="categorieMouvement"/>
+                    <h:outputLabel value="#{bundle.CreateMouvementLabel_dateOperation}" for="dateOperation" />
+                    <p:calendar id="dateOperation" value="#{mouvementController.selected.dateOperation}" pattern="dd/MM/yyyy"  title="#{bundle.CreateMouvementTitle_dateOperation}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateOperation"/>
+                    <h:outputLabel value="#{bundle.CreateMouvementLabel_dateValeur}" for="dateValeur" />
+                    <p:calendar id="dateValeur" value="#{mouvementController.selected.dateValeur}" pattern="dd/MM/yyyy"  title="#{bundle.CreateMouvementTitle_dateValeur}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateValeur"/>
+                    <h:outputLabel value="#{bundle.CreateMouvementLabel_description}" for="description" />
+                    <p:inputText id="description" value="#{mouvementController.selected.description}" title="#{bundle.CreateMouvementTitle_description}" />
+                    <p:message for="description"/>
                     <h:outputLabel value="#{bundle.CreateMouvementLabel_rapprochement}" for="rapprochement" />
-                    <h:selectOneMenu id="rapprochement" value="#{mouvementController.selected.rapprochement}" title="#{bundle.CreateMouvementTitle_rapprochement}" >
+                    <p:selectOneMenu id="rapprochement" value="#{mouvementController.selected.rapprochement}" title="#{bundle.CreateMouvementTitle_rapprochement}" >
                         <f:selectItems value="#{rapprochementController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
+                    <p:message for="rapprochement"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{mouvementController.create}" value="#{bundle.CreateMouvementSaveLink}" />

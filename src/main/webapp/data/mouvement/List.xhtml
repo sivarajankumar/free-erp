@@ -17,72 +17,38 @@
                     <h:outputText value="#{mouvementController.pagination.pageFirstItem + 1}..#{mouvementController.pagination.pageLastItem + 1}/#{mouvementController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{mouvementController.previous}" value="#{bundle.Previous} #{mouvementController.pagination.pageSize}" rendered="#{mouvementController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{mouvementController.next}" value="#{bundle.Next} #{mouvementController.pagination.pageSize}" rendered="#{mouvementController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{mouvementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_categorieMouvement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieMouvement}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_compte}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.compte}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_dateOperation}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateOperation}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_dateValeur}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateValeur}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_debit}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.debit}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_description}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{mouvementController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMouvementTitle_nomMouvement}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomMouvement}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMouvementTitle_categorieMouvement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieMouvement.nomCategorie}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMouvementTitle_compte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.compte.nomCompte}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMouvementTitle_debit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.debit}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMouvementTitle_montant}"/>
                             </f:facet>
                             <h:outputText value="#{item.montant}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMouvementTitle_rapprochement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.rapprochement}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -91,8 +57,8 @@
                             <h:commandLink action="#{mouvementController.prepareEdit}" value="#{bundle.ListMouvementEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{mouvementController.destroy}" value="#{bundle.ListMouvementDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{mouvementController.prepareCreate}" value="#{bundle.ListMouvementCreateLink}"/>

@@ -17,52 +17,40 @@
                     <h:outputText value="#{virementController.pagination.pageFirstItem + 1}..#{virementController.pagination.pageLastItem + 1}/#{virementController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{virementController.previous}" value="#{bundle.Previous} #{virementController.pagination.pageSize}" rendered="#{virementController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{virementController.next}" value="#{bundle.Next} #{virementController.pagination.pageSize}" rendered="#{virementController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{virementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVirementTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{virementController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVirementTitle_nomVirement}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomVirement}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVirementTitle_credit}"/>
+                                <h:outputText value="#{bundle.ListVirementTitle_montant}"/>
                             </f:facet>
-                            <h:outputText value="#{item.credit}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.montant}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVirementTitle_dateVirement}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateVirement}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVirementTitle_credit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.credit.nomMouvement}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVirementTitle_debit}"/>
                             </f:facet>
-                            <h:outputText value="#{item.debit}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVirementTitle_description}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListVirementTitle_montant}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.montant}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.debit.nomMouvement}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -71,8 +59,8 @@
                             <h:commandLink action="#{virementController.prepareEdit}" value="#{bundle.ListVirementEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{virementController.destroy}" value="#{bundle.ListVirementDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{virementController.prepareCreate}" value="#{bundle.ListVirementCreateLink}"/>
