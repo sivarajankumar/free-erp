@@ -11,14 +11,9 @@
             <h:outputText value="#{bundle.ListTiersTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListTiersEmpty}" rendered="#{tiersController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{tiersController.items.rowCount > 0}">
-                    <h:outputText value="#{tiersController.pagination.pageFirstItem + 1}..#{tiersController.pagination.pageLastItem + 1}/#{tiersController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{tiersController.previous}" value="#{bundle.Previous} #{tiersController.pagination.pageSize}" rendered="#{tiersController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{tiersController.next}" value="#{bundle.Next} #{tiersController.pagination.pageSize}" rendered="#{tiersController.pagination.hasNextPage}"/>&nbsp;
-                    <h:commandLink action="#{tiersController.prepareList}" value="Rafraichir" immediate="true"/><br/>
-                    <p:dataTable value="#{tiersController.items}" var="item" >
+            <h:form>
+                <p:outputPanel>
+                    <p:dataTable value="#{tiersController.allItems}" id="tableId" var="item" paginator="true" rows="3" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTiersTitle_nomTiers}"/>
@@ -54,9 +49,27 @@
                             <h:commandLink action="#{tiersController.destroy}" value="#{bundle.ListTiersDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
+                </p:outputPanel>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="ListeTiers" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="ListeTiers" excludeColumns="4" preProcessor="#{tiersController.preProcessPDF}" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="ListeTiers" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="ListeTiers" excludeColumns="4" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{tiersController.prepareCreate}" value="#{bundle.ListTiersCreateLink}"/>
+                <br />
+                <h:commandLink action="#{tiersController.tousLesItems()}" value="Un ptit refresh"/>
             </h:form>
         </ui:define>
     </ui:composition>

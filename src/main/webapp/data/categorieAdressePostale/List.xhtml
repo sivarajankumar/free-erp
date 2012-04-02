@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListCategorieAdressePostaleTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListCategorieAdressePostaleEmpty}" rendered="#{categorieAdressePostaleController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{categorieAdressePostaleController.items.rowCount > 0}">
-                    <h:outputText value="#{categorieAdressePostaleController.pagination.pageFirstItem + 1}..#{categorieAdressePostaleController.pagination.pageLastItem + 1}/#{categorieAdressePostaleController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{categorieAdressePostaleController.previous}" value="#{bundle.Previous} #{categorieAdressePostaleController.pagination.pageSize}" rendered="#{categorieAdressePostaleController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{categorieAdressePostaleController.next}" value="#{bundle.Next} #{categorieAdressePostaleController.pagination.pageSize}" rendered="#{categorieAdressePostaleController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{categorieAdressePostaleController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{categorieAdressePostaleController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieAdressePostaleTitle_nomCategorie}"/>
@@ -35,7 +30,6 @@
                             <h:commandLink action="#{categorieAdressePostaleController.destroy}" value="#{bundle.ListCategorieAdressePostaleDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieAdressePostaleController.prepareCreate}" value="#{bundle.ListCategorieAdressePostaleCreateLink}"/>
             </h:form>

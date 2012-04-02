@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListComptesTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListComptesEmpty}" rendered="#{comptesController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{comptesController.items.rowCount > 0}">
-                    <h:outputText value="#{comptesController.pagination.pageFirstItem + 1}..#{comptesController.pagination.pageLastItem + 1}/#{comptesController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{comptesController.previous}" value="#{bundle.Previous} #{comptesController.pagination.pageSize}" rendered="#{comptesController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{comptesController.next}" value="#{bundle.Next} #{comptesController.pagination.pageSize}" rendered="#{comptesController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{comptesController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{comptesController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListComptesTitle_nomCompte}"/>
@@ -53,7 +48,6 @@
                             <h:commandLink action="#{comptesController.destroy}" value="#{bundle.ListComptesDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{comptesController.prepareCreate}" value="#{bundle.ListComptesCreateLink}"/>
             </h:form>

@@ -17,72 +17,48 @@
                     <h:outputText value="#{factureController.pagination.pageFirstItem + 1}..#{factureController.pagination.pageLastItem + 1}/#{factureController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{factureController.previous}" value="#{bundle.Previous} #{factureController.pagination.pageSize}" rendered="#{factureController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{factureController.next}" value="#{bundle.Next} #{factureController.pagination.pageSize}" rendered="#{factureController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{factureController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_idFacture}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idFacture}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_categorieFacture}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieFacture}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_dateCloture}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateCloture}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_dateCreation}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateCreation}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable value="#{factureController.items}" var="item" >
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFactureTitle_nomFacture}"/>
                             </f:facet>
                             <h:outputText value="#{item.nomFacture}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFactureTitle_idFacture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFacture}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFactureTitle_categorieFacture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieFacture.nomCategorie}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFactureTitle_dateCreation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateCreation}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFactureTitle_dateCloture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateCloture}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFactureTitle_paiementOk}"/>
                             </f:facet>
                             <h:outputText value="#{item.paiementOk}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_soldeHT}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.soldeHT}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_soldePaye}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.soldePaye}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListFactureTitle_soldeTVA}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.soldeTVA}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -91,8 +67,8 @@
                             <h:commandLink action="#{factureController.prepareEdit}" value="#{bundle.ListFactureEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{factureController.destroy}" value="#{bundle.ListFactureDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{factureController.prepareCreate}" value="#{bundle.ListFactureCreateLink}"/>

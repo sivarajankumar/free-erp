@@ -99,7 +99,7 @@
                         
                         <h:outputText value="Liste des adresses postales :"/>
                         <p:outputPanel id="liste">
-                            <p:dataTable value="#{tiersController.selected.adressesPost}" var="item" >
+                            <p:dataTable value="#{tiersController.selected.adressesPost}" var="item" paginator="true" rows="5" >
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListAdressePostaleTitle_labelAdresse}"/>
@@ -175,7 +175,7 @@
 
                         <h:outputText value="Liste des numéros de téléphone :"/>
                         <p:outputPanel id="liste2">
-                            <p:dataTable value="#{tiersController.selected.telephones}" var="item" >
+                            <p:dataTable value="#{tiersController.selected.telephones}" var="item" paginator="true" rows="5" >
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListTelephoneTitle_descriptionNumero}"/>
@@ -217,7 +217,7 @@
 
                         <h:outputText value="Liste des adresses numériques :"/>
                         <p:outputPanel id="liste3">
-                            <p:dataTable value="#{tiersController.selected.adressesNum}" var="item" >
+                            <p:dataTable value="#{tiersController.selected.adressesNum}" var="item" paginator="true" rows="5" >
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_adresseNum}"/>
@@ -263,7 +263,7 @@
 
                         <h:outputText value="Liste des contacts :"/>
                         <p:outputPanel id="liste4">
-                            <p:dataTable value="#{tiersController.selected.contacts}" var="item" >
+                            <p:dataTable value="#{tiersController.selected.contacts}" var="item" paginator="true" rows="5" >
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListContactTitle_titre}"/>

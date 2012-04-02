@@ -3,7 +3,11 @@ package com.davidhodin.freeerp.data;
 import com.davidhodin.freeerp.data.tiers.*;
 import com.davidhodin.freeerp.data.util.JsfUtil;
 import com.davidhodin.freeerp.data.util.PaginationHelper;
+import com.lowagie.text.*;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -26,6 +30,7 @@ public class TiersController implements Serializable {
     private AdresseNumerique adresseNumerique;
     private Contact contact;
     private DataModel items = null;
+    private List<Tiers> allItems;
     @EJB
     private com.davidhodin.freeerp.data.TiersFacade ejbFacade;
     @EJB
@@ -43,6 +48,38 @@ public class TiersController implements Serializable {
     }
 
     // getter et setter + modif David
+    // ----- En cours...
+    public List<Tiers> getAllItems() {
+        return allItems;
+    }
+
+    public void setAllItems(List<Tiers> allItems) {
+        this.allItems = allItems;
+    }
+
+    public String tousLesItems() {
+        allItems = ejbFacade.findAll();
+        return "List";
+    }
+
+    public void preProcessPDF(Object document) throws DocumentException, BadElementException, MalformedURLException, IOException {
+        Document pdf = (Document) document;
+        pdf.open();
+        pdf.setPageSize(PageSize.A4);
+
+//        String logo = "/resources/images/icones/PDF.png";
+
+        Paragraph p1 = new Paragraph(new Chunk("1er paragraphe.", FontFactory.getFont(FontFactory.HELVETICA, 12)));
+        Paragraph p2 = new Paragraph(new Phrase("2em paragraphe.", FontFactory.getFont(FontFactory.HELVETICA, 12)));
+        Paragraph p3 = new Paragraph("3em paragraphe.", FontFactory.getFont(FontFactory.HELVETICA, 12));
+
+//        pdf.add(Image.getInstance(logo));
+        pdf.add(p1);
+        pdf.add(p2);
+        pdf.add(p3);
+    }
+    // ----- En cours.. End
+
     public AdressePostale getAdressePostale() {
         return adressePostale;
     }

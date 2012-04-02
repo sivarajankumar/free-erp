@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListBanqueTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListBanqueEmpty}" rendered="#{banqueController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{banqueController.items.rowCount > 0}">
-                    <h:outputText value="#{banqueController.pagination.pageFirstItem + 1}..#{banqueController.pagination.pageLastItem + 1}/#{banqueController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{banqueController.previous}" value="#{bundle.Previous} #{banqueController.pagination.pageSize}" rendered="#{banqueController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{banqueController.next}" value="#{bundle.Next} #{banqueController.pagination.pageSize}" rendered="#{banqueController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{banqueController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{banqueController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBanqueTitle_nomBanque}"/>
@@ -47,7 +42,6 @@
                             <h:commandLink action="#{banqueController.destroy}" value="#{bundle.ListBanqueDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{banqueController.prepareCreate}" value="#{bundle.ListBanqueCreateLink}"/>
             </h:form>

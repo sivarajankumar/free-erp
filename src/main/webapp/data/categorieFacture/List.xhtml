@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListCategorieFactureTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListCategorieFactureEmpty}" rendered="#{categorieFactureController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{categorieFactureController.items.rowCount > 0}">
-                    <h:outputText value="#{categorieFactureController.pagination.pageFirstItem + 1}..#{categorieFactureController.pagination.pageLastItem + 1}/#{categorieFactureController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{categorieFactureController.previous}" value="#{bundle.Previous} #{categorieFactureController.pagination.pageSize}" rendered="#{categorieFactureController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{categorieFactureController.next}" value="#{bundle.Next} #{categorieFactureController.pagination.pageSize}" rendered="#{categorieFactureController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{categorieFactureController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{categorieFactureController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieFactureTitle_nomCategorie}"/>
@@ -35,7 +30,6 @@
                             <h:commandLink action="#{categorieFactureController.destroy}" value="#{bundle.ListCategorieFactureDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieFactureController.prepareCreate}" value="#{bundle.ListCategorieFactureCreateLink}"/>
             </h:form>

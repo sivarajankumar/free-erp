@@ -12,33 +12,43 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateFactureLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{factureController.selected.id}" title="#{bundle.CreateFactureTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateFactureLabel_idFacture}" for="idFacture" />
-                    <h:inputText id="idFacture" value="#{factureController.selected.idFacture}" title="#{bundle.CreateFactureTitle_idFacture}" />
-                    <h:outputLabel value="#{bundle.CreateFactureLabel_categorieFacture}" for="categorieFacture" />
-                    <h:selectOneMenu id="categorieFacture" value="#{factureController.selected.categorieFacture}" title="#{bundle.CreateFactureTitle_categorieFacture}" >
-                        <f:selectItems value="#{categorieFactureController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateFactureLabel_dateCloture}" for="dateCloture" />
-                    <h:inputText id="dateCloture" value="#{factureController.selected.dateCloture}" title="#{bundle.CreateFactureTitle_dateCloture}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateFactureLabel_dateCreation}" for="dateCreation" />
-                    <h:inputText id="dateCreation" value="#{factureController.selected.dateCreation}" title="#{bundle.CreateFactureTitle_dateCreation}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
+                <h:panelGrid columns="6">
                     <h:outputLabel value="#{bundle.CreateFactureLabel_nomFacture}" for="nomFacture" />
-                    <h:inputText id="nomFacture" value="#{factureController.selected.nomFacture}" title="#{bundle.CreateFactureTitle_nomFacture}" />
-                    <h:outputLabel value="#{bundle.CreateFactureLabel_paiementOk}" for="paiementOk" />
-                    <h:inputText id="paiementOk" value="#{factureController.selected.paiementOk}" title="#{bundle.CreateFactureTitle_paiementOk}" />
+                    <p:inputText id="nomFacture" required="true" value="#{factureController.selected.nomFacture}" title="#{bundle.CreateFactureTitle_nomFacture}" />
+                    <p:message for="nomFacture"/>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_idFacture}" for="idFacture" />
+                    <p:inputText id="idFacture" value="#{factureController.selected.idFacture}" title="#{bundle.CreateFactureTitle_idFacture}" />
+                    <p:message for="idFacture"/>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_categorieFacture}" for="categorieFacture" />
+                    <p:selectOneMenu id="categorieFacture" value="#{factureController.selected.categorieFacture}" title="#{bundle.CreateFactureTitle_categorieFacture}" >
+                        <f:selectItems value="#{categorieFactureController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <p:message for="categorieFacture"/>
+                    <h:outputLabel/>
+                    <h:outputLabel/>
+                    <h:outputLabel/>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_dateCreation}" for="dateCreation" />
+                    <p:calendar id="dateCreation" value="#{factureController.selected.dateCreation}" pattern="dd/MM/yyyy" title="#{bundle.CreateFactureTitle_dateCreation}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateCreation"/>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_dateCloture}" for="dateCloture" />
+                    <p:calendar id="dateCloture" value="#{factureController.selected.dateCloture}" pattern="dd/MM/yyyy" title="#{bundle.CreateFactureTitle_dateCloture}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dateCloture"/>
                     <h:outputLabel value="#{bundle.CreateFactureLabel_soldeHT}" for="soldeHT" />
-                    <h:inputText id="soldeHT" value="#{factureController.selected.soldeHT}" title="#{bundle.CreateFactureTitle_soldeHT}" />
-                    <h:outputLabel value="#{bundle.CreateFactureLabel_soldePaye}" for="soldePaye" />
-                    <h:inputText id="soldePaye" value="#{factureController.selected.soldePaye}" title="#{bundle.CreateFactureTitle_soldePaye}" />
+                    <p:inputText id="soldeHT" value="#{factureController.selected.soldeHT}" title="#{bundle.CreateFactureTitle_soldeHT}" />
+                    <p:message for="soldeHT"/>
                     <h:outputLabel value="#{bundle.CreateFactureLabel_soldeTVA}" for="soldeTVA" />
-                    <h:inputText id="soldeTVA" value="#{factureController.selected.soldeTVA}" title="#{bundle.CreateFactureTitle_soldeTVA}" />
+                    <p:inputText id="soldeTVA" value="#{factureController.selected.soldeTVA}" title="#{bundle.CreateFactureTitle_soldeTVA}" />
+                    <p:message for="soldeTVA"/>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_paiementOk}" for="paiementOk" />
+                    <p:selectBooleanCheckbox id="paiementOk" value="#{factureController.selected.paiementOk}" title="#{bundle.CreateFactureTitle_paiementOk}" />
+                    <p:message for="paiementOk"/>
+                    <h:outputLabel value="#{bundle.CreateFactureLabel_soldePaye}" for="soldePaye" />
+                    <p:inputText id="soldePaye" value="#{factureController.selected.soldePaye}" title="#{bundle.CreateFactureTitle_soldePaye}" />
+                    <p:message for="soldePaye"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{factureController.create}" value="#{bundle.CreateFactureSaveLink}" />

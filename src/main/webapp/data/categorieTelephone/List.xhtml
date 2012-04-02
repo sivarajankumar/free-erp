@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListCategorieTelephoneTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListCategorieTelephoneEmpty}" rendered="#{categorieTelephoneController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{categorieTelephoneController.items.rowCount > 0}">
-                    <h:outputText value="#{categorieTelephoneController.pagination.pageFirstItem + 1}..#{categorieTelephoneController.pagination.pageLastItem + 1}/#{categorieTelephoneController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{categorieTelephoneController.previous}" value="#{bundle.Previous} #{categorieTelephoneController.pagination.pageSize}" rendered="#{categorieTelephoneController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{categorieTelephoneController.next}" value="#{bundle.Next} #{categorieTelephoneController.pagination.pageSize}" rendered="#{categorieTelephoneController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{categorieTelephoneController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{categorieTelephoneController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieTelephoneTitle_nomCategorie}"/>
@@ -35,7 +30,6 @@
                             <h:commandLink action="#{categorieTelephoneController.destroy}" value="#{bundle.ListCategorieTelephoneDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieTelephoneController.prepareCreate}" value="#{bundle.ListCategorieTelephoneCreateLink}"/>
             </h:form>

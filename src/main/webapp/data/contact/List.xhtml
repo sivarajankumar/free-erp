@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListContactTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListContactEmpty}" rendered="#{contactController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{contactController.items.rowCount > 0}">
-                    <h:outputText value="#{contactController.pagination.pageFirstItem + 1}..#{contactController.pagination.pageLastItem + 1}/#{contactController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{contactController.previous}" value="#{bundle.Previous} #{contactController.pagination.pageSize}" rendered="#{contactController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{contactController.next}" value="#{bundle.Next} #{contactController.pagination.pageSize}" rendered="#{contactController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{contactController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{contactController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContactTitle_titre}"/>
@@ -53,7 +48,6 @@
                             <h:commandLink action="#{contactController.destroy}" value="#{bundle.ListContactDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{contactController.prepareCreate}" value="#{bundle.ListContactCreateLink}"/>
             </h:form>

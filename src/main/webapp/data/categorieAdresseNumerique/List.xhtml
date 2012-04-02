@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListCategorieAdresseNumeriqueTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListCategorieAdresseNumeriqueEmpty}" rendered="#{categorieAdresseNumeriqueController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{categorieAdresseNumeriqueController.items.rowCount > 0}">
-                    <h:outputText value="#{categorieAdresseNumeriqueController.pagination.pageFirstItem + 1}..#{categorieAdresseNumeriqueController.pagination.pageLastItem + 1}/#{categorieAdresseNumeriqueController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{categorieAdresseNumeriqueController.previous}" value="#{bundle.Previous} #{categorieAdresseNumeriqueController.pagination.pageSize}" rendered="#{categorieAdresseNumeriqueController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{categorieAdresseNumeriqueController.next}" value="#{bundle.Next} #{categorieAdresseNumeriqueController.pagination.pageSize}" rendered="#{categorieAdresseNumeriqueController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{categorieAdresseNumeriqueController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{categorieAdresseNumeriqueController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieAdresseNumeriqueTitle_nomCategorie}"/>
@@ -35,7 +30,6 @@
                             <h:commandLink action="#{categorieAdresseNumeriqueController.destroy}" value="#{bundle.ListCategorieAdresseNumeriqueDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieAdresseNumeriqueController.prepareCreate}" value="#{bundle.ListCategorieAdresseNumeriqueCreateLink}"/>
             </h:form>

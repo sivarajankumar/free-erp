@@ -13,36 +13,34 @@
         <ui:define name="body">
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewFactureLabel_id}"/>
-                    <h:outputText value="#{factureController.selected.id}" title="#{bundle.ViewFactureTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewFactureLabel_nomFacture}"/>
+                    <h:outputText value="#{factureController.selected.nomFacture}" title="#{bundle.ViewFactureTitle_nomFacture}"/>
                     <h:outputText value="#{bundle.ViewFactureLabel_idFacture}"/>
                     <h:outputText value="#{factureController.selected.idFacture}" title="#{bundle.ViewFactureTitle_idFacture}"/>
                     <h:outputText value="#{bundle.ViewFactureLabel_categorieFacture}"/>
-                    <h:outputText value="#{factureController.selected.categorieFacture}" title="#{bundle.ViewFactureTitle_categorieFacture}"/>
-                    <h:outputText value="#{bundle.ViewFactureLabel_dateCloture}"/>
-                    <h:outputText value="#{factureController.selected.dateCloture}" title="#{bundle.ViewFactureTitle_dateCloture}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
+                    <h:outputText value="#{factureController.selected.categorieFacture.nomCategorie}" title="#{bundle.ViewFactureTitle_categorieFacture}"/>
                     <h:outputText value="#{bundle.ViewFactureLabel_dateCreation}"/>
                     <h:outputText value="#{factureController.selected.dateCreation}" title="#{bundle.ViewFactureTitle_dateCreation}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewFactureLabel_nomFacture}"/>
-                    <h:outputText value="#{factureController.selected.nomFacture}" title="#{bundle.ViewFactureTitle_nomFacture}"/>
-                    <h:outputText value="#{bundle.ViewFactureLabel_paiementOk}"/>
-                    <h:outputText value="#{factureController.selected.paiementOk}" title="#{bundle.ViewFactureTitle_paiementOk}"/>
+                    <h:outputText value="#{bundle.ViewFactureLabel_dateCloture}"/>
+                    <h:outputText value="#{factureController.selected.dateCloture}" title="#{bundle.ViewFactureTitle_dateCloture}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
                     <h:outputText value="#{bundle.ViewFactureLabel_soldeHT}"/>
                     <h:outputText value="#{factureController.selected.soldeHT}" title="#{bundle.ViewFactureTitle_soldeHT}"/>
-                    <h:outputText value="#{bundle.ViewFactureLabel_soldePaye}"/>
-                    <h:outputText value="#{factureController.selected.soldePaye}" title="#{bundle.ViewFactureTitle_soldePaye}"/>
                     <h:outputText value="#{bundle.ViewFactureLabel_soldeTVA}"/>
                     <h:outputText value="#{factureController.selected.soldeTVA}" title="#{bundle.ViewFactureTitle_soldeTVA}"/>
+                    <h:outputText value="#{bundle.ViewFactureLabel_paiementOk}"/>
+                    <h:outputText value="#{factureController.selected.paiementOk}" title="#{bundle.ViewFactureTitle_paiementOk}"/>
+                    <h:outputText value="#{bundle.ViewFactureLabel_soldePaye}"/>
+                    <h:outputText value="#{factureController.selected.soldePaye}" title="#{bundle.ViewFactureTitle_soldePaye}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{factureController.destroyAndView}" value="#{bundle.ViewFactureDestroyLink}"/>
                 <br />
-                <br />
                 <h:commandLink action="Edit" value="#{bundle.ViewFactureEditLink}"/>
+                <br />
                 <br />
                 <h:commandLink action="#{factureController.prepareCreate}" value="#{bundle.ViewFactureCreateLink}" />
                 <br />

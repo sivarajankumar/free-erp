@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListCategorieTiersTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListCategorieTiersEmpty}" rendered="#{categorieTiersController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{categorieTiersController.items.rowCount > 0}">
-                    <h:outputText value="#{categorieTiersController.pagination.pageFirstItem + 1}..#{categorieTiersController.pagination.pageLastItem + 1}/#{categorieTiersController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{categorieTiersController.previous}" value="#{bundle.Previous} #{categorieTiersController.pagination.pageSize}" rendered="#{categorieTiersController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{categorieTiersController.next}" value="#{bundle.Next} #{categorieTiersController.pagination.pageSize}" rendered="#{categorieTiersController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{categorieTiersController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{categorieTiersController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategorieTiersTitle_nomCategorie}"/>
@@ -35,7 +30,6 @@
                             <h:commandLink action="#{categorieTiersController.destroy}" value="#{bundle.ListCategorieTiersDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{categorieTiersController.prepareCreate}" value="#{bundle.ListCategorieTiersCreateLink}"/>
             </h:form>

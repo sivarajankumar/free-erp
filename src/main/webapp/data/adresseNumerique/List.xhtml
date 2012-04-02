@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListAdresseNumeriqueTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListAdresseNumeriqueEmpty}" rendered="#{adresseNumeriqueController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{adresseNumeriqueController.items.rowCount > 0}">
-                    <h:outputText value="#{adresseNumeriqueController.pagination.pageFirstItem + 1}..#{adresseNumeriqueController.pagination.pageLastItem + 1}/#{adresseNumeriqueController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{adresseNumeriqueController.previous}" value="#{bundle.Previous} #{adresseNumeriqueController.pagination.pageSize}" rendered="#{adresseNumeriqueController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{adresseNumeriqueController.next}" value="#{bundle.Next} #{adresseNumeriqueController.pagination.pageSize}" rendered="#{adresseNumeriqueController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{adresseNumeriqueController.items}" var="item" >
+            <h:form>
+                    <p:dataTable value="#{adresseNumeriqueController.items}" var="item" id="tableId" paginator="true" rows="10" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_adresseNum}"/>
@@ -41,7 +36,6 @@
                             <h:commandLink action="#{adresseNumeriqueController.destroy}" value="#{bundle.ListAdresseNumeriqueDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{adresseNumeriqueController.prepareCreate}" value="#{bundle.ListAdresseNumeriqueCreateLink}"/>
             </h:form>

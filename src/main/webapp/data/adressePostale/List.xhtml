@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListAdressePostaleTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListAdressePostaleEmpty}" rendered="#{adressePostaleController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{adressePostaleController.items.rowCount > 0}">
-                    <h:outputText value="#{adressePostaleController.pagination.pageFirstItem + 1}..#{adressePostaleController.pagination.pageLastItem + 1}/#{adressePostaleController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{adressePostaleController.previous}" value="#{bundle.Previous} #{adressePostaleController.pagination.pageSize}" rendered="#{adressePostaleController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{adressePostaleController.next}" value="#{bundle.Next} #{adressePostaleController.pagination.pageSize}" rendered="#{adressePostaleController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{adressePostaleController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{adressePostaleController.items}" var="item" id="tableId" paginator="true" rows="10">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAdressePostaleTitle_labelAdresse}"/>
@@ -65,7 +60,6 @@
                             <h:commandLink action="#{adressePostaleController.destroy}" value="#{bundle.ListAdressePostaleDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{adressePostaleController.prepareCreate}" value="#{bundle.ListAdressePostaleCreateLink}"/>
             </h:form>
