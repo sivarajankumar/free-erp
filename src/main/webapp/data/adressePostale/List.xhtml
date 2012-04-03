@@ -12,54 +12,54 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{adressePostaleController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdressePostaleTitle_labelAdresse}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.labelAdresse}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdressePostaleTitle_categorieAdressePostale}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieAdressePostale.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne1Adresse}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.ligne1Adresse}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdressePostaleTitle_codePostal}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.codePostal}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdressePostaleTitle_ville}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.ville}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdressePostaleTitle_pays}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.pays}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{adressePostaleController.prepareView}" value="#{bundle.ListAdressePostaleViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{adressePostaleController.prepareEdit}" value="#{bundle.ListAdressePostaleEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{adressePostaleController.destroy}" value="#{bundle.ListAdressePostaleDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{adressePostaleController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdressePostaleTitle_labelAdresse}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.labelAdresse}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdressePostaleTitle_categorieAdressePostale}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieAdressePostale.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdressePostaleTitle_ligne1Adresse}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.ligne1Adresse}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdressePostaleTitle_codePostal}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codePostal}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdressePostaleTitle_ville}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.ville}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdressePostaleTitle_pays}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pays}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{adressePostaleController.prepareView}" value="#{bundle.ListAdressePostaleViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{adressePostaleController.prepareEdit}" value="#{bundle.ListAdressePostaleEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{adressePostaleController.destroy}" value="#{bundle.ListAdressePostaleDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{adressePostaleController.prepareCreate}" value="#{bundle.ListAdressePostaleCreateLink}"/>
             </h:form>

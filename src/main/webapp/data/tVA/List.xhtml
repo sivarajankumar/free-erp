@@ -11,37 +11,31 @@
             <h:outputText value="#{bundle.ListTVATitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListTVAEmpty}" rendered="#{tVAController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{tVAController.items.rowCount > 0}">
-                    <h:outputText value="#{tVAController.pagination.pageFirstItem + 1}..#{tVAController.pagination.pageLastItem + 1}/#{tVAController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{tVAController.previous}" value="#{bundle.Previous} #{tVAController.pagination.pageSize}" rendered="#{tVAController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{tVAController.next}" value="#{bundle.Next} #{tVAController.pagination.pageSize}" rendered="#{tVAController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{tVAController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTVATitle_description}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTVATitle_taux}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.taux}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{tVAController.prepareView}" value="#{bundle.ListTVAViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{tVAController.prepareEdit}" value="#{bundle.ListTVAEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{tVAController.destroy}" value="#{bundle.ListTVADestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{tVAController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTVATitle_description}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.description}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTVATitle_taux}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.taux}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{tVAController.prepareView}" value="#{bundle.ListTVAViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{tVAController.prepareEdit}" value="#{bundle.ListTVAEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{tVAController.destroy}" value="#{bundle.ListTVADestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{tVAController.prepareCreate}" value="#{bundle.ListTVACreateLink}"/>
             </h:form>

@@ -11,52 +11,43 @@
             <h:outputText value="#{bundle.ListStockProduitTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListStockProduitEmpty}" rendered="#{stockProduitController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{stockProduitController.items.rowCount > 0}">
-                    <h:outputText value="#{stockProduitController.pagination.pageFirstItem + 1}..#{stockProduitController.pagination.pageLastItem + 1}/#{stockProduitController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{stockProduitController.previous}" value="#{bundle.Previous} #{stockProduitController.pagination.pageSize}" rendered="#{stockProduitController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{stockProduitController.next}" value="#{bundle.Next} #{stockProduitController.pagination.pageSize}" rendered="#{stockProduitController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{stockProduitController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStockProduitTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStockProduitTitle_quantite}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.quantite}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStockProduitTitle_stock}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.stock}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListStockProduitTitle_produit}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.produit}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{stockProduitController.prepareView}" value="#{bundle.ListStockProduitViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{stockProduitController.prepareEdit}" value="#{bundle.ListStockProduitEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{stockProduitController.destroy}" value="#{bundle.ListStockProduitDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <h:dataTable value="#{stockProduitController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListStockProduitTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListStockProduitTitle_quantite}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.quantite}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListStockProduitTitle_stock}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.stock}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListStockProduitTitle_produit}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.produit}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{stockProduitController.prepareView}" value="#{bundle.ListStockProduitViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{stockProduitController.prepareEdit}" value="#{bundle.ListStockProduitEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{stockProduitController.destroy}" value="#{bundle.ListStockProduitDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
                 <br />
                 <h:commandLink action="#{stockProduitController.prepareCreate}" value="#{bundle.ListStockProduitCreateLink}"/>
             </h:form>

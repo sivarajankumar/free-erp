@@ -12,36 +12,36 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{banqueController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBanqueTitle_nomBanque}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomBanque}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBanqueTitle_categorieBanque}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieBanque.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBanqueTitle_tiers}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tiers.nomTiers}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{banqueController.prepareView}" value="#{bundle.ListBanqueViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{banqueController.prepareEdit}" value="#{bundle.ListBanqueEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{banqueController.destroy}" value="#{bundle.ListBanqueDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{banqueController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBanqueTitle_nomBanque}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomBanque}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBanqueTitle_categorieBanque}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieBanque.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBanqueTitle_tiers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.tiers.nomTiers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{banqueController.prepareView}" value="#{bundle.ListBanqueViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{banqueController.prepareEdit}" value="#{bundle.ListBanqueEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{banqueController.destroy}" value="#{bundle.ListBanqueDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{banqueController.prepareCreate}" value="#{bundle.ListBanqueCreateLink}"/>
             </h:form>

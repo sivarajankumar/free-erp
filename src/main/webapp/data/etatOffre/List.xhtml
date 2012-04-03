@@ -11,31 +11,25 @@
             <h:outputText value="#{bundle.ListEtatOffreTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListEtatOffreEmpty}" rendered="#{etatOffreController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{etatOffreController.items.rowCount > 0}">
-                    <h:outputText value="#{etatOffreController.pagination.pageFirstItem + 1}..#{etatOffreController.pagination.pageLastItem + 1}/#{etatOffreController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{etatOffreController.previous}" value="#{bundle.Previous} #{etatOffreController.pagination.pageSize}" rendered="#{etatOffreController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{etatOffreController.next}" value="#{bundle.Next} #{etatOffreController.pagination.pageSize}" rendered="#{etatOffreController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{etatOffreController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEtatOffreTitle_etatOffre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatOffre}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{etatOffreController.prepareView}" value="#{bundle.ListEtatOffreViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{etatOffreController.prepareEdit}" value="#{bundle.ListEtatOffreEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{etatOffreController.destroy}" value="#{bundle.ListEtatOffreDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{etatOffreController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEtatOffreTitle_etatOffre}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatOffre}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{etatOffreController.prepareView}" value="#{bundle.ListEtatOffreViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{etatOffreController.prepareEdit}" value="#{bundle.ListEtatOffreEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{etatOffreController.destroy}" value="#{bundle.ListEtatOffreDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{etatOffreController.prepareCreate}" value="#{bundle.ListEtatOffreCreateLink}"/>
             </h:form>

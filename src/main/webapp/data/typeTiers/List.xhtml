@@ -11,31 +11,25 @@
             <h:outputText value="#{bundle.ListTypeTiersTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListTypeTiersEmpty}" rendered="#{typeTiersController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{typeTiersController.items.rowCount > 0}">
-                    <h:outputText value="#{typeTiersController.pagination.pageFirstItem + 1}..#{typeTiersController.pagination.pageLastItem + 1}/#{typeTiersController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{typeTiersController.previous}" value="#{bundle.Previous} #{typeTiersController.pagination.pageSize}" rendered="#{typeTiersController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{typeTiersController.next}" value="#{bundle.Next} #{typeTiersController.pagination.pageSize}" rendered="#{typeTiersController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{typeTiersController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTypeTiersTitle_nomType}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomType}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{typeTiersController.prepareView}" value="#{bundle.ListTypeTiersViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{typeTiersController.prepareEdit}" value="#{bundle.ListTypeTiersEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{typeTiersController.destroy}" value="#{bundle.ListTypeTiersDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{typeTiersController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTypeTiersTitle_nomType}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomType}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{typeTiersController.prepareView}" value="#{bundle.ListTypeTiersViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{typeTiersController.prepareEdit}" value="#{bundle.ListTypeTiersEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{typeTiersController.destroy}" value="#{bundle.ListTypeTiersDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{typeTiersController.prepareCreate}" value="#{bundle.ListTypeTiersCreateLink}"/>
             </h:form>

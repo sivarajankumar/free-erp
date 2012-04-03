@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListVirementTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListVirementEmpty}" rendered="#{virementController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{virementController.items.rowCount > 0}">
-                    <h:outputText value="#{virementController.pagination.pageFirstItem + 1}..#{virementController.pagination.pageLastItem + 1}/#{virementController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{virementController.previous}" value="#{bundle.Previous} #{virementController.pagination.pageSize}" rendered="#{virementController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{virementController.next}" value="#{bundle.Next} #{virementController.pagination.pageSize}" rendered="#{virementController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{virementController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{virementController.items}" var="item" id="tableId" paginator="true" rows="10" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVirementTitle_nomVirement}"/>
@@ -61,7 +56,6 @@
                             <h:commandLink action="#{virementController.destroy}" value="#{bundle.ListVirementDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{virementController.prepareCreate}" value="#{bundle.ListVirementCreateLink}"/>
             </h:form>

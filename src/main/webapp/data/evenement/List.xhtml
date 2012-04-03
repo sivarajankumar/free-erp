@@ -11,59 +11,53 @@
             <h:outputText value="#{bundle.ListEvenementTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListEvenementEmpty}" rendered="#{evenementController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{evenementController.items.rowCount > 0}">
-                    <h:outputText value="#{evenementController.pagination.pageFirstItem + 1}..#{evenementController.pagination.pageLastItem + 1}/#{evenementController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{evenementController.previous}" value="#{bundle.Previous} #{evenementController.pagination.pageSize}" rendered="#{evenementController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{evenementController.next}" value="#{bundle.Next} #{evenementController.pagination.pageSize}" rendered="#{evenementController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{evenementController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEvenementTitle_nomEvenement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomEvenement}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEvenementTitle_etatEvenement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatEvenement.etatEvenement}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEvenementTitle_categorieEvenement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieEvenement.nomCatEvenement}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEvenementTitle_dateCreationEvenement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateCreationEvenement}">
-                                <f:convertDateTime pattern="dd/MM/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEvenementTitle_dateClotureEvenement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateClotureEvenement}">
-                                <f:convertDateTime pattern="dd/MM/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{evenementController.prepareView}" value="#{bundle.ListEvenementViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{evenementController.prepareEdit}" value="#{bundle.ListEvenementEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{evenementController.destroy}" value="#{bundle.ListEvenementDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{evenementController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEvenementTitle_nomEvenement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomEvenement}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEvenementTitle_etatEvenement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatEvenement.etatEvenement}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEvenementTitle_categorieEvenement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieEvenement.nomCatEvenement}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEvenementTitle_dateCreationEvenement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateCreationEvenement}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEvenementTitle_dateClotureEvenement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateClotureEvenement}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{evenementController.prepareView}" value="#{bundle.ListEvenementViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{evenementController.prepareEdit}" value="#{bundle.ListEvenementEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{evenementController.destroy}" value="#{bundle.ListEvenementDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{evenementController.prepareCreate}" value="#{bundle.ListEvenementCreateLink}"/>
             </h:form>

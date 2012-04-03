@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieServiceController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieServiceTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieServiceController.prepareView}" value="#{bundle.ListCategorieServiceViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieServiceController.prepareEdit}" value="#{bundle.ListCategorieServiceEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieServiceController.destroy}" value="#{bundle.ListCategorieServiceDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieServiceController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieServiceTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieServiceController.prepareView}" value="#{bundle.ListCategorieServiceViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieServiceController.prepareEdit}" value="#{bundle.ListCategorieServiceEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieServiceController.destroy}" value="#{bundle.ListCategorieServiceDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieServiceController.prepareCreate}" value="#{bundle.ListCategorieServiceCreateLink}"/>
             </h:form>

@@ -11,49 +11,43 @@
             <h:outputText value="#{bundle.ListProduitTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListProduitEmpty}" rendered="#{produitController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{produitController.items.rowCount > 0}">
-                    <h:outputText value="#{produitController.pagination.pageFirstItem + 1}..#{produitController.pagination.pageLastItem + 1}/#{produitController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{produitController.previous}" value="#{bundle.Previous} #{produitController.pagination.pageSize}" rendered="#{produitController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{produitController.next}" value="#{bundle.Next} #{produitController.pagination.pageSize}" rendered="#{produitController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{produitController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_nomProduit}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomProduit}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_reference}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.reference}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_categorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorie.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProduitTitle_etatAchat}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatCommercial.etat}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{produitController.prepareView}" value="#{bundle.ListProduitViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{produitController.prepareEdit}" value="#{bundle.ListProduitEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{produitController.destroy}" value="#{bundle.ListProduitDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{produitController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProduitTitle_nomProduit}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomProduit}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProduitTitle_reference}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.reference}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProduitTitle_categorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorie.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListProduitTitle_etatAchat}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatCommercial.etat}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{produitController.prepareView}" value="#{bundle.ListProduitViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{produitController.prepareEdit}" value="#{bundle.ListProduitEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{produitController.destroy}" value="#{bundle.ListProduitDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{produitController.prepareCreate}" value="#{bundle.ListProduitCreateLink}"/>
             </h:form>

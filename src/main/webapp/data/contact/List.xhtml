@@ -12,42 +12,42 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{contactController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_titre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.titre.nomTitre}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_nom}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nom}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_prenom}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.prenom}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListContactTitle_fonction}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fonction}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{contactController.prepareView}" value="#{bundle.ListContactViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{contactController.prepareEdit}" value="#{bundle.ListContactEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{contactController.destroy}" value="#{bundle.ListContactDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{contactController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListContactTitle_titre}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.titre.nomTitre}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListContactTitle_nom}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nom}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListContactTitle_prenom}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.prenom}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListContactTitle_fonction}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fonction}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{contactController.prepareView}" value="#{bundle.ListContactViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{contactController.prepareEdit}" value="#{bundle.ListContactEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{contactController.destroy}" value="#{bundle.ListContactDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{contactController.prepareCreate}" value="#{bundle.ListContactCreateLink}"/>
             </h:form>

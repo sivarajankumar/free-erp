@@ -11,61 +11,55 @@
             <h:outputText value="#{bundle.ListItemCommercialTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListItemCommercialEmpty}" rendered="#{itemCommercialController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{itemCommercialController.items.rowCount > 0}">
-                    <h:outputText value="#{itemCommercialController.pagination.pageFirstItem + 1}..#{itemCommercialController.pagination.pageLastItem + 1}/#{itemCommercialController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{itemCommercialController.previous}" value="#{bundle.Previous} #{itemCommercialController.pagination.pageSize}" rendered="#{itemCommercialController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{itemCommercialController.next}" value="#{bundle.Next} #{itemCommercialController.pagination.pageSize}" rendered="#{itemCommercialController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{itemCommercialController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListItemCommercialTitle_nomItem}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomItem}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListItemCommercialTitle_quantite}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.quantite}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListItemCommercialTitle_produit}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.produit.nomProduit}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListItemCommercialTitle_service}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.service.nomService}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListItemCommercialTitle_montantHT}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.montantHT}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListItemCommercialTitle_tauxTVA}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tauxTVA.description}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{itemCommercialController.prepareView}" value="#{bundle.ListItemCommercialViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{itemCommercialController.prepareEdit}" value="#{bundle.ListItemCommercialEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{itemCommercialController.destroy}" value="#{bundle.ListItemCommercialDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{itemCommercialController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListItemCommercialTitle_nomItem}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomItem}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListItemCommercialTitle_quantite}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.quantite}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListItemCommercialTitle_produit}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.produit.nomProduit}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListItemCommercialTitle_service}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.service.nomService}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListItemCommercialTitle_montantHT}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.montantHT}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListItemCommercialTitle_tauxTVA}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.tauxTVA.description}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{itemCommercialController.prepareView}" value="#{bundle.ListItemCommercialViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{itemCommercialController.prepareEdit}" value="#{bundle.ListItemCommercialEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{itemCommercialController.destroy}" value="#{bundle.ListItemCommercialDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{itemCommercialController.prepareCreate}" value="#{bundle.ListItemCommercialCreateLink}"/>
             </h:form>

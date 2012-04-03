@@ -30,7 +30,6 @@ public class TiersController implements Serializable {
     private AdresseNumerique adresseNumerique;
     private Contact contact;
     private DataModel items = null;
-    private List<Tiers> allItems;
     @EJB
     private com.davidhodin.freeerp.data.TiersFacade ejbFacade;
     @EJB
@@ -49,18 +48,6 @@ public class TiersController implements Serializable {
 
     // getter et setter + modif David
     // ----- En cours...
-    public List<Tiers> getAllItems() {
-        return allItems;
-    }
-
-    public void setAllItems(List<Tiers> allItems) {
-        this.allItems = allItems;
-    }
-
-    public String tousLesItems() {
-        allItems = ejbFacade.findAll();
-        return "List";
-    }
 
     public void preProcessPDF(Object document) throws DocumentException, BadElementException, MalformedURLException, IOException {
         Document pdf = (Document) document;
@@ -185,7 +172,7 @@ public class TiersController implements Serializable {
 
     public PaginationHelper getPagination() {
         if (pagination == null) {
-            pagination = new PaginationHelper(10) {
+            pagination = new PaginationHelper(1000) {
 
                 @Override
                 public int getItemsCount() {

@@ -11,31 +11,25 @@
             <h:outputText value="#{bundle.ListTitreContactTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListTitreContactEmpty}" rendered="#{titreContactController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{titreContactController.items.rowCount > 0}">
-                    <h:outputText value="#{titreContactController.pagination.pageFirstItem + 1}..#{titreContactController.pagination.pageLastItem + 1}/#{titreContactController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{titreContactController.previous}" value="#{bundle.Previous} #{titreContactController.pagination.pageSize}" rendered="#{titreContactController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{titreContactController.next}" value="#{bundle.Next} #{titreContactController.pagination.pageSize}" rendered="#{titreContactController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{titreContactController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTitreContactTitle_nomTitre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomTitre}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{titreContactController.prepareView}" value="#{bundle.ListTitreContactViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{titreContactController.prepareEdit}" value="#{bundle.ListTitreContactEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{titreContactController.destroy}" value="#{bundle.ListTitreContactDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{titreContactController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTitreContactTitle_nomTitre}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomTitre}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{titreContactController.prepareView}" value="#{bundle.ListTitreContactViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{titreContactController.prepareEdit}" value="#{bundle.ListTitreContactEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{titreContactController.destroy}" value="#{bundle.ListTitreContactDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{titreContactController.prepareCreate}" value="#{bundle.ListTitreContactCreateLink}"/>
             </h:form>

@@ -11,31 +11,25 @@
             <h:outputText value="#{bundle.ListTypeCompteTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListTypeCompteEmpty}" rendered="#{typeCompteController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{typeCompteController.items.rowCount > 0}">
-                    <h:outputText value="#{typeCompteController.pagination.pageFirstItem + 1}..#{typeCompteController.pagination.pageLastItem + 1}/#{typeCompteController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{typeCompteController.previous}" value="#{bundle.Previous} #{typeCompteController.pagination.pageSize}" rendered="#{typeCompteController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{typeCompteController.next}" value="#{bundle.Next} #{typeCompteController.pagination.pageSize}" rendered="#{typeCompteController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{typeCompteController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTypeCompteTitle_typeCompte}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.typeCompte}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{typeCompteController.prepareView}" value="#{bundle.ListTypeCompteViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{typeCompteController.prepareEdit}" value="#{bundle.ListTypeCompteEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{typeCompteController.destroy}" value="#{bundle.ListTypeCompteDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{typeCompteController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTypeCompteTitle_typeCompte}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.typeCompte}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{typeCompteController.prepareView}" value="#{bundle.ListTypeCompteViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{typeCompteController.prepareEdit}" value="#{bundle.ListTypeCompteEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{typeCompteController.destroy}" value="#{bundle.ListTypeCompteDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{typeCompteController.prepareCreate}" value="#{bundle.ListTypeCompteCreateLink}"/>
             </h:form>

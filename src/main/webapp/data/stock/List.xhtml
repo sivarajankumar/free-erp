@@ -11,16 +11,8 @@
             <h:outputText value="#{bundle.ListStockTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListStockEmpty}" rendered="#{stockController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{stockController.items.rowCount > 0}">
-                    <h:outputText value="#{stockController.pagination.pageFirstItem + 1}..#{stockController.pagination.pageLastItem + 1}/#{stockController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{stockController.previous}" value="#{bundle.Previous} #{stockController.pagination.pageSize}" rendered="#{stockController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{stockController.next}" value="#{bundle.Next} #{stockController.pagination.pageSize}" rendered="#{stockController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{stockController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+            <h:form >
+                    <h:dataTable value="#{stockController.items}" var="item" id="tableId" paginator="true" rows="10" >
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListStockTitle_zoneStock}"/>
@@ -50,7 +42,6 @@
                             <h:commandLink action="#{stockController.destroy}" value="#{bundle.ListStockDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{stockController.prepareCreate}" value="#{bundle.ListStockCreateLink}"/>
             </h:form>

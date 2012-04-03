@@ -11,31 +11,25 @@
             <h:outputText value="#{bundle.ListEtatEvenementTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListEtatEvenementEmpty}" rendered="#{etatEvenementController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{etatEvenementController.items.rowCount > 0}">
-                    <h:outputText value="#{etatEvenementController.pagination.pageFirstItem + 1}..#{etatEvenementController.pagination.pageLastItem + 1}/#{etatEvenementController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{etatEvenementController.previous}" value="#{bundle.Previous} #{etatEvenementController.pagination.pageSize}" rendered="#{etatEvenementController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{etatEvenementController.next}" value="#{bundle.Next} #{etatEvenementController.pagination.pageSize}" rendered="#{etatEvenementController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{etatEvenementController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEtatEvenementTitle_etatEvenement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatEvenement}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{etatEvenementController.prepareView}" value="#{bundle.ListEtatEvenementViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{etatEvenementController.prepareEdit}" value="#{bundle.ListEtatEvenementEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{etatEvenementController.destroy}" value="#{bundle.ListEtatEvenementDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{etatEvenementController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEtatEvenementTitle_etatEvenement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatEvenement}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{etatEvenementController.prepareView}" value="#{bundle.ListEtatEvenementViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{etatEvenementController.prepareEdit}" value="#{bundle.ListEtatEvenementEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{etatEvenementController.destroy}" value="#{bundle.ListEtatEvenementDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{etatEvenementController.prepareCreate}" value="#{bundle.ListEtatEvenementCreateLink}"/>
             </h:form>

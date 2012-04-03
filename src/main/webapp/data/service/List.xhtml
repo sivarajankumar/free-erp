@@ -11,49 +11,43 @@
             <h:outputText value="#{bundle.ListServiceTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListServiceEmpty}" rendered="#{serviceController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{serviceController.items.rowCount > 0}">
-                    <h:outputText value="#{serviceController.pagination.pageFirstItem + 1}..#{serviceController.pagination.pageLastItem + 1}/#{serviceController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{serviceController.previous}" value="#{bundle.Previous} #{serviceController.pagination.pageSize}" rendered="#{serviceController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{serviceController.next}" value="#{bundle.Next} #{serviceController.pagination.pageSize}" rendered="#{serviceController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{serviceController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_nomService}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomService}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_reference}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.reference}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_etatAchat}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatCommercial.etat}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListServiceTitle_categorieService}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieService.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{serviceController.prepareView}" value="#{bundle.ListServiceViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{serviceController.prepareEdit}" value="#{bundle.ListServiceEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{serviceController.destroy}" value="#{bundle.ListServiceDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{serviceController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListServiceTitle_nomService}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomService}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListServiceTitle_reference}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.reference}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListServiceTitle_etatAchat}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatCommercial.etat}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListServiceTitle_categorieService}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieService.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{serviceController.prepareView}" value="#{bundle.ListServiceViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{serviceController.prepareEdit}" value="#{bundle.ListServiceEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{serviceController.destroy}" value="#{bundle.ListServiceDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{serviceController.prepareCreate}" value="#{bundle.ListServiceCreateLink}"/>
             </h:form>

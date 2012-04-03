@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieFactureController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieFactureTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieFactureController.prepareView}" value="#{bundle.ListCategorieFactureViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieFactureController.prepareEdit}" value="#{bundle.ListCategorieFactureEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieFactureController.destroy}" value="#{bundle.ListCategorieFactureDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieFactureController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieFactureTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieFactureController.prepareView}" value="#{bundle.ListCategorieFactureViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieFactureController.prepareEdit}" value="#{bundle.ListCategorieFactureEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieFactureController.destroy}" value="#{bundle.ListCategorieFactureDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieFactureController.prepareCreate}" value="#{bundle.ListCategorieFactureCreateLink}"/>
             </h:form>

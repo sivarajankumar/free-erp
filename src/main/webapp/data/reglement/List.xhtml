@@ -11,69 +11,63 @@
             <h:outputText value="#{bundle.ListReglementTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListReglementEmpty}" rendered="#{reglementController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{reglementController.items.rowCount > 0}">
-                    <h:outputText value="#{reglementController.pagination.pageFirstItem + 1}..#{reglementController.pagination.pageLastItem + 1}/#{reglementController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{reglementController.previous}" value="#{bundle.Previous} #{reglementController.pagination.pageSize}" rendered="#{reglementController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{reglementController.next}" value="#{bundle.Next} #{reglementController.pagination.pageSize}" rendered="#{reglementController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{reglementController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReglementTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReglementTitle_dateReglement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateReglement}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReglementTitle_facture}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.facture}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReglementTitle_mouvement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.mouvement}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReglementTitle_nomReglement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomReglement}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReglementTitle_soldeReglement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.soldeReglement}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReglementTitle_categorieReglement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieReglement}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{reglementController.prepareView}" value="#{bundle.ListReglementViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{reglementController.prepareEdit}" value="#{bundle.ListReglementEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{reglementController.destroy}" value="#{bundle.ListReglementDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <h:dataTable value="#{reglementController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListReglementTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListReglementTitle_dateReglement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateReglement}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListReglementTitle_facture}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.facture}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListReglementTitle_mouvement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.mouvement}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListReglementTitle_nomReglement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomReglement}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListReglementTitle_soldeReglement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.soldeReglement}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListReglementTitle_categorieReglement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieReglement}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{reglementController.prepareView}" value="#{bundle.ListReglementViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{reglementController.prepareEdit}" value="#{bundle.ListReglementEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{reglementController.destroy}" value="#{bundle.ListReglementDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
                 <br />
                 <h:commandLink action="#{reglementController.prepareCreate}" value="#{bundle.ListReglementCreateLink}"/>
             </h:form>

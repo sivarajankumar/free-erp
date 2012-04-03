@@ -11,43 +11,37 @@
             <h:outputText value="#{bundle.ListTelephoneTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListTelephoneEmpty}" rendered="#{telephoneController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{telephoneController.items.rowCount > 0}">
-                    <h:outputText value="#{telephoneController.pagination.pageFirstItem + 1}..#{telephoneController.pagination.pageLastItem + 1}/#{telephoneController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{telephoneController.previous}" value="#{bundle.Previous} #{telephoneController.pagination.pageSize}" rendered="#{telephoneController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{telephoneController.next}" value="#{bundle.Next} #{telephoneController.pagination.pageSize}" rendered="#{telephoneController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{telephoneController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTelephoneTitle_descriptionNumero}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descriptionNumero}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTelephoneTitle_categorieTelephone}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieTelephone.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTelephoneTitle_numero}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.numero}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{telephoneController.prepareView}" value="#{bundle.ListTelephoneViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{telephoneController.prepareEdit}" value="#{bundle.ListTelephoneEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{telephoneController.destroy}" value="#{bundle.ListTelephoneDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{telephoneController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTelephoneTitle_descriptionNumero}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descriptionNumero}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTelephoneTitle_categorieTelephone}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieTelephone.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListTelephoneTitle_numero}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numero}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{telephoneController.prepareView}" value="#{bundle.ListTelephoneViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{telephoneController.prepareEdit}" value="#{bundle.ListTelephoneEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{telephoneController.destroy}" value="#{bundle.ListTelephoneDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{telephoneController.prepareCreate}" value="#{bundle.ListTelephoneCreateLink}"/>
             </h:form>

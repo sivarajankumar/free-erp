@@ -12,42 +12,42 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{comptesController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_nomCompte}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCompte}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_banque}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.banque.nomBanque}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_soldeCompte}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.soldeCompte}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComptesTitle_typeCompte}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.typeCompte.typeCompte}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{comptesController.prepareView}" value="#{bundle.ListComptesViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{comptesController.prepareEdit}" value="#{bundle.ListComptesEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{comptesController.destroy}" value="#{bundle.ListComptesDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{comptesController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComptesTitle_nomCompte}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCompte}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComptesTitle_banque}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.banque.nomBanque}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComptesTitle_soldeCompte}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.soldeCompte}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComptesTitle_typeCompte}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.typeCompte.typeCompte}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{comptesController.prepareView}" value="#{bundle.ListComptesViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{comptesController.prepareEdit}" value="#{bundle.ListComptesEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{comptesController.destroy}" value="#{bundle.ListComptesDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{comptesController.prepareCreate}" value="#{bundle.ListComptesCreateLink}"/>
             </h:form>

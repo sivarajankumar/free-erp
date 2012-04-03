@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieAdressePostaleController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieAdressePostaleTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieAdressePostaleController.prepareView}" value="#{bundle.ListCategorieAdressePostaleViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieAdressePostaleController.prepareEdit}" value="#{bundle.ListCategorieAdressePostaleEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieAdressePostaleController.destroy}" value="#{bundle.ListCategorieAdressePostaleDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieAdressePostaleController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieAdressePostaleTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieAdressePostaleController.prepareView}" value="#{bundle.ListCategorieAdressePostaleViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieAdressePostaleController.prepareEdit}" value="#{bundle.ListCategorieAdressePostaleEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieAdressePostaleController.destroy}" value="#{bundle.ListCategorieAdressePostaleDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieAdressePostaleController.prepareCreate}" value="#{bundle.ListCategorieAdressePostaleCreateLink}"/>
             </h:form>

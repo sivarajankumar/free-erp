@@ -11,49 +11,43 @@
             <h:outputText value="#{bundle.ListZoneGeoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListZoneGeoEmpty}" rendered="#{zoneGeoController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{zoneGeoController.items.rowCount > 0}">
-                    <h:outputText value="#{zoneGeoController.pagination.pageFirstItem + 1}..#{zoneGeoController.pagination.pageLastItem + 1}/#{zoneGeoController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{zoneGeoController.previous}" value="#{bundle.Previous} #{zoneGeoController.pagination.pageSize}" rendered="#{zoneGeoController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{zoneGeoController.next}" value="#{bundle.Next} #{zoneGeoController.pagination.pageSize}" rendered="#{zoneGeoController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{zoneGeoController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListZoneGeoTitle_nomZone}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomZone}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListZoneGeoTitle_descriptionZone}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descriptionZone}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListZoneGeoTitle_adressePostale}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.adressePostale}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListZoneGeoTitle_zoneParent}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.zoneParent}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{zoneGeoController.prepareView}" value="#{bundle.ListZoneGeoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{zoneGeoController.prepareEdit}" value="#{bundle.ListZoneGeoEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{zoneGeoController.destroy}" value="#{bundle.ListZoneGeoDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{zoneGeoController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListZoneGeoTitle_nomZone}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomZone}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListZoneGeoTitle_descriptionZone}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descriptionZone}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListZoneGeoTitle_adressePostale}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.adressePostale}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListZoneGeoTitle_zoneParent}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.zoneParent}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{zoneGeoController.prepareView}" value="#{bundle.ListZoneGeoViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{zoneGeoController.prepareEdit}" value="#{bundle.ListZoneGeoEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{zoneGeoController.destroy}" value="#{bundle.ListZoneGeoDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{zoneGeoController.prepareCreate}" value="#{bundle.ListZoneGeoCreateLink}"/>
             </h:form>

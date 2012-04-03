@@ -11,37 +11,31 @@
             <h:outputText value="#{bundle.ListGroupeOffreTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListGroupeOffreEmpty}" rendered="#{groupeOffreController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{groupeOffreController.items.rowCount > 0}">
-                    <h:outputText value="#{groupeOffreController.pagination.pageFirstItem + 1}..#{groupeOffreController.pagination.pageLastItem + 1}/#{groupeOffreController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{groupeOffreController.previous}" value="#{bundle.Previous} #{groupeOffreController.pagination.pageSize}" rendered="#{groupeOffreController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{groupeOffreController.next}" value="#{bundle.Next} #{groupeOffreController.pagination.pageSize}" rendered="#{groupeOffreController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{groupeOffreController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGroupeOffreTitle_labelGroupeOffre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.labelGroupeOffre}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGroupeOffreTitle_enCours}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.enCours}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{groupeOffreController.prepareView}" value="#{bundle.ListGroupeOffreViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{groupeOffreController.prepareEdit}" value="#{bundle.ListGroupeOffreEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{groupeOffreController.destroy}" value="#{bundle.ListGroupeOffreDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{groupeOffreController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListGroupeOffreTitle_labelGroupeOffre}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.labelGroupeOffre}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListGroupeOffreTitle_enCours}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.enCours}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{groupeOffreController.prepareView}" value="#{bundle.ListGroupeOffreViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{groupeOffreController.prepareEdit}" value="#{bundle.ListGroupeOffreEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{groupeOffreController.destroy}" value="#{bundle.ListGroupeOffreDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{groupeOffreController.prepareCreate}" value="#{bundle.ListGroupeOffreCreateLink}"/>
             </h:form>

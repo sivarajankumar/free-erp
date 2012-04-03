@@ -11,13 +11,8 @@
             <h:outputText value="#{bundle.ListEtatCommercialTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListEtatCommercialEmpty}" rendered="#{etatCommercialController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{etatCommercialController.items.rowCount > 0}">
-                    <h:outputText value="#{etatCommercialController.pagination.pageFirstItem + 1}..#{etatCommercialController.pagination.pageLastItem + 1}/#{etatCommercialController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{etatCommercialController.previous}" value="#{bundle.Previous} #{etatCommercialController.pagination.pageSize}" rendered="#{etatCommercialController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{etatCommercialController.next}" value="#{bundle.Next} #{etatCommercialController.pagination.pageSize}" rendered="#{etatCommercialController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{etatCommercialController.items}" var="item" >
+            <h:form >
+                    <p:dataTable value="#{etatCommercialController.items}" var="item" id="tableId" paginator="true" rows="10" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEtatCommercialTitle_etat}"/>
@@ -35,7 +30,6 @@
                             <h:commandLink action="#{etatCommercialController.destroy}" value="#{bundle.ListEtatCommercialDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink action="#{etatCommercialController.prepareCreate}" value="#{bundle.ListEtatCommercialCreateLink}"/>
             </h:form>

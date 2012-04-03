@@ -11,37 +11,31 @@
             <h:outputText value="#{bundle.ListPaysTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListPaysEmpty}" rendered="#{paysController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{paysController.items.rowCount > 0}">
-                    <h:outputText value="#{paysController.pagination.pageFirstItem + 1}..#{paysController.pagination.pageLastItem + 1}/#{paysController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{paysController.previous}" value="#{bundle.Previous} #{paysController.pagination.pageSize}" rendered="#{paysController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{paysController.next}" value="#{bundle.Next} #{paysController.pagination.pageSize}" rendered="#{paysController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{paysController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaysTitle_codePays}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.codePays}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaysTitle_nomPays}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomPays}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{paysController.prepareView}" value="#{bundle.ListPaysViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{paysController.prepareEdit}" value="#{bundle.ListPaysEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{paysController.destroy}" value="#{bundle.ListPaysDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{paysController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPaysTitle_codePays}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codePays}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPaysTitle_nomPays}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomPays}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{paysController.prepareView}" value="#{bundle.ListPaysViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{paysController.prepareEdit}" value="#{bundle.ListPaysEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{paysController.destroy}" value="#{bundle.ListPaysDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{paysController.prepareCreate}" value="#{bundle.ListPaysCreateLink}"/>
             </h:form>

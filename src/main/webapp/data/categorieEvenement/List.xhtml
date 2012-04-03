@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieEvenementController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieEvenementTitle_nomCatEvenement}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCatEvenement}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieEvenementController.prepareView}" value="#{bundle.ListCategorieEvenementViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieEvenementController.prepareEdit}" value="#{bundle.ListCategorieEvenementEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieEvenementController.destroy}" value="#{bundle.ListCategorieEvenementDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieEvenementController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieEvenementTitle_nomCatEvenement}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCatEvenement}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieEvenementController.prepareView}" value="#{bundle.ListCategorieEvenementViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieEvenementController.prepareEdit}" value="#{bundle.ListCategorieEvenementEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieEvenementController.destroy}" value="#{bundle.ListCategorieEvenementDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieEvenementController.prepareCreate}" value="#{bundle.ListCategorieEvenementCreateLink}"/>
             </h:form>

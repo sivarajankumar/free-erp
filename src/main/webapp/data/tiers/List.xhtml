@@ -13,7 +13,7 @@
         <ui:define name="body">
             <h:form>
                 <p:outputPanel>
-                    <p:dataTable value="#{tiersController.allItems}" id="tableId" var="item" paginator="true" rows="3" >
+                    <p:dataTable value="#{tiersController.items}" id="tableId" var="item" paginator="true" rows="10" >
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTiersTitle_nomTiers}"/>
@@ -68,8 +68,6 @@
                 </h:commandLink>
                 <br />
                 <h:commandLink action="#{tiersController.prepareCreate}" value="#{bundle.ListTiersCreateLink}"/>
-                <br />
-                <h:commandLink action="#{tiersController.tousLesItems()}" value="Un ptit refresh"/>
             </h:form>
         </ui:define>
     </ui:composition>

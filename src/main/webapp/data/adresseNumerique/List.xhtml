@@ -12,30 +12,30 @@
         </ui:define>
         <ui:define name="body">
             <h:form>
-                    <p:dataTable value="#{adresseNumeriqueController.items}" var="item" id="tableId" paginator="true" rows="10" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_adresseNum}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.adresseNum}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_categorieAdresse}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieAdresse.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{adresseNumeriqueController.prepareView}" value="#{bundle.ListAdresseNumeriqueViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{adresseNumeriqueController.prepareEdit}" value="#{bundle.ListAdresseNumeriqueEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{adresseNumeriqueController.destroy}" value="#{bundle.ListAdresseNumeriqueDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{adresseNumeriqueController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_adresseNum}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.adresseNum}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAdresseNumeriqueTitle_categorieAdresse}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieAdresse.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{adresseNumeriqueController.prepareView}" value="#{bundle.ListAdresseNumeriqueViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{adresseNumeriqueController.prepareEdit}" value="#{bundle.ListAdresseNumeriqueEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{adresseNumeriqueController.destroy}" value="#{bundle.ListAdresseNumeriqueDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{adresseNumeriqueController.prepareCreate}" value="#{bundle.ListAdresseNumeriqueCreateLink}"/>
             </h:form>

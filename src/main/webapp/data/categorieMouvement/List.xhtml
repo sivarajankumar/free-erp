@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieMouvementController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieMouvementTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieMouvementController.prepareView}" value="#{bundle.ListCategorieMouvementViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieMouvementController.prepareEdit}" value="#{bundle.ListCategorieMouvementEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieMouvementController.destroy}" value="#{bundle.ListCategorieMouvementDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieMouvementController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieMouvementTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieMouvementController.prepareView}" value="#{bundle.ListCategorieMouvementViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieMouvementController.prepareEdit}" value="#{bundle.ListCategorieMouvementEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieMouvementController.destroy}" value="#{bundle.ListCategorieMouvementDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieMouvementController.prepareCreate}" value="#{bundle.ListCategorieMouvementCreateLink}"/>
             </h:form>

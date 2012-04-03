@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieTelephoneController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieTelephoneTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieTelephoneController.prepareView}" value="#{bundle.ListCategorieTelephoneViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieTelephoneController.prepareEdit}" value="#{bundle.ListCategorieTelephoneEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieTelephoneController.destroy}" value="#{bundle.ListCategorieTelephoneDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieTelephoneController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieTelephoneTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieTelephoneController.prepareView}" value="#{bundle.ListCategorieTelephoneViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieTelephoneController.prepareEdit}" value="#{bundle.ListCategorieTelephoneEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieTelephoneController.destroy}" value="#{bundle.ListCategorieTelephoneDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieTelephoneController.prepareCreate}" value="#{bundle.ListCategorieTelephoneCreateLink}"/>
             </h:form>

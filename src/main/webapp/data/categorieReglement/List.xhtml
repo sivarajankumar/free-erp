@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieReglementController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieReglementTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieReglementController.prepareView}" value="#{bundle.ListCategorieReglementViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieReglementController.prepareEdit}" value="#{bundle.ListCategorieReglementEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieReglementController.destroy}" value="#{bundle.ListCategorieReglementDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieReglementController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieReglementTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieReglementController.prepareView}" value="#{bundle.ListCategorieReglementViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieReglementController.prepareEdit}" value="#{bundle.ListCategorieReglementEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieReglementController.destroy}" value="#{bundle.ListCategorieReglementDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieReglementController.prepareCreate}" value="#{bundle.ListCategorieReglementCreateLink}"/>
             </h:form>

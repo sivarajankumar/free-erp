@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieOffreController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieOffreTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieOffreController.prepareView}" value="#{bundle.ListCategorieOffreViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieOffreController.prepareEdit}" value="#{bundle.ListCategorieOffreEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieOffreController.destroy}" value="#{bundle.ListCategorieOffreDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieOffreController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieOffreTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieOffreController.prepareView}" value="#{bundle.ListCategorieOffreViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieOffreController.prepareEdit}" value="#{bundle.ListCategorieOffreEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieOffreController.destroy}" value="#{bundle.ListCategorieOffreDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieOffreController.prepareCreate}" value="#{bundle.ListCategorieOffreCreateLink}"/>
             </h:form>

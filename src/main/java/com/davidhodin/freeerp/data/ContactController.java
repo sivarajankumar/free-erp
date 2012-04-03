@@ -102,7 +102,7 @@ public class ContactController implements Serializable {
 
     public PaginationHelper getPagination() {
         if (pagination == null) {
-            pagination = new PaginationHelper(10) {
+            pagination = new PaginationHelper(1000) {
 
                 @Override
                 public int getItemsCount() {

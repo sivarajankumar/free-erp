@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieTiersController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieTiersTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieTiersController.prepareView}" value="#{bundle.ListCategorieTiersViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieTiersController.prepareEdit}" value="#{bundle.ListCategorieTiersEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieTiersController.destroy}" value="#{bundle.ListCategorieTiersDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieTiersController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieTiersTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieTiersController.prepareView}" value="#{bundle.ListCategorieTiersViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieTiersController.prepareEdit}" value="#{bundle.ListCategorieTiersEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieTiersController.destroy}" value="#{bundle.ListCategorieTiersDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieTiersController.prepareCreate}" value="#{bundle.ListCategorieTiersCreateLink}"/>
             </h:form>

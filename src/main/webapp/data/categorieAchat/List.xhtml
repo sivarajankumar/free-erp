@@ -12,24 +12,24 @@
         </ui:define>
         <ui:define name="body">
             <h:form >
-                    <p:dataTable value="#{categorieAchatController.items}" var="item" id="tableId" paginator="true" rows="10">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategorieAchatTitle_nomCategorie}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{categorieAchatController.prepareView}" value="#{bundle.ListCategorieAchatViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieAchatController.prepareEdit}" value="#{bundle.ListCategorieAchatEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categorieAchatController.destroy}" value="#{bundle.ListCategorieAchatDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
+                <p:dataTable value="#{categorieAchatController.items}" var="item" id="tableId" paginator="true" rows="10">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCategorieAchatTitle_nomCategorie}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{categorieAchatController.prepareView}" value="#{bundle.ListCategorieAchatViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieAchatController.prepareEdit}" value="#{bundle.ListCategorieAchatEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categorieAchatController.destroy}" value="#{bundle.ListCategorieAchatDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{categorieAchatController.prepareCreate}" value="#{bundle.ListCategorieAchatCreateLink}"/>
             </h:form>

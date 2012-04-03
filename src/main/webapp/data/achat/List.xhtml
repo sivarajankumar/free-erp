@@ -11,71 +11,81 @@
             <h:outputText value="#{bundle.ListAchatTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListAchatEmpty}" rendered="#{achatController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{achatController.items.rowCount > 0}">
-                    <h:outputText value="#{achatController.pagination.pageFirstItem + 1}..#{achatController.pagination.pageLastItem + 1}/#{achatController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{achatController.previous}" value="#{bundle.Previous} #{achatController.pagination.pageSize}" rendered="#{achatController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{achatController.next}" value="#{bundle.Next} #{achatController.pagination.pageSize}" rendered="#{achatController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{achatController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAchatTitle_nomAchat}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomAchat}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAchatTitle_etatAchat}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatAchat.etatAchat}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAchatTitle_categorieAchat}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.categorieAchat.nomCategorie}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAchatTitle_tiers}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tiers.nomTiers}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAchatTitle_dateCreation}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateCreation}">
-                                <f:convertDateTime pattern="dd/MM/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAchatTitle_dateCloture}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dateCloture}">
-                                <f:convertDateTime pattern="dd/MM/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAchatTitle_factureOk}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.factureOk}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{achatController.prepareView}" value="#{bundle.ListAchatViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{achatController.prepareEdit}" value="#{bundle.ListAchatEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{achatController.destroy}" value="#{bundle.ListAchatDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{achatController.items}" var="item" id="tableId" paginator="true" rows="10"  >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAchatTitle_nomAchat}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomAchat}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAchatTitle_etatAchat}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatAchat.etatAchat}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAchatTitle_categorieAchat}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categorieAchat.nomCategorie}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAchatTitle_tiers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.tiers.nomTiers}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAchatTitle_dateCreation}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateCreation}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAchatTitle_dateCloture}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateCloture}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAchatTitle_factureOk}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.factureOk}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{achatController.prepareView}" value="#{bundle.ListAchatViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{achatController.prepareEdit}" value="#{bundle.ListAchatEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{achatController.destroy}" value="#{bundle.ListAchatDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
+                                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="ListeTiers" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="ListeTiers" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="ListeTiers" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="ListeTiers" excludeColumns="4" />
+                </h:commandLink>
                 <br />
                 <br />
                 <h:commandLink action="#{achatController.prepareCreate}" value="#{bundle.ListAchatCreateLink}"/>

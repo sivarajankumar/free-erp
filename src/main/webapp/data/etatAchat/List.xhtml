@@ -11,31 +11,25 @@
             <h:outputText value="#{bundle.ListEtatAchatTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:outputText escape="false" value="#{bundle.ListEtatAchatEmpty}" rendered="#{etatAchatController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{etatAchatController.items.rowCount > 0}">
-                    <h:outputText value="#{etatAchatController.pagination.pageFirstItem + 1}..#{etatAchatController.pagination.pageLastItem + 1}/#{etatAchatController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{etatAchatController.previous}" value="#{bundle.Previous} #{etatAchatController.pagination.pageSize}" rendered="#{etatAchatController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{etatAchatController.next}" value="#{bundle.Next} #{etatAchatController.pagination.pageSize}" rendered="#{etatAchatController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{etatAchatController.items}" var="item" >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEtatAchatTitle_etatAchat}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.etatAchat}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{etatAchatController.prepareView}" value="#{bundle.ListEtatAchatViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{etatAchatController.prepareEdit}" value="#{bundle.ListEtatAchatEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{etatAchatController.destroy}" value="#{bundle.ListEtatAchatDestroyLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGroup>
+            <h:form >
+                <p:dataTable value="#{etatAchatController.items}" var="item" id="tableId" paginator="true" rows="10" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEtatAchatTitle_etatAchat}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatAchat}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{etatAchatController.prepareView}" value="#{bundle.ListEtatAchatViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{etatAchatController.prepareEdit}" value="#{bundle.ListEtatAchatEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{etatAchatController.destroy}" value="#{bundle.ListEtatAchatDestroyLink}"/>
+                    </p:column>
+                </p:dataTable>
                 <br />
                 <h:commandLink action="#{etatAchatController.prepareCreate}" value="#{bundle.ListEtatAchatCreateLink}"/>
             </h:form>
