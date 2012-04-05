@@ -30,6 +30,22 @@
                         <h:commandLink action="#{categorieReglementController.destroy}" value="#{bundle.ListCategorieReglementDestroyLink}"/>
                     </p:column>
                 </p:dataTable>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="CategoriesReglement" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="CategoriesReglement" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="CategoriesReglement" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="CategoriesReglement" excludeColumns="1" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{categorieReglementController.prepareCreate}" value="#{bundle.ListCategorieReglementCreateLink}"/>
             </h:form>

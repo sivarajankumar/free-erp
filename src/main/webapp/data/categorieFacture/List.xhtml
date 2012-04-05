@@ -30,6 +30,22 @@
                         <h:commandLink action="#{categorieFactureController.destroy}" value="#{bundle.ListCategorieFactureDestroyLink}"/>
                     </p:column>
                 </p:dataTable>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="CategoriesFacture" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="CategoriesFacture" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="CategoriesFacture" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="CategoriesFacture" excludeColumns="1" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{categorieFactureController.prepareCreate}" value="#{bundle.ListCategorieFactureCreateLink}"/>
             </h:form>

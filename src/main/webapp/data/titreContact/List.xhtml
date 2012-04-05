@@ -30,6 +30,22 @@
                         <h:commandLink action="#{titreContactController.destroy}" value="#{bundle.ListTitreContactDestroyLink}"/>
                     </p:column>
                 </p:dataTable>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="TitreContact" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="TitreContact" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="TitreContact" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="TitreContact" excludeColumns="1" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{titreContactController.prepareCreate}" value="#{bundle.ListTitreContactCreateLink}"/>
             </h:form>

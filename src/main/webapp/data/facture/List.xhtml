@@ -64,6 +64,22 @@
                         <h:commandLink action="#{factureController.destroy}" value="#{bundle.ListFactureDestroyLink}"/>
                     </p:column>
                 </p:dataTable>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="Factures" excludeColumns="6" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="Factures" excludeColumns="6" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="Factures" excludeColumns="6" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="Factures" excludeColumns="6" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{factureController.prepareCreate}" value="#{bundle.ListFactureCreateLink}"/>
             </h:form>

@@ -48,6 +48,22 @@
                         <h:commandLink action="#{zoneGeoController.destroy}" value="#{bundle.ListZoneGeoDestroyLink}"/>
                     </p:column>
                 </p:dataTable>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="ZoneGeographique" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="ZoneGeographique" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="ZoneGeographique" excludeColumns="4" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="ZoneGeographique" excludeColumns="4" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{zoneGeoController.prepareCreate}" value="#{bundle.ListZoneGeoCreateLink}"/>
             </h:form>

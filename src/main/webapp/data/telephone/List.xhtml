@@ -42,6 +42,22 @@
                         <h:commandLink action="#{telephoneController.destroy}" value="#{bundle.ListTelephoneDestroyLink}"/>
                     </p:column>
                 </p:dataTable>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="Telephone" excludeColumns="3" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="Telephone" excludeColumns="3" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="Telephone" excludeColumns="3" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="Telephone" excludeColumns="3" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{telephoneController.prepareCreate}" value="#{bundle.ListTelephoneCreateLink}"/>
             </h:form>

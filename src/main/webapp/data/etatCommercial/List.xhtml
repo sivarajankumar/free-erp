@@ -30,6 +30,22 @@
                             <h:commandLink action="#{etatCommercialController.destroy}" value="#{bundle.ListEtatCommercialDestroyLink}"/>
                         </p:column>
                     </p:dataTable>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XLS.png" />
+                    <p:dataExporter type="xls" target="tableId" fileName="EtatCommercial" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/PDF.png" />
+                    <p:dataExporter type="pdf" target="tableId" fileName="EtatCommercial" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/CSV.png" />
+                    <p:dataExporter type="csv" target="tableId" fileName="EtatCommercial" excludeColumns="1" />
+                </h:commandLink>
+                <h:commandLink>
+                    <p:graphicImage value="/resources/images/icones/XML.png" />
+                    <p:dataExporter type="xml" target="tableId" fileName="EtatCommercial" excludeColumns="1" />
+                </h:commandLink>
                 <br />
                 <h:commandLink action="#{etatCommercialController.prepareCreate}" value="#{bundle.ListEtatCommercialCreateLink}"/>
             </h:form>
